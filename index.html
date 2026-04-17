@@ -2,21 +2,19 @@
 <html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <!-- Ottimizzazione viewport per impedire zoom accidentali su mobile che rovinano l'UX -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#030509">
     <title>⚽ BETTING EXCHANGE ROOM</title>
     
-    <!-- PRE-CONNESSIONI E DNS-PREFETCH PER MASSIMA VELOCITÀ -->
+    <!-- PRE-CONNESSIONI E DNS-PREFETCH -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://img.youtube.com">
     
-    <!-- Google Fonts caricati in modalità swap (non bloccano il rendering) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome caricato in modo asincrono -->
+    <!-- Nuovi Font Professionali/Fintech: Plus Jakarta Sans (Heading) & Inter (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <!-- Tailwind CSS -->
@@ -26,26 +24,29 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Poppins', 'sans-serif'], heading: ['Montserrat', 'sans-serif'] },
-                    colors: { brand: { dark: '#030509', surface: '#0a0f16', neon: '#27ae60' } }
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'], 
+                        heading: ['"Plus Jakarta Sans"', 'sans-serif'] 
+                    },
+                    colors: { 
+                        brand: { dark: '#030509', surface: '#0d131c', neon: '#00DF89' } 
+                    }
                 }
             }
         }
     </script>
     <style>
-        /* Ottimizzazioni di base e rendering fluido */
         html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
         body { background-color: #030509; color: #e2e8f0; overflow-x: hidden; }
         
-        .glow-text { text-shadow: 0 0 20px rgba(39, 174, 96, 0.5); }
-        .premium-card { 
-            background: rgba(10, 15, 22, 0.85); 
-            backdrop-filter: blur(16px); 
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05); 
+        /* Nuove Card Trading (Bordi più definiti, meno "bubble", più professionali) */
+        .trading-card { 
+            background: rgba(13, 19, 28, 0.7); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
         }
         
-        /* Animazioni Immagini per evitare scatti visivi (Layout Shifts) */
         .image-reveal {
             opacity: 0;
             transform: scale(1.02);
@@ -54,77 +55,70 @@
         }
         .image-reveal.loaded { opacity: 1; transform: scale(1); }
 
-        /* Pulsazione fluida per bottone WhatsApp */
         @keyframes gentle-pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
-            50% { transform: scale(1.06); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(37, 211, 102, 0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(37, 211, 102, 0.5); }
         }
         .animate-pulse-wa { animation: gentle-pulse 3s ease-in-out infinite; }
         
-        /* Safe area per iPhone (notch/home bar) */
-        .pb-safe { padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
+        .pb-safe { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
         
-        /* Scrollbar pulita per la finta app Telegram */
-        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 4px; }
     </style>
 </head>
 <body class="antialiased pb-safe selection:bg-brand-neon selection:text-white">
 
     <!-- NAVBAR -->
-    <nav class="fixed w-full z-50 top-0 bg-brand-dark/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[60px] flex items-center gap-2.5">
+    <nav class="fixed w-full z-50 top-0 bg-brand-dark/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[60px] flex items-center gap-3">
             <span class="text-xl sm:text-2xl drop-shadow-md">⚽</span>
-            <span class="font-heading font-extrabold text-[15px] sm:text-lg tracking-[0.12em] text-white uppercase truncate">Betting Exchange Room</span>
+            <span class="font-heading font-bold text-[14px] sm:text-[17px] tracking-[0.15em] text-white uppercase truncate">Betting Exchange Room</span>
         </div>
     </nav>
 
-    <!-- HERO SECTION (Testi principali spostati in alto e marginati correttamente) -->
+    <!-- HERO SECTION -->
     <section class="relative z-10 pt-[100px] sm:pt-[130px] pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center">
-        <!-- Badge Algoritmo -->
-        <div class="flex items-center gap-2 px-4 py-1.5 sm:py-2 rounded-full bg-brand-neon/10 border border-brand-neon/30 mb-5 sm:mb-8 backdrop-blur-md shadow-lg">
-            <span class="relative flex h-2.5 w-2.5">
+        <!-- Badge Algoritmo Tecnico -->
+        <div class="flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#00DF89]/10 border border-[#00DF89]/30 mb-6 sm:mb-8 backdrop-blur-md shadow-sm">
+            <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-neon"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-neon"></span>
             </span>
-            <span class="text-[10px] sm:text-xs font-bold text-brand-neon uppercase tracking-widest">Algoritmo Attivo</span>
+            <span class="text-[10px] sm:text-xs font-bold text-brand-neon uppercase tracking-[0.2em]">Sys.Active // 2026</span>
         </div>
 
-        <!-- Titolo Principale -->
-        <h1 class="font-heading text-[2.25rem] leading-[1.05] sm:text-[3.5rem] md:text-6xl lg:text-[7rem] font-black text-center text-white mb-6 sm:mb-8 tracking-tighter uppercase drop-shadow-2xl">
-            Vantaggio Matematico<br>
-            <span class="text-brand-neon glow-text block mt-1 sm:mt-2">Guidato dall'A.I.</span>
+        <!-- Titolo Principale (Stile Titanio + Smeraldo Tecnico) -->
+        <h1 class="font-heading text-[2.25rem] leading-[1.05] sm:text-[3.5rem] md:text-6xl lg:text-[6.5rem] font-extrabold text-center mb-6 sm:mb-8 tracking-tight uppercase drop-shadow-lg">
+            <span class="bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">Vantaggio Matematico</span><br>
+            <span class="text-brand-neon drop-shadow-[0_0_20px_rgba(0,223,137,0.25)] block mt-2 sm:mt-3">Guidato dall'A.I.</span>
         </h1>
 
-        <!-- FINTA ANTEPRIMA YOUTUBE (Immagine brillante) -->
-        <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-8 sm:mb-10 rounded-[1rem] sm:rounded-3xl overflow-hidden shadow-[0_15px_40px_-10px_rgba(39,174,96,0.25)] border border-white/10 relative aspect-video z-20 group cursor-pointer transition-transform duration-300 hover:scale-[1.02] bg-brand-surface">
-            <!-- Thumbnail resa vivida e brillante -->
+        <!-- FINTA ANTEPRIMA YOUTUBE -->
+        <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-8 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_15px_40px_-10px_rgba(0,223,137,0.15)] border border-white/10 relative aspect-video z-20 group cursor-pointer transition-transform duration-300 hover:scale-[1.02] bg-brand-surface">
             <img src="https://img.youtube.com/vi/ogy_AMtDXdo/maxresdefault.jpg" loading="lazy" decoding="async" alt="Presentazione Video" class="absolute inset-0 w-full h-full object-cover saturate-150 brightness-110 contrast-110">
-            <!-- Overlay estremamente schiarito per far brillare la thumbnail -->
-            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
-            <!-- Bottone Play -->
+            <div class="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors duration-300"></div>
             <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-10 sm:w-20 sm:h-14 bg-[#FF0000] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(255,0,0,0.5)] group-hover:bg-[#ff1a1a] transition-colors duration-300">
+                <div class="w-14 h-10 sm:w-20 sm:h-14 bg-[#FF0000] rounded-lg sm:rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(255,0,0,0.5)] group-hover:bg-[#ff1a1a] transition-colors duration-300">
                     <i class="fa-solid fa-play text-white text-lg sm:text-2xl ml-1"></i>
                 </div>
             </div>
-            <div class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-xs font-bold px-2 py-1 rounded">Guarda Ora</div>
+            <div class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-black/70 backdrop-blur-sm text-white text-[9px] sm:text-xs font-bold px-2 py-1 rounded">Guarda Ora</div>
         </a>
 
-        <!-- Sottotitolo e Bottone Principale -->
-        <p class="text-gray-200 text-center text-[15px] sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 font-medium leading-relaxed px-2">
+        <!-- Sottotitolo -->
+        <p class="text-gray-300 text-center text-[15px] sm:text-lg md:text-[22px] max-w-2xl mx-auto mb-8 font-medium leading-relaxed px-2">
             Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-brand-neon font-bold">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.
         </p>
 
         <div class="flex flex-col items-center w-full max-w-sm sm:max-w-md">
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="w-full px-5 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-[13px] sm:text-base tracking-widest flex items-center justify-center gap-3 active:scale-95 transition-all uppercase bg-[#229ED9] text-white hover:bg-[#1c84b6] shadow-[0_10px_25px_-5px_rgba(34,158,217,0.5)] border border-[#229ED9]/50 group">
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="w-full px-5 py-4 sm:py-5 rounded-xl font-bold text-[13px] sm:text-[15px] tracking-[0.1em] flex items-center justify-center gap-3 active:scale-95 transition-all uppercase bg-gradient-to-r from-[#1c84b6] to-[#229ED9] text-white hover:from-[#156a93] hover:to-[#1c84b6] shadow-[0_8px_20px_rgba(34,158,217,0.3)] border border-white/10 group">
                 <i class="fa-brands fa-telegram text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300"></i>
                 Entra nel Canale Gratuito
             </a>
-            <!-- Social Proof compatta -->
-            <div class="mt-4 flex items-center gap-2 text-[11px] sm:text-sm text-gray-300 font-medium bg-brand-dark/40 px-3 py-1.5 rounded-full border border-white/10">
-                <div class="flex text-[#FFD700] text-[9px] sm:text-[11px] drop-shadow-md">
+            <div class="mt-4 flex items-center gap-2 text-[11px] sm:text-sm text-gray-400 font-medium bg-brand-surface/80 px-4 py-1.5 rounded-md border border-white/5">
+                <div class="flex text-[#FBBF24] text-[9px] sm:text-[11px]">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
                 <span>Unisciti alla nostra <strong class="text-white">Community</strong></span>
@@ -132,36 +126,36 @@
         </div>
     </section>
 
-    <!-- STATS BAR -->
+    <!-- STATS BAR (Stile Terminale Dati) -->
     <section class="px-4 sm:px-6 max-w-2xl mx-auto mb-12 sm:mb-16 relative z-20">
-        <div class="grid grid-cols-2 p-4 sm:p-5 bg-gradient-to-b from-brand-surface to-[#05080f] border border-white/10 rounded-[1.25rem] shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl">
-            <div class="text-center border-r border-white/5">
-                <div class="text-white font-black text-2xl sm:text-3xl tracking-tight drop-shadow-lg">24/7</div>
-                <div class="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-[0.2em] mt-1 font-bold">Scansione A.I.</div>
+        <div class="grid grid-cols-2 bg-[#0a0f16] border border-white/10 rounded-xl shadow-2xl divide-x divide-white/5">
+            <div class="text-center p-5">
+                <div class="text-white font-heading font-extrabold text-3xl sm:text-4xl tracking-tight">24/7</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-semibold">Scansione A.I.</div>
             </div>
-            <div class="text-center">
-                <div class="text-white font-black text-2xl sm:text-3xl tracking-tight drop-shadow-lg">100<span class="text-lg sm:text-xl">%</span></div>
-                <div class="text-[9px] sm:text-[10px] text-brand-neon font-extrabold uppercase tracking-[0.2em] mt-1 drop-shadow-md">Gratuito</div>
+            <div class="text-center p-5 bg-gradient-to-br from-transparent to-[#00DF89]/5">
+                <div class="text-brand-neon font-heading font-extrabold text-3xl sm:text-4xl tracking-tight">100<span class="text-lg sm:text-xl">%</span></div>
+                <div class="text-[9px] sm:text-[10px] text-white uppercase tracking-[0.2em] mt-1 font-bold">Gratuito</div>
             </div>
         </div>
     </section>
 
-    <!-- DIMOSTRAZIONE DEL SEGNALE (Trasparenza) -->
+    <!-- DIMOSTRAZIONE DEL SEGNALE -->
     <section class="py-10 sm:py-16 px-4 sm:px-6 max-w-3xl mx-auto relative overflow-hidden sm:overflow-visible">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full bg-[#229ED9]/10 blur-[80px] rounded-full z-0 pointer-events-none"></div>
 
         <div class="relative z-10 text-center mb-8 sm:mb-10">
-            <h2 class="font-heading text-[1.75rem] sm:text-4xl font-black text-white uppercase tracking-tight mb-3 drop-shadow-lg">Trasparenza <span class="text-[#229ED9]">Assoluta</span></h2>
-            <p class="text-gray-300 text-[13px] sm:text-base max-w-lg mx-auto leading-relaxed">Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.</p>
+            <h2 class="font-heading text-[1.75rem] sm:text-4xl font-extrabold text-white uppercase tracking-tight mb-3">Trasparenza <span class="text-[#229ED9]">Assoluta</span></h2>
+            <p class="text-gray-400 text-[13px] sm:text-base max-w-lg mx-auto leading-relaxed">Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.</p>
         </div>
 
-        <!-- MOCKUP TELEGRAM -->
-        <div class="relative z-10 bg-white rounded-[1.25rem] sm:rounded-[2rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border border-white/10 overflow-hidden mx-auto max-w-xl transition-transform hover:translate-y-[-2px] duration-300">
+        <!-- MOCKUP TELEGRAM (Bordi più eleganti) -->
+        <div class="relative z-10 bg-white rounded-xl sm:rounded-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] border border-white/10 overflow-hidden mx-auto max-w-xl transition-transform hover:translate-y-[-2px] duration-300">
             
-            <div class="bg-white px-4 sm:px-5 py-3 border-b border-gray-100 flex justify-between items-center text-black">
+            <div class="bg-[#f5f5f5] px-4 sm:px-5 py-3 border-b border-gray-200 flex justify-between items-center text-black">
                 <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-arrow-left text-gray-400 text-lg"></i>
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                    <i class="fa-solid fa-arrow-left text-gray-500 text-lg"></i>
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white shadow-sm flex-shrink-0">
                         <img src="https://unavatar.io/youtube/bettingexchangeroom" loading="lazy" decoding="async" alt="Avatar" class="w-full h-full object-cover" onerror="this.src='WhatsApp Image 2026-04-17 at 11.27.02.jpeg'">
                     </div>
                     <div class="overflow-hidden">
@@ -172,10 +166,9 @@
                 <i class="fa-solid fa-ellipsis-vertical text-gray-400 text-lg pl-2"></i>
             </div>
             
-            <div class="p-4 sm:p-6 relative overflow-hidden custom-scrollbar flex justify-center" style="background-color: #E4EBD2;">
-                <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%23000000%22 fill-opacity=%221%22 fill-rule=%22evenodd%22%3E%3Ccircle cx=%223%22 cy=%223%22 r=%223%22/%3E%3Ccircle cx=%2213%22 cy=%2213%22 r=%223%22/%3E%3C/g%3E%3C/svg%3E');"></div>
-                
-                <div class="relative z-10 bg-white rounded-[16px] rounded-tl-sm p-4 sm:p-6 shadow-sm text-[13.5px] sm:text-[15px] text-[#111] font-sans leading-[1.5] tracking-tight w-full sm:w-[95%]">
+            <div class="p-4 sm:p-6 relative overflow-hidden custom-scrollbar flex justify-center" style="background-color: #E8EBE2;">
+                <!-- Chat Bubble -->
+                <div class="relative z-10 bg-white rounded-[12px] rounded-tl-sm p-4 sm:p-6 shadow-sm text-[13.5px] sm:text-[15px] text-[#111] font-sans leading-[1.5] tracking-tight w-full sm:w-[95%]">
                     
                     <p class="mb-1 text-[12px] sm:text-[13px]">⚽ <span class="text-[#D81B60] font-bold">BETTING EXCHANGE ROOM</span></p>
                     <p class="font-extrabold text-[14.5px] sm:text-[16px] leading-snug">🤖 PALMEIRAS-SP VS SPORTING CRISTAL</p>
@@ -193,7 +186,7 @@
                         <p>🔹 <span class="font-bold">LIQUIDITÀ:</span> € 184.500</p>
                     </div>
 
-                    <div class="w-[50%] h-[3px] bg-black rounded-full mb-4"></div>
+                    <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-4"></div>
 
                     <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">🛡️ GESTIONE RISCHIO</p>
                     <div class="space-y-1 mb-4 pl-1 text-[13px] sm:text-[14px]">
@@ -202,10 +195,10 @@
                         <p class="text-[#D32F2F] font-bold mt-1 text-[12px] sm:text-[13px] leading-tight">❗ In caso di goal subito (0-1), attendere 5 min per reazione.</p>
                     </div>
 
-                    <div class="w-[50%] h-[3px] bg-black rounded-full mb-4"></div>
+                    <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-4"></div>
 
                     <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">🧠 ANALISI (Sintesi)</p>
-                    <div class="space-y-1.5 mb-2 pl-1 text-[12.5px] sm:text-[13.5px] text-gray-800">
+                    <div class="space-y-1.5 mb-2 pl-1 text-[12.5px] sm:text-[13.5px] text-gray-700">
                         <p>📈 <span class="font-bold text-black">Dominio:</span> Possesso >60% in casa storica.</p>
                         <p>📈 <span class="font-bold text-black">Timing:</span> +40% dei goal arriva tra 60' e 90'.</p>
                         <p>📈 <span class="font-bold text-black">Gap Tecnico:</span> Rosa brasiliana 6x superiore, pressione asfissiante in ripresa.</p>
@@ -218,71 +211,70 @@
                 </div>
             </div>
             
-            <div class="bg-white p-4 sm:p-5 border-t border-gray-100">
-                <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3.5 sm:py-4 bg-[#229ED9] text-white text-[13px] sm:text-sm font-bold rounded-xl hover:bg-[#1c84b6] transition-colors shadow-md uppercase tracking-wider">
+            <div class="bg-white p-4 sm:p-5 border-t border-gray-200">
+                <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3.5 sm:py-4 bg-[#229ED9] text-white text-[13px] sm:text-[15px] font-bold rounded-lg hover:bg-[#1c84b6] transition-colors shadow-sm uppercase tracking-wide">
                     Ricevi Queste Analisi Gratis
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- CARATTERISTICHE (Immagini Brilliant e Colori Vividi) -->
+    <!-- CARATTERISTICHE (Stile Dashoard Trading) -->
     <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-5xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             
             <!-- Card 1 -->
-            <div class="premium-card rounded-2xl overflow-hidden group flex flex-col hover:border-white/20 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] transition-all">
-                <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark">
-                    <!-- Immagine schiarita, brillante e vibrante (saturate-150 brightness-110) -->
-                    <img src="1000372160.jpeg" loading="lazy" decoding="async" alt="Portiere AI" class="image-reveal absolute inset-0 w-full h-full object-cover saturate-[1.5] brightness-110 contrast-110 group-hover:scale-105 group-hover:saturate-[2] transition-all duration-700">
+            <div class="trading-card rounded-xl overflow-hidden group flex flex-col transition-all hover:bg-brand-surface">
+                <div class="w-full aspect-[4/3] relative overflow-hidden bg-[#05080f]">
+                    <img src="1000372160.jpeg" loading="lazy" decoding="async" alt="Portiere AI" class="image-reveal absolute inset-0 w-full h-full object-cover saturate-[1.2] brightness-110 contrast-110 group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent"></div>
                 </div>
-                <div class="p-5 sm:p-6 flex-grow">
-                    <h4 class="font-heading text-lg sm:text-xl font-black mb-2 uppercase tracking-wide flex items-center gap-2.5">
-                        <i class="fa-solid fa-bolt text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"></i>
-                        <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]">Anticipa il Mercato</span>
+                <div class="p-5 sm:p-6 flex-grow relative z-10 -mt-8">
+                    <h4 class="font-heading text-lg sm:text-xl font-extrabold mb-2 uppercase tracking-wide flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-[#00D2FF]"></i>
+                        <span class="text-white">Anticipa il Mercato</span>
                     </h4>
-                    <p class="text-gray-300 text-[13px] sm:text-sm leading-relaxed font-medium">L'A.I. individua le quote di valore millisecondi prima che i bookmaker si adeguino alla realtà del campo.</p>
+                    <p class="text-gray-400 text-[13px] sm:text-sm leading-relaxed font-medium">L'A.I. individua le quote di valore millisecondi prima che i bookmaker si adeguino alla realtà del campo.</p>
                 </div>
             </div>
 
             <!-- Card 2 -->
-            <div class="premium-card rounded-2xl overflow-hidden group flex flex-col hover:border-white/20 hover:shadow-[0_0_30px_rgba(251,191,36,0.2)] transition-all">
-                <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark">
-                    <img src="1000372221.jpeg" loading="lazy" decoding="async" alt="Arbitro AI" class="image-reveal absolute inset-0 w-full h-full object-cover object-top saturate-[1.5] brightness-110 contrast-110 group-hover:scale-105 group-hover:saturate-[2] transition-all duration-700">
+            <div class="trading-card rounded-xl overflow-hidden group flex flex-col transition-all hover:bg-brand-surface">
+                <div class="w-full aspect-[4/3] relative overflow-hidden bg-[#05080f]">
+                    <img src="1000372221.jpeg" loading="lazy" decoding="async" alt="Arbitro AI" class="image-reveal absolute inset-0 w-full h-full object-cover object-top saturate-[1.2] brightness-110 contrast-110 group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent"></div>
                 </div>
-                <div class="p-5 sm:p-6 flex-grow">
-                    <h4 class="font-heading text-lg sm:text-xl font-black mb-2 uppercase tracking-wide flex items-center gap-2.5">
-                        <i class="fa-solid fa-shield-halved text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]"></i>
-                        <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(251,191,36,0.3)]">Protezione Capitale</span>
+                <div class="p-5 sm:p-6 flex-grow relative z-10 -mt-8">
+                    <h4 class="font-heading text-lg sm:text-xl font-extrabold mb-2 uppercase tracking-wide flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-[#FBBF24]"></i>
+                        <span class="text-white">Protezione Capitale</span>
                     </h4>
-                    <p class="text-gray-300 text-[13px] sm:text-sm leading-relaxed font-medium">Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.</p>
+                    <p class="text-gray-400 text-[13px] sm:text-sm leading-relaxed font-medium">Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.</p>
                 </div>
             </div>
 
             <!-- Card 3 -->
-            <div class="premium-card rounded-2xl overflow-hidden group flex flex-col hover:border-white/20 hover:shadow-[0_0_30px_rgba(39,174,96,0.2)] transition-all">
-                <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark">
-                    <img src="1000372165.jpeg" loading="lazy" decoding="async" alt="Attaccante AI" class="image-reveal absolute inset-0 w-full h-full object-cover saturate-[1.5] brightness-110 contrast-110 group-hover:scale-105 group-hover:saturate-[2] transition-all duration-700">
+            <div class="trading-card rounded-xl overflow-hidden group flex flex-col transition-all hover:bg-brand-surface">
+                <div class="w-full aspect-[4/3] relative overflow-hidden bg-[#05080f]">
+                    <img src="1000372165.jpeg" loading="lazy" decoding="async" alt="Attaccante AI" class="image-reveal absolute inset-0 w-full h-full object-cover saturate-[1.2] brightness-110 contrast-110 group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent"></div>
                 </div>
-                <div class="p-5 sm:p-6 flex-grow">
-                    <h4 class="font-heading text-lg sm:text-xl font-black mb-2 uppercase tracking-wide flex items-center gap-2.5">
-                        <i class="fa-solid fa-sack-dollar text-brand-neon drop-shadow-[0_0_8px_rgba(39,174,96,0.5)]"></i>
-                        <span class="bg-gradient-to-r from-[#27ae60] to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(39,174,96,0.3)]">Profitto Automatico</span>
+                <div class="p-5 sm:p-6 flex-grow relative z-10 -mt-8">
+                    <h4 class="font-heading text-lg sm:text-xl font-extrabold mb-2 uppercase tracking-wide flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-brand-neon"></i>
+                        <span class="text-white">Profitto Automatico</span>
                     </h4>
-                    <p class="text-gray-300 text-[13px] sm:text-sm leading-relaxed font-medium">Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.</p>
+                    <p class="text-gray-400 text-[13px] sm:text-sm leading-relaxed font-medium">Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.</p>
                 </div>
             </div>
             
         </div>
     </section>
 
-    <!-- IMMAGINE COPERTINA SPOSTATA IN BASSO (Vivida e senza sfumatura che la copre) -->
-    <section class="py-8 sm:py-12 px-3 sm:px-6 max-w-6xl mx-auto">
-        <div class="relative w-full h-[40vh] sm:h-[50vh] min-h-[300px] rounded-[1.25rem] sm:rounded-[2rem] overflow-hidden border border-brand-neon/30 shadow-[0_0_50px_rgba(39,174,96,0.25)] group relative z-0 bg-brand-surface">
-            <!-- Immagine schiarita notevolmente per far brillare il verde -->
-            <img src="WhatsApp Image 2026-04-08 at 14.53.22 (1).jpeg" loading="lazy" alt="Copertura Intelligenza Artificiale Betting" class="absolute inset-0 w-full h-full object-cover object-[center_30%] image-reveal loaded group-hover:scale-[1.03] transition-transform duration-1000 saturate-150 brightness-110 contrast-110">
-            <!-- Sfumatura resa leggerissima solo sui bordi per far risaltare il campo e il robot -->
-            <div class="absolute inset-0 shadow-[inset_0_-80px_100px_-20px_rgba(3,5,9,1)]"></div>
+    <!-- IMMAGINE COPERTINA IN BASSO -->
+    <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="relative w-full h-[35vh] sm:h-[45vh] min-h-[250px] rounded-xl sm:rounded-2xl overflow-hidden border border-brand-neon/20 shadow-lg group bg-[#05080f]">
+            <img src="WhatsApp Image 2026-04-08 at 14.53.22 (1).jpeg" loading="lazy" alt="Copertura Intelligenza Artificiale Betting" class="absolute inset-0 w-full h-full object-cover object-[center_30%] image-reveal loaded group-hover:scale-[1.03] transition-transform duration-1000 saturate-150 brightness-110 contrast-125">
         </div>
     </section>
 
@@ -290,56 +282,61 @@
     <footer class="bg-[#020305] py-10 sm:py-16 border-t border-white/5 px-4 sm:px-6 mt-4">
         <div class="max-w-sm mx-auto flex flex-col gap-3">
             
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-2xl bg-brand-surface border border-white/5 hover:border-[#229ED9]/30 hover:bg-brand-surface/80 transition-colors group">
-                <div class="w-10 h-10 rounded-full bg-[#229ED9]/15 flex items-center justify-center flex-shrink-0 group-hover:bg-[#229ED9] transition-colors">
-                    <i class="fa-brands fa-telegram text-[#229ED9] group-hover:text-white text-xl transition-colors"></i>
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#229ED9]/50 transition-colors group">
+                <div class="w-10 h-10 rounded-md bg-[#229ED9]/15 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-telegram text-[#229ED9] text-xl"></i>
                 </div>
                 <div class="text-left">
-                    <div class="text-white text-[13px] font-bold tracking-wider uppercase">Telegram</div>
-                    <div class="text-gray-400 text-[10px] sm:text-[11px] mt-0.5">Segnali e Analisi Ufficiali</div>
+                    <div class="text-white text-[13px] font-bold tracking-widest uppercase">Telegram</div>
+                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Segnali e Analisi Ufficiali</div>
                 </div>
             </a>
 
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-2xl bg-brand-surface border border-white/5 hover:border-[#25D366]/30 hover:bg-brand-surface/80 transition-colors group">
-                <div class="w-10 h-10 rounded-full bg-[#25D366]/15 flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366] transition-colors">
-                    <i class="fa-brands fa-whatsapp text-[#25D366] group-hover:text-white text-xl transition-colors"></i>
+            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#25D366]/50 transition-colors group">
+                <div class="w-10 h-10 rounded-md bg-[#25D366]/15 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-whatsapp text-[#25D366] text-xl"></i>
                 </div>
                 <div class="text-left">
-                    <div class="text-white text-[13px] font-bold tracking-wider uppercase">WhatsApp</div>
-                    <div class="text-gray-400 text-[10px] sm:text-[11px] mt-0.5">Iscriviti al Canale News</div>
+                    <div class="text-white text-[13px] font-bold tracking-widest uppercase">WhatsApp</div>
+                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Iscriviti al Canale News</div>
                 </div>
             </a>
 
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-2xl bg-brand-surface border border-white/5 hover:border-[#FF0000]/30 hover:bg-brand-surface/80 transition-colors group">
-                <div class="w-10 h-10 rounded-full bg-[#FF0000]/15 flex items-center justify-center flex-shrink-0 group-hover:bg-[#FF0000] transition-colors">
-                    <i class="fa-brands fa-youtube text-[#FF0000] group-hover:text-white text-[18px] transition-colors"></i>
+            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#FF0000]/50 transition-colors group">
+                <div class="w-10 h-10 rounded-md bg-[#FF0000]/15 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-youtube text-[#FF0000] text-[18px]"></i>
                 </div>
                 <div class="text-left">
-                    <div class="text-white text-[13px] font-bold tracking-wider uppercase">YouTube</div>
-                    <div class="text-gray-400 text-[10px] sm:text-[11px] mt-0.5">Video Formazione Gratuita</div>
+                    <div class="text-white text-[13px] font-bold tracking-widest uppercase">YouTube</div>
+                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Video Formazione Gratuita</div>
                 </div>
             </a>
 
             <div class="mt-8 text-center">
-                <p class="text-[9px] sm:text-[10px] text-gray-500 font-mono tracking-[0.2em] uppercase mb-3">&copy; 2026 BETTING EXCHANGE ROOM<br>SISTEMI PREDITTIVI</p>
-                <p class="text-[8.5px] sm:text-[9px] text-gray-600 leading-relaxed uppercase max-w-[250px] mx-auto">
+                <p class="text-[9px] sm:text-[10px] text-gray-600 font-mono tracking-[0.2em] uppercase mb-2">&copy; 2026 BETTING EXCHANGE ROOM</p>
+                <p class="text-[8.5px] sm:text-[9px] text-gray-700 leading-relaxed uppercase max-w-[250px] mx-auto">
                     Il gioco è vietato ai minori e può creare dipendenza. Gioca responsabilmente.
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- WIDGET WHATSAPP FLUTTUANTE -->
-    <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3">
-        <div class="hidden sm:block bg-brand-dark/95 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 text-white text-[10px] font-bold tracking-widest shadow-2xl">
-            SUPPORTO DIRETTO
+    <!-- STICKY BOTTOM BAR -->
+    <div class="fixed bottom-0 left-0 w-full z-50 bg-[#030509]/90 backdrop-blur-xl border-t border-white/10 px-3 py-3 sm:px-6 sm:py-4 shadow-[0_-10px_30px_rgba(0,0,0,0.8)]" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
+        <div class="max-w-5xl mx-auto flex items-center gap-2.5 sm:gap-4">
+            
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex-grow px-2 py-3.5 sm:py-4 rounded-xl font-bold text-[13px] sm:text-[15px] tracking-[0.1em] flex items-center justify-center gap-2 sm:gap-3 active:scale-95 transition-all uppercase bg-gradient-to-r from-[#1c84b6] to-[#229ED9] text-white shadow-lg border border-white/10 group">
+                <i class="fa-brands fa-telegram text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300"></i>
+                <span class="truncate">Entra nel Canale Gratuito</span>
+            </a>
+            
+            <a href="https://wa.me/393482487172" target="_blank" rel="noopener noreferrer" class="w-[50px] h-[50px] sm:w-[56px] sm:h-[56px] flex-shrink-0 bg-[#25D366] rounded-xl flex items-center justify-center text-white text-2xl shadow-lg animate-pulse-wa hover:scale-105 transition-transform" aria-label="Contattaci su WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
         </div>
-        <a href="https://wa.me/393482487172" target="_blank" rel="noopener noreferrer" class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] animate-pulse-wa hover:scale-110 transition-transform" aria-label="Contattaci su WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
     </div>
 
-    <!-- SCRIPT OTTIMIZZATI -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const images = document.querySelectorAll('.image-reveal');
