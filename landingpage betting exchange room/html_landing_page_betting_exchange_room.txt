@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
 <head>
@@ -7,17 +6,13 @@ html
     <meta name="theme-color" content="#030509">
     <title>⚽ BETTING EXCHANGE ROOM</title>
     
-    <!-- Ottimizzazione Pre-connessione per caricamento immediato dei testi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     
-    <!-- Google Fonts caricati in modalità swap (mostra un font di sistema finché non è pronto) -->
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
@@ -39,10 +34,9 @@ html
             border: 1px solid rgba(255, 255, 255, 0.04); 
         }
         
-        /* Animazioni Immagini: partono invisibili e sfumano dentro dolcemente */
         .image-reveal {
             opacity: 0;
-            transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
             will-change: opacity;
         }
         .image-reveal.loaded {
@@ -59,7 +53,6 @@ html
 </head>
 <body class="antialiased pb-safe">
 
-    <!-- Header Minimal -->
     <nav class="fixed w-full z-50 top-0 bg-brand-dark/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center gap-3">
             <span class="text-xl">⚽</span>
@@ -67,9 +60,7 @@ html
         </div>
     </nav>
 
-    <!-- Hero Section (Niente immagini, impatto visivo immediato tramite CSS) -->
-    <section class="pt-28 pb-12 px-6 max-w-5xl mx-auto flex flex-col items-center">
-        <!-- Badge Stato Algoritmo -->
+    <section class="pt-32 pb-12 px-6 max-w-5xl mx-auto flex flex-col items-center">
         <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-neon/10 border border-brand-neon/30 mb-8">
             <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
@@ -86,23 +77,19 @@ html
             Nessuna scommessa casuale. Copia in tempo reale le operazioni elaborate dalle nostre reti neurali.
         </p>
 
-        <!-- Pulsante Ufficiale Telegram Super Professionale -->
-        <a href="https://t.me/BettingExchangeRoomFree" target="_blank" class="w-full md:w-auto px-4 sm:px-10 py-5 rounded-2xl font-bold text-[11px] sm:text-sm tracking-widest flex items-center justify-center gap-2 sm:gap-3 active:scale-95 transition-all uppercase bg-[#229ED9] text-white hover:bg-[#1c84b6] shadow-[0_8px_25px_-5px_rgba(34,158,217,0.6)] border border-[#229ED9]/50 group whitespace-nowrap">
+        <a href="https://t.me/BettingExchangeRoomFree" target="blank" class="w-full md:w-auto px-4 sm:px-10 py-5 rounded-2xl font-bold text-[12px] sm:text-sm tracking-widest flex items-center justify-center gap-2 sm:gap-3 active:scale-95 transition-all uppercase bg-[#229ED9] text-white hover:bg-[#1c84b6] shadow-[0_8px_25px-5px_rgba(34,158,217,0.6)] border border-[#229ED9]/50 group whitespace-nowrap">
             <i class="fa-brands fa-telegram text-xl sm:text-2xl group-hover:scale-110 transition-transform"></i>
             SEGUI I SEGNALI GRATUITI
         </a>
     </section>
 
-    <!-- Sezione Video -->
     <section class="py-20 px-6 bg-brand-surface/30">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="font-heading text-2xl md:text-3xl font-bold mb-10 text-white uppercase tracking-widest">L'Algoritmo in Azione</h2>
             
-            <!-- Box Video trasformato in link cliccabile -->
-            <a href="#INSERISCI_QUI_IL_LINK_AL_VIDEO" target="_blank" class="relative block w-full aspect-video rounded-3xl overflow-hidden premium-card p-2 cursor-pointer group shadow-xl">
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" class="relative block w-full aspect-video rounded-3xl overflow-hidden premium-card p-2 cursor-pointer group shadow-xl">
                 <div class="relative w-full h-full rounded-2xl overflow-hidden bg-brand-dark">
-                    <!-- Immagine con Lazy Load e Fade-In -->
-                    <img src="1000372158.png" loading="lazy" decoding="async" class="image-reveal absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" alt="Preview Video">
+                    <img src="1000372158.png" loading="lazy" decoding="async" class="image-reveal absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40" alt="Preview Video">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-20 h-20 bg-black/60 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.8)] group-hover:scale-110 transition-transform z-10">
                             <i class="fa-solid fa-play text-brand-neon text-3xl ml-1"></i>
@@ -113,11 +100,8 @@ html
         </div>
     </section>
 
-    <!-- Protocollo (Le 3 Foto con caricamento asincrono) -->
     <section class="py-20 px-6 max-w-5xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Portiere -->
             <div class="premium-card rounded-3xl overflow-hidden group flex flex-col">
                 <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark/50">
                     <img src="1000372160.png" loading="lazy" decoding="async" alt="Portiere AI" class="image-reveal absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0">
@@ -128,7 +112,6 @@ html
                 </div>
             </div>
 
-            <!-- Arbitro -->
             <div class="premium-card rounded-3xl overflow-hidden group flex flex-col">
                 <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark/50">
                     <img src="1000372221.png" loading="lazy" decoding="async" alt="Arbitro AI" class="image-reveal absolute inset-0 w-full h-full object-cover object-top grayscale-[0.3] group-hover:grayscale-0">
@@ -139,7 +122,6 @@ html
                 </div>
             </div>
 
-            <!-- Rigorista -->
             <div class="premium-card rounded-3xl overflow-hidden group flex flex-col">
                 <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark/50">
                     <img src="1000372165.png" loading="lazy" decoding="async" alt="Attaccante AI" class="image-reveal absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0">
@@ -149,40 +131,20 @@ html
                     <p class="text-gray-500 text-xs leading-relaxed">Esecuzione millimetrica con indicazioni precise di ingresso e cash-out.</p>
                 </div>
             </div>
-            
         </div>
     </section>
 
-    <!-- Footer Social -->
     <footer class="bg-brand-dark py-16 border-t border-white/5 px-6">
         <div class="max-w-md mx-auto flex flex-col gap-4">
-            
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" class="flex items-center gap-4 px-6 py-5 rounded-2xl bg-[#229ED9]/5 border border-[#229ED9]/20 hover:bg-[#229ED9]/10 transition-all group">
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" class="flex items-center gap-4 px-6 py-5 rounded-2xl bg-[#229ED9]/5 border border-[#229ED9]/20 hover:bg-[#229ED9]/10 transition-all">
                 <i class="fa-brands fa-telegram text-[#229ED9] text-3xl"></i>
-                <div class="text-left">
-                    <div class="text-white text-sm font-bold tracking-wide uppercase">Canale Telegram</div>
-                    <div class="text-gray-500 text-[10px] font-mono mt-0.5">Segnali gratuiti su Telegram</div>
-                </div>
-            </a>
-
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" class="flex items-center gap-4 px-6 py-5 rounded-2xl bg-[#25D366]/5 border border-[#25D366]/20 hover:bg-[#25D366]/10 transition-all group">
-                <i class="fa-brands fa-whatsapp text-[#25D366] text-3xl"></i>
-                <div class="text-left">
-                    <div class="text-white text-sm font-bold tracking-wide uppercase">Canale WhatsApp</div>
-                    <div class="text-gray-500 text-[10px] font-mono mt-0.5">News su WhatsApp</div>
-                </div>
-            </a>
-
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" class="flex items-center gap-4 px-6 py-5 rounded-2xl bg-[#FF0000]/5 border border-[#FF0000]/20 hover:bg-[#FF0000]/10 transition-all group">
-                <i class="fa-brands fa-youtube text-[#FF0000] text-2xl"></i>
-                <div class="text-left">
-                    <div class="text-white text-sm font-bold tracking-wide uppercase">YouTube</div>
-                    <div class="text-gray-500 text-[10px] font-mono mt-0.5">Video corso su YouTube</div>
-                </div>
+                <div class="text-left"><div class="text-white text-sm font-bold uppercase">Canale Telegram</div></div>
             </a>
 
             <div class="mt-12 text-center">
-                <p class="text-[10px] text-gray-700 font-mono tracking-widest uppercase mb-4">&copy; 2026 BETTING EXCHANGE ROOM<br>SISTEMI PREDITTIVI</p>
+                <p class="text-[10px] text-gray-700 font-mono tracking-widest uppercase mb-4">
+                    &copy; 2026 BETTING EXCHANGE ROOM<br>SISTEMI PREDITTIVI
+                </p>
                 <p class="text-[9px] text-gray-800 leading-relaxed uppercase">
                     Il gioco è vietato ai minori e può creare dipendenza. Gioca responsabilmente.
                 </p>
@@ -190,7 +152,6 @@ html
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-4">
         <div class="hidden sm:block bg-brand-dark/95 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 text-white text-[10px] font-bold tracking-widest shadow-2xl">
             CHIEDI INFO SU WHATSAPP
@@ -200,19 +161,14 @@ html
         </a>
     </div>
 
-    <!-- Script per l'apparizione fluida delle immagini (Zero Layout Shift) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const images = document.querySelectorAll('.image-reveal');
             images.forEach(img => {
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', () => img.classList.add('loaded'));
-                }
+                if (img.complete) { img.classList.add('loaded'); } 
+                else { img.addEventListener('load', () => img.classList.add('loaded')); }
             });
         });
     </script>
 </body>
 </html>
-
