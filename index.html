@@ -2,185 +2,352 @@
 <html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <!-- Ottimizzazione viewport per impedire zoom accidentali su mobile che rovinano l'UX -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#030509">
     <title>⚽ BETTING EXCHANGE ROOM</title>
     
-    <!-- Ottimizzazione Pre-connessione per caricamento immediato dei testi -->
+    <!-- PRE-CONNESSIONI E DNS-PREFETCH PER MASSIMA VELOCITÀ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://img.youtube.com">
     
-    <!-- Google Fonts caricati in modalità swap (mostra un font di sistema finché non è pronto) -->
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@60…
-[03:31, 17/04/2026] Alessandra Marini: <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#030509">
-    <title>⚽ BETTING EXCHANGE ROOM</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts caricati in modalità swap (non bloccano il rendering) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome caricato in modo asincrono -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
+    <!-- Preload Immagine Copertina per caricamento istantaneo LCP -->
+    <link rel="preload" as="image" href="WhatsApp Image 2026-04-08 at 14.53.22 (1).jpeg" fetchpriority="high">
+
+    <!-- Tailwind CSS (in produzione si consiglia la build statica, per ora ottimizzato CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Rajdhani', 'sans-serif'] },
-                    colors: { brand: { dark: '#030509', surface: '#0a0f16', neon: '#00e599' } }
+                    fontFamily: { sans: ['Poppins', 'sans-serif'], heading: ['Montserrat', 'sans-serif'] },
+                    colors: { brand: { dark: '#030509', surface: '#0a0f16', neon: '#27ae60' } }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #030509; color: #e2e8f0; }
-        .glow-text { text-shadow: 0 0 20px rgba(0, 229, 153, 0.4); }
+        /* Ottimizzazioni di base e rendering fluido */
+        html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+        body { background-color: #030509; color: #e2e8f0; overflow-x: hidden; }
+        
+        .glow-text { text-shadow: 0 0 20px rgba(39, 174, 96, 0.5); }
         .premium-card { 
-            background: rgba(10, 15, 22, 0.7); 
-            backdrop-filter: blur(12px); 
-            border: 1px solid rgba(255, 255, 255, 0.04); 
+            background: rgba(10, 15, 22, 0.85); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05); 
         }
         
-        /* Animazioni Immagini: partono invisibili e sfumano dentro dolcemente */
+        /* Animazioni Immagini per evitare scatti visivi (Layout Shifts) */
         .image-reveal {
             opacity: 0;
-            transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
-            will-change: opacity;
+            transform: scale(1.02);
+            transition: opacity 0.6s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
         }
-        .image-reveal.loaded {
-            opacity: 1;
-        }
+        .image-reveal.loaded { opacity: 1; transform: scale(1); }
 
+        /* Pulsazione fluida per bottone WhatsApp */
         @keyframes gentle-pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
-            50% { transform: scale(1.08); box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5); }
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+            50% { transform: scale(1.06); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
         }
         .animate-pulse-wa { animation: gentle-pulse 3s ease-in-out infinite; }
+        
+        /* Safe area per iPhone (notch/home bar) */
         .pb-safe { padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
+        
+        /* Scrollbar pulita per la finta app Telegram */
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 10px; }
     </style>
 </head>
-<body class="antialiased pb-safe">
+<body class="antialiased pb-safe selection:bg-brand-neon selection:text-white">
 
-    <nav class="fixed w-full z-50 top-0 bg-brand-dark/90 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center gap-3">
-            <span class="text-xl">⚽</span>
-            <span class="font-heading font-bold text-lg tracking-[0.15em] text-white uppercase">Betting Exchange Room</span>
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 top-0 bg-brand-dark/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[60px] flex items-center gap-2.5">
+            <span class="text-xl sm:text-2xl drop-shadow-md">⚽</span>
+            <span class="font-heading font-extrabold text-[15px] sm:text-lg tracking-[0.12em] text-white uppercase truncate">Betting Exchange Room</span>
         </div>
     </nav>
 
-    <section class="pt-28 pb-12 px-6 max-w-5xl mx-auto flex flex-col items-center">
-        <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-neon/10 border border-brand-neon/30 mb-8">
-            <span class="relative flex h-2 w-2">
+    <!-- HEADER / COPERTINA (Ottimizzata per impatto visivo immediato) -->
+    <header class="pt-[75px] sm:pt-[85px] px-3 sm:px-6 max-w-6xl mx-auto">
+        <div class="relative w-full h-[35vh] sm:h-[45vh] md:h-[55vh] min-h-[250px] rounded-[1.25rem] sm:rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_10px_40px_-10px_rgba(39,174,96,0.2)] group relative z-0 bg-brand-surface">
+            <!-- Immagine fornita caricata istantaneamente -->
+            <img src="WhatsApp Image 2026-04-08 at 14.53.22 (1).jpeg" fetchpriority="high" alt="Copertura Intelligenza Artificiale Betting" class="absolute inset-0 w-full h-full object-cover object-[center_30%] image-reveal loaded group-hover:scale-[1.03] transition-transform duration-1000">
+            <!-- Gradiente scuro sfumato perfettamente col body -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#030509] via-[#030509]/50 to-transparent"></div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Testi principali e prima Call to Action) -->
+    <section class="relative z-10 -mt-12 sm:-mt-20 pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center">
+        <!-- Badge Algoritmo -->
+        <div class="flex items-center gap-2 px-4 py-1.5 sm:py-2 rounded-full bg-brand-neon/10 border border-brand-neon/30 mb-5 sm:mb-8 backdrop-blur-md shadow-lg">
+            <span class="relative flex h-2.5 w-2.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-neon"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-neon"></span>
             </span>
-            <span class="text-[10px] font-bold text-brand-neon uppercase tracking-widest">Algoritmo Attivo</span>
+            <span class="text-[10px] sm:text-xs font-bold text-brand-neon uppercase tracking-widest">Algoritmo Attivo</span>
         </div>
 
-        <h1 class="font-heading text-5xl md:text-8xl font-bold leading-[1.1] text-center text-white mb-6">
-            Vantaggio Matematico.<br><span class="text-brand-neon glow-text underline decoration-brand-neon/20">Guidato dall'A.I.</span>
+        <!-- Titolo Principale (Dimensioni calibrate al millimetro per mobile) -->
+        <h1 class="font-heading text-[2.25rem] leading-[1.05] sm:text-[3.5rem] md:text-6xl lg:text-[7rem] font-black text-center text-white mb-6 sm:mb-8 tracking-tighter uppercase drop-shadow-2xl">
+            Vantaggio Matematico<br>
+            <span class="text-brand-neon glow-text block mt-1 sm:mt-2">Guidato dall'A.I.</span>
         </h1>
 
-        <p class="text-gray-400 text-center text-sm md:text-lg max-w-lg mb-10 font-light leading-relaxed">
-            Nessuna scommessa casuale. Copia in tempo reale le operazioni elaborate dalle nostre reti neurali.
+        <!-- FINTA ANTEPRIMA YOUTUBE (Caricamento Istantaneo senza bloccare la pagina) -->
+        <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-8 sm:mb-10 rounded-[1rem] sm:rounded-3xl overflow-hidden shadow-[0_15px_40px_-10px_rgba(39,174,96,0.15)] border border-white/10 relative aspect-video z-20 group cursor-pointer transition-transform duration-300 hover:scale-[1.02] bg-brand-surface">
+            <!-- Thumbnail Lazy Loaded -->
+            <img src="https://img.youtube.com/vi/ogy_AMtDXdo/maxresdefault.jpg" loading="lazy" decoding="async" alt="Presentazione Video" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+            <!-- Bottone Play -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-14 h-10 sm:w-20 sm:h-14 bg-[#FF0000] rounded-xl flex items-center justify-center shadow-2xl group-hover:bg-[#ff1a1a] transition-colors duration-300">
+                    <i class="fa-solid fa-play text-white text-lg sm:text-2xl ml-1"></i>
+                </div>
+            </div>
+            <div class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-black/80 backdrop-blur-sm text-white text-[9px] sm:text-xs font-bold px-2 py-1 rounded">Guarda Ora</div>
+        </a>
+
+        <!-- Sottotitolo e Bottone Principale -->
+        <p class="text-gray-300 text-center text-[15px] sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 font-medium leading-relaxed px-2">
+            Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-brand-neon font-bold">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.
         </p>
 
-        <a href="https://t.me/BettingExchangeRoomFree" target="blank" class="w-full md:w-auto px-4 sm:px-10 py-5 rounded-2xl font-bold text-[11px] sm:text-sm tracking-widest flex items-center justify-center gap-2 sm:gap-3 active:scale-95 transition-all uppercase bg-[#229ED9] text-white hover:bg-[#1c84b6] shadow-[0_8px_25px-5px_rgba(34,158,217,0.6)] border border-[#229ED9]/50 group whitespace-nowrap">
-            <i class="fa-brands fa-telegram text-xl sm:text-2xl group-hover:scale-110 transition-transform"></i>
-            SEGUI I SEGNALI GRATUITI
-        </a>
+        <div class="flex flex-col items-center w-full max-w-sm sm:max-w-md">
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="w-full px-5 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-[13px] sm:text-base tracking-widest flex items-center justify-center gap-3 active:scale-95 transition-all uppercase bg-[#229ED9] text-white hover:bg-[#1c84b6] shadow-[0_10px_25px_-5px_rgba(34,158,217,0.5)] border border-[#229ED9]/50 group">
+                <i class="fa-brands fa-telegram text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300"></i>
+                Entra nel Canale Gratuito
+            </a>
+            <!-- Social Proof compatta e credibile -->
+            <div class="mt-4 flex items-center gap-2 text-[11px] sm:text-sm text-gray-400 font-medium bg-brand-dark/60 px-3 py-1.5 rounded-full border border-white/5">
+                <div class="flex text-[#FFD700] text-[9px] sm:text-[11px]">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <span>Unisciti alla nostra <strong class="text-white">Community</strong></span>
+            </div>
+        </div>
     </section>
 
-    <section class="py-20 px-6 max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- STATS BAR (Fiducia istantanea) -->
+    <section class="px-4 sm:px-6 max-w-2xl mx-auto mb-12 sm:mb-16 relative z-20">
+        <div class="grid grid-cols-2 p-4 sm:p-5 bg-gradient-to-b from-brand-surface to-[#05080f] border border-white/10 rounded-[1.25rem] shadow-2xl backdrop-blur-xl">
+            <div class="text-center border-r border-white/5">
+                <div class="text-white font-black text-2xl sm:text-3xl tracking-tight">24/7</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-[0.2em] mt-1 font-bold">Scansione A.I.</div>
+            </div>
+            <div class="text-center">
+                <div class="text-white font-black text-2xl sm:text-3xl tracking-tight">100<span class="text-lg sm:text-xl">%</span></div>
+                <div class="text-[9px] sm:text-[10px] text-brand-neon font-extrabold uppercase tracking-[0.2em] mt-1">Gratuito</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIMOSTRAZIONE DEL SEGNALE (Trasparenza) -->
+    <section class="py-10 sm:py-16 px-4 sm:px-6 max-w-3xl mx-auto relative overflow-hidden sm:overflow-visible">
+        <!-- Effetto Bagliore di Sfondo -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full bg-[#229ED9]/5 blur-[80px] rounded-full z-0 pointer-events-none"></div>
+
+        <div class="relative z-10 text-center mb-8 sm:mb-10">
+            <h2 class="font-heading text-[1.75rem] sm:text-4xl font-black text-white uppercase tracking-tight mb-3">Trasparenza <span class="text-[#229ED9]">Assoluta</span></h2>
+            <p class="text-gray-400 text-[13px] sm:text-base max-w-lg mx-auto leading-relaxed">Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.</p>
+        </div>
+
+        <!-- MOCKUP TELEGRAM (Ottimizzato CSS per blend perfetto) -->
+        <div class="relative z-10 bg-white rounded-[1.25rem] sm:rounded-[2rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border border-white/10 overflow-hidden mx-auto max-w-xl transition-transform hover:translate-y-[-2px] duration-300">
             
-            <div class="premium-card rounded-3xl overflow-hidden group flex flex-col">
-                <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark/50">
-                    <img src="1000372160.jpeg" loading="lazy" decoding="async" alt="Portiere AI" class="image-reveal absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0">
+            <!-- Header Telegram -->
+            <div class="bg-white px-3 sm:px-4 py-2.5 border-b border-gray-100 flex justify-between items-center text-black">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-arrow-left text-gray-400 text-lg"></i>
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                        <img src="https://unavatar.io/youtube/bettingexchangeroom" loading="lazy" decoding="async" alt="Avatar" class="w-full h-full object-cover" onerror="this.src='WhatsApp Image 2026-04-17 at 11.27.02.jpeg'">
+                    </div>
+                    <div class="overflow-hidden">
+                        <div class="font-bold text-[14px] sm:text-[15px] tracking-tight leading-tight flex items-center gap-1 truncate">⚽ BETTING EXCHAN... <i class="fa-solid fa-circle-check text-[#229ED9] text-[10px] flex-shrink-0"></i></div>
+                        <div class="text-[#707579] text-[11px] sm:text-[12px] font-medium">Canale Ufficiale</div>
+                    </div>
                 </div>
-                <div class="p-6 flex-grow">
-                    <h4 class="font-heading text-xl font-bold text-white mb-2 uppercase">Intercettazione</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Individuazione istantanea del valore prima che il mercato si adegui.</p>
-                </div>
+                <i class="fa-solid fa-ellipsis-vertical text-gray-400 text-lg pl-2"></i>
             </div>
 
-            <div class="premium-card rounded-3xl overflow-hidden group flex flex-col">
-                <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark/50">
-                    <img src="1000372221.jpeg" loading="lazy" decoding="async" alt="Arbitro AI" class="image-reveal absolute inset-0 w-full h-full object-cover object-top grayscale-[0.3] group-hover:grayscale-0">
-                </div>
-                <div class="p-6 flex-grow">
-                    <h4 class="font-heading text-xl font-bold text-white mb-2 uppercase">Risk Control</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Gestione ferrea del capitale tramite parametri di Money Management.</p>
+            <!-- Pinned Message -->
+            <div class="bg-[#f8f9fa] px-3 sm:px-4 py-2 flex items-center gap-2 border-b border-gray-100">
+                <div class="w-[3px] rounded-full h-7 bg-[#229ED9] flex-shrink-0"></div>
+                <div class="overflow-hidden">
+                    <div class="text-[#229ED9] text-[11px] sm:text-[12px] font-bold">Pinned Message</div>
+                    <div class="text-gray-500 text-[11px] sm:text-[12px] truncate">▶️ PRESENTAZIONE 🇮🇹 https://yout...</div>
                 </div>
             </div>
+            
+            <!-- Body del Segnale -->
+            <div class="p-3 sm:p-5 relative overflow-hidden custom-scrollbar" style="background-color: #E4EBD2;">
+                <!-- Texture sottile -->
+                <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%23000000%22 fill-opacity=%221%22 fill-rule=%22evenodd%22%3E%3Ccircle cx=%223%22 cy=%223%22 r=%223%22/%3E%3Ccircle cx=%2213%22 cy=%2213%22 r=%223%22/%3E%3C/g%3E%3C/svg%3E');"></div>
+                
+                <!-- Chat Bubble -->
+                <div class="relative z-10 bg-white rounded-[16px] rounded-tl-sm p-3.5 sm:p-5 shadow-sm text-[13.5px] sm:text-[15px] text-[#111] font-sans leading-[1.5] tracking-tight w-full sm:w-[95%]">
+                    
+                    <p class="mb-1 text-[12px] sm:text-[13px]">⚽ <span class="text-[#D81B60] font-bold">BETTING EXCHANGE ROOM</span></p>
+                    <p class="font-extrabold text-[14.5px] sm:text-[16px] leading-snug">🤖 PALMEIRAS-SP VS SPORTING CRISTAL</p>
+                    <p class="italic text-gray-500 mb-3 text-[12px]">iniziato da: 56 min</p>
 
-            <div class="premium-card rounded-3xl overflow-hidden group flex flex-col">
-                <div class="w-full aspect-[4/3] relative overflow-hidden bg-brand-dark/50">
-                    <img src="1000372165.jpeg" loading="lazy" decoding="async" alt="Attaccante AI" class="image-reveal absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0">
+                    <p class="text-[#00E676] text-lg sm:text-xl tracking-[0.1em] mb-1 leading-none">🟩🟩🟩🟩🟩🟩🟩</p>
+                    <p class="font-bold mb-4 text-[13px] sm:text-[14px]">LIVE SIGNAL</p>
+
+                    <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">📊 DATI OPERATIVI</p>
+                    <div class="space-y-0.5 mb-4 pl-1 text-[13px] sm:text-[14px]">
+                        <p>🔹 <span class="font-bold">STRATEGIA:</span> Punta Favorita</p>
+                        <p>🔹 <span class="font-bold">MERCATO:</span> Esito Finale (1)</p>
+                        <p>🔹 <span class="font-bold text-[#229ED9]">ENTRY: 1.35</span></p>
+                        <p>🔹 <span class="font-bold">STAKE:</span> 5%</p>
+                        <p>🔹 <span class="font-bold">LIQUIDITÀ:</span> € 184.500</p>
+                    </div>
+
+                    <div class="w-[50%] h-[3px] bg-black rounded-full mb-4"></div>
+
+                    <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">🛡️ GESTIONE RISCHIO</p>
+                    <div class="space-y-1 mb-4 pl-1 text-[13px] sm:text-[14px]">
+                        <p>🛑 <span class="font-bold">STOP LOSS:</span> Uscita totale al minuto 82'.</p>
+                        <p>✅ <span class="font-bold text-[#27ae60]">TAKE PROFIT:</span> Green Up immediato al 1° goal.</p>
+                        <p class="text-[#D32F2F] font-bold mt-1 text-[12px] sm:text-[13px] leading-tight">❗ In caso di goal subito (0-1), attendere 5 min per reazione.</p>
+                    </div>
+
+                    <div class="w-[50%] h-[3px] bg-black rounded-full mb-4"></div>
+
+                    <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">🧠 ANALISI (Sintesi)</p>
+                    <div class="space-y-1.5 mb-2 pl-1 text-[12.5px] sm:text-[13.5px] text-gray-800">
+                        <p>📈 <span class="font-bold text-black">Dominio:</span> Possesso >60% in casa storica.</p>
+                        <p>📈 <span class="font-bold text-black">Timing:</span> +40% dei goal arriva tra 60' e 90'.</p>
+                        <p>📈 <span class="font-bold text-black">Gap Tecnico:</span> Rosa brasiliana 6x superiore, pressione asfissiante in ripresa.</p>
+                    </div>
+
+                    <!-- Footer Bubble con Orario -->
+                    <div class="flex justify-end items-center text-gray-400 text-[10.5px] sm:text-[11px] font-medium gap-1.5 mt-2 -mb-1">
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-eye"></i> 124</span>
+                        <span>00:57</span>
+                    </div>
                 </div>
-                <div class="p-6 flex-grow">
-                    <h4 class="font-heading text-xl font-bold text-white mb-2 uppercase">Target Acquisito</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Esecuzione millimetrica con indicazioni precise di ingresso e cash-out.</p>
+            </div>
+            
+            <!-- Azione Telegram Sotto Mockup -->
+            <div class="bg-white p-3 sm:p-4 border-t border-gray-100">
+                <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 bg-[#229ED9] text-white text-[13px] sm:text-sm font-bold rounded-xl hover:bg-[#1c84b6] transition-colors shadow-md uppercase tracking-wider">
+                    Ricevi Queste Analisi Gratis
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARATTERISTICHE (Features con Glow Testuale) -->
+    <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            
+            <div class="premium-card rounded-2xl overflow-hidden group flex flex-col p-5 sm:p-6 hover:border-white/10 transition-colors">
+                <!-- Icona grande mobile-first -->
+                <div class="w-12 h-12 rounded-full bg-cyan-400/10 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-bolt text-cyan-400 text-xl drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"></i>
                 </div>
+                <h4 class="font-heading text-lg sm:text-xl font-black mb-2 uppercase tracking-wide">
+                    <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]">Anticipa il Mercato</span>
+                </h4>
+                <p class="text-gray-400 text-[13px] sm:text-sm leading-relaxed font-medium">L'A.I. individua le quote di valore millisecondi prima che i bookmaker si adeguino alla realtà del campo.</p>
+            </div>
+
+            <div class="premium-card rounded-2xl overflow-hidden group flex flex-col p-5 sm:p-6 hover:border-white/10 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-amber-400/10 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-shield-halved text-amber-400 text-xl drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]"></i>
+                </div>
+                <h4 class="font-heading text-lg sm:text-xl font-black mb-2 uppercase tracking-wide">
+                    <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(251,191,36,0.3)]">Protezione Capitale</span>
+                </h4>
+                <p class="text-gray-400 text-[13px] sm:text-sm leading-relaxed font-medium">Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.</p>
+            </div>
+
+            <div class="premium-card rounded-2xl overflow-hidden group flex flex-col p-5 sm:p-6 hover:border-white/10 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-[#27ae60]/10 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-sack-dollar text-brand-neon text-xl drop-shadow-[0_0_8px_rgba(39,174,96,0.5)]"></i>
+                </div>
+                <h4 class="font-heading text-lg sm:text-xl font-black mb-2 uppercase tracking-wide">
+                    <span class="bg-gradient-to-r from-[#27ae60] to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(39,174,96,0.3)]">Profitto Automatico</span>
+                </h4>
+                <p class="text-gray-400 text-[13px] sm:text-sm leading-relaxed font-medium">Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.</p>
             </div>
             
         </div>
     </section>
 
-    <footer class="bg-brand-dark py-16 border-t border-white/5 px-6">
-        <div class="max-w-md mx-auto flex flex-col gap-4">
+    <!-- FOOTER -->
+    <footer class="bg-[#020305] py-10 sm:py-16 border-t border-white/5 px-4 sm:px-6 mt-6 sm:mt-12">
+        <div class="max-w-sm mx-auto flex flex-col gap-3">
             
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" class="flex items-center gap-4 px-6 py-5 rounded-2xl bg-[#229ED9]/5 border border-[#229ED9]/20 hover:bg-[#229ED9]/10 transition-all group">
-                <i class="fa-brands fa-telegram text-[#229ED9] text-3xl"></i>
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-2xl bg-brand-surface border border-white/5 hover:border-[#229ED9]/30 transition-colors group">
+                <div class="w-10 h-10 rounded-full bg-[#229ED9]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-telegram text-[#229ED9] text-xl"></i>
+                </div>
                 <div class="text-left">
-                    <div class="text-white text-sm font-bold tracking-wide uppercase">Telegram</div>
-                    <div class="text-gray-500 text-[10px] font-mono mt-0.5">Segnali gratuiti su Telegram</div>
+                    <div class="text-white text-[13px] font-bold tracking-wider uppercase">Telegram</div>
+                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Segnali e Analisi Ufficiali</div>
                 </div>
             </a>
 
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" class="flex items-center gap-4 px-6 py-5 rounded-2xl bg-[#25D366]/5 border border-[#25D366]/20 hover:bg-[#25D366]/10 transition-all group">
-                <i class="fa-brands fa-whatsapp text-[#25D366] text-3xl"></i>
+            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-2xl bg-brand-surface border border-white/5 hover:border-[#25D366]/30 transition-colors group">
+                <div class="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-whatsapp text-[#25D366] text-xl"></i>
+                </div>
                 <div class="text-left">
-                    <div class="text-white text-sm font-bold tracking-wide uppercase">WhatsApp</div>
-                    <div class="text-gray-500 text-[10px] font-mono mt-0.5">News su WhatsApp</div>
+                    <div class="text-white text-[13px] font-bold tracking-wider uppercase">WhatsApp</div>
+                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Iscriviti al Canale News</div>
                 </div>
             </a>
 
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" class="flex items-center gap-4 px-6 py-5 rounded-2xl bg-[#FF0000]/5 border border-[#FF0000]/20 hover:bg-[#FF0000]/10 transition-all group">
-                <i class="fa-brands fa-youtube text-[#FF0000] text-2xl"></i>
+            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-2xl bg-brand-surface border border-white/5 hover:border-[#FF0000]/30 transition-colors group">
+                <div class="w-10 h-10 rounded-full bg-[#FF0000]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-youtube text-[#FF0000] text-[18px]"></i>
+                </div>
                 <div class="text-left">
-                    <div class="text-white text-sm font-bold tracking-wide uppercase">YouTube</div>
-                    <div class="text-gray-500 text-[10px] font-mono mt-0.5">Video corso su YouTube</div>
+                    <div class="text-white text-[13px] font-bold tracking-wider uppercase">YouTube</div>
+                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Video Formazione Gratuita</div>
                 </div>
             </a>
 
-            <div class="mt-12 text-center">
-                <p class="text-[10px] text-gray-700 font-mono tracking-widest uppercase mb-4">&copy; 2026 BETTING EXCHANGE ROOM<br>SISTEMI PREDITTIVI</p>
-                <p class="text-[9px] text-gray-800 leading-relaxed uppercase">
+            <div class="mt-8 text-center">
+                <p class="text-[9px] sm:text-[10px] text-gray-600 font-mono tracking-[0.2em] uppercase mb-3">&copy; 2026 BETTING EXCHANGE ROOM<br>SISTEMI PREDITTIVI</p>
+                <p class="text-[8.5px] sm:text-[9px] text-gray-700 leading-relaxed uppercase max-w-[250px] mx-auto">
                     Il gioco è vietato ai minori e può creare dipendenza. Gioca responsabilmente.
                 </p>
             </div>
         </div>
     </footer>
 
-    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-4">
+    <!-- WIDGET WHATSAPP FLUTTUANTE -->
+    <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3">
         <div class="hidden sm:block bg-brand-dark/95 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 text-white text-[10px] font-bold tracking-widest shadow-2xl">
-            CHIEDI INFO SU WHATSAPP
+            SUPPORTO DIRETTO
         </div>
-        <a href="https://wa.me/393482487172" target="_blank" class="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl shadow-2xl animate-pulse-wa hover:scale-110 transition-transform">
+        <a href="https://wa.me/393482487172" target="_blank" rel="noopener noreferrer" class="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] animate-pulse-wa hover:scale-110 transition-transform" aria-label="Contattaci su WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
 
+    <!-- SCRIPT OTTIMIZZATI (Deferiti a fine rendering) -->
     <script>
+        // Immagini lazy load fallback per sfumatura dolce
         document.addEventListener('DOMContentLoaded', () => {
             const images = document.querySelectorAll('.image-reveal');
             images.forEach(img => {
@@ -188,6 +355,8 @@
                     img.classList.add('loaded');
                 } else {
                     img.addEventListener('load', () => img.classList.add('loaded'));
+                    // Fallback se l'immagine è già in cache ma l'evento non scatta
+                    setTimeout(() => img.classList.add('loaded'), 150);
                 }
             });
         });
