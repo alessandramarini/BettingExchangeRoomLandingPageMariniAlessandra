@@ -58,11 +58,13 @@
         }
         .animate-pulse-wa { animation: gentle-pulse 3s ease-in-out infinite; }
         
-        .pb-safe { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+        .pb-safe { padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
         
+        /* Ottimizzazione Scrollbar Menu Lingue e App */
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
 
         /* Custom Glow utilities per testo */
         .glow-text-neon { text-shadow: 0 0 25px rgba(0, 223, 137, 0.8), 0 0 10px rgba(0, 223, 137, 0.5); }
@@ -74,141 +76,175 @@
 <body class="antialiased pb-safe selection:bg-brand-neon selection:text-white">
 
     <nav class="fixed w-full z-50 top-0 bg-brand-dark/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[60px] flex items-center gap-3">
-            <span class="text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">⚽</span>
-            <span class="font-heading font-bold text-[14px] sm:text-[17px] tracking-[0.15em] text-white uppercase truncate drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">Betting Exchange Room</span>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[56px] sm:h-[60px] flex items-center gap-3">
+            <span class="text-lg sm:text-2xl drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">⚽</span>
+            <span class="font-heading font-bold text-[13px] sm:text-[17px] tracking-[0.1em] sm:tracking-[0.15em] text-white uppercase truncate drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" data-i18n="nav_title">Betting Exchange Room</span>
+            
+            <!-- Language Selector Scrollabile -->
+            <div class="relative ml-auto group" tabindex="0">
+                <button class="flex items-center gap-1.5 text-white/80 hover:text-white text-[11px] sm:text-sm font-semibold transition-colors focus:outline-none px-2 py-2">
+                    <i class="fa-solid fa-globe"></i> <span id="current-lang">IT</span> <i class="fa-solid fa-chevron-down text-[9px] sm:text-[10px]"></i>
+                </button>
+                <div class="absolute right-0 mt-1 w-[140px] sm:w-[160px] bg-[#0d131c] border border-white/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible focus-within:opacity-100 focus-within:visible transition-all duration-200 z-50 overflow-y-auto max-h-[50vh] sm:max-h-[60vh] custom-scrollbar">
+                    <button onclick="setLang('it')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇮🇹 Italiano
+                    </button>
+                    <button onclick="setLang('en')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇬🇧 English
+                    </button>
+                    <button onclick="setLang('es')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇪🇸 Español
+                    </button>
+                    <button onclick="setLang('pt')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇧🇷 Português
+                    </button>
+                    <button onclick="setLang('fr')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇫🇷 Français
+                    </button>
+                    <button onclick="setLang('de')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇩🇪 Deutsch
+                    </button>
+                    <button onclick="setLang('ru')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇷🇺 Русский
+                    </button>
+                    <button onclick="setLang('zh')" class="w-full text-left px-4 py-3 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2">
+                        🇨🇳 中文
+                    </button>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <section class="relative z-10 pt-[100px] sm:pt-[130px] pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center">
+    <section class="relative z-10 pt-[88px] sm:pt-[130px] pb-6 sm:pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center">
         <!-- Badge -->
-        <div class="flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#00DF89]/15 border border-[#00DF89]/40 mb-6 sm:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(0,223,137,0.3)]">
-            <span class="relative flex h-2 w-2">
+        <div class="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-md bg-[#00DF89]/15 border border-[#00DF89]/40 mb-5 sm:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(0,223,137,0.3)]">
+            <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-100"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-neon shadow-[0_0_8px_#00DF89]"></span>
+                <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-brand-neon shadow-[0_0_8px_#00DF89]"></span>
             </span>
-            <span class="text-[10px] sm:text-xs font-bold text-white drop-shadow-[0_0_5px_rgba(0,223,137,0.8)] uppercase tracking-[0.2em]">TELEGRAM SIGNAL ACTIVE</span>
+            <span class="text-[9px] sm:text-xs font-bold text-white drop-shadow-[0_0_5px_rgba(0,223,137,0.8)] uppercase tracking-[0.15em] sm:tracking-[0.2em]" data-i18n="hero_badge">TELEGRAM SIGNAL ACTIVE</span>
         </div>
 
-        <!-- Titolo Principale con Effetti Personalizzati -->
-        <h1 class="font-heading text-[2.25rem] leading-[1.05] sm:text-[3.5rem] md:text-6xl lg:text-[6.5rem] font-extrabold text-center mb-6 sm:mb-8 tracking-tight uppercase">
-            <span class="bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] bg-clip-text text-transparent glow-text-silver">Vantaggio Matematico</span><br>
-            <span class="bg-gradient-to-r from-[#00DF89] to-[#6ee7b7] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(0,223,137,0.25)] block mt-2 sm:mt-3">Guidato dall'A.I.</span>
+        <!-- Titolo Principale -->
+        <h1 class="font-heading text-4xl leading-[1.1] sm:text-[3.5rem] md:text-6xl lg:text-[6.5rem] font-extrabold text-center mb-5 sm:mb-8 tracking-tight uppercase px-1">
+            <span class="bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] bg-clip-text text-transparent glow-text-silver" data-i18n="hero_title_1">Vantaggio Matematico</span><br>
+            <span class="bg-gradient-to-r from-[#00DF89] to-[#6ee7b7] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(0,223,137,0.25)] block mt-1.5 sm:mt-3" data-i18n="hero_title_2">Guidato dall'A.I.</span>
         </h1>
 
         <!-- FINTA ANTEPRIMA YOUTUBE -->
-        <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-8 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(0,223,137,0.25)] border border-white/20 relative aspect-video z-20 group cursor-pointer transition-transform duration-300 hover:scale-[1.02] bg-brand-surface">
+        <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-6 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(0,223,137,0.25)] border border-white/20 relative aspect-video z-20 group cursor-pointer transition-transform duration-300 hover:scale-[1.02] bg-brand-surface">
             <img src="https://img.youtube.com/vi/ogy_AMtDXdo/maxresdefault.jpg" loading="lazy" decoding="async" alt="Presentazione Video" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
             <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-10 sm:w-20 sm:h-14 bg-[#FF0000] rounded-lg sm:rounded-xl flex items-center justify-center shadow-[0_0_25px_rgba(255,0,0,0.7)] group-hover:bg-[#ff1a1a] transition-colors duration-300">
-                    <i class="fa-solid fa-play text-white text-lg sm:text-2xl ml-1"></i>
+                <div class="w-12 h-9 sm:w-20 sm:h-14 bg-[#FF0000] rounded-lg sm:rounded-xl flex items-center justify-center shadow-[0_0_25px_rgba(255,0,0,0.7)] group-hover:bg-[#ff1a1a] transition-colors duration-300">
+                    <i class="fa-solid fa-play text-white text-base sm:text-2xl ml-1"></i>
                 </div>
             </div>
-            <div class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-black/80 backdrop-blur-md text-white text-[9px] sm:text-xs font-bold px-3 py-1.5 rounded shadow-[0_0_10px_rgba(255,255,255,0.2)]">Guarda Ora</div>
+            <div class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-black/80 backdrop-blur-md text-white text-[8px] sm:text-xs font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded shadow-[0_0_10px_rgba(255,255,255,0.2)]" data-i18n="watch_now">Guarda Ora</div>
         </a>
 
         <div class="flex flex-col items-center w-full">
-            <p class="text-gray-300 text-center text-[15px] sm:text-lg md:text-[22px] max-w-2xl mx-auto mb-6 font-medium leading-relaxed px-2 drop-shadow-md">
+            <p class="text-gray-300 text-center text-[13.5px] sm:text-lg md:text-[22px] max-w-2xl mx-auto mb-5 sm:mb-6 font-medium leading-relaxed px-1 sm:px-2 drop-shadow-md" data-i18n="hero_subtitle">
                 Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.
             </p>
 
-            <div class="flex items-center gap-2 text-[11px] sm:text-sm text-gray-300 font-semibold bg-[#0d131c]/90 px-5 py-2 rounded-md border border-[#00DF89]/20 shadow-[0_0_15px_rgba(0,223,137,0.1)]">
-                <div class="flex text-[#FBBF24] text-[9px] sm:text-[11px] drop-shadow-[0_0_5px_rgba(251,191,36,0.8)]">
+            <div class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm text-gray-300 font-semibold bg-[#0d131c]/90 px-3 sm:px-5 py-1.5 sm:py-2 rounded-md border border-[#00DF89]/20 shadow-[0_0_15px_rgba(0,223,137,0.1)]">
+                <div class="flex text-[#FBBF24] text-[8px] sm:text-[11px] drop-shadow-[0_0_5px_rgba(251,191,36,0.8)]">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <span>Unisciti alla nostra <strong class="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Community</strong></span>
+                <span><span data-i18n="join_community">Unisciti alla nostra</span> <strong class="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]" data-i18n="community">Community</strong></span>
             </div>
         </div>
     </section>
 
     <!-- STATS BAR -->
-    <section class="px-4 sm:px-6 max-w-2xl mx-auto mb-12 sm:mb-16 relative z-20">
+    <section class="px-4 sm:px-6 max-w-2xl mx-auto mb-8 sm:mb-16 relative z-20">
         <div class="grid grid-cols-2 bg-[#0a0f16] border border-[#00DF89]/20 rounded-xl shadow-[0_0_30px_rgba(0,223,137,0.1)] divide-x divide-white/10 relative overflow-hidden">
-            <!-- Luce di sfondo interna -->
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#00DF89]/5 to-transparent pointer-events-none"></div>
             
-            <div class="text-center p-5 relative z-10">
-                <div class="text-white font-heading font-extrabold text-3xl sm:text-4xl tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">24/7</div>
-                <div class="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-[0.2em] mt-1 font-bold">Scansione A.I.</div>
+            <div class="text-center p-3 sm:p-5 relative z-10">
+                <div class="text-white font-heading font-extrabold text-2xl sm:text-4xl tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">24/7</div>
+                <div class="text-[8px] sm:text-[10px] text-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em] mt-0.5 sm:mt-1 font-bold" data-i18n="stat_ai">Scansione A.I.</div>
             </div>
-            <div class="text-center p-5 bg-gradient-to-br from-transparent to-[#00DF89]/10 relative z-10">
-                <div class="text-brand-neon font-heading font-extrabold text-3xl sm:text-4xl tracking-tight glow-text-neon">100<span class="text-lg sm:text-xl">%</span></div>
-                <div class="text-[9px] sm:text-[10px] text-white uppercase tracking-[0.2em] mt-1 font-bold drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Gratuito</div>
+            <div class="text-center p-3 sm:p-5 bg-gradient-to-br from-transparent to-[#00DF89]/10 relative z-10">
+                <div class="text-brand-neon font-heading font-extrabold text-2xl sm:text-4xl tracking-tight glow-text-neon">100<span class="text-sm sm:text-xl">%</span></div>
+                <div class="text-[8px] sm:text-[10px] text-white uppercase tracking-[0.1em] sm:tracking-[0.2em] mt-0.5 sm:mt-1 font-bold drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]" data-i18n="stat_free">Gratuito</div>
             </div>
         </div>
     </section>
 
-    <section class="py-10 sm:py-16 px-4 sm:px-6 max-w-3xl mx-auto relative overflow-hidden sm:overflow-visible">
+    <section class="py-8 sm:py-16 px-4 sm:px-6 max-w-3xl mx-auto relative overflow-hidden sm:overflow-visible">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full bg-[#229ED9]/15 blur-[90px] rounded-full z-0 pointer-events-none"></div>
 
-        <div class="relative z-10 text-center mb-8 sm:mb-10">
-            <h2 class="font-heading text-[1.75rem] sm:text-4xl font-extrabold text-white uppercase tracking-tight mb-3 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">Trasparenza <span class="text-[#229ED9] drop-shadow-[0_0_20px_rgba(34,158,217,0.6)]">Assoluta</span></h2>
-            <p class="text-gray-300 text-[13px] sm:text-base max-w-lg mx-auto leading-relaxed drop-shadow-md">Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.</p>
+        <div class="relative z-10 text-center mb-6 sm:mb-10">
+            <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-white uppercase tracking-tight mb-2 sm:mb-3 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                <span data-i18n="trans_title_1">Trasparenza</span> <span class="text-[#229ED9] drop-shadow-[0_0_20px_rgba(34,158,217,0.6)]" data-i18n="trans_title_2">Assoluta</span>
+            </h2>
+            <p class="text-gray-300 text-[12px] sm:text-base max-w-lg mx-auto leading-relaxed drop-shadow-md" data-i18n="trans_desc">Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.</p>
         </div>
 
         <div class="relative z-10 bg-white rounded-xl sm:rounded-2xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.9)] border border-white/20 overflow-hidden mx-auto max-w-xl transition-transform hover:translate-y-[-2px] duration-300">
             
-            <div class="bg-[#f5f5f5] px-4 sm:px-5 py-3 border-b border-gray-300 flex justify-between items-center text-black">
-                <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-arrow-left text-gray-500 text-lg"></i>
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white shadow-md flex-shrink-0">
+            <div class="bg-[#f5f5f5] px-3 sm:px-5 py-2.5 sm:py-3 border-b border-gray-300 flex justify-between items-center text-black">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <i class="fa-solid fa-arrow-left text-gray-500 text-base sm:text-lg"></i>
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white shadow-md flex-shrink-0">
                         <img src="https://unavatar.io/youtube/bettingexchangeroom" loading="lazy" decoding="async" alt="Avatar" class="w-full h-full object-cover" onerror="this.src='WhatsApp Image 2026-04-17 at 11.27.02.jpeg'">
                     </div>
                     <div class="overflow-hidden">
-                        <div class="font-bold text-[14px] sm:text-[15px] tracking-tight leading-tight flex items-center gap-1 truncate">⚽ BETTING EXCHAN... <i class="fa-solid fa-circle-check text-[#229ED9] text-[10px] flex-shrink-0"></i></div>
-                        <div class="text-[#707579] text-[11px] sm:text-[12px] font-medium">Canale Ufficiale</div>
+                        <div class="font-bold text-[13px] sm:text-[15px] tracking-tight leading-tight flex items-center gap-1 truncate">⚽ BETTING EXCHAN... <i class="fa-solid fa-circle-check text-[#229ED9] text-[10px] flex-shrink-0"></i></div>
+                        <div class="text-[#707579] text-[10px] sm:text-[12px] font-medium" data-i18n="tg_official">Canale Ufficiale</div>
                     </div>
                 </div>
-                <i class="fa-solid fa-ellipsis-vertical text-gray-400 text-lg pl-2"></i>
+                <i class="fa-solid fa-ellipsis-vertical text-gray-400 text-base sm:text-lg pl-2"></i>
             </div>
             
-            <div class="p-4 sm:p-6 relative overflow-hidden custom-scrollbar flex justify-center" style="background-color: #E8EBE2;">
-                <div class="relative z-10 bg-white rounded-[12px] rounded-tl-sm p-4 sm:p-6 shadow-md text-[13.5px] sm:text-[15px] text-[#111] font-sans leading-[1.5] tracking-tight w-full sm:w-[95%]">
+            <div class="p-3 sm:p-6 relative overflow-hidden custom-scrollbar flex justify-center" style="background-color: #E8EBE2;">
+                <div class="relative z-10 bg-white rounded-[12px] rounded-tl-sm p-3.5 sm:p-6 shadow-md text-[12px] sm:text-[15px] text-[#111] font-sans leading-[1.4] sm:leading-[1.5] tracking-tight w-full sm:w-[95%]">
                     
-                    <p class="mb-1 text-[12px] sm:text-[13px]">⚽ <span class="text-[#D81B60] font-bold">BETTING EXCHANGE ROOM</span></p>
-                    <p class="font-extrabold text-[14.5px] sm:text-[16px] leading-snug">🤖 PALMEIRAS-SP VS SPORTING CRISTAL</p>
-                    <p class="italic text-gray-500 mb-3 text-[12px]">iniziato da: 56 min</p>
+                    <p class="mb-1 text-[11px] sm:text-[13px]">⚽ <span class="text-[#D81B60] font-bold">BETTING EXCHANGE ROOM</span></p>
+                    <p class="font-extrabold text-[13px] sm:text-[16px] leading-snug">🤖 PALMEIRAS-SP VS SPORTING CRISTAL</p>
+                    <p class="italic text-gray-500 mb-3 text-[11px] sm:text-[12px]" data-i18n="tg_started">iniziato da: 56 min</p>
 
-                    <p class="text-[#00E676] text-lg sm:text-xl tracking-[0.1em] mb-1 leading-none">🟩🟩🟩🟩🟩🟩🟩</p>
-                    <p class="font-bold mb-4 text-[13px] sm:text-[14px]">LIVE SIGNAL</p>
+                    <p class="text-[#00E676] text-base sm:text-xl tracking-[0.1em] mb-1 leading-none">🟩🟩🟩🟩🟩🟩🟩</p>
+                    <p class="font-bold mb-3 sm:mb-4 text-[12px] sm:text-[14px]" data-i18n="tg_live">LIVE SIGNAL</p>
 
-                    <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">📊 DATI OPERATIVI</p>
-                    <div class="space-y-0.5 mb-4 pl-1 text-[13px] sm:text-[14px]">
-                        <p>🔹 <span class="font-bold">STRATEGIA:</span> Punta Favorita</p>
-                        <p>🔹 <span class="font-bold">MERCATO:</span> Esito Finale (1)</p>
-                        <p>🔹 <span class="font-bold text-[#229ED9]">ENTRY: 1.35</span></p>
-                        <p>🔹 <span class="font-bold">STAKE:</span> 5%</p>
-                        <p>🔹 <span class="font-bold">LIQUIDITÀ:</span> € 184.500</p>
+                    <p class="font-bold mb-1 sm:mb-1.5 text-[13px] sm:text-[15px] flex items-center gap-1.5">📊 <span data-i18n="tg_data">DATI OPERATIVI</span></p>
+                    <div class="space-y-0.5 mb-3 sm:mb-4 pl-1 text-[12px] sm:text-[14px]">
+                        <p>🔹 <span class="font-bold" data-i18n="tg_strat">STRATEGIA:</span> <span data-i18n="tg_strat_val">Punta Favorita</span></p>
+                        <p>🔹 <span class="font-bold" data-i18n="tg_market">MERCATO:</span> <span data-i18n="tg_market_val">Esito Finale (1)</span></p>
+                        <p>🔹 <span class="font-bold text-[#229ED9]"><span data-i18n="tg_entry">ENTRY:</span> 1.35</span></p>
+                        <p>🔹 <span class="font-bold" data-i18n="tg_stake">STAKE:</span> 5%</p>
+                        <p>🔹 <span class="font-bold" data-i18n="tg_liq">LIQUIDITÀ:</span> € 184.500</p>
                     </div>
 
-                    <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-4"></div>
+                    <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-3 sm:mb-4"></div>
 
-                    <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">🛡️ GESTIONE RISCHIO</p>
-                    <div class="space-y-1 mb-4 pl-1 text-[13px] sm:text-[14px]">
-                        <p>🛑 <span class="font-bold">STOP LOSS:</span> Uscita totale al minuto 82'.</p>
-                        <p>✅ <span class="font-bold text-[#27ae60]">TAKE PROFIT:</span> Green Up immediato al 1° goal.</p>
-                        <p class="text-[#D32F2F] font-bold mt-1 text-[12px] sm:text-[13px] leading-tight">❗ In caso di goal subito (0-1), attendere 5 min per reazione.</p>
+                    <p class="font-bold mb-1 sm:mb-1.5 text-[13px] sm:text-[15px] flex items-center gap-1.5">🛡️ <span data-i18n="tg_risk">GESTIONE RISCHIO</span></p>
+                    <div class="space-y-1 mb-3 sm:mb-4 pl-1 text-[12px] sm:text-[14px]">
+                        <p>🛑 <span class="font-bold" data-i18n="tg_stop">STOP LOSS:</span> <span data-i18n="tg_stop_val">Uscita totale al minuto 82'.</span></p>
+                        <p>✅ <span class="font-bold text-[#27ae60]" data-i18n="tg_take">TAKE PROFIT:</span> <span data-i18n="tg_take_val">Green Up immediato al 1° goal.</span></p>
+                        <p class="text-[#D32F2F] font-bold mt-1 text-[11px] sm:text-[13px] leading-tight" data-i18n="tg_alert">❗ In caso di goal subito (0-1), attendere 5 min per reazione.</p>
                     </div>
 
-                    <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-4"></div>
+                    <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-3 sm:mb-4"></div>
 
-                    <p class="font-bold mb-1.5 text-[14px] sm:text-[15px] flex items-center gap-1.5">🧠 ANALISI (Sintesi)</p>
-                    <div class="space-y-1.5 mb-2 pl-1 text-[12.5px] sm:text-[13.5px] text-gray-700">
-                        <p>📈 <span class="font-bold text-black">Dominio:</span> Possesso >60% in casa storica.</p>
-                        <p>📈 <span class="font-bold text-black">Timing:</span> +40% dei goal arriva tra 60' e 90'.</p>
-                        <p>📈 <span class="font-bold text-black">Gap Tecnico:</span> Rosa brasiliana 6x superiore, pressione asfissiante in ripresa.</p>
+                    <p class="font-bold mb-1 sm:mb-1.5 text-[13px] sm:text-[15px] flex items-center gap-1.5">🧠 <span data-i18n="tg_analysis">ANALISI (Sintesi)</span></p>
+                    <div class="space-y-1 sm:space-y-1.5 mb-2 pl-1 text-[11.5px] sm:text-[13.5px] text-gray-700">
+                        <p>📈 <span class="font-bold text-black" data-i18n="tg_dom">Dominio:</span> <span data-i18n="tg_dom_val">Possesso >60% in casa storica.</span></p>
+                        <p>📈 <span class="font-bold text-black" data-i18n="tg_tim">Timing:</span> <span data-i18n="tg_tim_val">+40% dei goal arriva tra 60' e 90'.</span></p>
+                        <p>📈 <span class="font-bold text-black" data-i18n="tg_gap">Gap Tecnico:</span> <span data-i18n="tg_gap_val">Rosa brasiliana 6x superiore, pressione asfissiante in ripresa.</span></p>
                     </div>
 
-                    <div class="flex justify-end items-center text-gray-400 text-[10.5px] sm:text-[11px] font-medium gap-1.5 mt-2 -mb-1">
+                    <div class="flex justify-end items-center text-gray-400 text-[10px] sm:text-[11px] font-medium gap-1.5 mt-2 -mb-1">
                         <span class="flex items-center gap-1"><i class="fa-regular fa-eye"></i> 124</span>
                         <span>00:57</span>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white p-4 sm:p-5 border-t border-gray-200">
-                <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3.5 sm:py-4 bg-[#229ED9] text-white text-[13px] sm:text-[15px] font-bold rounded-lg hover:bg-[#1c84b6] transition-colors shadow-md uppercase tracking-wide">
+            <div class="bg-white p-3 sm:p-5 border-t border-gray-200">
+                <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 sm:py-4 bg-[#229ED9] text-white text-[12px] sm:text-[15px] font-bold rounded-lg hover:bg-[#1c84b6] transition-colors shadow-sm uppercase tracking-wide" data-i18n="tg_get_free">
                     Ricevi Queste Analisi Gratis
                 </a>
             </div>
@@ -217,19 +253,19 @@
 
     <!-- CARATTERISTICHE -->
     <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             
             <div class="trading-card rounded-xl overflow-hidden group flex flex-col transition-all hover:bg-brand-surface border hover:border-[#00DF89]/50 hover:shadow-[0_0_30px_rgba(0,223,137,0.15)]">
                 <div class="w-full aspect-[4/3] relative overflow-hidden bg-[#05080f]">
                     <img src="1000372165.jpeg" loading="lazy" decoding="async" alt="Attaccante AI" class="image-reveal absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-90 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] via-transparent to-transparent"></div>
                 </div>
-                <div class="p-5 sm:p-6 flex-grow relative z-10 -mt-6">
-                    <h4 class="font-heading text-lg sm:text-xl font-extrabold mb-2 uppercase tracking-wide flex items-center gap-2.5">
+                <div class="p-4 sm:p-6 flex-grow relative z-10 -mt-6">
+                    <h4 class="font-heading text-base sm:text-xl font-extrabold mb-1.5 sm:mb-2 uppercase tracking-wide flex items-center gap-2">
                         <i class="fa-solid fa-chart-line text-brand-neon drop-shadow-[0_0_8px_rgba(0,223,137,0.8)]"></i>
-                        <span class="text-brand-neon glow-text-neon">Profitto Automatico</span>
+                        <span class="text-brand-neon glow-text-neon" data-i18n="card1_title">Profitto Automatico</span>
                     </h4>
-                    <p class="text-gray-300 text-[13px] sm:text-sm leading-relaxed font-medium drop-shadow-sm">Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.</p>
+                    <p class="text-gray-300 text-[12px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card1_desc">Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.</p>
                 </div>
             </div>
 
@@ -238,12 +274,12 @@
                     <img src="1000372221.jpeg" loading="lazy" decoding="async" alt="Arbitro AI" class="image-reveal absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700 opacity-90 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] via-transparent to-transparent"></div>
                 </div>
-                <div class="p-5 sm:p-6 flex-grow relative z-10 -mt-6">
-                    <h4 class="font-heading text-lg sm:text-xl font-extrabold mb-2 uppercase tracking-wide flex items-center gap-2.5">
+                <div class="p-4 sm:p-6 flex-grow relative z-10 -mt-6">
+                    <h4 class="font-heading text-base sm:text-xl font-extrabold mb-1.5 sm:mb-2 uppercase tracking-wide flex items-center gap-2">
                         <i class="fa-solid fa-shield-halved text-[#FBBF24] drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]"></i>
-                        <span class="text-[#FBBF24] glow-text-amber">Protezione Capitale</span>
+                        <span class="text-[#FBBF24] glow-text-amber" data-i18n="card2_title">Protezione Capitale</span>
                     </h4>
-                    <p class="text-gray-300 text-[13px] sm:text-sm leading-relaxed font-medium drop-shadow-sm">Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.</p>
+                    <p class="text-gray-300 text-[12px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card2_desc">Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.</p>
                 </div>
             </div>
 
@@ -252,12 +288,12 @@
                     <img src="1000372160.jpeg" loading="lazy" decoding="async" alt="Portiere AI" class="image-reveal absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-90 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] via-transparent to-transparent"></div>
                 </div>
-                <div class="p-5 sm:p-6 flex-grow relative z-10 -mt-6">
-                    <h4 class="font-heading text-lg sm:text-xl font-extrabold mb-2 uppercase tracking-wide flex items-center gap-2.5">
+                <div class="p-4 sm:p-6 flex-grow relative z-10 -mt-6">
+                    <h4 class="font-heading text-base sm:text-xl font-extrabold mb-1.5 sm:mb-2 uppercase tracking-wide flex items-center gap-2">
                         <i class="fa-solid fa-bolt text-[#00D2FF] drop-shadow-[0_0_8px_rgba(0,210,255,0.8)]"></i>
-                        <span class="text-[#00D2FF] glow-text-cyan">Scansione Real-Time</span>
+                        <span class="text-[#00D2FF] glow-text-cyan" data-i18n="card3_title">Scansione Real-Time</span>
                     </h4>
-                    <p class="text-gray-300 text-[13px] sm:text-sm leading-relaxed font-medium drop-shadow-sm">L'A.I. monitora simultaneamente centinaia di match, elaborando quantità enormi di dati in tempo reale per estrarre solo il vero valore statistico.</p>
+                    <p class="text-gray-300 text-[12px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card3_desc">L'A.I. monitora simultaneamente centinaia di match, elaborando quantità enormi di dati in tempo reale per estrarre solo il vero valore statistico.</p>
                 </div>
             </div>
             
@@ -265,71 +301,504 @@
     </section>
 
     <!-- IMMAGINE COPERTINA IN BASSO -->
-    <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-6xl mx-auto">
-        <div class="relative w-full h-[35vh] sm:h-[45vh] min-h-[250px] rounded-xl sm:rounded-2xl overflow-hidden border border-[#00DF89]/30 shadow-[0_0_40px_rgba(0,223,137,0.25)] group bg-[#05080f]">
+    <section class="py-6 sm:py-12 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[200px] sm:min-h-[250px] rounded-xl sm:rounded-2xl overflow-hidden border border-[#00DF89]/30 shadow-[0_0_40px_rgba(0,223,137,0.25)] group bg-[#05080f]">
             <img src="WhatsApp Image 2026-04-08 at 14.53.22 (1).jpeg" loading="lazy" alt="Copertura Intelligenza Artificiale Betting" class="absolute inset-0 w-full h-full object-cover object-[center_30%] image-reveal loaded group-hover:scale-[1.03] transition-transform duration-1000">
         </div>
     </section>
 
-    <footer class="bg-[#020305] py-10 sm:py-16 border-t border-white/5 px-4 sm:px-6 mt-4">
-        <div class="max-w-sm mx-auto flex flex-col gap-3">
+    <footer class="bg-[#020305] py-8 sm:py-16 border-t border-white/5 px-4 sm:px-6 mt-2 sm:mt-4">
+        <div class="max-w-sm mx-auto flex flex-col gap-2.5 sm:gap-3">
             
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#229ED9]/50 transition-colors group">
-                <div class="w-10 h-10 rounded-md bg-[#229ED9]/15 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-brands fa-telegram text-[#229ED9] text-xl"></i>
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 sm:gap-4 px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#229ED9]/50 transition-colors group">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#229ED9]/15 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-telegram text-[#229ED9] text-lg sm:text-xl"></i>
                 </div>
                 <div class="text-left">
-                    <div class="text-white text-[13px] font-bold tracking-widest uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">Telegram</div>
-                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Segnali e Analisi Ufficiali</div>
+                    <div class="text-white text-[12px] sm:text-[13px] font-bold tracking-widest uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">Telegram</div>
+                    <div class="text-gray-500 text-[9px] sm:text-[11px] mt-0.5" data-i18n="ft_tg_sub">Segnali e Analisi Ufficiali</div>
                 </div>
             </a>
 
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#25D366]/50 transition-colors group">
-                <div class="w-10 h-10 rounded-md bg-[#25D366]/15 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-brands fa-whatsapp text-[#25D366] text-xl"></i>
+            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 sm:gap-4 px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#25D366]/50 transition-colors group">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#25D366]/15 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-whatsapp text-[#25D366] text-lg sm:text-xl"></i>
                 </div>
                 <div class="text-left">
-                    <div class="text-white text-[13px] font-bold tracking-widest uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">WhatsApp</div>
-                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Iscriviti al Canale News</div>
+                    <div class="text-white text-[12px] sm:text-[13px] font-bold tracking-widest uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">WhatsApp</div>
+                    <div class="text-gray-500 text-[9px] sm:text-[11px] mt-0.5" data-i18n="ft_wa_sub">Iscriviti al Canale News</div>
                 </div>
             </a>
 
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#FF0000]/50 transition-colors group">
-                <div class="w-10 h-10 rounded-md bg-[#FF0000]/15 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-brands fa-youtube text-[#FF0000] text-[18px]"></i>
+            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 sm:gap-4 px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl bg-[#0a0f16] border border-white/5 hover:border-[#FF0000]/50 transition-colors group">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#FF0000]/15 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-youtube text-[#FF0000] text-[16px] sm:text-[18px]"></i>
                 </div>
                 <div class="text-left">
-                    <div class="text-white text-[13px] font-bold tracking-widest uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">YouTube</div>
-                    <div class="text-gray-500 text-[10px] sm:text-[11px] mt-0.5">Video Formazione Gratuita</div>
+                    <div class="text-white text-[12px] sm:text-[13px] font-bold tracking-widest uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">YouTube</div>
+                    <div class="text-gray-500 text-[9px] sm:text-[11px] mt-0.5" data-i18n="ft_yt_sub">Video Formazione Gratuita</div>
                 </div>
             </a>
 
-            <div class="mt-8 text-center">
-                <p class="text-[9px] sm:text-[10px] text-gray-600 font-mono tracking-[0.2em] uppercase mb-2">&copy; 2026 BETTING EXCHANGE ROOM</p>
-                <p class="text-[8.5px] sm:text-[9px] text-gray-700 leading-relaxed uppercase max-w-[250px] mx-auto">
+            <div class="mt-6 sm:mt-8 text-center">
+                <p class="text-[8px] sm:text-[10px] text-gray-600 font-mono tracking-[0.2em] uppercase mb-1.5 sm:mb-2">&copy; 2026 BETTING EXCHANGE ROOM</p>
+                <p class="text-[7.5px] sm:text-[9px] text-gray-700 leading-relaxed uppercase max-w-[250px] mx-auto" data-i18n="ft_disclaimer">
                     Il gioco è vietato ai minori e può creare dipendenza. Gioca responsabilmente.
                 </p>
             </div>
         </div>
     </footer>
 
-    <div class="fixed bottom-0 left-0 w-full z-50 bg-[#030509]/90 backdrop-blur-xl border-t border-white/10 px-3 py-3 sm:px-6 sm:py-4 shadow-[0_-10px_30px_rgba(0,0,0,0.9)]" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
-        <div class="max-w-5xl mx-auto flex items-center gap-2.5 sm:gap-4">
+    <div class="fixed bottom-0 left-0 w-full z-50 bg-[#030509]/95 backdrop-blur-xl border-t border-white/10 px-3 py-2.5 sm:px-6 sm:py-4 shadow-[0_-10px_30px_rgba(0,0,0,0.9)]" style="padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));">
+        <div class="max-w-5xl mx-auto flex items-center gap-2 sm:gap-4">
             
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex-grow px-2 py-3.5 sm:py-4 rounded-xl font-bold text-[13px] sm:text-[15px] tracking-[0.1em] flex items-center justify-center gap-2 sm:gap-3 active:scale-95 transition-all uppercase bg-gradient-to-r from-[#1c84b6] to-[#229ED9] text-white shadow-[0_0_15px_rgba(34,158,217,0.4)] border border-white/10 group">
-                <i class="fa-brands fa-telegram text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300"></i>
-                <span class="truncate">Entra nel Canale Gratuito</span>
+            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="flex-grow px-2 py-3 sm:py-4 rounded-xl font-bold text-[12px] sm:text-[15px] tracking-[0.05em] sm:tracking-[0.1em] flex items-center justify-center gap-1.5 sm:gap-3 active:scale-95 transition-all uppercase bg-gradient-to-r from-[#1c84b6] to-[#229ED9] text-white shadow-[0_0_15px_rgba(34,158,217,0.4)] border border-white/10 group">
+                <i class="fa-brands fa-telegram text-lg sm:text-2xl group-hover:scale-110 transition-transform duration-300"></i>
+                <span class="truncate" data-i18n="cta_button">Entra nel Canale Gratuito</span>
             </a>
             
-            <a href="https://wa.me/393482487172" target="_blank" rel="noopener noreferrer" class="w-[50px] h-[50px] sm:w-[56px] sm:h-[56px] flex-shrink-0 bg-[#25D366] rounded-xl flex items-center justify-center text-white text-2xl shadow-[0_0_15px_rgba(37,211,102,0.4)] animate-pulse-wa hover:scale-105 transition-transform" aria-label="Contattaci su WhatsApp">
+            <a href="https://wa.me/393482487172" target="_blank" rel="noopener noreferrer" class="w-[46px] h-[46px] sm:w-[56px] sm:h-[56px] flex-shrink-0 bg-[#25D366] rounded-xl flex items-center justify-center text-white text-xl sm:text-2xl shadow-[0_0_15px_rgba(37,211,102,0.4)] animate-pulse-wa hover:scale-105 transition-transform" aria-label="Contattaci su WhatsApp">
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
 
         </div>
     </div>
 
+    <!-- SCRIPT OTTIMIZZATI E GESTIONE LINGUE (i18n GLOBALE) -->
     <script>
+        const translations = {
+            it: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "Vantaggio Matematico",
+                hero_title_2: "Guidato dall'A.I.",
+                watch_now: "Guarda Ora",
+                hero_subtitle: "Smetti di scommettere a caso. Copia le operazioni ad <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.",
+                cta_button: "Entra nel Canale Gratuito",
+                join_community: "Unisciti alla nostra",
+                community: "Community",
+                stat_ai: "Scansione A.I.",
+                stat_free: "Gratuito",
+                trans_title_1: "Trasparenza",
+                trans_title_2: "Assoluta",
+                trans_desc: "Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.",
+                tg_official: "Canale Ufficiale",
+                tg_started: "iniziato da: 56 min",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "DATI OPERATIVI",
+                tg_strat: "STRATEGIA:",
+                tg_strat_val: "Punta Favorita",
+                tg_market: "MERCATO:",
+                tg_market_val: "Esito Finale (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "LIQUIDITÀ:",
+                tg_risk: "GESTIONE RISCHIO",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "Uscita totale al minuto 82'.",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "Green Up immediato al 1° goal.",
+                tg_alert: "❗ In caso di goal subito (0-1), attendere 5 min per reazione.",
+                tg_analysis: "ANALISI (Sintesi)",
+                tg_dom: "Dominio:",
+                tg_dom_val: "Possesso >60% in casa storica.",
+                tg_tim: "Timing:",
+                tg_tim_val: "+40% dei goal arriva tra 60' e 90'.",
+                tg_gap: "Gap Tecnico:",
+                tg_gap_val: "Rosa brasiliana 6x superiore, pressione asfissiante in ripresa.",
+                tg_get_free: "Ricevi Queste Analisi Gratis",
+                card1_title: "Profitto Automatico",
+                card1_desc: "Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.",
+                card2_title: "Protezione Capitale",
+                card2_desc: "Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.",
+                card3_title: "Scansione Real-Time",
+                card3_desc: "L'A.I. monitora simultaneamente centinaia di match, elaborando quantità enormi di dati in tempo reale per estrarre solo il vero valore statistico.",
+                ft_tg_sub: "Segnali e Analisi Ufficiali",
+                ft_wa_sub: "Iscriviti al Canale News",
+                ft_yt_sub: "Video Formazione Gratuita",
+                ft_disclaimer: "Il gioco è vietato ai minori e può creare dipendenza. Gioca responsabilmente."
+            },
+            en: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "Mathematical Edge",
+                hero_title_2: "Driven by A.I.",
+                watch_now: "Watch Now",
+                hero_subtitle: "Stop guessing. Copy <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">high-yield</strong> operations generated in real-time by our neural networks.",
+                cta_button: "Join the Free Channel",
+                join_community: "Join our",
+                community: "Community",
+                stat_ai: "A.I. Scanning",
+                stat_free: "Free",
+                trans_title_1: "Absolute",
+                trans_title_2: "Transparency",
+                trans_desc: "Here's what you'll get. A complete quantitative analysis, easy to copy for both beginners and professionals.",
+                tg_official: "Official Channel",
+                tg_started: "started: 56 mins ago",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "OPERATIONAL DATA",
+                tg_strat: "STRATEGY:",
+                tg_strat_val: "Back Favorite",
+                tg_market: "MARKET:",
+                tg_market_val: "Match Odds (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "LIQUIDITY:",
+                tg_risk: "RISK MANAGEMENT",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "Full exit at minute 82'.",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "Immediate Green Up after 1st goal.",
+                tg_alert: "❗ If conceding a goal (0-1), wait 5 mins for reaction.",
+                tg_analysis: "ANALYSIS (Summary)",
+                tg_dom: "Dominance:",
+                tg_dom_val: "Historical >60% home possession.",
+                tg_tim: "Timing:",
+                tg_tim_val: "+40% of goals scored between 60' and 90'.",
+                tg_gap: "Skill Gap:",
+                tg_gap_val: "Brazilian roster 6x superior, suffocating pressure in 2nd half.",
+                tg_get_free: "Get These Analyses for Free",
+                card1_title: "Automated Profit",
+                card1_desc: "Receive the notification, copy the exact trade and set the automated exit. Zero emotional stress, pure yield.",
+                card2_title: "Capital Protection",
+                card2_desc: "Mathematical risk management. We apply strict Money Management models to preserve your bankroll.",
+                card3_title: "Real-Time Scanning",
+                card3_desc: "The A.I. simultaneously monitors hundreds of matches, processing huge amounts of data to extract only true statistical value.",
+                ft_tg_sub: "Official Signals & Analysis",
+                ft_wa_sub: "Subscribe to News Channel",
+                ft_yt_sub: "Free Video Training",
+                ft_disclaimer: "Gambling is strictly prohibited for minors and can cause addiction. Play responsibly."
+            },
+            es: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "Ventaja Matemática",
+                hero_title_2: "Impulsado por I.A.",
+                watch_now: "Ver Ahora",
+                hero_subtitle: "Deja de apostar al azar. Copia operaciones de <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">alto rendimiento</strong> generadas en tiempo real por nuestras redes.",
+                cta_button: "Únete al Canal Gratis",
+                join_community: "Únete a nuestra",
+                community: "Comunidad",
+                stat_ai: "Escaneo I.A.",
+                stat_free: "Gratis",
+                trans_title_1: "Transparencia",
+                trans_title_2: "Absoluta",
+                trans_desc: "Esto es lo que recibirás. Un análisis cuantitativo completo, fácil de copiar para principiantes y profesionales.",
+                tg_official: "Canal Oficial",
+                tg_started: "empezó hace: 56 min",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "DATOS OPERATIVOS",
+                tg_strat: "ESTRATEGIA:",
+                tg_strat_val: "Apostar Favorito",
+                tg_market: "MERCADO:",
+                tg_market_val: "Resultado Final (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "LIQUIDEZ:",
+                tg_risk: "GESTIÓN DE RIESGO",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "Salida total al minuto 82'.",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "Green Up inmediato al 1° gol.",
+                tg_alert: "❗ En caso de gol en contra (0-1), esperar 5 min por reacción.",
+                tg_analysis: "ANÁLISIS (Síntesis)",
+                tg_dom: "Dominio:",
+                tg_dom_val: "Posesión histórica >60% en casa.",
+                tg_tim: "Timing:",
+                tg_tim_val: "+40% de los goles llegan entre 60' y 90'.",
+                tg_gap: "Brecha Técnica:",
+                tg_gap_val: "Plantilla brasileña 6x superior, presión asfixiante.",
+                tg_get_free: "Recibe Estos Análisis Gratis",
+                card1_title: "Beneficio Automático",
+                card1_desc: "Recibe la notificación, copia la operación exacta y configura la salida automática. Cero estrés emocional, puro rendimiento.",
+                card2_title: "Protección de Capital",
+                card2_desc: "Gestión matemática del riesgo. Aplicamos modelos estrictos de Money Management para preservar tu saldo.",
+                card3_title: "Escaneo Real-Time",
+                card3_desc: "La I.A. monitorea cientos de partidos simultáneamente, procesando datos en tiempo real para extraer el verdadero valor estadístico.",
+                ft_tg_sub: "Señales y Análisis Oficiales",
+                ft_wa_sub: "Suscríbete al Canal de Noticias",
+                ft_yt_sub: "Videotutoriales Gratis",
+                ft_disclaimer: "El juego está prohibido para menores y puede causar adicción. Juega de forma responsable."
+            },
+            pt: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "Vantagem Matemática",
+                hero_title_2: "Impulsionado por I.A.",
+                watch_now: "Assistir Agora",
+                hero_subtitle: "Pare de apostar ao acaso. Copie operações de <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">alto rendimento</strong> geradas em tempo real pelas nossas redes.",
+                cta_button: "Entrar no Canal",
+                join_community: "Junte-se à nossa",
+                community: "Comunidade",
+                stat_ai: "Escaneamento I.A.",
+                stat_free: "Gratuito",
+                trans_title_1: "Transparência",
+                trans_title_2: "Absoluta",
+                trans_desc: "Aqui está o que você receberá. Uma análise quantitativa completa, fácil de copiar para iniciantes e profissionais.",
+                tg_official: "Canal Oficial",
+                tg_started: "começou há: 56 min",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "DADOS OPERACIONAIS",
+                tg_strat: "ESTRATÉGIA:",
+                tg_strat_val: "Apostar no Favorito",
+                tg_market: "MERCADO:",
+                tg_market_val: "Resultado Final (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "LIQUIDEZ:",
+                tg_risk: "GESTÃO DE RISCO",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "Saída total no minuto 82'.",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "Green Up imediato no 1º gol.",
+                tg_alert: "❗ Em caso de gol sofrido (0-1), aguarde 5 min por reação.",
+                tg_analysis: "ANÁLISE (Síntese)",
+                tg_dom: "Domínio:",
+                tg_dom_val: "Posse histórica >60% em casa.",
+                tg_tim: "Timing:",
+                tg_tim_val: "+40% dos gols saem entre 60' e 90'.",
+                tg_gap: "Diferença Técnica:",
+                tg_gap_val: "Elenco brasileiro 6x superior, pressão sufocante.",
+                tg_get_free: "Receba Estas Análises Grátis",
+                card1_title: "Lucro Automático",
+                card1_desc: "Receba a notificação, copie a operação exata e defina a saída automática. Zero estresse emocional, rendimento puro.",
+                card2_title: "Proteção de Capital",
+                card2_desc: "Gestão matemática de risco. Aplicamos modelos rigorosos de Money Management para preservar sua banca.",
+                card3_title: "Escaneamento Real-Time",
+                card3_desc: "A I.A. monitora simultaneamente centenas de jogos, processando dados em tempo real para extrair apenas o verdadeiro valor estatístico.",
+                ft_tg_sub: "Sinais e Análises Oficiais",
+                ft_wa_sub: "Inscreva-se no Canal de Notícias",
+                ft_yt_sub: "Treinamento em Vídeo Grátis",
+                ft_disclaimer: "O jogo é proibido para menores e pode causar dependência. Jogue com responsabilidade."
+            },
+            fr: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "Avantage Math.",
+                hero_title_2: "Propulsé par l'I.A.",
+                watch_now: "Regarder",
+                hero_subtitle: "Arrêtez de parier au hasard. Copiez des opérations à <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">haut rendement</strong> générées en temps réel par nos réseaux.",
+                cta_button: "Rejoindre le Canal",
+                join_community: "Rejoignez notre",
+                community: "Communauté",
+                stat_ai: "Analyse I.A.",
+                stat_free: "Gratuit",
+                trans_title_1: "Transparence",
+                trans_title_2: "Absolue",
+                trans_desc: "Voici ce que vous recevrez. Une analyse quantitative complète, facile à copier pour les débutants et les pros.",
+                tg_official: "Canal Officiel",
+                tg_started: "commencé il y a: 56 min",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "DONNÉES OPÉRATIONNELLES",
+                tg_strat: "STRATÉGIE:",
+                tg_strat_val: "Parier sur le Favori",
+                tg_market: "MARCHÉ:",
+                tg_market_val: "Résultat Final (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "LIQUIDITÉ:",
+                tg_risk: "GESTION DES RISQUES",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "Sortie totale à la 82e minute.",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "Green Up immédiat au 1er but.",
+                tg_alert: "❗ En cas de but encaissé (0-1), attendez 5 min pour la réaction.",
+                tg_analysis: "ANALYSE (Synthèse)",
+                tg_dom: "Domination:",
+                tg_dom_val: "Possession historique >60% à domicile.",
+                tg_tim: "Timing:",
+                tg_tim_val: "+40% des buts marqués entre 60' et 90'.",
+                tg_gap: "Écart Technique:",
+                tg_gap_val: "Effectif brésilien 6x supérieur, pression étouffante.",
+                tg_get_free: "Recevez ces Analyses Gratis",
+                card1_title: "Profit Automatique",
+                card1_desc: "Recevez la notification, copiez l'opération exacte et configurez la sortie automatique. Zéro stress, pur rendement.",
+                card2_title: "Protection du Capital",
+                card2_desc: "Gestion mathématique des risques. Nous appliquons des modèles stricts pour préserver votre capital.",
+                card3_title: "Analyse Real-Time",
+                card3_desc: "L'I.A. surveille simultanément des centaines de matchs, traitant d'énormes quantités de données pour extraire la vraie valeur.",
+                ft_tg_sub: "Signaux et Analyses Officiels",
+                ft_wa_sub: "Abonnez-vous aux News",
+                ft_yt_sub: "Formation Vidéo Gratuite",
+                ft_disclaimer: "Le jeu est interdit aux mineurs et peut créer une dépendance. Jouez de manière responsable."
+            },
+            de: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "Math. Vorteil",
+                hero_title_2: "Gesteuert durch K.I.",
+                watch_now: "Ansehen",
+                hero_subtitle: "Hör auf zu raten. Kopiere <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">renditestarke</strong> Operationen, die in Echtzeit von unseren Netzwerken erstellt werden.",
+                cta_button: "Kanal beitreten",
+                join_community: "Tritt unserer",
+                community: "Community bei",
+                stat_ai: "K.I. Analyse",
+                stat_free: "Kostenlos",
+                trans_title_1: "Absolute",
+                trans_title_2: "Transparenz",
+                trans_desc: "Das wirst du erhalten. Eine vollständige quantitative Analyse, leicht zu kopieren für Anfänger und Profis.",
+                tg_official: "Offizieller Kanal",
+                tg_started: "gestartet vor: 56 Min",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "OPERATIVE DATEN",
+                tg_strat: "STRATEGIE:",
+                tg_strat_val: "Favorit Backen",
+                tg_market: "MARKT:",
+                tg_market_val: "Endergebnis (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "LIQUIDITÄT:",
+                tg_risk: "RISIKOMANAGEMENT",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "Kompletter Ausstieg in der 82. Minute.",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "Sofortiges Green Up nach dem 1. Tor.",
+                tg_alert: "❗ Bei Gegentor (0-1), 5 Min auf Reaktion warten.",
+                tg_analysis: "ANALYSE (Zusammenfassung)",
+                tg_dom: "Dominanz:",
+                tg_dom_val: "Historisch >60% Ballbesitz zu Hause.",
+                tg_tim: "Timing:",
+                tg_tim_val: "+40% der Tore fallen zwischen 60' und 90'.",
+                tg_gap: "Qualitätsunterschied:",
+                tg_gap_val: "Brasilianischer Kader 6x stärker, extremer Druck.",
+                tg_get_free: "Erhalte Analysen kostenlos",
+                card1_title: "Automatischer Profit",
+                card1_desc: "Erhalte die Benachrichtigung, kopiere den Trade und stelle den Auto-Exit ein. Null emotionaler Stress.",
+                card2_title: "Kapitalschutz",
+                card2_desc: "Mathematisches Risikomanagement. Wir wenden strikte Money-Management-Modelle an, um dein Geld zu schützen.",
+                card3_title: "Real-Time Scan",
+                card3_desc: "Die K.I. überwacht hunderte Spiele gleichzeitig und verarbeitet riesige Datenmengen für wahren statistischen Wert.",
+                ft_tg_sub: "Offizielle Signale & Analysen",
+                ft_wa_sub: "News-Kanal abonnieren",
+                ft_yt_sub: "Kostenloses Video-Training",
+                ft_disclaimer: "Glücksspiel ist für Minderjährige verboten und kann süchtig machen. Spiele verantwortungsbewusst."
+            },
+            ru: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "Мат. Преимущество",
+                hero_title_2: "Управляется И.И.",
+                watch_now: "Смотреть",
+                hero_subtitle: "Хватит угадывать. Копируйте <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">высокодоходные</strong> сделки, созданные в реальном времени.",
+                cta_button: "Присоединиться",
+                join_community: "Присоединяйтесь к",
+                community: "Сообществу",
+                stat_ai: "Скан И.И.",
+                stat_free: "Бесплатно",
+                trans_title_1: "Абсолютная",
+                trans_title_2: "Прозрачность",
+                trans_desc: "Вот что вы получите. Полный количественный анализ, легко копируемый как новичками, так и профи.",
+                tg_official: "Официальный Канал",
+                tg_started: "началось: 56 мин назад",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "ОПЕРАТИВНЫЕ ДАННЫЕ",
+                tg_strat: "СТРАТЕГИЯ:",
+                tg_strat_val: "Ставка на Фаворита",
+                tg_market: "РЫНОК:",
+                tg_market_val: "Исход Матча (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "ЛИКВИДНОСТЬ:",
+                tg_risk: "УПРАВЛЕНИЕ РИСКАМИ",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "Полный выход на 82-й минуте.",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "Мгновенный Green Up после 1-го гола.",
+                tg_alert: "❗ При пропущенном голе (0-1) ждите 5 мин.",
+                tg_analysis: "АНАЛИЗ (Сводка)",
+                tg_dom: "Доминирование:",
+                tg_dom_val: "Историческое владение >60% дома.",
+                tg_tim: "Тайминг:",
+                tg_tim_val: "+40% голов забивается между 60' и 90'.",
+                tg_gap: "Разрыв в классе:",
+                tg_gap_val: "Состав бразильцев в 6 раз сильнее.",
+                tg_get_free: "Аналитика Бесплатно",
+                card1_title: "Автоматическая Прибыль",
+                card1_desc: "Получите уведомление, скопируйте сделку и настройте автовыход. Ноль стресса, чистая прибыль.",
+                card2_title: "Защита Капитала",
+                card2_desc: "Математическое управление рисками. Строгие модели сохранения банкролла.",
+                card3_title: "Real-Time Сканирование",
+                card3_desc: "И.И. мониторит сотни матчей одновременно, извлекая только истинную статистическую ценность.",
+                ft_tg_sub: "Официальные Сигналы",
+                ft_wa_sub: "Подписаться на Новости",
+                ft_yt_sub: "Бесплатное Обучение",
+                ft_disclaimer: "Азартные игры запрещены для несовершеннолетних и могут вызывать зависимость."
+            },
+            zh: {
+                nav_title: "Betting Exchange Room",
+                hero_badge: "TELEGRAM SIGNAL ACTIVE",
+                hero_title_1: "数学优势",
+                hero_title_2: "AI 人工智能驱动",
+                watch_now: "立即观看",
+                hero_subtitle: "停止盲目下注。复制由我们的神经网络实时生成的 <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">高收益</strong> 交易。",
+                cta_button: "加入免费频道",
+                join_community: "加入我们的",
+                community: "社区",
+                stat_ai: "AI 实时扫描",
+                stat_free: "完全免费",
+                trans_title_1: "绝对的",
+                trans_title_2: "透明度",
+                trans_desc: "这是您将收到的内容。完整的量化分析，无论是新手还是专业人士都易于复制。",
+                tg_official: "官方频道",
+                tg_started: "已开始：56 分钟",
+                tg_live: "LIVE SIGNAL",
+                tg_data: "操作数据",
+                tg_strat: "策略:",
+                tg_strat_val: "支持热门",
+                tg_market: "市场:",
+                tg_market_val: "全场赛果 (1)",
+                tg_entry: "ENTRY:",
+                tg_stake: "STAKE:",
+                tg_liq: "流动性:",
+                tg_risk: "风险管理",
+                tg_stop: "STOP LOSS:",
+                tg_stop_val: "第 82 分钟全部平仓",
+                tg_take: "TAKE PROFIT:",
+                tg_take_val: "进第1球后立即获利了结",
+                tg_alert: "❗ 如果失球 (0-1)，等待 5 分钟观察反应。",
+                tg_analysis: "分析（摘要）",
+                tg_dom: "统治力:",
+                tg_dom_val: "历史主场控球率 >60%",
+                tg_tim: "时间:",
+                tg_tim_val: "40% 的进球发生在 60 到 90 分钟之间",
+                tg_gap: "技术差距:",
+                tg_gap_val: "巴西阵容实力高出6倍，压迫感极强",
+                tg_get_free: "免费获取这些分析",
+                card1_title: "自动盈利",
+                card1_desc: "接收通知，复制精确交易并设置自动退出。零情绪压力，纯粹收益。",
+                card2_title: "资金保护",
+                card2_desc: "数学风险管理。我们应用严格的资金管理模型来保护您的本金。",
+                card3_title: "实时扫描",
+                card3_desc: "AI 同时监控数百场比赛，实时处理海量数据，仅提取真实的统计价值。",
+                ft_tg_sub: "官方信号与分析",
+                ft_wa_sub: "订阅新闻频道",
+                ft_yt_sub: "免费视频培训",
+                ft_disclaimer: "未成年人严禁参与赌博，赌博可能导致沉迷。请理性游戏。"
+            }
+        };
+
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('current-lang').textContent = lang.toUpperCase();
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            localStorage.setItem('preferredLang', lang);
+            
+            // Chiude il menu su mobile
+            document.activeElement.blur();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang') || (navigator.language.startsWith('it') ? 'it' : 'en');
+            // Assicurati che la lingua sia supportata, altrimenti usa inglese di default
+            const langToSet = translations[savedLang] ? savedLang : 'en';
+            setLang(langToSet);
+
             const images = document.querySelectorAll('.image-reveal');
             images.forEach(img => {
                 if (img.complete) {
