@@ -11,7 +11,9 @@
     <!-- Forza la cache globale CDN di Vercel per 1 anno (statica), con aggiornamento in background -->
     <meta http-equiv="Cache-Control" content="public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400">
     
-    <title>⚽ BETTING EXCHANGE ROOM</title>
+    <title>BETTING EXCHANGE ROOM</title>
+    <!-- Aggiunta Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo sfondo nero betting exchange room.jpeg">
     
     <!-- Pre-connessioni ai CDN critici per massima velocità -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,13 +46,20 @@
         html { 
             -webkit-text-size-adjust: 100%; 
             text-rendering: optimizeLegibility; 
-            -webkit-tap-highlight-color: transparent; 
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation; /* Ottimizzazione Mobile: rimuove il delay di 300ms al tocco */
         }
         body { 
             background-color: #030509; 
             color: #e2e8f0; 
             overflow-x: hidden; 
             overscroll-behavior-y: none; 
+        }
+
+        /* Ottimizzazione del rendering per aumentare la fluidità in scroll su smartphone */
+        section {
+            content-visibility: auto;
+            contain-intrinsic-size: 1000px;
         }
         
         .trading-card { 
@@ -65,7 +74,14 @@
             0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 223, 137, 0.3); }
             50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 223, 137, 0.7); }
         }
-        .animate-pulse-wa { animation: gentle-pulse 3s ease-in-out infinite; }
+        .animate-pulse-wa { 
+            animation: gentle-pulse 3s ease-in-out infinite; 
+            will-change: transform, box-shadow; /* Accelerazione hardware per animazioni fluide */
+        }
+        
+        .lazy-reveal {
+            will-change: opacity, transform, filter; /* Accelerazione hardware per le immagini */
+        }
         
         .pb-safe { padding-bottom: calc(85px + env(safe-area-inset-bottom)); }
         
@@ -85,7 +101,7 @@
     <!-- NAVBAR NATIVA -->
     <nav class="fixed w-full z-50 top-0 bg-brand-dark/85 backdrop-blur-xl backdrop-saturate-150 border-b border-white/5 transition-all duration-300 shadow-sm" style="padding-top: env(safe-area-inset-top);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[56px] sm:h-[60px] flex items-center gap-2.5 sm:gap-3">
-            <span class="text-lg sm:text-2xl drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">⚽</span>
+            <img src="logo sfondo nero betting exchange room.jpeg" alt="Logo" class="h-[18px] w-[18px] sm:h-[24px] sm:w-[24px] rounded-full object-cover drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">
             <span class="font-heading font-bold text-[12.5px] sm:text-[17px] tracking-[0.1em] sm:tracking-[0.15em] text-white uppercase truncate drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" data-i18n="nav_title">Betting Exchange Room</span>
             
             <div class="relative ml-auto group" tabindex="0">
@@ -106,6 +122,7 @@
                     <button onclick="setLang('ro')" class="w-full text-left px-4 py-3.5 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-3 border-b border-white/5">🇷🇴 Română</button>
                     <button onclick="setLang('hi')" class="w-full text-left px-4 py-3.5 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-3 border-b border-white/5">🇮🇳 हिन्दी</button>
                     <button onclick="setLang('ar')" class="w-full text-left px-4 py-3.5 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-3 border-b border-white/5">🇸🇦 العربية</button>
+                    <button onclick="setLang('zh')" class="w-full text-left px-4 py-3.5 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-3 border-b border-white/5">🇨🇳 中文</button>
                     <button onclick="setLang('ja')" class="w-full text-left px-4 py-3.5 text-[13px] sm:text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-3">🇯🇵 日本語</button>
                 </div>
             </div>
@@ -184,8 +201,8 @@
             <div class="bg-[#f5f5f5] px-3 sm:px-5 py-2.5 sm:py-3 border-b border-gray-300 flex justify-between items-center text-black">
                 <div class="flex items-center gap-2 sm:gap-3">
                     <i class="fa-solid fa-arrow-left text-gray-500 text-base sm:text-lg"></i>
-                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white shadow-md flex-shrink-0">
-                        <img src="https://unavatar.io/youtube/bettingexchangeroom" loading="lazy" decoding="async" alt="Avatar" class="w-full h-full object-cover" onerror="this.src='WhatsApp Image 2026-04-17 at 11.27.02.jpeg'">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-[#030509] border border-white/10 shadow-md flex-shrink-0">
+                        <img src="logo sfondo nero betting exchange room.jpeg" loading="lazy" decoding="async" alt="Avatar" class="w-full h-full object-cover">
                     </div>
                     <div class="overflow-hidden">
                         <div class="font-bold text-[13px] sm:text-[15px] tracking-tight leading-tight flex items-center gap-1 truncate">⚽ BETTING EXCHAN... <i class="fa-solid fa-circle-check text-[#229ED9] text-[10px] flex-shrink-0"></i></div>
