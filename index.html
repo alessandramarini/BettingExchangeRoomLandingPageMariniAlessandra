@@ -9,17 +9,19 @@
     
     <!-- OTTIMIZZAZIONE VERCEL EDGE CACHING -->
     <meta http-equiv="Cache-Control" content="public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://i.ytimg.com">
     
     <title>BETTING EXCHANGE ROOM</title>
     <!-- Aggiunta Favicon -->
     <link rel="icon" type="image/jpeg" href="logo sfondo nero betting exchange room.jpeg">
     
     <!-- Pre-connessioni ai CDN critici per massima velocità -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://i.ytimg.com">
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -35,7 +37,6 @@
                         heading: ['"Plus Jakarta Sans"', 'sans-serif'] 
                     },
                     colors: { 
-                        // Verde pisello brillante ma meno accecante
                         brand: { dark: '#030509', surface: '#0d131c', neon: '#A3E635' } 
                     }
                 }
@@ -47,7 +48,7 @@
             -webkit-text-size-adjust: 100%; 
             text-rendering: optimizeLegibility; 
             -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation; /* Ottimizzazione Mobile */
+            touch-action: manipulation; /* Ottimizzazione Mobile: clic istantanei */
         }
         body { 
             background-color: #030509; 
@@ -56,10 +57,10 @@
             overscroll-behavior-y: none; 
         }
 
-        /* Ottimizzazione del rendering */
+        /* Ottimizzazione estrema del rendering per Vercel/Mobile */
         section {
             content-visibility: auto;
-            contain-intrinsic-size: 1000px;
+            contain-intrinsic-size: auto 800px;
         }
         
         .trading-card { 
@@ -68,6 +69,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            will-change: transform;
         }
 
         @keyframes gentle-pulse {
@@ -79,14 +81,15 @@
             will-change: transform, box-shadow; 
         }
 
-        /* Nuova animazione pulsante azzurra per Telegram */
-        @keyframes gentle-pulse-tg {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(34, 158, 217, 0.2); }
-            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(34, 158, 217, 0.5); }
+        /* Animazione Telegram migliorata: perfettamente circolare e senza sbavature */
+        @keyframes pulse-tg-circle {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(34, 158, 217, 0.4)); }
+            50% { transform: scale(1.12); filter: drop-shadow(0 0 12px rgba(34, 158, 217, 0.9)); }
         }
-        .animate-pulse-tg {
-            animation: gentle-pulse-tg 3s ease-in-out infinite; 
-            will-change: transform, box-shadow; 
+        .animate-pulse-tg-circle {
+            animation: pulse-tg-circle 2s ease-in-out infinite; 
+            will-change: transform, filter; 
+            border-radius: 50%;
         }
         
         .lazy-reveal {
@@ -100,7 +103,6 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
 
-        /* Effetti testo aggiornati per il verde pisello: Effetto Neon Ridotto */
         .glow-text-neon { text-shadow: 0 0 12px rgba(163, 230, 53, 0.25), 0 0 4px rgba(163, 230, 53, 0.15); }
         .glow-text-cyan { text-shadow: 0 0 20px rgba(0, 210, 255, 0.7); }
         .glow-text-amber { text-shadow: 0 0 20px rgba(251, 191, 36, 0.7); }
@@ -110,9 +112,10 @@
 
     <!-- NAVBAR NATIVA -->
     <nav class="fixed w-full z-50 top-0 bg-brand-dark/85 backdrop-blur-xl backdrop-saturate-150 border-b border-white/5 transition-all duration-300 shadow-sm" style="padding-top: env(safe-area-inset-top);">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[56px] sm:h-[70px] flex items-center gap-3 sm:gap-4">
-            <img src="logo sfondo nero betting exchange room.jpeg" alt="Logo" class="h-[32px] w-[32px] sm:h-[42px] sm:w-[42px] rounded-full object-cover drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] border border-white/20">
-            <span class="font-heading font-bold text-[13px] sm:text-[19px] tracking-[0.1em] sm:tracking-[0.15em] text-white uppercase truncate drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" data-i18n="nav_title">Betting Exchange Room</span>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[56px] sm:h-[70px] flex items-center gap-2 sm:gap-4">
+            <img src="logo sfondo nero betting exchange room.jpeg" alt="Logo" class="h-[28px] w-[28px] sm:h-[42px] sm:w-[42px] rounded-full object-cover drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] border border-white/20 flex-shrink-0">
+            <!-- Titolo Ridimensionato e in Giallo, niente troncamento -->
+            <span class="font-heading font-bold text-[10.5px] min-[375px]:text-[11.5px] sm:text-[18px] tracking-[0.05em] sm:tracking-[0.1em] text-[#FFD700] uppercase drop-shadow-[0_0_8px_rgba(255,215,0,0.4)] whitespace-nowrap" data-i18n="nav_title">Betting Exchange Room</span>
             
             <div class="relative ml-auto group" tabindex="0">
                 <button class="flex items-center gap-1.5 text-white/80 hover:text-white text-[11px] sm:text-sm font-semibold transition-colors focus:outline-none px-3 py-2 bg-white/5 rounded-lg border border-white/5">
@@ -141,9 +144,12 @@
 
     <section class="relative z-10 pt-[90px] sm:pt-[130px] pb-6 sm:pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center mt-safe">
         
-        <!-- TELEGRAM BADGE -->
-        <div class="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-md bg-[#229ED9]/15 border border-[#229ED9]/40 mb-4 sm:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(34,158,217,0.3)] animate-pulse-tg">
-            <i class="fa-brands fa-telegram text-[#229ED9] bg-white rounded-full text-[14px] sm:text-[18px] leading-none shadow-[0_0_8px_rgba(34,158,217,0.6)]"></i>
+        <!-- TELEGRAM BADGE CON ANIMAZIONE MIGLIORATA -->
+        <div class="flex items-center gap-2.5 px-3 sm:px-4 py-1.5 rounded-full bg-[#229ED9]/15 border border-[#229ED9]/40 mb-4 sm:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(34,158,217,0.2)]">
+            <div class="relative flex items-center justify-center w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] animate-pulse-tg-circle">
+                <div class="absolute inset-0 bg-white rounded-full scale-[0.85]"></div>
+                <i class="fa-brands fa-telegram text-[#229ED9] text-[16px] sm:text-[20px] relative z-10 leading-none"></i>
+            </div>
             <span class="text-[9px] sm:text-xs font-bold text-white drop-shadow-[0_0_5px_rgba(34,158,217,0.8)] uppercase tracking-[0.15em] sm:tracking-[0.2em]" data-i18n="hero_badge">TELEGRAM SIGNAL ACTIVE</span>
         </div>
 
@@ -1066,7 +1072,7 @@
                 stat_free: "مجاني",
                 trans_title_1: "شفافية",
                 trans_title_2: "مطلقة",
-                trans_desc: "هذا ما ستحصل عليه. تحليل كمي كامل، سهل النسخ.",
+                trans_desc: "هذا ما ستحصل عليه. التحليل الكمي الكامل، سهل النسخ.",
                 tg_official: "القناة الرسمية",
                 tg_started: "بدأت منذ: 56 دقيقة",
                 tg_live: "LIVE SIGNAL",
