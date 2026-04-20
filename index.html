@@ -8,7 +8,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- OTTIMIZZAZIONE VERCEL EDGE CACHING -->
-    <!-- Forza la cache globale CDN di Vercel per 1 anno (statica), con aggiornamento in background -->
     <meta http-equiv="Cache-Control" content="public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400">
     
     <title>BETTING EXCHANGE ROOM</title>
@@ -36,7 +35,8 @@
                         heading: ['"Plus Jakarta Sans"', 'sans-serif'] 
                     },
                     colors: { 
-                        brand: { dark: '#030509', surface: '#0d131c', neon: '#00DF89' } 
+                        // Verde pisello brillante ma meno accecante
+                        brand: { dark: '#030509', surface: '#0d131c', neon: '#A3E635' } 
                     }
                 }
             }
@@ -47,7 +47,7 @@
             -webkit-text-size-adjust: 100%; 
             text-rendering: optimizeLegibility; 
             -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation; /* Ottimizzazione Mobile: rimuove il delay di 300ms al tocco */
+            touch-action: manipulation; /* Ottimizzazione Mobile */
         }
         body { 
             background-color: #030509; 
@@ -56,7 +56,7 @@
             overscroll-behavior-y: none; 
         }
 
-        /* Ottimizzazione del rendering per aumentare la fluidità in scroll su smartphone */
+        /* Ottimizzazione del rendering */
         section {
             content-visibility: auto;
             contain-intrinsic-size: 1000px;
@@ -71,16 +71,26 @@
         }
 
         @keyframes gentle-pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 223, 137, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 223, 137, 0.7); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(163, 230, 53, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(163, 230, 53, 0.6); }
         }
         .animate-pulse-wa { 
             animation: gentle-pulse 3s ease-in-out infinite; 
-            will-change: transform, box-shadow; /* Accelerazione hardware per animazioni fluide */
+            will-change: transform, box-shadow; 
+        }
+
+        /* Nuova animazione pulsante azzurra per Telegram */
+        @keyframes gentle-pulse-tg {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(34, 158, 217, 0.2); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(34, 158, 217, 0.5); }
+        }
+        .animate-pulse-tg {
+            animation: gentle-pulse-tg 3s ease-in-out infinite; 
+            will-change: transform, box-shadow; 
         }
         
         .lazy-reveal {
-            will-change: opacity, transform, filter; /* Accelerazione hardware per le immagini */
+            will-change: opacity, transform, filter;
         }
         
         .pb-safe { padding-bottom: calc(85px + env(safe-area-inset-bottom)); }
@@ -90,19 +100,19 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
 
-        .glow-text-neon { text-shadow: 0 0 25px rgba(0, 223, 137, 0.8), 0 0 10px rgba(0, 223, 137, 0.5); }
-        .glow-text-silver { text-shadow: 0 5px 20px rgba(255, 255, 255, 0.3); }
+        /* Effetti testo aggiornati per il verde pisello: Effetto Neon Ridotto */
+        .glow-text-neon { text-shadow: 0 0 12px rgba(163, 230, 53, 0.25), 0 0 4px rgba(163, 230, 53, 0.15); }
         .glow-text-cyan { text-shadow: 0 0 20px rgba(0, 210, 255, 0.7); }
         .glow-text-amber { text-shadow: 0 0 20px rgba(251, 191, 36, 0.7); }
     </style>
 </head>
-<body class="antialiased pb-safe selection:bg-brand-neon selection:text-white">
+<body class="antialiased pb-safe selection:bg-brand-neon selection:text-[#030509]">
 
     <!-- NAVBAR NATIVA -->
     <nav class="fixed w-full z-50 top-0 bg-brand-dark/85 backdrop-blur-xl backdrop-saturate-150 border-b border-white/5 transition-all duration-300 shadow-sm" style="padding-top: env(safe-area-inset-top);">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[56px] sm:h-[60px] flex items-center gap-2.5 sm:gap-3">
-            <img src="logo sfondo nero betting exchange room.jpeg" alt="Logo" class="h-[18px] w-[18px] sm:h-[24px] sm:w-[24px] rounded-full object-cover drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">
-            <span class="font-heading font-bold text-[12.5px] sm:text-[17px] tracking-[0.1em] sm:tracking-[0.15em] text-white uppercase truncate drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" data-i18n="nav_title">Betting Exchange Room</span>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[56px] sm:h-[70px] flex items-center gap-3 sm:gap-4">
+            <img src="logo sfondo nero betting exchange room.jpeg" alt="Logo" class="h-[32px] w-[32px] sm:h-[42px] sm:w-[42px] rounded-full object-cover drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] border border-white/20">
+            <span class="font-heading font-bold text-[13px] sm:text-[19px] tracking-[0.1em] sm:tracking-[0.15em] text-white uppercase truncate drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" data-i18n="nav_title">Betting Exchange Room</span>
             
             <div class="relative ml-auto group" tabindex="0">
                 <button class="flex items-center gap-1.5 text-white/80 hover:text-white text-[11px] sm:text-sm font-semibold transition-colors focus:outline-none px-3 py-2 bg-white/5 rounded-lg border border-white/5">
@@ -130,22 +140,21 @@
     </nav>
 
     <section class="relative z-10 pt-[90px] sm:pt-[130px] pb-6 sm:pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center mt-safe">
-        <div class="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-md bg-[#00DF89]/15 border border-[#00DF89]/40 mb-4 sm:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(0,223,137,0.3)]">
-            <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-100"></span>
-                <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-brand-neon shadow-[0_0_8px_#00DF89]"></span>
-            </span>
-            <span class="text-[9px] sm:text-xs font-bold text-white drop-shadow-[0_0_5px_rgba(0,223,137,0.8)] uppercase tracking-[0.15em] sm:tracking-[0.2em]" data-i18n="hero_badge">TELEGRAM SIGNAL ACTIVE</span>
+        
+        <!-- TELEGRAM BADGE -->
+        <div class="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-md bg-[#229ED9]/15 border border-[#229ED9]/40 mb-4 sm:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(34,158,217,0.3)] animate-pulse-tg">
+            <i class="fa-brands fa-telegram text-[#229ED9] bg-white rounded-full text-[14px] sm:text-[18px] leading-none shadow-[0_0_8px_rgba(34,158,217,0.6)]"></i>
+            <span class="text-[9px] sm:text-xs font-bold text-white drop-shadow-[0_0_5px_rgba(34,158,217,0.8)] uppercase tracking-[0.15em] sm:tracking-[0.2em]" data-i18n="hero_badge">TELEGRAM SIGNAL ACTIVE</span>
         </div>
 
-        <h1 class="font-heading text-[2.1rem] leading-[1.05] sm:text-[3.5rem] md:text-6xl lg:text-[6.5rem] font-extrabold text-center mb-5 sm:mb-8 tracking-tight uppercase px-1">
-            <span class="bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] bg-clip-text text-transparent glow-text-silver" data-i18n="hero_title_1">Vantaggio Matematico</span><br>
-            <span class="bg-gradient-to-r from-[#00DF89] to-[#6ee7b7] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(0,223,137,0.25)] block mt-1.5 sm:mt-3" data-i18n="hero_title_2">Guidato dall'A.I.</span>
+        <h1 class="font-heading font-extrabold text-center mb-10 sm:mb-16 tracking-tight px-1 flex flex-col items-center w-full">
+            <span class="text-[1.5rem] leading-[1.1] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] text-brand-neon glow-text-neon uppercase drop-shadow-[0_0_8px_rgba(163,230,53,0.25)] max-w-full" data-i18n="hero_title_1">OTTIENI UN VANTAGGIO MATEMATICO</span>
+            <span class="text-[1.05rem] leading-[1.3] sm:text-[1.8rem] md:text-3xl lg:text-[3.2rem] lowercase text-gray-200 block mt-3 sm:mt-5 font-medium max-w-full drop-shadow-md" data-i18n="hero_title_2">la nostra a.i. analizza ogni scommessa</span>
         </h1>
 
         <!-- FINTA ANTEPRIMA YOUTUBE (Lazy Reveal Fade-in implementato) -->
-        <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-6 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(0,223,137,0.25)] border border-white/20 relative aspect-video z-20 group cursor-pointer bg-brand-surface">
-            <!-- Immagine con classi di transizione per evanescenza (Blur + Opacity + Scale) -->
+        <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-6 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(163,230,53,0.2)] border border-white/20 relative aspect-video z-20 group cursor-pointer bg-brand-surface">
+            <!-- Immagine con classi di transizione per evanescenza -->
             <img src="https://i.ytimg.com/vi_webp/ogy_AMtDXdo/maxresdefault.webp" alt="Presentazione Video" class="absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ease-out lazy-reveal opacity-0 blur-md scale-[1.05] saturate-[1.4] brightness-[1.25] contrast-[1.15]">
             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
             <div class="absolute inset-0 flex items-center justify-center">
@@ -157,11 +166,11 @@
         </a>
 
         <div class="flex flex-col items-center w-full">
-            <p class="text-gray-300 text-center text-[13.5px] sm:text-lg md:text-[22px] max-w-2xl mx-auto mb-5 sm:mb-6 font-medium leading-relaxed px-1 sm:px-2 drop-shadow-md" data-i18n="hero_subtitle">
-                Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.
+            <p class="text-gray-300 text-center text-[12.5px] sm:text-lg md:text-[22px] max-w-2xl mx-auto mb-5 sm:mb-6 font-medium leading-relaxed px-2 sm:px-2 drop-shadow-md" data-i18n="hero_subtitle">
+                Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.
             </p>
 
-            <div class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm text-gray-300 font-semibold bg-[#0d131c]/90 px-3 sm:px-5 py-1.5 sm:py-2 rounded-md border border-[#00DF89]/20 shadow-[0_0_15px_rgba(0,223,137,0.1)]">
+            <div class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm text-gray-300 font-semibold bg-[#0d131c]/90 px-3 sm:px-5 py-1.5 sm:py-2 rounded-md border border-brand-neon/20 shadow-[0_0_15px_rgba(163,230,53,0.1)]">
                 <div class="flex text-[#FBBF24] text-[8px] sm:text-[11px] drop-shadow-[0_0_5px_rgba(251,191,36,0.8)]">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
@@ -172,14 +181,14 @@
 
     <!-- STATS BAR -->
     <section class="px-4 sm:px-6 max-w-2xl mx-auto mb-8 sm:mb-16 relative z-20">
-        <div class="grid grid-cols-2 bg-[#0a0f16] border border-[#00DF89]/20 rounded-xl shadow-[0_0_30px_rgba(0,223,137,0.1)] divide-x divide-white/10 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#00DF89]/5 to-transparent pointer-events-none"></div>
+        <div class="grid grid-cols-2 bg-[#0a0f16] border border-brand-neon/20 rounded-xl shadow-[0_0_30px_rgba(163,230,53,0.1)] divide-x divide-white/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-brand-neon/5 to-transparent pointer-events-none"></div>
             
             <div class="text-center p-3 sm:p-5 relative z-10">
                 <div class="text-white font-heading font-extrabold text-2xl sm:text-4xl tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">24/7</div>
                 <div class="text-[8px] sm:text-[10px] text-gray-400 uppercase tracking-[0.1em] sm:tracking-[0.2em] mt-0.5 sm:mt-1 font-bold" data-i18n="stat_ai">Scansione A.I.</div>
             </div>
-            <div class="text-center p-3 sm:p-5 bg-gradient-to-br from-transparent to-[#00DF89]/10 relative z-10">
+            <div class="text-center p-3 sm:p-5 bg-gradient-to-br from-transparent to-brand-neon/10 relative z-10">
                 <div class="text-brand-neon font-heading font-extrabold text-2xl sm:text-4xl tracking-tight glow-text-neon">100<span class="text-sm sm:text-xl">%</span></div>
                 <div class="text-[8px] sm:text-[10px] text-white uppercase tracking-[0.1em] sm:tracking-[0.2em] mt-0.5 sm:mt-1 font-bold drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]" data-i18n="stat_free">Gratuito</div>
             </div>
@@ -190,40 +199,40 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full bg-[#229ED9]/15 blur-[90px] rounded-full z-0 pointer-events-none"></div>
 
         <div class="relative z-10 text-center mb-6 sm:mb-10">
-            <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-white uppercase tracking-tight mb-2 sm:mb-3 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            <h2 class="font-heading text-xl sm:text-4xl font-extrabold text-white uppercase tracking-tight mb-2 sm:mb-3 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                 <span data-i18n="trans_title_1">Trasparenza</span> <span class="text-[#229ED9] drop-shadow-[0_0_20px_rgba(34,158,217,0.6)]" data-i18n="trans_title_2">Assoluta</span>
             </h2>
-            <p class="text-gray-300 text-[12px] sm:text-base max-w-lg mx-auto leading-relaxed drop-shadow-md" data-i18n="trans_desc">Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.</p>
+            <p class="text-gray-300 text-[11.5px] sm:text-base max-w-lg mx-auto leading-relaxed drop-shadow-md" data-i18n="trans_desc">Ecco cosa riceverai. Un'analisi quantitativa completa, facile da copiare sia per principianti che per professionisti.</p>
         </div>
 
         <div class="relative z-10 bg-white rounded-xl sm:rounded-2xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.9)] border border-white/20 overflow-hidden mx-auto max-w-xl transition-transform hover:translate-y-[-2px] duration-300">
             
             <div class="bg-[#f5f5f5] px-3 sm:px-5 py-2.5 sm:py-3 border-b border-gray-300 flex justify-between items-center text-black">
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <i class="fa-solid fa-arrow-left text-gray-500 text-base sm:text-lg"></i>
+                    <i class="fa-solid fa-arrow-left text-gray-500 text-[14px] sm:text-lg"></i>
                     <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-[#030509] border border-white/10 shadow-md flex-shrink-0">
                         <img src="logo sfondo nero betting exchange room.jpeg" loading="lazy" decoding="async" alt="Avatar" class="w-full h-full object-cover">
                     </div>
                     <div class="overflow-hidden">
-                        <div class="font-bold text-[13px] sm:text-[15px] tracking-tight leading-tight flex items-center gap-1 truncate">⚽ BETTING EXCHAN... <i class="fa-solid fa-circle-check text-[#229ED9] text-[10px] flex-shrink-0"></i></div>
-                        <div class="text-[#707579] text-[10px] sm:text-[12px] font-medium" data-i18n="tg_official">Canale Ufficiale</div>
+                        <div class="font-bold text-[12px] sm:text-[15px] tracking-tight leading-tight flex items-center gap-1 truncate">⚽ BETTING EXCHAN... <i class="fa-solid fa-circle-check text-[#229ED9] text-[9px] sm:text-[10px] flex-shrink-0"></i></div>
+                        <div class="text-[#707579] text-[9px] sm:text-[12px] font-medium" data-i18n="tg_official">Canale Ufficiale</div>
                     </div>
                 </div>
-                <i class="fa-solid fa-ellipsis-vertical text-gray-400 text-base sm:text-lg pl-2"></i>
+                <i class="fa-solid fa-ellipsis-vertical text-gray-400 text-[14px] sm:text-lg pl-2"></i>
             </div>
             
             <div class="p-3 sm:p-6 relative overflow-hidden custom-scrollbar flex justify-center" style="background-color: #E8EBE2;" dir="ltr">
-                <div class="relative z-10 bg-white rounded-[12px] rounded-tl-sm p-3.5 sm:p-6 shadow-md text-[12px] sm:text-[15px] text-[#111] font-sans leading-[1.4] sm:leading-[1.5] tracking-tight w-full sm:w-[95%]">
+                <div class="relative z-10 bg-white rounded-[12px] rounded-tl-sm p-3.5 sm:p-6 shadow-md text-[11px] sm:text-[15px] text-[#111] font-sans leading-[1.4] sm:leading-[1.5] tracking-tight w-full sm:w-[95%]">
                     
-                    <p class="mb-1 text-[11px] sm:text-[13px]">⚽ <span class="text-[#D81B60] font-bold">BETTING EXCHANGE ROOM</span></p>
-                    <p class="font-extrabold text-[13px] sm:text-[16px] leading-snug">🤖 PALMEIRAS-SP VS SPORTING CRISTAL</p>
-                    <p class="italic text-gray-500 mb-3 text-[11px] sm:text-[12px]" data-i18n="tg_started">iniziato da: 56 min</p>
+                    <p class="mb-1 text-[10px] sm:text-[13px]">⚽ <span class="text-[#D81B60] font-bold">BETTING EXCHANGE ROOM</span></p>
+                    <p class="font-extrabold text-[12px] sm:text-[16px] leading-snug">🤖 PALMEIRAS-SP VS SPORTING CRISTAL</p>
+                    <p class="italic text-gray-500 mb-3 text-[10px] sm:text-[12px]" data-i18n="tg_started">iniziato da: 56 min</p>
 
-                    <p class="text-[#00E676] text-base sm:text-xl tracking-[0.1em] mb-1 leading-none">🟩🟩🟩🟩🟩🟩🟩</p>
-                    <p class="font-bold mb-3 sm:mb-4 text-[12px] sm:text-[14px]" data-i18n="tg_live">LIVE SIGNAL</p>
+                    <p class="text-[#00E676] text-[14px] sm:text-xl tracking-[0.1em] mb-1 leading-none">🟩🟩🟩🟩🟩🟩🟩</p>
+                    <p class="font-bold mb-3 sm:mb-4 text-[11px] sm:text-[14px]" data-i18n="tg_live">LIVE SIGNAL</p>
 
-                    <p class="font-bold mb-1 sm:mb-1.5 text-[13px] sm:text-[15px] flex items-center gap-1.5">📊 <span data-i18n="tg_data">DATI OPERATIVI</span></p>
-                    <div class="space-y-0.5 mb-3 sm:mb-4 pl-1 text-[12px] sm:text-[14px]">
+                    <p class="font-bold mb-1 sm:mb-1.5 text-[12px] sm:text-[15px] flex items-center gap-1.5">📊 <span data-i18n="tg_data">DATI OPERATIVI</span></p>
+                    <div class="space-y-0.5 mb-3 sm:mb-4 pl-1 text-[11px] sm:text-[14px]">
                         <p>🔹 <span class="font-bold" data-i18n="tg_strat">STRATEGIA:</span> <span data-i18n="tg_strat_val">Punta Favorita</span></p>
                         <p>🔹 <span class="font-bold" data-i18n="tg_market">MERCATO:</span> <span data-i18n="tg_market_val">Esito Finale (1)</span></p>
                         <p>🔹 <span class="font-bold text-[#229ED9]"><span data-i18n="tg_entry">ENTRY:</span> 1.35</span></p>
@@ -233,23 +242,23 @@
 
                     <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-3 sm:mb-4"></div>
 
-                    <p class="font-bold mb-1 sm:mb-1.5 text-[13px] sm:text-[15px] flex items-center gap-1.5">🛡️ <span data-i18n="tg_risk">GESTIONE RISCHIO</span></p>
-                    <div class="space-y-1 mb-3 sm:mb-4 pl-1 text-[12px] sm:text-[14px]">
+                    <p class="font-bold mb-1 sm:mb-1.5 text-[12px] sm:text-[15px] flex items-center gap-1.5">🛡️ <span data-i18n="tg_risk">GESTIONE RISCHIO</span></p>
+                    <div class="space-y-1 mb-3 sm:mb-4 pl-1 text-[11px] sm:text-[14px]">
                         <p>🛑 <span class="font-bold" data-i18n="tg_stop">STOP LOSS:</span> <span data-i18n="tg_stop_val">Uscita totale al minuto 82'.</span></p>
                         <p>✅ <span class="font-bold text-[#27ae60]" data-i18n="tg_take">TAKE PROFIT:</span> <span data-i18n="tg_take_val">Green Up immediato al 1° goal.</span></p>
-                        <p class="text-[#D32F2F] font-bold mt-1 text-[11px] sm:text-[13px] leading-tight" data-i18n="tg_alert">❗ In caso di goal subito (0-1), attendere 5 min per reazione.</p>
+                        <p class="text-[#D32F2F] font-bold mt-1 text-[10px] sm:text-[13px] leading-tight" data-i18n="tg_alert">❗ In caso di goal subito (0-1), attendere 5 min per reazione.</p>
                     </div>
 
                     <div class="w-[50%] h-[2px] bg-gray-200 rounded-full mb-3 sm:mb-4"></div>
 
-                    <p class="font-bold mb-1 sm:mb-1.5 text-[13px] sm:text-[15px] flex items-center gap-1.5">🧠 <span data-i18n="tg_analysis">ANALISI (Sintesi)</span></p>
-                    <div class="space-y-1 sm:space-y-1.5 mb-2 pl-1 text-[11.5px] sm:text-[13.5px] text-gray-700">
+                    <p class="font-bold mb-1 sm:mb-1.5 text-[12px] sm:text-[15px] flex items-center gap-1.5">🧠 <span data-i18n="tg_analysis">ANALISI (Sintesi)</span></p>
+                    <div class="space-y-1 sm:space-y-1.5 mb-2 pl-1 text-[10.5px] sm:text-[13.5px] text-gray-700">
                         <p>📈 <span class="font-bold text-black" data-i18n="tg_dom">Dominio:</span> <span data-i18n="tg_dom_val">Possesso >60% in casa storica.</span></p>
                         <p>📈 <span class="font-bold text-black" data-i18n="tg_tim">Timing:</span> <span data-i18n="tg_tim_val">+40% dei goal arriva tra 60' e 90'.</span></p>
                         <p>📈 <span class="font-bold text-black" data-i18n="tg_gap">Gap Tecnico:</span> <span data-i18n="tg_gap_val">Rosa brasiliana 6x superiore, pressione asfissiante in ripresa.</span></p>
                     </div>
 
-                    <div class="flex justify-end items-center text-gray-400 text-[10px] sm:text-[11px] font-medium gap-1.5 mt-2 -mb-1">
+                    <div class="flex justify-end items-center text-gray-400 text-[9px] sm:text-[11px] font-medium gap-1.5 mt-2 -mb-1">
                         <span class="flex items-center gap-1"><i class="fa-regular fa-eye"></i> 124</span>
                         <span>00:57</span>
                     </div>
@@ -268,17 +277,17 @@
     <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-5xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             
-            <div class="trading-card rounded-xl overflow-hidden group flex flex-col transition-all hover:bg-brand-surface border hover:border-[#00DF89]/50 hover:shadow-[0_0_30px_rgba(0,223,137,0.15)]">
+            <div class="trading-card rounded-xl overflow-hidden group flex flex-col transition-all hover:bg-brand-surface border hover:border-brand-neon/50 hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
                 <div class="w-full aspect-[4/3] relative overflow-hidden bg-[#05080f]">
                     <img src="1000372165.jpeg" loading="lazy" decoding="async" alt="Attaccante AI" class="absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ease-out lazy-reveal card-img opacity-0 blur-md scale-[1.05] saturate-[1.4] brightness-[1.3] contrast-[1.15] group-hover:scale-[1.05] group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] via-transparent to-transparent"></div>
                 </div>
                 <div class="p-4 sm:p-6 flex-grow relative z-10 -mt-6">
                     <h4 class="font-heading text-base sm:text-xl font-extrabold mb-1.5 sm:mb-2 uppercase tracking-wide flex items-center gap-2">
-                        <i class="fa-solid fa-chart-line text-brand-neon drop-shadow-[0_0_8px_rgba(0,223,137,0.8)]"></i>
+                        <i class="fa-solid fa-chart-line text-brand-neon drop-shadow-[0_0_8px_rgba(163,230,53,0.8)]"></i>
                         <span class="text-brand-neon glow-text-neon" data-i18n="card1_title">Profitto Automatico</span>
                     </h4>
-                    <p class="text-gray-300 text-[12px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card1_desc">Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.</p>
+                    <p class="text-gray-300 text-[11.5px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card1_desc">Ricevi la notifica, copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo, puro rendimento.</p>
                 </div>
             </div>
 
@@ -292,7 +301,7 @@
                         <i class="fa-solid fa-shield-halved text-[#FBBF24] drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]"></i>
                         <span class="text-[#FBBF24] glow-text-amber" data-i18n="card2_title">Protezione Capitale</span>
                     </h4>
-                    <p class="text-gray-300 text-[12px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card2_desc">Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.</p>
+                    <p class="text-gray-300 text-[11.5px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card2_desc">Gestione matematica del rischio. Applichiamo rigidi modelli di Money Management per preservare la cassa.</p>
                 </div>
             </div>
 
@@ -306,7 +315,7 @@
                         <i class="fa-solid fa-bolt text-[#00D2FF] drop-shadow-[0_0_8px_rgba(0,210,255,0.8)]"></i>
                         <span class="text-[#00D2FF] glow-text-cyan" data-i18n="card3_title">Scansione Real-Time</span>
                     </h4>
-                    <p class="text-gray-300 text-[12px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card3_desc">L'A.I. monitora simultaneamente centinaia di match, elaborando quantità enormi di dati in tempo reale per estrarre solo il vero valore statistico.</p>
+                    <p class="text-gray-300 text-[11.5px] sm:text-sm leading-relaxed font-medium drop-shadow-sm" data-i18n="card3_desc">L'A.I. monitora simultaneamente centinaia di match, elaborando quantità enormi di dati in tempo reale per estrarre solo il vero valore statistico.</p>
                 </div>
             </div>
             
@@ -315,7 +324,7 @@
 
     <!-- IMMAGINE COPERTINA IN BASSO -->
     <section class="py-6 sm:py-12 px-4 sm:px-6 max-w-6xl mx-auto">
-        <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[200px] sm:min-h-[250px] rounded-xl sm:rounded-2xl overflow-hidden border border-[#00DF89]/30 shadow-[0_0_40px_rgba(0,223,137,0.25)] group bg-[#05080f]">
+        <div class="relative w-full h-[25vh] sm:h-[45vh] min-h-[180px] sm:min-h-[250px] rounded-xl sm:rounded-2xl overflow-hidden border border-brand-neon/30 shadow-[0_0_40px_rgba(163,230,53,0.2)] group bg-[#05080f]">
             <img src="WhatsApp Image 2026-04-08 at 14.53.22 (1).jpeg" loading="lazy" decoding="async" alt="Copertura Intelligenza Artificiale Betting" class="absolute inset-0 w-full h-full object-cover object-[center_30%] transition-all duration-[1500ms] ease-out lazy-reveal opacity-0 blur-md scale-[1.05] group-hover:scale-[1.03] saturate-[1.5] brightness-[1.3] contrast-[1.15]">
         </div>
     </section>
@@ -383,10 +392,10 @@
             it: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Vantaggio Matematico",
-                hero_title_2: "Guidato dall'A.I.",
+                hero_title_1: "OTTIENI UN VANTAGGIO MATEMATICO",
+                hero_title_2: "la nostra a.i. analizza ogni scommessa",
                 watch_now: "Guarda Ora",
-                hero_subtitle: "Smetti di scommettere a caso. Copia le operazioni ad <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.",
+                hero_subtitle: "Smetti di scommettere a caso. Copia le operazioni ad <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.",
                 cta_button: "Entra nel Canale Gratuito",
                 join_community: "Unisciti alla nostra",
                 community: "Community",
@@ -434,10 +443,10 @@
             en: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Mathematical Edge",
-                hero_title_2: "Driven by A.I.",
+                hero_title_1: "GET A MATHEMATICAL EDGE",
+                hero_title_2: "our a.i. analyzes every bet",
                 watch_now: "Watch Now",
-                hero_subtitle: "Stop guessing. Copy <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">high-yield</strong> operations generated in real-time by our neural networks.",
+                hero_subtitle: "Stop guessing. Copy <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">high-yield</strong> operations generated in real-time by our neural networks.",
                 cta_button: "Join the Free Channel",
                 join_community: "Join our",
                 community: "Community",
@@ -485,10 +494,10 @@
             es: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Ventaja Matemática",
-                hero_title_2: "Impulsado por I.A.",
+                hero_title_1: "OBTÉN UNA VENTAJA MATEMÁTICA",
+                hero_title_2: "nuestra i.a. analiza cada apuesta",
                 watch_now: "Ver Ahora",
-                hero_subtitle: "Deja de apostar al azar. Copia operaciones de <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">alto rendimiento</strong> generadas en tiempo real por nuestras redes.",
+                hero_subtitle: "Deja de apostar al azar. Copia operaciones de <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">alto rendimiento</strong> generadas en tiempo real por nuestras redes.",
                 cta_button: "Únete al Canal Gratis",
                 join_community: "Únete a nuestra",
                 community: "Comunidad",
@@ -536,10 +545,10 @@
             pt: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Vantagem Matemática",
-                hero_title_2: "Impulsionado por I.A.",
+                hero_title_1: "OBTENHA UMA VANTAGEM MATEMÁTICA",
+                hero_title_2: "nossa i.a. analisa cada aposta",
                 watch_now: "Assistir Agora",
-                hero_subtitle: "Pare de apostar ao acaso. Copie operações de <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">alto rendimento</strong> geradas em tempo real pelas nossas redes.",
+                hero_subtitle: "Pare de apostar ao acaso. Copie operações de <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">alto rendimento</strong> geradas em tempo real pelas nossas redes.",
                 cta_button: "Entrar no Canal",
                 join_community: "Junte-se à nossa",
                 community: "Comunidade",
@@ -587,10 +596,10 @@
             fr: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Avantage Math.",
-                hero_title_2: "Propulsé par l'I.A.",
+                hero_title_1: "OBTENEZ UN AVANTAGE MATHÉMATIQUE",
+                hero_title_2: "notre i.a. analyse chaque pari",
                 watch_now: "Regarder",
-                hero_subtitle: "Arrêtez de parier au hasard. Copiez des opérations à <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">haut rendement</strong> générées en temps réel par nos réseaux.",
+                hero_subtitle: "Arrêtez de parier au hasard. Copiez des opérations à <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">haut rendement</strong> générées en temps réel par nos réseaux.",
                 cta_button: "Rejoindre le Canal",
                 join_community: "Rejoignez notre",
                 community: "Communauté",
@@ -638,10 +647,10 @@
             de: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Math. Vorteil",
-                hero_title_2: "Gesteuert durch K.I.",
+                hero_title_1: "ERHALTE EINEN MATH. VORTEIL",
+                hero_title_2: "unsere k.i. analysiert jede wette",
                 watch_now: "Ansehen",
-                hero_subtitle: "Hör auf zu raten. Kopiere <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">renditestarke</strong> Operationen, die in Echtzeit von unseren Netzwerken erstellt werden.",
+                hero_subtitle: "Hör auf zu raten. Kopiere <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">renditestarke</strong> Operationen, die in Echtzeit von unseren Netzwerken erstellt werden.",
                 cta_button: "Kanal beitreten",
                 join_community: "Tritt unserer",
                 community: "Community bei",
@@ -689,10 +698,10 @@
             ru: {
                 nav_title: "Betting Exchange",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Мат. Преимущество",
-                hero_title_2: "Управляется И.И.",
+                hero_title_1: "ПОЛУЧИТЕ МАТЕМАТИЧЕСКОЕ ПРЕИМУЩЕСТВО",
+                hero_title_2: "наш и.и. анализирует каждую ставку",
                 watch_now: "Смотреть",
-                hero_subtitle: "Хватит угадывать. Копируйте <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">высокодоходные</strong> сделки (Back), созданные в реальном времени.",
+                hero_subtitle: "Хватит угадывать. Копируйте <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">высокодоходные</strong> сделки (Back), созданные в реальном времени.",
                 cta_button: "Присоединиться",
                 join_community: "Присоединяйтесь к",
                 community: "Сообществу",
@@ -740,10 +749,10 @@
             zh: {
                 nav_title: "Betting Exchange",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "数学优势",
-                hero_title_2: "AI 人工智能驱动",
+                hero_title_1: "获得数学优势",
+                hero_title_2: "我们的 AI 分析每一次下注",
                 watch_now: "立即观看",
-                hero_subtitle: "停止盲目下注。复制由我们的神经网络实时生成的 <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">高收益</strong> (Back) 交易。",
+                hero_subtitle: "停止盲目下注。复制由我们的神经网络实时生成的 <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">高收益</strong> (Back) 交易。",
                 cta_button: "加入免费频道",
                 join_community: "加入我们的",
                 community: "社区",
@@ -791,10 +800,10 @@
             sq: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Avantazh Matematikor",
-                hero_title_2: "Drejtuar nga A.I.",
+                hero_title_1: "MERR NJË AVANTAZH MATEMATIKOR",
+                hero_title_2: "a.i. jonë analizon çdo bast",
                 watch_now: "Shiko Tani",
-                hero_subtitle: "Stop basteve të rastësishme. Kopjo operacionet me <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">rendiment të lartë</strong> të gjeneruara në kohë reale.",
+                hero_subtitle: "Stop basteve të rastësishme. Kopjo operacionet me <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">rendiment të lartë</strong> të gjeneruara në kohë reale.",
                 cta_button: "Hyni në Kanalin Falas",
                 join_community: "Bashkohuni me",
                 community: "Komunitetin",
@@ -842,10 +851,10 @@
             tr: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Matematiksel Avantaj",
-                hero_title_2: "Yapay Zeka Destekli",
+                hero_title_1: "MATEMATİKSEL BİR AVANTAJ ELDE EDİN",
+                hero_title_2: "y.z. her bahsi analiz eder",
                 watch_now: "Şimdi İzle",
-                hero_subtitle: "Tahmin etmeyi bırakın. YZ tarafından gerçek zamanlı üretilen <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">yüksek getirili</strong> işlemleri kopyalayın.",
+                hero_subtitle: "Tahmin etmeyi bırakın. YZ tarafından gerçek zamanlı üretilen <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">yüksek getirili</strong> işlemleri kopyalayın.",
                 cta_button: "Ücretsiz Kanala Katıl",
                 join_community: "Topluluğumuza",
                 community: "Katılın",
@@ -893,10 +902,10 @@
             pl: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Przewaga Matematyczna",
-                hero_title_2: "Napędzane przez A.I.",
+                hero_title_1: "ZYSKAJ PRZEWAGĘ MATEMATYCZNĄ",
+                hero_title_2: "nasza a.i. analizuje każdy zakład",
                 watch_now: "Oglądaj Teraz",
-                hero_subtitle: "Przestań zgadywać. Kopiuj operacje o <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">wysokiej stopie zwrotu</strong> w czasie rzeczywistym.",
+                hero_subtitle: "Przestań zgadywać. Kopiuj operacje o <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">wysokiej stopie zwrotu</strong> w czasie rzeczywistym.",
                 cta_button: "Dołącz do darmowego kanału",
                 join_community: "Dołącz do naszej",
                 community: "Społeczności",
@@ -944,10 +953,10 @@
             ro: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "Avantaj Matematic",
-                hero_title_2: "Propulsat de A.I.",
+                hero_title_1: "OBȚINE UN AVANTAJ MATEMATIC",
+                hero_title_2: "a.i.-ul nostru analizează fiecare pariu",
                 watch_now: "Urmărește Acum",
-                hero_subtitle: "Nu mai paria la întâmplare. Copiază operațiunile cu <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">randament ridicat</strong> generate în timp real.",
+                hero_subtitle: "Nu mai paria la întâmplare. Copiază operațiunile cu <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">randament ridicat</strong> generate în timp real.",
                 cta_button: "Intră în Canalul Gratuit",
                 join_community: "Alătură-te",
                 community: "Comunității",
@@ -995,10 +1004,10 @@
             hi: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "गणितीय लाभ",
-                hero_title_2: "A.I. द्वारा संचालित",
+                hero_title_1: "गणितीय लाभ प्राप्त करें",
+                hero_title_2: "हमारा a.i. हर दांव का विश्लेषण करता है",
                 watch_now: "अभी देखें",
-                hero_subtitle: "अंदाजा लगाना बंद करें। हमारे न्यूरल नेटवर्क द्वारा रियल-टाइम में उत्पन्न <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">उच्च-लाभ</strong> ट्रेड (Back) कॉपी करें।",
+                hero_subtitle: "अंदाजा लगाना बंद करें। हमारे न्यूरल नेटवर्क द्वारा रियल-टाइम में उत्पन्न <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">उच्च-लाभ</strong> ट्रेड (Back) कॉपी करें।",
                 cta_button: "मुफ़्त चैनल से जुड़ें",
                 join_community: "हमारी",
                 community: "कम्युनिटी से जुड़ें",
@@ -1046,10 +1055,10 @@
             ar: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "أفضلية رياضية",
-                hero_title_2: "مدعوم بالذكاء الاصطناعي",
+                hero_title_1: "احصل على ميزة رياضية",
+                hero_title_2: "الذكاء الاصطناعي يحلل كل رهان",
                 watch_now: "شاهد الآن",
-                hero_subtitle: "توقف عن التخمين. انسخ صفقات <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">عالية العائد</strong> يتم إنشاؤها في الوقت الفعلي.",
+                hero_subtitle: "توقف عن التخمين. انسخ صفقات <strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">عالية العائد</strong> يتم إنشاؤها في الوقت الفعلي.",
                 cta_button: "انضم للقناة المجانية",
                 join_community: "انضم إلى",
                 community: "مجتمعنا",
@@ -1097,10 +1106,10 @@
             ja: {
                 nav_title: "Betting Exchange Room",
                 hero_badge: "TELEGRAM SIGNAL ACTIVE",
-                hero_title_1: "数学的優位性",
-                hero_title_2: "A.I. 主導",
+                hero_title_1: "数学的な優位性を得る",
+                hero_title_2: "私たちのa.i.はすべての賭けを分析します",
                 watch_now: "今すぐ見る",
-                hero_subtitle: "推測をやめてください。A.I.によってリアルタイムで生成される<strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(0,223,137,0.6)]\">高利回り</strong> (Back) の取引をコピーします。",
+                hero_subtitle: "推測をやめてください。A.I.によってリアルタイムで生成される<strong class=\"text-brand-neon font-bold drop-shadow-[0_0_8px_rgba(163,230,53,0.5)]\">高利回り</strong> (Back) の取引をコピーします。",
                 cta_button: "無料チャンネルに参加",
                 join_community: "私たちの",
                 community: "コミュニティに参加",
