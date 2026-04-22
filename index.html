@@ -8,7 +8,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Betting Exchange Room - Ottieni un vantaggio matematico con la nostra A.I.">
     
-    <!-- OTTIMIZZAZIONE CACHE & PRELOAD -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
     <title>BETTING EXCHANGE ROOM</title>
     <link rel="icon" type="image/jpeg" href="logo sfondo nero betting exchange room.jpeg">
@@ -20,34 +19,27 @@
 
     <link rel="preload" as="image" href="https://i.ytimg.com/vi_webp/ogy_AMtDXdo/maxresdefault.webp">
     
-    <!-- FONT OTTIMIZZATI -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- FONT AWESOME DEFERRED -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- TAILWIND -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],heading:['"Plus Jakarta Sans"','sans-serif']},colors:{brand:{dark:'#030509',surface:'#0d131c',neon:'#A3E635'}}}}}
     </script>
     
-    <!-- CSS CRITICO -->
     <style>
         html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #030509; color: #f1f5f9; overflow-x: hidden; overscroll-behavior-y: none; }
-        
-        section { content-visibility: auto; contain-intrinsic-size: auto 600px; }
+        body { background-color: #030509; color: #f1f5f9; overflow-x: hidden; }
         
         .glass-panel {
             background: rgba(13, 19, 28, 0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .lazy-reveal { opacity: 0; transform: translateY(10px); transition: all 0.6s ease-out; will-change: opacity, transform; }
-        .lazy-reveal.revealed { opacity: 1; transform: translateY(0); }
+        /* Animazioni sicure: gli elementi partono visibili di default. Se JS funziona, li fa apparire con effetto */
+        .js-enabled .lazy-reveal { opacity: 0; transform: translateY(15px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; will-change: opacity, transform; }
+        .js-enabled .lazy-reveal.revealed { opacity: 1; transform: translateY(0); }
         
         .pb-safe { padding-bottom: calc(85px + env(safe-area-inset-bottom)); }
         
@@ -217,7 +209,7 @@
         </div>
     </section>
 
-    <!-- IMMAGINE COPERTINA CYBORG LUMINOSA -->
+    <!-- IMMAGINE COPERTINA CYBORG -->
     <section class="py-6 px-4 max-w-5xl mx-auto lazy-reveal">
         <div class="relative w-full h-[200px] sm:h-[300px] rounded-2xl overflow-hidden border border-white/10 group bg-[#05080f]">
             <img src="cyborgtifoso.jpeg" loading="lazy" decoding="async" alt="Intelligenza Artificiale" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
@@ -229,21 +221,18 @@
         <h3 class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-6" data-i18n="ft_title">Unisciti ai nostri canali</h3>
         
         <div class="flex justify-center items-center gap-4 sm:gap-6">
-            <!-- Telegram -->
             <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" 
-               class="w-12 h-12 rounded-full bg-[#0a0f16] border border-white/10 flex items-center justify-center hover:border-[#229ED9] hover:bg-[#229ED9]/10 transition-all group shadow-sm">
+               class="w-12 h-12 rounded-full bg-[#0a0f16] border border-white/10 flex items-center justify-center hover:border-[#229ED9] hover:bg-[#229ED9]/10 transition-all group shadow-sm" aria-label="Telegram">
                 <i class="fa-brands fa-telegram text-xl text-[#229ED9] group-hover:scale-110 transition-transform"></i>
             </a>
 
-            <!-- WhatsApp -->
             <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" rel="noopener noreferrer" 
-               class="w-12 h-12 rounded-full bg-[#0a0f16] border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all group shadow-sm">
+               class="w-12 h-12 rounded-full bg-[#0a0f16] border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all group shadow-sm" aria-label="WhatsApp">
                 <i class="fa-brands fa-whatsapp text-xl text-[#25D366] group-hover:scale-110 transition-transform"></i>
             </a>
 
-            <!-- YouTube -->
             <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" 
-               class="w-12 h-12 rounded-full bg-[#0a0f16] border border-white/10 flex items-center justify-center hover:border-[#FF0000] hover:bg-[#FF0000]/10 transition-all group shadow-sm">
+               class="w-12 h-12 rounded-full bg-[#0a0f16] border border-white/10 flex items-center justify-center hover:border-[#FF0000] hover:bg-[#FF0000]/10 transition-all group shadow-sm" aria-label="YouTube">
                 <i class="fa-brands fa-youtube text-xl text-[#FF0000] group-hover:scale-110 transition-transform"></i>
             </a>
         </div>
@@ -264,8 +253,12 @@
         </div>
     </div>
 
-    <!-- JS: GESTIONE 8 LINGUE E LAZY LOAD (OTTIMIZZATO) -->
+    <!-- JS: GESTIONE LINGUE E LAZY LOAD INFALLIBILE -->
     <script>
+        // Attiviamo la classe js-enabled solo se lo script sta girando. 
+        // In questo modo, chi ha problemi di caricamento vedrà tutto di default senza opacity a 0.
+        document.body.classList.add('js-enabled');
+
         (()=>{
             const t={
-                it:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Vantaggio Matematico",hero_title_2:"la nostra a.i. analizza ogni scommessa",hero_subtitle:'Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate dalle nostre reti neurali.',cta_button:"Entra nel Canale Gratuito",stat_ai:"Scansione A.I.",stat_free:"Gratuito",trans_title_1:"Traspare
+                it:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Vantaggio Matematico",hero_title_2:"la nostra a.i. analizza ogni scommessa",hero_subtitle:'Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate dalle nostre reti neurali.',cta_button:"Entra nel Canale Gratuito",stat_ai:"Scansione A.I.",stat_free:"Gratuito",trans_title_1:"Trasparenza Assoluta",trans_desc:"Un'analisi quantitativa completa, facile da copiare per chiunque.",tg_official:"Canale Ufficiale",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIA:",tg_market:"MERCATO:",tg_stake:"STAK
