@@ -13,17 +13,18 @@
     <title>Betting Exchange Room | A.I. Betting Signals</title>
     <link rel="icon" type="image/jpeg" href="logo sfondo nero betting exchange room.jpeg">
     
-    <!-- DNS Prefetch & Preconnect -->
+    <!-- DNS Prefetch & Preconnect (Massimizzazione velocità di rete) -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
     
-    <!-- Preload LCP -->
+    <!-- Preload LCP (Largest Contentful Paint) -->
     <link rel="preload" as="image" href="https://i.ytimg.com/vi_webp/ogy_AMtDXdo/maxresdefault.webp" fetchpriority="high">
     
-    <!-- Font asincroni -->
+    <!-- Font asincroni (font-display: swap incluso nell'URL) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS (CDN) -->
@@ -54,7 +55,7 @@
         }
     </script>
     
-    <!-- CSS OTTIMIZZATO -->
+    <!-- CSS OTTIMIZZATO PER PERFORMANCE GRAFICHE -->
     <style>
         html { 
             -webkit-text-size-adjust: 100%; 
@@ -75,36 +76,41 @@
             -webkit-backdrop-filter: blur(16px); 
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            /* Hardware Acceleration per evitare lag di scrolling sui filtri blur */
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
-        /* Effetti GPU - Transizioni fluide */
+        /* Effetti GPU - Transizioni fluide e ottimizzate */
         .js-enabled .lazy-reveal { 
             opacity: 0; 
-            transform: translateY(20px); 
+            transform: translateY(20px) translateZ(0); 
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
             will-change: opacity, transform; 
         }
         .js-enabled .lazy-reveal.revealed { 
             opacity: 1; 
-            transform: translateY(0); 
+            transform: translateY(0) translateZ(0); 
         }
         
         .pb-safe { padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
         
-        /* Scrollbar personalizzata */
+        /* Scrollbar personalizzata e leggera */
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #030509; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 6px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
         .custom-scrollbar { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.15) #030509; }
 
+        /* Ottimizzazione del Rendering Dom */
         .content-vis { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
         .aspect-4-3 { aspect-ratio: 4 / 3; }
 
-        /* Menu dropdown animation */
+        /* Menu dropdown animation - Compositing efficiente */
         #lang-menu {
             transform-origin: top right;
             transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            will-change: transform, opacity;
         }
         #lang-menu[aria-hidden="true"] {
             opacity: 0; transform: scale(0.95); visibility: hidden; pointer-events: none;
@@ -117,12 +123,12 @@
 <body class="antialiased pb-safe selection:bg-brand-neon selection:text-brand-dark custom-scrollbar">
 
     <!-- HEADER / NAVBAR -->
-    <header class="fixed w-full z-50 top-0 bg-brand-dark/85 backdrop-blur-xl border-b border-white/5 transition-all duration-300" style="padding-top: env(safe-area-inset-top);">
+    <header class="fixed w-full z-50 top-0 bg-brand-dark/85 backdrop-blur-xl border-b border-white/5 transition-all duration-300" style="padding-top: env(safe-area-inset-top); transform: translateZ(0);">
         <div class="max-w-6xl mx-auto px-4 h-[64px] flex items-center justify-between">
             
             <!-- Logo & Brand -->
             <a href="#" class="flex items-center gap-3 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-lg transition-transform hover:scale-[1.02] active:scale-95">
-                <img src="logo sfondo nero betting exchange room.jpeg" alt="Betting Exchange Room Logo" width="40" height="40" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border border-white/10 shadow-lg">
+                <img src="logo sfondo nero betting exchange room.jpeg" alt="Betting Exchange Room Logo" width="40" height="40" fetchpriority="high" decoding="sync" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border border-white/10 shadow-lg">
                 <span class="font-heading font-bold text-[11px] sm:text-[14px] tracking-widest text-white uppercase whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">Betting Exchange</span>
             </a>
             
@@ -168,8 +174,8 @@
             </h1>
 
             <!-- VIDEO PLAYER PREVIEW -->
-            <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" target="_blank" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-10 rounded-2xl overflow-hidden border border-white/10 relative aspect-video group cursor-pointer shadow-2xl hover:border-white/20 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50">
-                <img src="https://i.ytimg.com/vi_webp/ogy_AMtDXdo/maxresdefault.webp" fetchpriority="high" alt="Video di Presentazione" width="1280" height="720" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
+            <a href="https://youtu.be/ogy_AMtDXdo?si=OuBqYZDMLdDA3693" rel="noopener noreferrer" class="block w-full max-w-3xl mx-auto mb-10 rounded-2xl overflow-hidden border border-white/10 relative aspect-video group cursor-pointer shadow-2xl hover:border-white/20 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50">
+                <img src="https://i.ytimg.com/vi_webp/ogy_AMtDXdo/maxresdefault.webp" fetchpriority="high" decoding="sync" alt="Video di Presentazione" width="1280" height="720" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
                 <div class="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/20 transition-colors duration-300"></div>
                 <!-- Pulsante Play -->
                 <div class="absolute inset-0 flex items-center justify-center">
@@ -223,7 +229,7 @@
                 <!-- Corpo Messaggio -->
                 <div class="p-4 sm:p-6 bg-[#0e1621] relative">
                     <!-- Decorazione sfondo -->
-                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] opacity-50"></div>
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] opacity-50 pointer-events-none"></div>
                     
                     <div class="bg-[#182533] rounded-xl p-5 text-sm text-gray-100 border border-white/10 shadow-lg relative z-10">
                         <p class="font-extrabold text-white mb-3 text-base sm:text-lg">🤖 MILAN vs REAL MADRID</p>
@@ -256,7 +262,7 @@
 
         <!-- FEATURES CARDS -->
         <section class="py-16 px-4 max-w-6xl mx-auto content-vis" aria-label="Caratteristiche Principali">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 <!-- Card 1 -->
                 <article class="bg-brand-surface border border-white/5 rounded-2xl overflow-hidden hover:border-brand-neon/40 transition-all duration-300 group shadow-lg hover:shadow-neon lazy-reveal">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-brand-dark">
@@ -301,14 +307,21 @@
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="card3_desc">L'A.I. monitora simultaneamente centinaia di match per estrarre solo il vero valore statistico.</p>
                     </div>
                 </article>
-            </div>
-        </section>
 
-        <!-- IMMAGINE COPERTINA LARGE -->
-        <section class="py-10 px-4 max-w-6xl mx-auto lazy-reveal content-vis">
-            <div class="relative w-full rounded-2xl lg:rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] group bg-brand-dark">
-                <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
-                <img src="cyborgtifoso.jpeg" width="1024" height="576" loading="lazy" decoding="async" alt="Cyborg Intelligenza Artificiale" class="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-1000 ease-out">
+                <!-- Card 4 -->
+                <article class="bg-brand-surface border border-white/5 rounded-2xl overflow-hidden hover:border-[#A855F7]/40 transition-all duration-300 group shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] lazy-reveal" style="transition-delay: 300ms;">
+                    <div class="w-full aspect-4-3 relative overflow-hidden bg-brand-dark">
+                        <img src="cyborgtifoso.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="ZERO TO HERO Academy" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent opacity-90"></div>
+                    </div>
+                    <div class="p-6 relative z-10 -mt-10 bg-brand-surface flex flex-col items-start">
+                        <div class="w-12 h-12 rounded-xl bg-brand-dark flex items-center justify-center border border-white/10 mb-4 shadow-lg group-hover:border-[#A855F7]/50 transition-colors">
+                            <svg class="w-5 h-5 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+                        </div>
+                        <h3 class="text-white font-heading font-bold mb-2 text-base lg:text-lg tracking-wide" data-i18n="card4_title">ZERO TO HERO Academy</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="card4_desc">Trader sportivo profittevole in 30 giorni.</p>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
@@ -319,14 +332,14 @@
         
         <div class="flex justify-center items-center gap-6 sm:gap-10">
             <!-- Telegram -->
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" 
+            <a href="https://t.me/BettingExchangeRoomFree" 
                class="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50" aria-label="Seguici su Telegram">
                <div class="absolute inset-0 rounded-full bg-brand-blue/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             </a>
 
             <!-- WhatsApp -->
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" target="_blank" rel="noopener noreferrer" 
+            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" 
                class="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50" aria-label="Seguici su WhatsApp">
                <div class="absolute inset-0 rounded-full bg-[#25D366]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -349,7 +362,7 @@
     <!-- STICKY BOTTOM BAR -->
     <div class="fixed bottom-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-xl border-t border-white/10 px-4 py-3 pb-safe shadow-[0_-20px_40px_rgba(0,0,0,0.5)]">
         <div class="max-w-4xl mx-auto">
-            <a href="https://t.me/BettingExchangeRoomFree" target="_blank" rel="noopener noreferrer" class="group relative w-full bg-brand-blue hover:bg-[#1a85b6] text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all duration-300 shadow-[0_4px_20px_rgba(34,158,217,0.4)] hover:shadow-[0_4px_25px_rgba(34,158,217,0.6)] focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50 active:scale-[0.98] overflow-hidden">
+            <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-full bg-brand-blue hover:bg-[#1a85b6] text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all duration-300 shadow-[0_4px_20px_rgba(34,158,217,0.4)] hover:shadow-[0_4px_25px_rgba(34,158,217,0.6)] focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50 active:scale-[0.98] overflow-hidden">
                 <!-- Highlight animato interno -->
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                 
@@ -370,17 +383,29 @@
             }
         };
 
-        // Modulo Iife per incapsulamento sicuro
+        // Modulo Iife per incapsulamento sicuro e Robustezza (Safe Storage API)
         (()=>{
+            // Wrapper sicuro per localStorage per evitare crash in navigazione in incognito/Brave
+            const safeStorage = {
+                get: function(key) {
+                    try { return localStorage.getItem(key); } 
+                    catch(e) { return null; }
+                },
+                set: function(key, value) {
+                    try { localStorage.setItem(key, value); } 
+                    catch(e) { console.warn("Local storage limitato o non disponibile."); }
+                }
+            };
+
             const t = {
-                it:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Vantaggio Matematico",hero_title_2:"la nostra a.i. analizza ogni scommessa",hero_subtitle:'Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate dalle nostre reti neurali.',cta_button:"Entra nel Canale Gratuito",stat_ai:"Scansione A.I.",stat_free:"Gratuito",trans_title_1:"Trasparenza Assoluta",trans_desc:"Un'analisi quantitativa completa, facile da copiare per chiunque.",tg_official:"Canale Ufficiale",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIA:",tg_market:"MERCATO:",tg_stake:"STAKE:",tg_risk:"GESTIONE RISCHIO",card1_title:"Profitto Automatico",card1_desc:"Copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo e massima precisione.",card2_title:"Protezione Capitale",card2_desc:"Gestione matematica del rischio. Applichiamo rigidi modelli per preservare sempre la tua cassa.",card3_title:"Scansione Real-Time",card3_desc:"L'A.I. monitora simultaneamente centinaia di match per estrarre solo il vero valore statistico.",ft_title:"Unisciti ai nostri canali",ft_disclaimer:"Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sul sito ADM. Gioca responsabilmente.",tg_strat_val:"Punta Favorita",tg_market_val:"Esito Finale (1)",tg_sl_val:"Uscita al minuto 82'.",tg_tp_val:"Green Up al 1° goal."},
-                en:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Mathematical Edge",hero_title_2:"our a.i. analyzes every bet",hero_subtitle:'Stop guessing. Copy <strong class="text-white font-bold">high-yield</strong> operations generated by our neural networks.',cta_button:"Join Free Channel",stat_ai:"A.I. Scanning",stat_free:"Free",trans_title_1:"Absolute Transparency",trans_desc:"A complete quantitative analysis, easy for anyone to copy.",tg_official:"Official Channel",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGY:",tg_market:"MARKET:",tg_stake:"STAKE:",tg_risk:"RISK MANAGEMENT",card1_title:"Automated Profit",card1_desc:"Copy the exact trade and set automated exit. Zero emotional stress and maximum precision.",card2_title:"Capital Protection",card2_desc:"Mathematical risk management. We apply strict models to preserve your bankroll.",card3_title:"Real-Time Scanning",card3_desc:"The A.I. simultaneously monitors hundreds of matches to extract true statistical value.",ft_title:"Join our channels",ft_disclaimer:"Gambling is strictly prohibited for minors. Play responsibly.",tg_strat_val:"Back Favorite",tg_market_val:"Match Odds (1)",tg_sl_val:"Exit at 82'.",tg_tp_val:"Green Up at 1st goal."},
-                es:{hero_badge:"SEÑAL TELEGRAM ACTIVA",hero_title_1:"Ventaja Matemática",hero_title_2:"nuestra i.a. analiza cada apuesta",hero_subtitle:'Deja de apostar al azar. Copia operaciones de <strong class="text-white font-bold">alto rendimiento</strong> generadas por nuestras redes neuronales.',cta_button:"Únete al Canal Gratis",stat_ai:"Escaneo I.A.",stat_free:"Gratis",trans_title_1:"Transparencia Absoluta",trans_desc:"Un análisis cuantitativo completo, fácil de copiar para todos.",tg_official:"Canal Oficial",tg_live:"SEÑAL EN VIVO",tg_strat:"ESTRATEGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTIÓN DE RIESGO",card1_title:"Beneficio Automático",card1_desc:"Copia la operación exacta y configura la salida automática. Cero estrés emocional.",card2_title:"Protección de Capital",card2_desc:"Gestión matemática del riesgo. Aplicamos modelos estrictos para preservar tu bankroll.",card3_title:"Escaneo en Tiempo Real",card3_desc:"La I.A. monitorea cientos de partidos simultáneamente para extraer valor estadístico real.",ft_title:"Únete a nuestros canales",ft_disclaimer:"Juego prohibido a menores de 18 años. Juega con responsabilidad.",tg_strat_val:"Apuesta a Favorito",tg_market_val:"Ganador del Partido (1)",tg_sl_val:"Salida al minuto 82'.",tg_tp_val:"Green Up al 1er gol."},
-                de:{hero_badge:"TELEGRAM SIGNAL AKTIV",hero_title_1:"Mathematischer Vorteil",hero_title_2:"unsere K.I. analysiert jede Wette",hero_subtitle:'Hör auf, blind zu raten. Kopiere <strong class="text-white font-bold">renditestarke</strong> Trades, die von unseren neuronalen Netzen generiert werden.',cta_button:"Kostenlosem Kanal beitreten",stat_ai:"K.I. Scan",stat_free:"Kostenlos",trans_title_1:"Absolute Transparenz",trans_desc:"Eine komplette quantitative Analyse, die jeder leicht kopieren kann.",tg_official:"Offizieller Kanal",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIE:",tg_market:"MARKT:",tg_stake:"STAKE:",tg_risk:"RISIKOMANAGEMENT",card1_title:"Automatischer Profit",card1_desc:"Kopiere den exakten Trade und setze den automatischen Exit. Null emotionaler Stress.",card2_title:"Kapitalschutz",card2_desc:"Mathematisches Risikomanagement. Wir wenden strenge Modelle an, um dein Guthaben zu schützen.",card3_title:"Echtzeit-Scan",card3_desc:"Die K.I. überwacht hunderte Spiele gleichzeitig, um echten statistischen Wert zu extrahieren.",ft_title:"Tritt unseren Kanälen bei",ft_disclaimer:"Glücksspiel ist für Minderjährige verboten. Spiele verantwortungsbewusst.",tg_strat_val:"Favorit Backen",tg_market_val:"Endergebnis (1)",tg_sl_val:"Ausstieg 82. Minute.",tg_tp_val:"Green Up beim 1. Tor."},
-                fr:{hero_badge:"SIGNAL TELEGRAM ACTIF",hero_title_1:"Avantage Mathématique",hero_title_2:"notre i.a. analyse chaque pari",hero_subtitle:'Arrêtez de parier au hasard. Copiez des opérations à <strong class="text-white font-bold">haut rendement</strong> générées par nos réseaux de neurones.',cta_button:"Rejoindre le Canal Gratuit",stat_ai:"Analyse I.A.",stat_free:"Gratuit",trans_title_1:"Transparence Absolue",trans_desc:"Une analyse quantitative complète, facile à copier pour tout le monde.",tg_official:"Canal Officiel",tg_live:"SIGNAL EN DIRECT",tg_strat:"STRATÉGIE:",tg_market:"MARCHÉ:",tg_stake:"STAKE:",tg_risk:"GESTION DES RISQUES",card1_title:"Profit Automatique",card1_desc:"Copiez l'opération exacte et définissez la sortie automatique. Zéro stress émotionnel.",card2_title:"Protection du Capital",card2_desc:"Gestion mathématique des risques. Nous appliquons des modèles stricts pour préserver votre bankroll.",card3_title:"Scan en Temps Réel",card3_desc:"L'I.A. surveille simultanément des centaines de matchs pour extraire la vraie valeur statistique.",ft_title:"Rejoignez nos canaux",ft_disclaimer:"Les jeux d'argent sont interdits aux mineurs. Jouez de façon responsable.",tg_strat_val:"Miser sur Favori",tg_market_val:"Résultat Final (1)",tg_sl_val:"Sortie à la 82e minute.",tg_tp_val:"Green Up au 1er but."},
-                pt:{hero_badge:"SINAL TELEGRAM ATIVO",hero_title_1:"Vantagem Matemática",hero_title_2:"nossa i.a. analisa cada aposta",hero_subtitle:'Pare de adivinhar. Copie operações de <strong class="text-white font-bold">alto rendimento</strong> geradas por nossas redes neurais.',cta_button:"Entrar no Canal Grátis",stat_ai:"Varredura I.A.",stat_free:"Grátis",trans_title_1:"Transparencia Absoluta",trans_desc:"Uma análise quantitativa completa, fácil de copiar para qualquer um.",tg_official:"Canal Oficial",tg_live:"SINAL AO VIVO",tg_strat:"ESTRATÉGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTÃO DE RISCO",card1_title:"Lucro Automático",card1_desc:"Copie a operação exata e defina a saída automática. Zero estresse emocional.",card2_title:"Proteção de Capital",card2_desc:"Gestão matemática de risco. Aplicamos modelos rigorosos para preservar sua banca.",card3_title:"Varredura em Tempo Real",card3_desc:"A I.A. monitora centenas de partidas simultaneamente para extrair valor estatístico real.",ft_title:"Junte-se aos nossos canais",ft_disclaimer:"Jogo proibido para menores de 18 anos. Jogue com responsabilidade.",tg_strat_val:"Apostar no Favorito",tg_market_val:"Resultado Final (1)",tg_sl_val:"Saída aos 82'.",tg_tp_val:"Green Up no 1º gol."},
-                ro:{hero_badge:"SEMNAL TELEGRAM ACTIV",hero_title_1:"Avantaj Matematic",hero_title_2:"A.I.-ul nostru analizează fiecare pariu",hero_subtitle:'Nu mai paria la întâmplare. Copiază operațiunile cu <strong class="text-white font-bold">randament ridicat</strong> generate de rețelele noastre neuronale.',cta_button:"Intră în Canalul Gratuit",stat_ai:"Scanare A.I.",stat_free:"Gratuit",trans_title_1:"Transparență Absolută",trans_desc:"O analiză cantitativă completă, ușor de copiat pentru oricine.",tg_official:"Canal Oficial",tg_live:"SEMNAL LIVE",tg_strat:"STRATEGIE:",tg_market:"PIAȚĂ:",tg_stake:"MIZĂ:",tg_risk:"MANAGEMENTUL RISCULUI",card1_title:"Profit Automat",card1_desc:"Copiezi tranzacția exactă și setezi ieșirea automată. Zero stres emoțional.",card2_title:"Protejarea Capitalului",card2_desc:"Management matematic al riscului. Aplicăm modele stricte pentru a-ți păstra bugetul.",card3_title:"Scanare în Timp Real",card3_desc:"A.I.-ul monitorizează simultan sute de meciuri pentru a extrage valoarea statistică reală.",ft_title:"Alătură-te canalelor noastre",ft_disclaimer:"Jocurile de noroc sunt interzise minorilor. Joacă responsabil.",tg_strat_val:"Pariem pe Favorit",tg_market_val:"Rezultat Final (1)",tg_sl_val:"Ieșire în minutul 82'.",tg_tp_val:"Green Up la primul gol."},
-                sq:{hero_badge:"SINJALI TELEGRAM AKTIV",hero_title_1:"Avantazh Matematikor",hero_title_2:"a.i. ynë analizon çdo bast",hero_subtitle:'Mos vini baste rastësisht. Kopjoni operacionet me <strong class="text-white font-bold">fitim të lartë</strong> të krijuara nga rrjetet tona nervore.',cta_button:"Hyni në Kanalin Falas",stat_ai:"Skanim A.I.",stat_free:"Falas",trans_title_1:"Transparencë Absolute",trans_desc:"Një analizë e plotë sasiore, e lehtë për t'u kopjuar nga kushdo.",tg_official:"Kanali Zyrtar",tg_live:"SINJALI LIVE",tg_strat:"STRATEGJIA:",tg_market:"TREGU:",tg_stake:"STAKE:",tg_risk:"MENAXHIMI I RISKUT",card1_title:"Fitimi Automatik",card1_desc:"Kopjoni tregtinë e saktë dhe vendosni daljen automatike. Zero stres emocional.",card2_title:"Mbrojtja e Kapitalit",card2_desc:"Menaxhim matematikor i riskut. Ne aplikojmë modele strikte për të ruajtur bankrollin tuaj.",card3_title:"Skanim në Kohë Reale",card3_desc:"A.I. monitoron njëkohësisht qindra ndeshje për të nxjerrë vlerë të vërtetë statistikore.",ft_title:"Bashkohuni me kanalet tona",ft_disclaimer:"Bixhozi është i ndaluar për të miturit. Luani me përgjegjësi.",tg_strat_val:"Basto për Favoritin",tg_market_val:"Rezultati Përfundimtar (1)",tg_sl_val:"Dalja në minutën 82'.",tg_tp_val:"Green Up te goli i 1-rë."}
+                it:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Vantaggio Matematico",hero_title_2:"la nostra a.i. analizza ogni scommessa",hero_subtitle:'Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate dalle nostre reti neurali.',cta_button:"Entra nel Canale Gratuito",stat_ai:"Scansione A.I.",stat_free:"Gratuito",trans_title_1:"Trasparenza Assoluta",trans_desc:"Un'analisi quantitativa completa, facile da copiare per chiunque.",tg_official:"Canale Ufficiale",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIA:",tg_market:"MERCATO:",tg_stake:"STAKE:",tg_risk:"GESTIONE RISCHIO",card1_title:"Profitto Automatico",card1_desc:"Copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo e massima precisione.",card2_title:"Protezione Capitale",card2_desc:"Gestione matematica del rischio. Applichiamo rigidi modelli per preservare sempre la tua cassa.",card3_title:"Scansione Real-Time",card3_desc:"L'A.I. monitora simultaneamente centinaia di match per estrarre solo il vero valore statistico.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportivo profittevole in 30 giorni.",ft_title:"Unisciti ai nostri canali",ft_disclaimer:"Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sul sito ADM. Gioca responsabilmente.",tg_strat_val:"Punta Favorita",tg_market_val:"Esito Finale (1)",tg_sl_val:"Uscita al minuto 82'.",tg_tp_val:"Green Up al 1° goal."},
+                en:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Mathematical Edge",hero_title_2:"our a.i. analyzes every bet",hero_subtitle:'Stop guessing. Copy <strong class="text-white font-bold">high-yield</strong> operations generated by our neural networks.',cta_button:"Join Free Channel",stat_ai:"A.I. Scanning",stat_free:"Free",trans_title_1:"Absolute Transparency",trans_desc:"A complete quantitative analysis, easy for anyone to copy.",tg_official:"Official Channel",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGY:",tg_market:"MARKET:",tg_stake:"STAKE:",tg_risk:"RISK MANAGEMENT",card1_title:"Automated Profit",card1_desc:"Copy the exact trade and set automated exit. Zero emotional stress and maximum precision.",card2_title:"Capital Protection",card2_desc:"Mathematical risk management. We apply strict models to preserve your bankroll.",card3_title:"Real-Time Scanning",card3_desc:"The A.I. simultaneously monitors hundreds of matches to extract true statistical value.",card4_title:"ZERO TO HERO Academy",card4_desc:"Profitable sports trader in 30 days.",ft_title:"Join our channels",ft_disclaimer:"Gambling is strictly prohibited for minors. Play responsibly.",tg_strat_val:"Back Favorite",tg_market_val:"Match Odds (1)",tg_sl_val:"Exit at 82'.",tg_tp_val:"Green Up at 1st goal."},
+                es:{hero_badge:"SEÑAL TELEGRAM ACTIVA",hero_title_1:"Ventaja Matemática",hero_title_2:"nuestra i.a. analiza cada apuesta",hero_subtitle:'Deja de apostar al azar. Copia operaciones de <strong class="text-white font-bold">alto rendimiento</strong> generadas por nuestras redes neuronales.',cta_button:"Únete al Canal Gratis",stat_ai:"Escaneo I.A.",stat_free:"Gratis",trans_title_1:"Transparencia Absoluta",trans_desc:"Un análisis cuantitativo completo, fácil de copiar para todos.",tg_official:"Canal Oficial",tg_live:"SEÑAL EN VIVO",tg_strat:"ESTRATEGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTIÓN DE RIESGO",card1_title:"Beneficio Automático",card1_desc:"Copia la operación exacta y configura la salida automática. Cero estrés emocional.",card2_title:"Protección de Capital",card2_desc:"Gestión matemática del riesgo. Aplicamos modelos estrictos para preservar tu bankroll.",card3_title:"Escaneo en Tiempo Real",card3_desc:"La I.A. monitorea cientos de partidos simultáneamente para extraer valor estadístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader deportivo rentable en 30 días.",ft_title:"Únete a nuestros canales",ft_disclaimer:"Juego prohibido a menores de 18 años. Juega con responsabilidad.",tg_strat_val:"Apuesta a Favorito",tg_market_val:"Ganador del Partido (1)",tg_sl_val:"Salida al minuto 82'.",tg_tp_val:"Green Up al 1er gol."},
+                de:{hero_badge:"TELEGRAM SIGNAL AKTIV",hero_title_1:"Mathematischer Vorteil",hero_title_2:"unsere K.I. analysiert jede Wette",hero_subtitle:'Hör auf, blind zu raten. Kopiere <strong class="text-white font-bold">renditestarke</strong> Trades, die von unseren neuronalen Netzen generiert werden.',cta_button:"Kostenlosem Kanal beitreten",stat_ai:"K.I. Scan",stat_free:"Kostenlos",trans_title_1:"Absolute Transparenz",trans_desc:"Eine komplette quantitative Analyse, die jeder leicht kopieren kann.",tg_official:"Offizieller Kanal",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIE:",tg_market:"MARKT:",tg_stake:"STAKE:",tg_risk:"RISIKOMANAGEMENT",card1_title:"Automatischer Profit",card1_desc:"Kopiere den exakten Trade und setze den automatischen Exit. Null emotionaler Stress.",card2_title:"Kapitalschutz",card2_desc:"Mathematisches Risikomanagement. Wir wenden strenge Modelle an, um dein Guthaben zu schützen.",card3_title:"Echtzeit-Scan",card3_desc:"Die K.I. überwacht hunderte Spiele gleichzeitig, um echten statistischen Wert zu extrahieren.",card4_title:"ZERO TO HERO Academy",card4_desc:"Profitabler Sport-Trader in 30 Tagen.",ft_title:"Tritt unseren Kanälen bei",ft_disclaimer:"Glücksspiel ist für Minderjährige verboten. Spiele verantwortungsbewusst.",tg_strat_val:"Favorit Backen",tg_market_val:"Endergebnis (1)",tg_sl_val:"Ausstieg 82. Minute.",tg_tp_val:"Green Up beim 1. Tor."},
+                fr:{hero_badge:"SIGNAL TELEGRAM ACTIF",hero_title_1:"Avantage Mathématique",hero_title_2:"notre i.a. analyse chaque pari",hero_subtitle:'Arrêtez de parier au hasard. Copiez des opérations à <strong class="text-white font-bold">haut rendement</strong> générées par nos réseaux de neurones.',cta_button:"Rejoindre le Canal Gratuit",stat_ai:"Analyse I.A.",stat_free:"Gratuit",trans_title_1:"Transparence Absolue",trans_desc:"Une analyse quantitative complète, facile à copier pour tout le monde.",tg_official:"Canal Officiel",tg_live:"SIGNAL EN DIRECT",tg_strat:"STRATÉGIE:",tg_market:"MARCHÉ:",tg_stake:"STAKE:",tg_risk:"GESTION DES RISQUES",card1_title:"Profit Automatique",card1_desc:"Copiez l'opération exacte et définissez la sortie automatique. Zéro stress émotionnel.",card2_title:"Protection du Capital",card2_desc:"Gestion mathématique des risques. Nous appliquons des modèles stricts pour préserver votre bankroll.",card3_title:"Scan en Temps Réel",card3_desc:"L'I.A. surveille simultanément des centaines de matchs pour extraire la vraie valeur statistique.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportif rentable en 30 jours.",ft_title:"Rejoignez nos canaux",ft_disclaimer:"Les jeux d'argent sont interdits aux mineurs. Jouez de façon responsable.",tg_strat_val:"Miser sur Favori",tg_market_val:"Résultat Final (1)",tg_sl_val:"Sortie à la 82e minute.",tg_tp_val:"Green Up au 1er but."},
+                pt:{hero_badge:"SINAL TELEGRAM ATIVO",hero_title_1:"Vantagem Matemática",hero_title_2:"nossa i.a. analisa cada aposta",hero_subtitle:'Pare de adivinhar. Copie operações de <strong class="text-white font-bold">alto rendimento</strong> geradas por nossas redes neurais.',cta_button:"Entrar no Canal Grátis",stat_ai:"Varredura I.A.",stat_free:"Grátis",trans_title_1:"Transparencia Absoluta",trans_desc:"Uma análise quantitativa completa, fácil de copiar para qualquer um.",tg_official:"Canal Oficial",tg_live:"SINAL AO VIVO",tg_strat:"ESTRATÉGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTÃO DE RISCO",card1_title:"Lucro Automático",card1_desc:"Copie a operação exata e defina a saída automática. Zero estresse emocional.",card2_title:"Proteção de Capital",card2_desc:"Gestão matemática de risco. Aplicamos modelos rigorosos para preservar sua banca.",card3_title:"Varredura em Tempo Real",card3_desc:"A I.A. monitora centenas de partidas simultaneamente para extrair valor estatístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader esportivo lucrativo em 30 dias.",ft_title:"Junte-se aos nossos canais",ft_disclaimer:"Jogo proibido para menores de 18 anos. Jogue com responsabilidade.",tg_strat_val:"Apostar no Favorito",tg_market_val:"Resultado Final (1)",tg_sl_val:"Saída aos 82'.",tg_tp_val:"Green Up no 1º gol."},
+                ro:{hero_badge:"SEMNAL TELEGRAM ACTIV",hero_title_1:"Avantaj Matematic",hero_title_2:"A.I.-ul nostru analizează fiecare pariu",hero_subtitle:'Nu mai paria la întâmplare. Copiază operațiunile cu <strong class="text-white font-bold">randament ridicat</strong> generate de rețelele noastre neuronale.',cta_button:"Intră în Canalul Gratuit",stat_ai:"Scanare A.I.",stat_free:"Gratuit",trans_title_1:"Transparență Absolută",trans_desc:"O analiză cantitativă completă, ușor de copiat pentru oricine.",tg_official:"Canal Oficial",tg_live:"SEMNAL LIVE",tg_strat:"STRATEGIE:",tg_market:"PIAȚĂ:",tg_stake:"MIZĂ:",tg_risk:"MANAGEMENTUL RISCULUI",card1_title:"Profit Automat",card1_desc:"Copiezi tranzacția exactă și setezi ieșirea automată. Zero stres emoțional.",card2_title:"Protejarea Capitalului",card2_desc:"Management matematic al riscului. Aplicăm modele stricte pentru a-ți păstra bugetul.",card3_title:"Scanare în Timp Real",card3_desc:"A.I.-ul monitorizează simultan sute de meciuri pentru a extrage valoarea statistică reală.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportiv profitabil în 30 de zile.",ft_title:"Alătură-te canalelor noastre",ft_disclaimer:"Jocurile de noroc sunt interzise minorilor. Joacă responsabil.",tg_strat_val:"Pariem pe Favorit",tg_market_val:"Rezultat Final (1)",tg_sl_val:"Ieșire în minutul 82'.",tg_tp_val:"Green Up la primul gol."},
+                sq:{hero_badge:"SINJALI TELEGRAM AKTIV",hero_title_1:"Avantazh Matematikor",hero_title_2:"a.i. ynë analizon çdo bast",hero_subtitle:'Mos vini baste rastësisht. Kopjoni operacionet me <strong class="text-white font-bold">fitim të lartë</strong> të krijuara nga rrjetet tona nervore.',cta_button:"Hyni në Kanalin Falas",stat_ai:"Skanim A.I.",stat_free:"Falas",trans_title_1:"Transparencë Absolute",trans_desc:"Një analizë e plotë sasiore, e lehtë për t'u kopjuar nga kushdo.",tg_official:"Kanali Zyrtar",tg_live:"SINJALI LIVE",tg_strat:"STRATEGJIA:",tg_market:"TREGU:",tg_stake:"STAKE:",tg_risk:"MENAXHIMI I RISKUT",card1_title:"Fitimi Automatik",card1_desc:"Kopjoni tregtinë e saktë dhe vendosni daljen automatike. Zero stres emocional.",card2_title:"Mbrojtja e Kapitalit",card2_desc:"Menaxhim matematikor i riskut. Ne aplikojmë modele strikte për të ruajtur bankrollin tuaj.",card3_title:"Skanim në Kohë Reale",card3_desc:"A.I. monitoron njëkohësisht qindra ndeshje për të nxjerrë vlerë të vërtetë statistikore.",card4_title:"ZERO TO HERO Academy",card4_desc:"Tregtar sportiv fitimprurës në 30 ditë.",ft_title:"Bashkohuni me kanalet tona",ft_disclaimer:"Bixhozi është i ndaluar për të miturit. Luani me përgjegjësi.",tg_strat_val:"Basto për Favoritin",tg_market_val:"Rezultati Përfundimtar (1)",tg_sl_val:"Dalja në minutën 82'.",tg_tp_val:"Green Up te goli i 1-rë."}
             };
 
             const langBtn = document.getElementById('lang-btn');
@@ -410,20 +435,20 @@
                     const key = el.getAttribute('data-i18n');
                     if(t[lang] && t[lang][key]) el.innerHTML = t[lang][key];
                 });
-                localStorage.setItem('lang', lang);
+                safeStorage.set('lang', lang);
                 
                 // Chiude il menu dopo la selezione
                 closeMenu();
             };
 
             const detectUserLanguage = () => {
-                const savedLang = localStorage.getItem('lang');
+                const savedLang = safeStorage.get('lang');
                 if (savedLang && t[savedLang]) return savedLang;
                 const browserLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
                 return t[browserLang] ? browserLang : 'en';
             };
 
-            // Inizializza lingua
+            // Inizializza lingua in maniera sicura
             setLang(detectUserLanguage());
 
             /* GESTIONE UI MENU LINGUA (Accessibile & Mobile Friendly) */
@@ -468,6 +493,7 @@
                 
                 document.querySelectorAll('.lazy-reveal').forEach(el => obs.observe(el));
             } else {
+                // Fallback istantaneo per browser vecchi
                 document.querySelectorAll('.lazy-reveal').forEach(el => el.classList.add('revealed'));
             }
         })();
