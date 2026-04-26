@@ -22,10 +22,9 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
     
-    <!-- Preload dell'immagine LCP (Largest Contentful Paint) per evitare ritardi di rendering -->
-    <link rel="preload" as="image" href="https://i.ytimg.com/vi_webp/vHkqJ5P4AuM/maxresdefault.webp" fetchpriority="high">
+    <!-- Preload del Video Hero per evitare ritardi di rendering -->
+    <link rel="preload" as="video" href="inglesepresentbettingexchangeroom.mp4" fetchpriority="high">
     
     <!-- Font asincroni e ottimizzati -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
@@ -149,6 +148,57 @@
             opacity: 1; transform: scale(1); visibility: visible; pointer-events: auto;
         }
 
+        /* ------------------------------------------- */
+        /* NUOVI STILI VIDEO NATIVO HERO SECTION       */
+        /* ------------------------------------------- */
+        .menu-video-container {
+            width: 100%;
+            max-width: 48rem; /* Equivalente al max-w-3xl di Tailwind */
+            aspect-ratio: 16 / 9;
+            margin: 0 auto 40px auto; /* mb-10 in Tailwind = 2.5rem = 40px */
+            border-radius: 16px; /* rounded-2xl in Tailwind */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 2px solid #A3E635; /* Colore brand neon */
+            overflow: hidden;
+            background: #000;
+            position: relative;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 0 20px rgba(163, 230, 53, 0.15);
+            transform: translateZ(0); /* Hardware acceleration */
+        }
+
+        .menu-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none; /* Disabilita i controlli utente per un look pulito */
+        }
+
+        /* Logo copri-watermark incollato all'angolo in basso a destra */
+        .watermark-cover {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            z-index: 10;
+            border-radius: 8px 0 0 0;
+            background-color: rgba(0, 0, 0, 0.85); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .watermark-cover img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            display: block; 
+        }
+
         /* Modalità Risparmio Energetico / Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
@@ -203,23 +253,22 @@
                 <span class="text-[10px] sm:text-xs font-bold text-brand-blue uppercase tracking-widest" data-i18n="hero_badge">Telegram Signal Active</span>
             </div>
 
-            <!-- Titolo Principale (Ottimizzato per prevenire text-wrap strani) -->
+            <!-- Titolo Principale -->
             <h1 class="font-heading font-extrabold mb-6 sm:mb-8 tracking-tight flex flex-col items-center w-full">
                 <span class="text-[34px] leading-[1.1] xs:text-4xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter drop-shadow-lg" data-i18n="hero_title_1">Vantaggio Matematico</span>
                 <span class="text-base sm:text-xl md:text-2xl text-gray-300 mt-3 sm:mt-4 font-medium" data-i18n="hero_title_2">la nostra A.I. analizza ogni scommessa</span>
             </h1>
 
-            <!-- VIDEO PLAYER PREVIEW -->
-            <a href="https://youtu.be/vHkqJ5P4AuM?si=shxMFp8P6OLTBHGv" rel="noopener noreferrer" aria-label="Guarda il video di presentazione su YouTube" class="block w-full max-w-3xl mx-auto mb-10 rounded-2xl overflow-hidden border border-white/10 relative aspect-video group cursor-pointer hover:border-white/30 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 transform translate-z-0">
-                <img src="https://i.ytimg.com/vi_webp/vHkqJ5P4AuM/maxresdefault.webp" fetchpriority="high" decoding="sync" alt="Video di Presentazione Thumbnail" width="1280" height="720" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out">
-                
-                <!-- Pulsante Play YouTube -->
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-16 h-12 sm:w-20 sm:h-14 bg-red-600/90 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300 backdrop-blur-sm border border-white/10">
-                        <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
+            <!-- VIDEO PLAYER NATIVO (Sostituisce YouTube) -->
+            <div class="menu-video-container lazy-reveal">
+                <video class="menu-video" autoplay muted playsinline preload="auto" loop>
+                    <source src="inglesepresentbettingexchangeroom.mp4" type="video/mp4">
+                </video>
+                <!-- Copertura Watermark con Logo Elegante -->
+                <div class="watermark-cover">
+                    <img src="logo sfondo nero betting exchange room.jpeg" alt="Logo">
                 </div>
-            </a>
+            </div>
 
             <p class="text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed px-2" data-i18n="hero_subtitle">
                 Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate in tempo reale dalle nostre reti neurali.
@@ -452,7 +501,7 @@
             const t = {
                 it:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Vantaggio Matematico",hero_title_2:"la nostra a.i. analizza ogni scommessa",hero_subtitle:'Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate dalle nostre reti neurali.',cta_button:"INIZIA LA PROVA GRATUITA",stat_ai:"SCANSIONE A.I.",stat_free:"Di Prova Gratuita",trans_title_1:"Trasparenza Assoluta",trans_desc:"Un'analisi quantitativa completa, facile da copiare per chiunque.",tg_official:"Canale Ufficiale",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIA:",tg_market:"MERCATO:",tg_stake:"STAKE:",tg_risk:"GESTIONE RISCHIO",card1_title:"Profitto Matematico",card1_desc:"Copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo e massima precisione.",card2_title:"Protezione Capitale",card2_desc:"Gestione matematica del rischio. Applichiamo rigidi modelli per preservare sempre la tua cassa.",card3_title:"Scansione Real-Time",card3_desc:"L'A.I. monitora simultaneamente tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportivo profittevole in 30 giorni. Lezioni giornaliere con learning by doing guidato dall'A.I.",ft_title:"Unisciti ai nostri canali",ft_disclaimer:"Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sul sito ADM. Gioca responsabilmente.",tg_strat_val:"Punta Favorita",tg_market_val:"Esito Finale (1)",tg_sl_val:"Uscita al minuto 82'.",tg_tp_val:"Green Up al 1° goal."},
                 en:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Mathematical Edge",hero_title_2:"our a.i. analyzes every bet",hero_subtitle:'Stop guessing. Copy <strong class="text-white font-bold">high-yield</strong> operations generated by our neural networks.',cta_button:"START FREE TRIAL",stat_ai:"A.I. SCANNING",stat_free:"Free Trial Week",trans_title_1:"Absolute Transparency",trans_desc:"A complete quantitative analysis, easy for anyone to copy.",tg_official:"Official Channel",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGY:",tg_market:"MARKET:",tg_stake:"STAKE:",tg_risk:"RISK MANAGEMENT",card1_title:"Mathematical Profit",card1_desc:"Copy the exact trade and set automated exit. Zero emotional stress and maximum precision.",card2_title:"Capital Protection",card2_desc:"Mathematical risk management. We apply strict models to preserve your bankroll.",card3_title:"Real-Time Scanning",card3_desc:"The A.I. simultaneously monitors the entire schedule to extract true statistical value.",card4_title:"ZERO TO HERO Academy",card4_desc:"Profitable sports trader in 30 days. Daily lessons with A.I.-guided learning by doing.",ft_title:"Join our channels",ft_disclaimer:"Gambling is strictly prohibited for minors. Play responsibly.",tg_strat_val:"Back Favorite",tg_market_val:"Match Odds (1)",tg_sl_val:"Exit at 82'.",tg_tp_val:"Green Up at 1st goal."},
-                es:{hero_badge:"SEÑAL TELEGRAM ACTIVA",hero_title_1:"Ventaja Matemática",hero_title_2:"nuestra i.a. analiza cada apuesta",hero_subtitle:'Deja de apostar al azar. Copia operaciones de <strong class="text-white font-bold">alto rendimiento</strong> generadas por nuestras redes neuronales.',cta_button:"INICIA LA PRUEBA GRATIS",stat_ai:"ESCANEO I.A.",stat_free:"Semana de Prueba Gratis",trans_title_1:"Transparencia Absoluta",trans_desc:"Un análisis cuantitativo completo, fácil de copiar para todos.",tg_official:"Canal Oficial",tg_live:"SEÑAL EN VIVO",tg_strat:"ESTRATEGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTIÓN DE RIESGO",card1_title:"Beneficio Matemático",card1_desc:"Copia la operación exacta y configura la salida automática. Cero estrés emocional.",card2_title:"Protección de Capital",card2_desc:"Gestión matemática del riesgo. Aplicamos modelos estrictos para preservar tu bankroll.",card3_title:"Escaneo en Tiempo Real",card3_desc:"La I.A. monitorea todo el calendario simultáneamente para extraer valor estadístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader deportivo rentable en 30 días. Lecciones diarias guiadas por I.A.",ft_title:"Únete a nuestros canales",ft_disclaimer:"Juego prohibido a menores de 18 años. Juega con responsabilidad.",tg_strat_val:"Apuesta a Favorito",tg_market_val:"Ganador del Partido (1)",tg_sl_val:"Salida al minuto 82'.",tg_tp_val:"Green Up al 1er gol."},
+                es:{hero_badge:"SEÑAL TELEGRAM ACTIVA",hero_title_1:"Ventaja Matemática",hero_title_2:"nuestra i.a. analiza cada apuesta",hero_subtitle:'Deja de apostar al azar. Copia operaciones de <strong class="text-white font-bold">alto rendimiento</strong> generadas por nuestras redes neuronales.',cta_button:"INICIA LA PRUEBA GRATIS",stat_ai:"ESCANEO I.A.",stat_free:"Semana de Prueba Gratis",trans_title_1:"Transparencia Absoluta",trans_desc:"Un análisis cuantitativo completa, fácil de copiar para todos.",tg_official:"Canal Oficial",tg_live:"SEÑAL EN VIVO",tg_strat:"ESTRATEGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTIÓN DE RIESGO",card1_title:"Beneficio Matemático",card1_desc:"Copia la operación exacta y configura la salida automática. Cero estrés emocional.",card2_title:"Protección de Capital",card2_desc:"Gestión matemática del riesgo. Aplicamos modelos estrictos para preservar tu bankroll.",card3_title:"Escaneo en Tiempo Real",card3_desc:"La I.A. monitorea todo el calendario simultáneamente para extraer valor estadístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader deportivo rentable en 30 días. Lecciones diarias guiadas por I.A.",ft_title:"Únete a nuestros canales",ft_disclaimer:"Juego prohibido a menores de 18 años. Juega con responsabilidad.",tg_strat_val:"Apuesta a Favorito",tg_market_val:"Ganador del Partido (1)",tg_sl_val:"Salida al minuto 82'.",tg_tp_val:"Green Up al 1er gol."},
                 pt:{hero_badge:"SINAL TELEGRAM ATIVO",hero_title_1:"Vantagem Matemática",hero_title_2:"nossa i.a. analisa cada aposta",hero_subtitle:'Pare de adivinhar. Copie operações de <strong class="text-white font-bold">alto rendimento</strong> geradas por nossas redes neurais.',cta_button:"INICIAR TESTE GRÁTIS",stat_ai:"VARREDURA I.A.",stat_free:"Semana de Teste Grátis",trans_title_1:"Transparencia Absoluta",trans_desc:"Uma análise quantitativa completa, fácil de copiar para qualquer um.",tg_official:"Canal Oficial",tg_live:"SINAL AO VIVO",tg_strat:"ESTRATÉGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTÃO DE RISCO",card1_title:"Lucro Matemático",card1_desc:"Copie a operação exata e defina a saída automática. Zero estresse emocional.",card2_title:"Proteção de Capital",card2_desc:"Gestão matemática de risco. Aplicamos modelos rigorosos para preservar sua banca.",card3_title:"Varredura em Tempo Real",card3_desc:"A I.A. monitora toda a programação simultaneamente para extrair valor estatístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader esportivo lucrativo em 30 dias. Aulas diárias guiadas por I.A.",ft_title:"Junte-se aos nossos canais",ft_disclaimer:"Jogo proibido para menores de 18 anos. Jogue com responsabilidade.",tg_strat_val:"Apostar no Favorito",tg_market_val:"Resultado Final (1)",tg_sl_val:"Saída aos 82'.",tg_tp_val:"Green Up no 1º gol."},
                 ro:{hero_badge:"SEMNAL TELEGRAM ACTIV",hero_title_1:"Avantaj Matematic",hero_title_2:"A.I.-ul nostru analizează fiecare pariu",hero_subtitle:'Nu mai paria la întâmplare. Copiază operațiunile cu <strong class="text-white font-bold">randament ridicat</strong> generate de rețelele noastre neuronale.',cta_button:"ÎNCEPE TESTUL GRATUIT",stat_ai:"SCANARE A.I.",stat_free:"Săptămână de Probă Gratuită",trans_title_1:"Transparență Absolută",trans_desc:"O analiză cantitativă completă, ușor de copiat pentru oricine.",tg_official:"Canal Oficial",tg_live:"SEMNAL LIVE",tg_strat:"STRATEGIE:",tg_market:"PIAȚĂ:",tg_stake:"MIZĂ:",tg_risk:"MANAGEMENTUL RISCULUI",card1_title:"Profit Matematic",card1_desc:"Copiezi tranzacția exactă și setezi ieșirea automată. Zero stres emoțional.",card2_title:"Protejarea Capitalului",card2_desc:"Management matematic al riscului. Aplicăm modele stricte pentru a-ți păstra bugetul.",card3_title:"Scanare în Timp Real",card3_desc:"A.I.-ul monitorizează simultan tot programul pentru a extrage valoarea statistică reală.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportiv profitabil în 30 de zile. Lecții zilnice ghidate de A.I.",ft_title:"Alătură-te canalelor noastre",ft_disclaimer:"Jocurile de noroc sunt interzise minorilor. Joacă responsabil.",tg_strat_val:"Pariem pe Favorit",tg_market_val:"Rezultat Final (1)",tg_sl_val:"Ieșire în minutul 82'.",tg_tp_val:"Green Up la primul gol."},
                 sq:{hero_badge:"SINJALI TELEGRAM AKTIV",hero_title_1:"Avantazh Matematikor",hero_title_2:"a.i. ynë analizon çdo bast",hero_subtitle:'Mos vini baste rastësisht. Kopjoni operacionet me <strong class="text-white font-bold">fitim të lartë</strong> të krijuara nga rrjetet tona nervore.',cta_button:"FILLO PROVËN FALAS",stat_ai:"SKANIM A.I.",stat_free:"Javë Prove Falas",trans_title_1:"Transparencë Absolute",trans_desc:"Një analizë e plotë sasiore, e lehtë për t'u kopjuar nga kushdo.",tg_official:"Kanali Zyrtar",tg_live:"SINJALI LIVE",tg_strat:"STRATEGJIA:",tg_market:"TREGU:",tg_stake:"STAKE:",tg_risk:"MENAXHIMI I RISKUT",card1_title:"Fitimi Matematikor",card1_desc:"Kopjoni tregtinë e saktë dhe vendosni daljen automatike. Zero stres emocional.",card2_title:"Mbrojtja e Kapitalit",card2_desc:"Menaxhim matematikor i riskut. Ne aplikojmë modele strikte për të ruajtur bankrollin tuaj.",card3_title:"Skanim në Kohë Reale",card3_desc:"A.I. monitoron njëkohësisht të gjithë kalendarin për të nxjerrë vlerë të vërtetë statistikore.",card4_title:"ZERO TO HERO Academy",card4_desc:"Tregtar sportiv fitimprurës në 30 ditë. Mësime ditore të drejtuara nga A.I.",ft_title:"Bashkohuni me kanalet tona",ft_disclaimer:"Bixhozi është i ndaluar për të miturit. Luani me përgjegjësi.",tg_strat_val:"Basto për Favoritin",tg_market_val:"Rezultati Përfundimtar (1)",tg_sl_val:"Dalja në minutën 82'.",tg_tp_val:"Green Up te goli i 1-rë."}
