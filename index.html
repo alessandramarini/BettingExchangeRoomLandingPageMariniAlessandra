@@ -2,238 +2,96 @@
 <html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <!-- Ottimizzazione Viewport e Safe Areas per dispositivi moderni (Notch) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta name="theme-color" content="#030509">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Betting Exchange Room - Ottieni un vantaggio matematico con la nostra A.I. Smetti di scommettere a caso e copia le nostre operazioni ad alto rendimento.">
-    
-    <!-- OTTIMIZZAZIONE CACHE -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
     
     <title>Betting Exchange Room | A.I. Betting Signals</title>
     
-    <!-- Icona e Fallback -->
     <link rel="icon" type="image/jpeg" href="logo sfondo nero betting exchange room.jpeg">
     <link rel="apple-touch-icon" href="logo sfondo nero betting exchange room.jpeg">
     
-    <!-- RESOURCE HINTS: Massimizzazione velocità di rete -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Preload del Video Hero NATIVO per prestazioni LCP schizzate alle stelle -->
     <link rel="preload" as="video" href="itcyborgscommettestake.mp4" fetchpriority="high">
-    
-    <!-- Font asincroni e ottimizzati -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (CDN Configurazione Veloce) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config={
             theme:{
                 extend:{
-                    fontFamily:{
-                        sans:['Inter','sans-serif'],
-                        heading:['"Plus Jakarta Sans"','sans-serif']
-                    },
-                    colors:{
-                        brand:{
-                            dark:'#030509',
-                            surface:'#0d131c',
-                            neon:'#A3E635',
-                            blue:'#229ED9'
-                        }
-                    },
-                    boxShadow: {
-                        'neon': '0 0 20px rgba(163, 230, 53, 0.2)',
-                        'blue': '0 0 20px rgba(34, 158, 217, 0.2)',
-                    },
-                    keyframes: {
-                        shimmer: {
-                            '100%': { transform: 'translateX(100%)' }
-                        },
-                        'pulse-soft': {
-                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
-                            '50%': { transform: 'translateY(-4px) scale(1.03)' }
-                        }
-                    },
-                    animation: {
-                        'pulse-soft': 'pulse-soft 3s ease-in-out infinite'
-                    }
+                    fontFamily:{sans:['Inter','sans-serif'],heading:['"Plus Jakarta Sans"','sans-serif']},
+                    colors:{brand:{dark:'#030509',surface:'#0d131c',neon:'#A3E635',blue:'#229ED9'}},
+                    boxShadow:{'neon':'0 0 20px rgba(163, 230, 53, 0.2)','blue':'0 0 20px rgba(34, 158, 217, 0.2)'},
+                    keyframes:{shimmer:{'100%':{transform:'translateX(100%)'}},'pulse-soft':{'0%, 100%':{transform:'translateY(0) scale(1)'},'50%':{transform:'translateY(-4px) scale(1.03)'}}},
+                    animation:{'pulse-soft':'pulse-soft 3s ease-in-out infinite'}
                 },
-                screens:{'xs':'375px', 'sm':'640px', 'md':'768px', 'lg':'1024px'}
+                screens:{'xs':'375px','sm':'640px','md':'768px','lg':'1024px'}
             }
         }
     </script>
     
-    <!-- STILI CRITICI OTTIMIZZATI PER GPU E CROSS-BROWSER -->
     <style>
-        /* Base e Accessibilità */
-        html { 
-            -webkit-text-size-adjust: 100%; 
-            text-rendering: optimizeLegibility; 
-            -webkit-font-smoothing: antialiased; 
-            -moz-osx-font-smoothing: grayscale;
-            scroll-behavior: smooth;
-        }
+        html{-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;}
+        body{background-color:#030509;color:#f1f5f9;overflow-x:hidden;-webkit-tap-highlight-color:transparent;}
+        .pt-safe{padding-top:max(1rem,env(safe-area-inset-top));}
+        .pb-safe{padding-bottom:calc(100px + env(safe-area-inset-bottom));}
+        .pl-safe{padding-left:max(1rem,env(safe-area-inset-left));}
+        .pr-safe{padding-right:max(1rem,env(safe-area-inset-right));}
         
-        body { 
-            background-color: #030509; 
-            color: #f1f5f9; 
-            overflow-x: hidden;
-            /* Rimuove l'highlight blu su mobile per un feel da App nativa */
-            -webkit-tap-highlight-color: transparent; 
-        }
-
-        /* Gestione Layout Safes per iPhone/Android con notch */
-        .pt-safe { padding-top: max(1rem, env(safe-area-inset-top)); }
-        .pb-safe { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
-        .pl-safe { padding-left: max(1rem, env(safe-area-inset-left)); }
-        .pr-safe { padding-right: max(1rem, env(safe-area-inset-right)); }
-        
-        /* Glassmorphism Sicuro (con Fallback per browser vecchi) */
-        .glass-panel {
-            background-color: rgba(13, 19, 28, 0.85); /* Fallback solido */
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transform: translateZ(0); /* Hardware Acceleration */
-            backface-visibility: hidden;
-        }
+        .glass-panel{background-color:rgba(13,19,28,0.85);border:1px solid rgba(255,255,255,0.08);transform:translateZ(0);backface-visibility:hidden;}
         @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-            .glass-panel {
-                background-color: rgba(13, 19, 28, 0.6); 
-                backdrop-filter: blur(16px); 
-                -webkit-backdrop-filter: blur(16px); 
-            }
+            .glass-panel{background-color:rgba(13,19,28,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
         }
 
-        /* Effetti GPU - Transizioni fluide (Intersection Observer) */
-        .js-enabled .lazy-reveal { 
-            opacity: 0; 
-            transform: translateY(24px) translateZ(0); 
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); 
-            will-change: opacity, transform; 
-        }
-        .js-enabled .lazy-reveal.revealed { 
-            opacity: 1; 
-            transform: translateY(0) translateZ(0); 
-        }
+        .js-enabled .lazy-reveal{opacity:0;transform:translateY(24px) translateZ(0);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);will-change:opacity,transform;}
+        .js-enabled .lazy-reveal.revealed{opacity:1;transform:translateY(0) translateZ(0);}
 
-        /* Scrollbar Personalizzata */
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #030509; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
-        .custom-scrollbar { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.15) #030509; }
+        .custom-scrollbar::-webkit-scrollbar{width:6px;}
+        .custom-scrollbar::-webkit-scrollbar-track{background:#030509;}
+        .custom-scrollbar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:10px;}
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.3);}
+        .custom-scrollbar{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) #030509;}
 
-        /* Ottimizzazione estrema del DOM per sezioni fuori schermo */
-        .content-vis { 
-            content-visibility: auto; 
-            contain-intrinsic-size: auto 500px; 
-        }
-        
-        .aspect-4-3 { aspect-ratio: 4 / 3; }
+        .content-vis{content-visibility:auto;contain-intrinsic-size:auto 500px;}
+        .aspect-4-3{aspect-ratio:4/3;}
 
-        /* Menu dropdown - Compositing efficiente */
-        #lang-menu {
-            transform-origin: top right;
-            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-        }
-        #lang-menu[aria-hidden="true"] {
-            opacity: 0; transform: scale(0.95); visibility: hidden; pointer-events: none;
-        }
-        #lang-menu[aria-hidden="false"] {
-            opacity: 1; transform: scale(1); visibility: visible; pointer-events: auto;
-        }
+        #lang-menu{transform-origin:top right;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;}
+        #lang-menu[aria-hidden="true"]{opacity:0;transform:scale(0.95);visibility:hidden;pointer-events:none;}
+        #lang-menu[aria-hidden="false"]{opacity:1;transform:scale(1);visibility:visible;pointer-events:auto;}
 
-        /* ------------------------------------------- */
-        /* STILI VIDEO NATIVO HERO SECTION             */
-        /* ------------------------------------------- */
-        .menu-video-container {
-            width: 100%;
-            max-width: 48rem; /* Equivalente al max-w-3xl di Tailwind (768px) */
-            aspect-ratio: 16 / 9;
-            margin: 0 auto 2.5rem auto; /* mb-10 */
-            border-radius: 1rem; /* rounded-2xl */
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: #000;
-            position: relative;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 0 20px rgba(163, 230, 53, 0.15);
-            overflow: hidden;
-            transform: translateZ(0); /* Hardware acceleration */
-            isolation: isolate; /* Previene conflitti z-index nel rendering GPU */
-            cursor: default; /* Non è più un link cliccabile come YouTube */
-        }
+        .menu-video-container{width:100%;max-width:48rem;aspect-ratio:16/9;margin:0 auto 2.5rem auto;border-radius:1rem;border:1px solid rgba(255,255,255,0.15);background:#000;position:relative;box-shadow:0 20px 40px -10px rgba(0,0,0,0.5),0 0 20px rgba(163,230,53,0.15);overflow:hidden;transform:translateZ(0);isolation:isolate;cursor:default;}
+        .menu-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;z-index:1;}
+        .watermark-cover{position:absolute;bottom:0;right:0;width:40px;height:40px;z-index:2;border-radius:8px 0 0 0;background-color:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:3px;border-top:1px solid rgba(255,255,255,0.15);border-left:1px solid rgba(255,255,255,0.15);box-shadow:none;}
+        .watermark-cover img{width:100%;height:100%;object-fit:contain;display:block;}
 
-        .menu-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            pointer-events: none; /* Disabilita i controlli utente per un look pulito */
-            z-index: 1; /* Il video sta sul fondo */
-        }
-
-        /* Logo copri-watermark piccolo, piatto e con rotella perfettamente visibile */
-        .watermark-cover {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 40px; /* Dimensione piccola ed elegante */
-            height: 40px;
-            z-index: 2; /* Rigorosamente sopra il video */
-            border-radius: 8px 0 0 0;
-            background-color: rgba(0, 0, 0, 0.85); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3px;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            border-left: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: none; /* Rimossa ombreggiatura per look flat */
-        }
-
-        .watermark-cover img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; /* Assicura che la rotella non venga tagliata */
-            display: block; 
-        }
-
-        /* Modalità Risparmio Energetico / Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .js-enabled .lazy-reveal { transition: none; transform: none; opacity: 1; }
-            * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            html{scroll-behavior:auto;}
+            .js-enabled .lazy-reveal{transition:none;transform:none;opacity:1;}
+            *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
         }
     </style>
 </head>
 <body class="antialiased pb-safe selection:bg-brand-neon selection:text-brand-dark custom-scrollbar">
 
-    <!-- HEADER / NAVBAR -->
     <header class="fixed w-full z-50 top-0 glass-panel border-b-0 transition-all duration-300 pt-safe" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="max-w-6xl mx-auto px-3 sm:px-4 pl-safe pr-safe h-[64px] sm:h-[72px] flex items-center justify-between">
-            
-            <!-- Logo & Brand -->
             <a href="#" class="flex items-center gap-2 sm:gap-3 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-lg transition-transform hover:scale-[1.02] active:scale-95 group">
                 <img src="logo sfondo nero betting exchange room.jpeg" alt="Betting Exchange Room Logo" width="40" height="40" fetchpriority="high" decoding="sync" class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full object-cover border border-white/10 group-hover:border-white/30 transition-colors">
                 <span class="font-heading font-bold text-[9px] xs:text-[11px] sm:text-[14px] md:text-[15px] tracking-wide sm:tracking-wider text-white uppercase whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">Betting Exchange Room</span>
             </a>
             
-            <!-- Language Switcher -->
             <div class="relative shrink-0">
                 <button id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua" class="flex items-center gap-1.5 text-gray-300 hover:text-white text-xs font-semibold px-2.5 xs:px-3 py-2.5 sm:py-2 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue active:scale-95">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                     <span id="current-lang" class="uppercase tracking-wide">IT</span>
-                    <svg class="w-3 h-3 opacity-50 transition-transform duration-200" id="lang-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-3 h-3 opacity-50 transition-transform duration-200" id="lang-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                
-                <!-- Dropdown Menu -->
                 <div id="lang-menu" aria-hidden="true" role="menu" class="absolute right-0 mt-2 w-44 glass-panel rounded-xl z-50 overflow-y-auto max-h-[60vh] custom-scrollbar py-1">
                     <button role="menuitem" onclick="setLang('en')" class="w-full flex items-center gap-3 px-4 py-3.5 text-sm text-gray-200 hover:text-white hover:bg-white/10 transition-colors text-left focus:bg-white/10 focus:outline-none">🇬🇧 English</button>
                     <button role="menuitem" onclick="setLang('it')" class="w-full flex items-center gap-3 px-4 py-3.5 text-sm text-gray-200 hover:text-white hover:bg-white/10 transition-colors text-left focus:bg-white/10 focus:outline-none">🇮🇹 Italiano</button>
@@ -247,10 +105,7 @@
     </header>
 
     <main>
-        <!-- HERO SECTION -->
         <section class="relative pt-[120px] sm:pt-[150px] pb-12 px-4 pl-safe pr-safe max-w-4xl mx-auto flex flex-col items-center text-center">
-            
-            <!-- Badge -->
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/30 shadow-blue mb-8 hover:bg-brand-blue/20 transition-colors cursor-default">
                 <span class="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
@@ -259,19 +114,15 @@
                 <span class="text-[10px] sm:text-xs font-bold text-brand-blue uppercase tracking-widest" data-i18n="hero_badge">Telegram Signal Active</span>
             </div>
 
-            <!-- Titolo Principale -->
             <h1 class="font-heading font-extrabold mb-6 sm:mb-8 tracking-tight flex flex-col items-center w-full">
                 <span class="text-[34px] leading-[1.1] xs:text-4xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter drop-shadow-lg" data-i18n="hero_title_1">Vantaggio Matematico</span>
                 <span class="text-base sm:text-xl md:text-2xl text-gray-300 mt-3 sm:mt-4 font-medium" data-i18n="hero_title_2">la nostra A.I. analizza ogni scommessa</span>
             </h1>
 
-            <!-- VIDEO PLAYER NATIVO FAST-LOAD -->
             <div class="menu-video-container">
                 <video class="menu-video" autoplay muted playsinline preload="auto" loop>
-                    <!-- Nuovo Video impostato per caricarsi istantaneamente -->
                     <source src="itcyborgscommettestake.mp4" type="video/mp4">
                 </video>
-                <!-- Copertura Watermark con Logo -->
                 <div class="watermark-cover">
                     <img src="logo sfondo nero betting exchange room.jpeg" alt="Logo">
                 </div>
@@ -282,7 +133,6 @@
             </p>
         </section>
 
-        <!-- STATISTICHE HIGHLIGHT -->
         <section class="px-4 pl-safe pr-safe max-w-md mx-auto mb-20 content-vis" aria-label="Statistiche del servizio">
             <div class="flex divide-x divide-white/10 border border-white/10 rounded-2xl glass-panel overflow-hidden lazy-reveal">
                 <div class="flex-1 text-center py-5 sm:py-6 px-2 flex flex-col justify-center items-center">
@@ -291,36 +141,32 @@
                 </div>
                 <div class="flex-1 text-center py-5 sm:py-6 px-2 bg-brand-neon/5 relative overflow-hidden group flex flex-col justify-center items-center">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-neon/10 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                    <div class="relative z-10 text-brand-neon font-heading font-extrabold text-base sm:text-xl drop-shadow-md tracking-tight uppercase leading-tight">Prima Settimana</div>
+                    <!-- RISOLUZIONE BUG: Aggiunto data-i18n="stat_week" alla riga sottostante -->
+                    <div class="relative z-10 text-brand-neon font-heading font-extrabold text-base sm:text-xl drop-shadow-md tracking-tight uppercase leading-tight" data-i18n="stat_week">Prima Settimana</div>
                     <div class="relative z-10 text-[10px] sm:text-xs text-brand-neon uppercase tracking-widest mt-1 font-semibold" data-i18n="stat_free">Di Prova Gratuita</div>
                 </div>
             </div>
         </section>
 
-        <!-- PREVIEW TELEGRAM MESSAGE -->
         <section class="py-12 px-4 pl-safe pr-safe max-w-2xl mx-auto content-vis" aria-labelledby="transparency-title">
             <div class="text-center mb-10 lazy-reveal">
                 <h2 id="transparency-title" class="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3" data-i18n="trans_title_1">Trasparenza Assoluta</h2>
                 <p class="text-gray-400 text-sm sm:text-base max-w-md mx-auto" data-i18n="trans_desc">Un'analisi quantitativa completa, facile da copiare per chiunque.</p>
             </div>
 
-            <!-- Mockup Messaggio Telegram -->
             <div class="rounded-2xl overflow-hidden border border-white/10 lazy-reveal bg-[#0e1621]">
-                <!-- Header Telegram -->
                 <div class="bg-[#17212b] px-4 py-3.5 flex items-center gap-3 border-b border-white/5 relative z-20">
                     <img src="logo sfondo nero betting exchange room.jpeg" alt="Avatar Canale" width="44" height="44" class="w-11 h-11 rounded-full object-cover" loading="lazy" decoding="async">
                     <div class="flex-1 min-w-0">
                         <div class="text-white font-bold text-sm sm:text-base flex items-center gap-1.5 leading-tight truncate">
                             BETTING EXCHANGE ROOM 
-                            <svg class="w-3.5 h-3.5 text-[#229ED9] shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <svg class="w-3.5 h-3.5 text-[#229ED9] shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                         </div>
                         <div class="text-[#229ED9] text-xs font-medium mt-0.5" data-i18n="tg_official">Canale Ufficiale</div>
                     </div>
                 </div>
                 
-                <!-- Corpo Messaggio -->
                 <div class="p-4 sm:p-6 relative">
-                    <!-- Decorazione sfondo Telegram -->
                     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] opacity-50 pointer-events-none"></div>
                     
                     <div class="bg-[#182533] rounded-xl p-5 text-sm text-gray-100 border border-white/5 relative z-10">
@@ -340,7 +186,7 @@
                         <div class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-5"></div>
 
                         <p class="font-bold text-white mb-3 text-[13px] uppercase tracking-wide flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                             <span data-i18n="tg_risk">GESTIONE RISCHIO</span>
                         </p>
                         <div class="space-y-2.5 text-[13px] bg-[#0e1621] p-3.5 rounded-lg border border-white/5">
@@ -352,59 +198,54 @@
             </div>
         </section>
 
-        <!-- FEATURES CARDS -->
         <section class="py-16 px-4 pl-safe pr-safe max-w-6xl mx-auto content-vis" aria-label="Caratteristiche Principali">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                <!-- Card 1 -->
                 <article class="glass-panel rounded-2xl overflow-hidden hover:border-brand-neon/40 transition-colors duration-300 group lazy-reveal">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372165.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Profitto Matematico" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                     <div class="p-6 relative z-10 flex flex-col items-start">
                         <div class="w-12 h-12 rounded-xl bg-brand-dark flex items-center justify-center border border-white/10 mb-4 group-hover:border-brand-neon/50 transition-colors">
-                            <svg class="w-5 h-5 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 16l6-6 4 4 8-8"/></svg>
+                            <svg class="w-5 h-5 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 16l6-6 4 4 8-8"/></svg>
                         </div>
                         <h3 class="text-white font-heading font-bold mb-2 text-base lg:text-lg tracking-wide" data-i18n="card1_title">Profitto Matematico</h3>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="card1_desc">Copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo e massima precisione.</p>
                     </div>
                 </article>
 
-                <!-- Card 2 -->
                 <article class="glass-panel rounded-2xl overflow-hidden hover:border-[#FBBF24]/40 transition-colors duration-300 group lazy-reveal" style="transition-delay: 100ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372221.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Protezione Capitale" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                     <div class="p-6 relative z-10 flex flex-col items-start">
                         <div class="w-12 h-12 rounded-xl bg-brand-dark flex items-center justify-center border border-white/10 mb-4 group-hover:border-[#FBBF24]/50 transition-colors">
-                            <svg class="w-5 h-5 text-[#FBBF24]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <svg class="w-5 h-5 text-[#FBBF24]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
                         <h3 class="text-white font-heading font-bold mb-2 text-base lg:text-lg tracking-wide" data-i18n="card2_title">Protezione Capitale</h3>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="card2_desc">Gestione matematica del rischio. Applichiamo rigidi modelli per preservare sempre la tua cassa.</p>
                     </div>
                 </article>
 
-                <!-- Card 3 -->
                 <article class="glass-panel rounded-2xl overflow-hidden hover:border-[#00D2FF]/40 transition-colors duration-300 group lazy-reveal" style="transition-delay: 200ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372160.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Scansione Real-Time" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                     <div class="p-6 relative z-10 flex flex-col items-start">
                         <div class="w-12 h-12 rounded-xl bg-brand-dark flex items-center justify-center border border-white/10 mb-4 group-hover:border-[#00D2FF]/50 transition-colors">
-                            <svg class="w-5 h-5 text-[#00D2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            <svg class="w-5 h-5 text-[#00D2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <h3 class="text-white font-heading font-bold mb-2 text-base lg:text-lg tracking-wide" data-i18n="card3_title">Scansione Real-Time</h3>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="card3_desc">L'A.I. monitora simultaneamente tutto il palinsesto per estrarre solo il vero valore statistico.</p>
                     </div>
                 </article>
 
-                <!-- Card 4 -->
                 <article class="glass-panel rounded-2xl overflow-hidden hover:border-[#A855F7]/40 transition-colors duration-300 group lazy-reveal" style="transition-delay: 300ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="cyborgtifoso.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="ZERO TO HERO Academy" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                     <div class="p-6 relative z-10 flex flex-col items-start">
                         <div class="w-12 h-12 rounded-xl bg-brand-dark flex items-center justify-center border border-white/10 mb-4 group-hover:border-[#A855F7]/50 transition-colors">
-                            <svg class="w-5 h-5 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+                            <svg class="w-5 h-5 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
                         </div>
                         <h3 class="text-white font-heading font-bold mb-2 text-base lg:text-lg tracking-wide" data-i18n="card4_title">ZERO TO HERO Academy</h3>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="card4_desc">Trader sportivo profittevole in 30 giorni. Lezioni giornaliere con learning by doing guidato dall'A.I.</p>
@@ -414,17 +255,10 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="pt-16 px-4 pl-safe pr-safe max-w-4xl mx-auto border-t border-white/5 mt-10 text-center content-vis pb-safe">
-        
-        <!-- PULSANTE JOYSTICK EMOJI -->
         <div class="mb-16 flex flex-col items-center justify-center lazy-reveal">
             <a href="https://subbuteo.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center justify-center focus:outline-none" aria-label="Gioca a Subbuteo">
-                
-                <!-- Icona Joystick Emoticon WhatsApp -->
                 <span class="text-[70px] sm:text-[90px] leading-none relative z-10 animate-pulse-soft group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-500">🎮</span>
-                     
-                <!-- Testo Interattivo -->
                 <span class="mt-4 text-[10px] sm:text-xs font-extrabold text-[#229ED9] group-hover:text-brand-neon uppercase tracking-[0.25em] transition-colors duration-300 relative z-10">Play Subbuteo</span>
             </a>
         </div>
@@ -432,39 +266,25 @@
         <h3 class="text-[11px] font-bold text-gray-500 uppercase tracking-[0.25em] mb-8" data-i18n="ft_title">Unisciti ai nostri canali</h3>
         
         <div class="flex flex-wrap justify-center items-center gap-3 xs:gap-4 sm:gap-6">
-            <!-- Telegram -->
-            <a href="https://t.me/BettingExchangeRoomFree" 
-               class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50" aria-label="Seguici su Telegram">
-               <div class="absolute inset-0 rounded-full bg-brand-blue/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-               <svg class="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50" aria-label="Seguici su Telegram">
+                <div class="absolute inset-0 rounded-full bg-brand-blue/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <svg class="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             </a>
-
-            <!-- WhatsApp -->
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" 
-               class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50" aria-label="Seguici su WhatsApp">
-               <div class="absolute inset-0 rounded-full bg-[#25D366]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-               <svg class="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50" aria-label="Seguici su WhatsApp">
+                <div class="absolute inset-0 rounded-full bg-[#25D366]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <svg class="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
-
-            <!-- YouTube -->
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" 
-               class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-red-600 hover:bg-red-600/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/50" aria-label="Guarda il nostro canale YouTube">
-               <div class="absolute inset-0 rounded-full bg-red-600/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-               <svg class="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 fill-current text-red-600 transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-red-600 hover:bg-red-600/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/50" aria-label="Guarda il nostro canale YouTube">
+                <div class="absolute inset-0 rounded-full bg-red-600/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <svg class="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 fill-current text-red-600 transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-
-            <!-- X / Twitter -->
-            <a href="https://x.com/BettingExcRoom" target="_blank" rel="noopener noreferrer" 
-               class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-gray-200 hover:bg-gray-200/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-200/50" aria-label="Seguici su X">
-               <div class="absolute inset-0 rounded-full bg-gray-200/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-               <svg class="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 fill-current text-gray-300 group-hover:text-white transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.9v-.002h-1.93z"/></svg>
+            <a href="https://x.com/BettingExcRoom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-gray-200 hover:bg-gray-200/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-200/50" aria-label="Seguici su X">
+                <div class="absolute inset-0 rounded-full bg-gray-200/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <svg class="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 fill-current text-gray-300 group-hover:text-white transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.9v-.002h-1.93z"/></svg>
             </a>
-
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/profile.php?id=61574331095240" target="_blank" rel="noopener noreferrer" 
-               class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1877F2]/50" aria-label="Seguici su Facebook">
-               <div class="absolute inset-0 rounded-full bg-[#1877F2]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-               <svg class="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 fill-current text-[#1877F2] transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0014.26 2c-2.72 0-4.58 1.66-4.58 4.7v3.05H7V14h2.68v8h3.36v-8h3.11l.53-4.22h-3.64V7.16c0-1.22.34-2.05 2.09-2.05z"/></svg>
+            <a href="https://www.facebook.com/profile.php?id=61574331095240" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1877F2]/50" aria-label="Seguici su Facebook">
+                <div class="absolute inset-0 rounded-full bg-[#1877F2]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <svg class="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 fill-current text-[#1877F2] transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0014.26 2c-2.72 0-4.58 1.66-4.58 4.7v3.05H7V14h2.68v8h3.36v-8h3.11l.53-4.22h-3.64V7.16c0-1.22.34-2.05 2.09-2.05z"/></svg>
             </a>
         </div>
         
@@ -474,76 +294,48 @@
         </div>
     </footer>
 
-    <!-- STICKY BOTTOM BAR (Mobile & Desktop) -->
     <div class="fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-white/10 px-4 pl-safe pr-safe py-3" style="padding-bottom: max(12px, env(safe-area-inset-bottom));">
         <div class="max-w-4xl mx-auto">
             <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-full bg-brand-blue hover:bg-[#1a85b6] text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50 active:scale-[0.98] overflow-hidden transform translate-z-0">
-                <!-- Highlight animato interno (utilizza translateX per prestazioni GPU) -->
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current relative z-10" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current relative z-10" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                 <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">INIZIA LA PROVA GRATUITA</span>
             </a>
         </div>
     </div>
 
-    <!-- SCRIPT CORE: GESTIONE UI & I18N -->
     <script>
         document.body.classList.add('js-enabled');
-
-        // Modulo Iife (Incapsulamento e Sicurezza Memoria)
         (()=>{
-            // Wrapper sicuro per localStorage (Previene Crash in Safari/Brave Incognito)
             const safeStorage = {
-                get: function(key) {
-                    try { return localStorage.getItem(key); } 
-                    catch(e) { return null; }
-                },
-                set: function(key, value) {
-                    try { localStorage.setItem(key, value); } 
-                    catch(e) { /* Ignora se quota storage superata o disabilitato */ }
-                }
+                get: function(key) { try { return localStorage.getItem(key); } catch(e) { return null; } },
+                set: function(key, value) { try { localStorage.setItem(key, value); } catch(e) {} }
             };
 
             const t = {
-                it:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Vantaggio Matematico",hero_title_2:"la nostra a.i. analizza ogni scommessa",hero_subtitle:'Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate dalle nostre reti neurali.',cta_button:"INIZIA LA PROVA GRATUITA",stat_ai:"SCANSIONE A.I.",stat_free:"Di Prova Gratuita",trans_title_1:"Trasparenza Assoluta",trans_desc:"Un'analisi quantitativa completa, facile da copiare per chiunque.",tg_official:"Canale Ufficiale",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIA:",tg_market:"MERCATO:",tg_stake:"STAKE:",tg_risk:"GESTIONE RISCHIO",card1_title:"Profitto Matematico",card1_desc:"Copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo e massima precisione.",card2_title:"Protezione Capitale",card2_desc:"Gestione matematica del rischio. Applichiamo rigidi modelli per preservare sempre la tua cassa.",card3_title:"Scansione Real-Time",card3_desc:"L'A.I. monitora simultaneamente tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportivo profittevole in 30 giorni. Lezioni giornaliere con learning by doing guidato dall'A.I.",ft_title:"Unisciti ai nostri canali",ft_disclaimer:"Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sul sito ADM. Gioca responsabilmente.",tg_strat_val:"Punta Favorita",tg_market_val:"Esito Finale (1)",tg_sl_val:"Uscita al minuto 82'.",tg_tp_val:"Green Up al 1° goal."},
-                en:{hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Mathematical Edge",hero_title_2:"our a.i. analyzes every bet",hero_subtitle:'Stop guessing. Copy <strong class="text-white font-bold">high-yield</strong> operations generated by our neural networks.',cta_button:"START FREE TRIAL",stat_ai:"A.I. SCANNING",stat_free:"Free Trial Week",trans_title_1:"Absolute Transparency",trans_desc:"A complete quantitative analysis, easy for anyone to copy.",tg_official:"Official Channel",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGY:",tg_market:"MARKET:",tg_stake:"STAKE:",tg_risk:"RISK MANAGEMENT",card1_title:"Mathematical Profit",card1_desc:"Copy the exact trade and set automated exit. Zero emotional stress and maximum precision.",card2_title:"Capital Protection",card2_desc:"Mathematical risk management. We apply strict models to preserve your bankroll.",card3_title:"Real-Time Scanning",card3_desc:"The A.I. simultaneously monitors the entire schedule to extract true statistical value.",card4_title:"ZERO TO HERO Academy",card4_desc:"Profitable sports trader in 30 days. Daily lessons with A.I.-guided learning by doing.",ft_title:"Join our channels",ft_disclaimer:"Gambling is strictly prohibited for minors. Play responsibly.",tg_strat_val:"Back Favorite",tg_market_val:"Match Odds (1)",tg_sl_val:"Exit at 82'.",tg_tp_val:"Green Up at 1st goal."},
-                es:{hero_badge:"SEÑAL TELEGRAM ACTIVA",hero_title_1:"Ventaja Matemática",hero_title_2:"nuestra i.a. analiza cada apuesta",hero_subtitle:'Deja de apostar al azar. Copia operaciones de <strong class="text-white font-bold">alto rendimiento</strong> generadas por nuestras redes neuronales.',cta_button:"INICIA LA PRUEBA GRATIS",stat_ai:"ESCANEO I.A.",stat_free:"Semana de Prueba Gratis",trans_title_1:"Transparencia Absoluta",trans_desc:"Un análisis cuantitativo completa, fácil de copiar para todos.",tg_official:"Canal Oficial",tg_live:"SEÑAL EN VIVO",tg_strat:"ESTRATEGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTIÓN DE RIESGO",card1_title:"Beneficio Matemático",card1_desc:"Copia la operación exacta y configura la salida automática. Cero estrés emocional.",card2_title:"Protección de Capital",card2_desc:"Gestión matemática del riesgo. Aplicamos modelos estrictos para preservar tu bankroll.",card3_title:"Escaneo en Tiempo Real",card3_desc:"La I.A. monitorea todo el calendario simultáneamente para extraer valor estadístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader deportivo rentable en 30 días. Lecciones diarias guiadas por I.A.",ft_title:"Únete a nuestros canales",ft_disclaimer:"Juego prohibido a menores de 18 años. Juega con responsabilidad.",tg_strat_val:"Apuesta a Favorito",tg_market_val:"Ganador del Partido (1)",tg_sl_val:"Salida al minuto 82'.",tg_tp_val:"Green Up al 1er gol."},
-                pt:{hero_badge:"SINAL TELEGRAM ATIVO",hero_title_1:"Vantagem Matemática",hero_title_2:"nossa i.a. analisa cada aposta",hero_subtitle:'Pare de adivinhar. Copie operações de <strong class="text-white font-bold">alto rendimento</strong> geradas por nossas redes neurais.',cta_button:"INICIAR TESTE GRÁTIS",stat_ai:"VARREDURA I.A.",stat_free:"Semana de Teste Grátis",trans_title_1:"Transparencia Absoluta",trans_desc:"Uma análise quantitativa completa, fácil de copiar para qualquer um.",tg_official:"Canal Oficial",tg_live:"SINAL AO VIVO",tg_strat:"ESTRATÉGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTÃO DE RISCO",card1_title:"Lucro Matemático",card1_desc:"Copie a operação exata e defina a saída automática. Zero estresse emocional.",card2_title:"Proteção de Capital",card2_desc:"Gestão matemática de risco. Aplicamos modelos rigorosos para preservar sua banca.",card3_title:"Varredura em Tempo Real",card3_desc:"A I.A. monitora toda a programação simultaneamente para extrair valor estatístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader esportivo lucrativo em 30 dias. Aulas diárias guiadas por I.A.",ft_title:"Junte-se aos nossos canais",ft_disclaimer:"Jogo proibido para menores de 18 anos. Jogue com responsabilidade.",tg_strat_val:"Apostar no Favorito",tg_market_val:"Resultado Final (1)",tg_sl_val:"Saída aos 82'.",tg_tp_val:"Green Up no 1º gol."},
-                ro:{hero_badge:"SEMNAL TELEGRAM ACTIV",hero_title_1:"Avantaj Matematic",hero_title_2:"A.I.-ul nostru analizează fiecare pariu",hero_subtitle:'Nu mai paria la întâmplare. Copiază operațiunile cu <strong class="text-white font-bold">randament ridicat</strong> generate de rețelele noastre neuronale.',cta_button:"ÎNCEPE TESTUL GRATUIT",stat_ai:"SCANARE A.I.",stat_free:"Săptămână de Probă Gratuită",trans_title_1:"Transparență Absolută",trans_desc:"O analiză cantitativă completă, ușor de copiat pentru oricine.",tg_official:"Canal Oficial",tg_live:"SEMNAL LIVE",tg_strat:"STRATEGIE:",tg_market:"PIAȚĂ:",tg_stake:"MIZĂ:",tg_risk:"MANAGEMENTUL RISCULUI",card1_title:"Profit Matematic",card1_desc:"Copiezi tranzacția exactă și setezi ieșirea automată. Zero stres emoțional.",card2_title:"Protejarea Capitalului",card2_desc:"Management matematic al riscului. Aplicăm modele stricte pentru a-ți păstra bugetul.",card3_title:"Scanare în Timp Real",card3_desc:"A.I.-ul monitorizează simultan tot programul pentru a extrage valoarea statistică reală.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportiv profitabil în 30 de zile. Lecții zilnice ghidate de A.I.",ft_title:"Alătură-te canalelor noastre",ft_disclaimer:"Jocurile de noroc sunt interzise minorilor. Joacă responsabil.",tg_strat_val:"Pariem pe Favorit",tg_market_val:"Rezultat Final (1)",tg_sl_val:"Ieșire în minutul 82'.",tg_tp_val:"Green Up la primul gol."},
-                sq:{hero_badge:"SINJALI TELEGRAM AKTIV",hero_title_1:"Avantazh Matematikor",hero_title_2:"a.i. ynë analizon çdo bast",hero_subtitle:'Mos vini baste rastësisht. Kopjoni operacionet me <strong class="text-white font-bold">fitim të lartë</strong> të krijuara nga rrjetet tona nervore.',cta_button:"FILLO PROVËN FALAS",stat_ai:"SKANIM A.I.",stat_free:"Javë Prove Falas",trans_title_1:"Transparencë Absolute",trans_desc:"Një analizë e plotë sasiore, e lehtë për t'u kopjuar nga kushdo.",tg_official:"Kanali Zyrtar",tg_live:"SINJALI LIVE",tg_strat:"STRATEGJIA:",tg_market:"TREGU:",tg_stake:"STAKE:",tg_risk:"MENAXHIMI I RISKUT",card1_title:"Fitimi Matematikor",card1_desc:"Kopjoni tregtinë e saktë dhe vendosni daljen automatike. Zero stres emocional.",card2_title:"Mbrojtja e Kapitalit",card2_desc:"Menaxhim matematikor i riskut. Ne aplikojmë modele strikte për të ruajtur bankrollin tuaj.",card3_title:"Skanim në Kohë Reale",card3_desc:"A.I. monitoron njëkohësisht të gjithë kalendarin për të nxjerrë vlerë të vërtetë statistikore.",card4_title:"ZERO TO HERO Academy",card4_desc:"Tregtar sportiv fitimprurës në 30 ditë. Mësime ditore të drejtuara nga A.I.",ft_title:"Bashkohuni me kanalet tona",ft_disclaimer:"Bixhozi është i ndaluar për të miturit. Luani me përgjegjësi.",tg_strat_val:"Basto për Favoritin",tg_market_val:"Rezultati Përfundimtar (1)",tg_sl_val:"Dalja në minutën 82'.",tg_tp_val:"Green Up te goli i 1-rë."}
+                it:{stat_week:"Prima Settimana",hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Vantaggio Matematico",hero_title_2:"la nostra a.i. analizza ogni scommessa",hero_subtitle:'Smetti di scommettere a caso. Copia le operazioni ad <strong class="text-white font-bold">alto rendimento</strong> elaborate dalle nostre reti neurali.',cta_button:"INIZIA LA PROVA GRATUITA",stat_ai:"SCANSIONE A.I.",stat_free:"Di Prova Gratuita",trans_title_1:"Trasparenza Assoluta",trans_desc:"Un'analisi quantitativa completa, facile da copiare per chiunque.",tg_official:"Canale Ufficiale",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGIA:",tg_market:"MERCATO:",tg_stake:"STAKE:",tg_risk:"GESTIONE RISCHIO",card1_title:"Profitto Matematico",card1_desc:"Copi l'operazione esatta e imposti l'uscita automatica. Zero stress emotivo.",card2_title:"Protezione Capitale",card2_desc:"Gestione matematica del rischio. Applichiamo rigidi modelli per preservare la tua cassa.",card3_title:"Scansione Real-Time",card3_desc:"L'A.I. monitora tutto il palinsesto per estrarre vero valore statistico.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportivo profittevole in 30 giorni. Lezioni guidate dall'A.I.",ft_title:"Unisciti ai nostri canali",ft_disclaimer:"Gioco vietato ai minori. Gioca responsabilmente.",tg_strat_val:"Punta Favorita",tg_market_val:"Esito Finale (1)",tg_sl_val:"Uscita al 82'.",tg_tp_val:"Green Up al 1° goal."},
+                en:{stat_week:"First Week",hero_badge:"TELEGRAM SIGNAL ACTIVE",hero_title_1:"Mathematical Edge",hero_title_2:"our a.i. analyzes every bet",hero_subtitle:'Stop guessing. Copy <strong class="text-white font-bold">high-yield</strong> operations generated by our neural networks.',cta_button:"START FREE TRIAL",stat_ai:"A.I. SCANNING",stat_free:"Of Free Trial",trans_title_1:"Absolute Transparency",trans_desc:"Complete quantitative analysis, easy for anyone to copy.",tg_official:"Official Channel",tg_live:"LIVE SIGNAL",tg_strat:"STRATEGY:",tg_market:"MARKET:",tg_stake:"STAKE:",tg_risk:"RISK MANAGEMENT",card1_title:"Mathematical Profit",card1_desc:"Copy the exact trade and set automated exit. Zero emotional stress.",card2_title:"Capital Protection",card2_desc:"Mathematical risk management. We apply strict models to preserve your bankroll.",card3_title:"Real-Time Scanning",card3_desc:"The A.I. monitors the schedule to extract true statistical value.",card4_title:"ZERO TO HERO Academy",card4_desc:"Profitable sports trader in 30 days. Daily A.I.-guided lessons.",ft_title:"Join our channels",ft_disclaimer:"Gambling is strictly prohibited for minors. Play responsibly.",tg_strat_val:"Back Favorite",tg_market_val:"Match Odds (1)",tg_sl_val:"Exit at 82'.",tg_tp_val:"Green Up at 1st goal."},
+                es:{stat_week:"Primera Semana",hero_badge:"SEÑAL TELEGRAM ACTIVA",hero_title_1:"Ventaja Matemática",hero_title_2:"nuestra i.a. analiza cada apuesta",hero_subtitle:'Deja de apostar al azar. Copia operaciones de <strong class="text-white font-bold">alto rendimiento</strong> de nuestras redes neuronales.',cta_button:"INICIA LA PRUEBA GRATIS",stat_ai:"ESCANEO I.A.",stat_free:"De Prueba Gratis",trans_title_1:"Transparencia Absoluta",trans_desc:"Un análisis cuantitativo completo, fácil de copiar para todos.",tg_official:"Canal Oficial",tg_live:"SEÑAL EN VIVO",tg_strat:"ESTRATEGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTIÓN DE RIESGO",card1_title:"Beneficio Matemático",card1_desc:"Copia la operación exacta y configura la salida automática. Cero estrés.",card2_title:"Protección de Capital",card2_desc:"Gestión matemática del riesgo. Aplicamos modelos estrictos.",card3_title:"Escaneo en Tiempo Real",card3_desc:"La I.A. monitorea todo el calendario simultáneamente para extraer valor.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader deportivo rentable en 30 días. Lecciones guiadas por I.A.",ft_title:"Únete a nuestros canales",ft_disclaimer:"Juego prohibido a menores de 18 años. Juega con responsabilidad.",tg_strat_val:"Apuesta a Favorito",tg_market_val:"Ganador del Partido (1)",tg_sl_val:"Salida al 82'.",tg_tp_val:"Green Up al 1er gol."},
+                pt:{stat_week:"Primeira Semana",hero_badge:"SINAL TELEGRAM ATIVO",hero_title_1:"Vantagem Matemática",hero_title_2:"nossa i.a. analisa cada aposta",hero_subtitle:'Pare de adivinhar. Copie operações de <strong class="text-white font-bold">alto rendimento</strong> de nossas redes neurais.',cta_button:"INICIAR TESTE GRÁTIS",stat_ai:"VARREDURA I.A.",stat_free:"De Teste Grátis",trans_title_1:"Transparencia Absoluta",trans_desc:"Uma análise quantitativa completa, fácil de copiar para qualquer um.",tg_official:"Canal Oficial",tg_live:"SINAL AO VIVO",tg_strat:"ESTRATÉGIA:",tg_market:"MERCADO:",tg_stake:"STAKE:",tg_risk:"GESTÃO DE RISCO",card1_title:"Lucro Matemático",card1_desc:"Copie a operação exata e defina a saída automática. Zero estresse.",card2_title:"Proteção de Capital",card2_desc:"Gestão matemática de risco. Aplicamos modelos rigorosos.",card3_title:"Varredura em Tempo Real",card3_desc:"A I.A. monitora toda a programação para extrair valor estatístico real.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader esportivo lucrativo em 30 dias. Aulas guiadas por I.A.",ft_title:"Junte-se aos nossos canais",ft_disclaimer:"Jogo proibido para menores de 18 anos. Jogue com responsabilidade.",tg_strat_val:"Apostar no Favorito",tg_market_val:"Resultado Final (1)",tg_sl_val:"Saída aos 82'.",tg_tp_val:"Green Up no 1º gol."},
+                ro:{stat_week:"Prima Săptămână",hero_badge:"SEMNAL TELEGRAM ACTIV",hero_title_1:"Avantaj Matematic",hero_title_2:"A.I.-ul nostru analizează fiecare pariu",hero_subtitle:'Nu mai paria la întâmplare. Copiază operațiunile cu <strong class="text-white font-bold">randament ridicat</strong> generate de A.I.',cta_button:"ÎNCEPE TESTUL GRATUIT",stat_ai:"SCANARE A.I.",stat_free:"De Probă Gratuită",trans_title_1:"Transparență Absolută",trans_desc:"O analiză cantitativă completă, ușor de copiat pentru oricine.",tg_official:"Canal Oficial",tg_live:"SEMNAL LIVE",tg_strat:"STRATEGIE:",tg_market:"PIAȚĂ:",tg_stake:"MIZĂ:",tg_risk:"MANAGEMENTUL RISCULUI",card1_title:"Profit Matematic",card1_desc:"Copiezi tranzacția exactă și setezi ieșirea automată. Zero stres.",card2_title:"Protejarea Capitalului",card2_desc:"Management matematic al riscului. Aplicăm modele stricte.",card3_title:"Scanare în Timp Real",card3_desc:"A.I.-ul monitorizează simultan tot programul pentru valoare reală.",card4_title:"ZERO TO HERO Academy",card4_desc:"Trader sportiv profitabil în 30 de zile. Lecții ghidate de A.I.",ft_title:"Alătură-te canalelor",ft_disclaimer:"Jocurile de noroc sunt interzise minorilor. Joacă responsabil.",tg_strat_val:"Pariem pe Favorit",tg_market_val:"Rezultat Final (1)",tg_sl_val:"Ieșire în min 82'.",tg_tp_val:"Green Up la primul gol."},
+                sq:{stat_week:"Java e Parë",hero_badge:"SINJALI TELEGRAM AKTIV",hero_title_1:"Avantazh Matematikor",hero_title_2:"a.i. ynë analizon çdo bast",hero_subtitle:'Mos vini baste rastësisht. Kopjoni operacionet me <strong class="text-white font-bold">fitim të lartë</strong> të rrjeteve tona.',cta_button:"FILLO PROVËN FALAS",stat_ai:"SKANIM A.I.",stat_free:"Sprovë Falas",trans_title_1:"Transparencë Absolute",trans_desc:"Një analizë e plotë sasiore, e lehtë për t'u kopjuar.",tg_official:"Kanali Zyrtar",tg_live:"SINJALI LIVE",tg_strat:"STRATEGJIA:",tg_market:"TREGU:",tg_stake:"STAKE:",tg_risk:"MENAXHIMI I RISKUT",card1_title:"Fitimi Matematikor",card1_desc:"Kopjoni tregtinë e saktë dhe vendosni daljen automatike.",card2_title:"Mbrojtja e Kapitalit",card2_desc:"Menaxhim matematikor i riskut. Modele strikte për bankrollin.",card3_title:"Skanim në Kohë Reale",card3_desc:"A.I. monitoron të gjithë kalendarin për vlerë të vërtetë.",card4_title:"ZERO TO HERO Academy",card4_desc:"Tregtar sportiv fitimprurës në 30 ditë. Mësime nga A.I.",ft_title:"Bashkohuni me kanalet tona",ft_disclaimer:"Bixhozi është i ndaluar për të miturit. Luani me përgjegjësi.",tg_strat_val:"Basto për Favoritin",tg_market_val:"Rezultati (1)",tg_sl_val:"Dalja në min 82'.",tg_tp_val:"Green Up te goli 1-rë."}
             };
 
             const langBtn = document.getElementById('lang-btn');
             const langMenu = document.getElementById('lang-menu');
             const langArrow = document.getElementById('lang-arrow');
 
-            const openMenu = () => {
-                langBtn.setAttribute('aria-expanded', 'true');
-                langMenu.setAttribute('aria-hidden', 'false');
-                langArrow.style.transform = 'rotate(180deg)';
-            };
+            const openMenu = () => { langBtn.setAttribute('aria-expanded', 'true'); langMenu.setAttribute('aria-hidden', 'false'); langArrow.style.transform = 'rotate(180deg)'; };
+            const closeMenu = () => { langBtn.setAttribute('aria-expanded', 'false'); langMenu.setAttribute('aria-hidden', 'true'); langArrow.style.transform = 'rotate(0deg)'; if(document.activeElement === langBtn) langBtn.blur(); };
 
-            const closeMenu = () => {
-                langBtn.setAttribute('aria-expanded', 'false');
-                langMenu.setAttribute('aria-hidden', 'true');
-                langArrow.style.transform = 'rotate(0deg)';
-                if(document.activeElement === langBtn) langBtn.blur();
-            };
-
-            /* GESTIONE LINGUA RAPIDA E OTTIMIZZATA */
             window.setLang = function(l) {
                 const lang = t[l] ? l : 'en'; 
                 document.documentElement.lang = lang;
                 document.getElementById('current-lang').textContent = lang.toUpperCase();
                 
-                // Aggiornamento DOM in batch per massimizzare le prestazioni
-                const elementsToUpdate = document.querySelectorAll('[data-i18n]');
-                elementsToUpdate.forEach(el => {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
-                    if(t[lang] && t[lang][key]) {
-                        el.innerHTML = t[lang][key];
-                    }
+                    if(t[lang] && t[lang][key]) el.innerHTML = t[lang][key];
                 });
                 
                 safeStorage.set('lang', lang);
@@ -557,28 +349,13 @@
                 return t[browserLang] ? browserLang : 'en';
             };
 
-            // Setup Iniziale
             setLang(detectUserLanguage());
 
-            /* GESTIONE EVENTI MENU LINGUA */
-            langBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                langBtn.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
-            });
+            langBtn.addEventListener('click', (e) => { e.stopPropagation(); langBtn.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu(); });
+            document.addEventListener('click', (e) => { if (langBtn.getAttribute('aria-expanded') === 'true' && !langMenu.contains(e.target)) closeMenu(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && langBtn.getAttribute('aria-expanded') === 'true') closeMenu(); });
 
-            document.addEventListener('click', (e) => {
-                if (langBtn.getAttribute('aria-expanded') === 'true' && !langMenu.contains(e.target)) {
-                    closeMenu();
-                }
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && langBtn.getAttribute('aria-expanded') === 'true') closeMenu();
-            });
-
-            /* INTERSECTION OBSERVER - (Animazioni performanti ignorate se Reduced Motion è attivo) */
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            
             if ('IntersectionObserver' in window && !prefersReducedMotion) {
                 const obs = new IntersectionObserver((entries) => {
                     entries.forEach(e => {
@@ -588,10 +365,8 @@
                         }
                     });
                 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-                
                 document.querySelectorAll('.lazy-reveal').forEach(el => obs.observe(el));
             } else {
-                // Fallback pulito e istantaneo per browser vecchi o utenti con Reduced Motion
                 document.querySelectorAll('.lazy-reveal').forEach(el => el.classList.add('revealed'));
             }
         })();
