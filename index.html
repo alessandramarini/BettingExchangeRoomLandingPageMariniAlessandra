@@ -14,6 +14,9 @@
     <link rel="icon" type="image/jpeg" href="logo-tondo.jpeg">
     <link rel="apple-touch-icon" href="logo-tondo.jpeg">
     
+    <!-- Ottimizzazione DNS e Preload per caricamento fulmineo globale -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +99,11 @@
         .watermark-cover{position:absolute;bottom:0;right:0;width:48px;height:48px;z-index:2;border-radius:12px 0 0 0;background-color:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:4px;border-top:1px solid rgba(255,255,255,0.15);border-left:1px solid rgba(255,255,255,0.15);box-shadow:none;}
         .watermark-cover img{width:100%;height:100%;object-fit:contain;display:block;}
 
+        /* Ottimizzazione Smartphone in Landscape */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero-section { padding-top: 90px !important; padding-bottom: 2rem !important; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             html{scroll-behavior:auto;}
             .js-enabled .lazy-reveal{transition:none;transform:none;opacity:1;}
@@ -168,7 +176,7 @@
     </header>
 
     <main>
-        <section class="relative pt-[140px] sm:pt-[180px] pb-16 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center">
+        <section class="relative pt-[140px] sm:pt-[180px] pb-16 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center hero-section">
             <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#A3E635]/10 border border-[#A3E635]/30 shadow-neon mb-10 hover:bg-[#A3E635]/20 transition-colors cursor-default backdrop-blur-sm">
                 <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3E635] opacity-75"></span>
@@ -211,48 +219,6 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-neon/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 text-brand-neon font-heading font-black text-xl sm:text-3xl drop-shadow-lg tracking-tighter uppercase leading-tight" data-i18n="stat_week">ACCEDI ORA</div>
                     <div class="relative z-10 text-[11px] sm:text-sm text-brand-neon uppercase tracking-[0.2em] mt-2 font-bold" data-i18n="stat_free">100% GRATIS OGGI</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 px-4 pl-safe pr-safe max-w-3xl mx-auto content-vis" aria-labelledby="transparency-title">
-            <div class="text-center mb-12 lazy-reveal">
-                <h2 id="transparency-title" class="font-heading text-3xl sm:text-5xl font-black text-white tracking-tighter mb-4 uppercase" data-i18n="trans_title_1">COPIA. INCOLLA. INCASSA.</h2>
-                <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto font-medium" data-i18n="trans_desc">Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.</p>
-            </div>
-
-            <div class="rounded-3xl overflow-hidden border border-white/10 lazy-reveal bg-[#0e1621] shadow-2xl transform transition hover:-translate-y-1 duration-500">
-                <div class="bg-[#17212b] px-5 py-4 flex items-center gap-4 border-b border-white/5 relative z-20">
-                    <img src="logo-tondo.jpeg" alt="Avatar Canale" width="48" height="48" class="w-12 h-12 rounded-full object-cover border border-white/10" loading="lazy" decoding="async">
-                    <div class="flex-1 min-w-0">
-                        <div class="text-white font-bold text-base sm:text-lg flex items-center gap-2 leading-tight truncate">
-                            BETTING EXCHANGE ROOM 
-                            <svg class="w-4 h-4 text-[#229ED9] shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        </div>
-                        <div class="text-[#229ED9] text-sm font-semibold mt-0.5" data-i18n="tg_official">Canale Ufficiale</div>
-                    </div>
-                </div>
-                
-                <div class="p-5 sm:p-8 relative">
-                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] opacity-50 pointer-events-none"></div>
-                    
-                    <div class="bg-[#182533] rounded-2xl text-[14px] sm:text-[15px] leading-relaxed text-[#E4E9F0] border border-white/5 relative z-10 overflow-hidden shadow-inner">
-                        <div class="p-5 sm:p-6 max-h-[450px] overflow-y-auto custom-scrollbar flex flex-col gap-4 font-medium">
-                            <p data-i18n="tg_msg_1">⚽ Evento: Velez Sarsfield BA vs Union Santa Fe | PRE-MATCH</p>
-                            <p data-i18n="tg_msg_2">🏆 Competizione: Argentina Primera División</p>
-                            <p data-i18n="tg_msg_3">🎯 Mercato: Under 2.5 Goals</p>
-                            <p data-i18n="tg_msg_4">⚙️ Azione: BACK</p>
-                            <p data-i18n="tg_msg_5">💶 Quota Ingresso (Back): 1.72</p>
-                            <p data-i18n="tg_msg_6">💧 Liquidità Matched: € 42.500</p>
-                            <p class="text-brand-neon font-bold text-lg" data-i18n="tg_msg_7">📈 Edge Statistico: +9.4% EV</p>
-                            <p data-i18n="tg_msg_8">🛑 Stop Loss (Red Out): Uscita immediata a mercato al verificarsi di un gol nel 1° tempo, o tassativamente al raggiungimento di un drawdown massimo del -40% sullo stake investito.</p>
-                            <p data-i18n="tg_msg_9">✅ Target (Green Up): Cash out totale al raggiungimento del 12% di ROI per un profitto certo, oppure creazione di una Freebet al 65° minuto.</p>
-                            <p class="text-yellow-400 font-bold" data-i18n="tg_msg_10">💼 Money Management: Stake consigliato: 3% del bankroll.</p>
-                            <div class="bg-black/20 p-4 rounded-xl border border-white/5 text-sm text-gray-300 mt-2">
-                                <p data-i18n="tg_msg_11">📊 <strong>Razionale Quantitativo:</strong> Analisi volumetrica e storica sui dati di Velez Sarsfield BA evidenzia una contrazione della volatilità offensiva. Il modello indica una probabilità di occorrenza dell'Under 2.5 del 63.6%, a fronte di una quota implicita del 58.1%.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -314,6 +280,48 @@
                         <p class="text-gray-400 text-sm leading-relaxed font-medium" data-i18n="card4_desc">ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.</p>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <section class="py-16 px-4 pl-safe pr-safe max-w-3xl mx-auto content-vis" aria-labelledby="transparency-title">
+            <div class="text-center mb-12 lazy-reveal">
+                <h2 id="transparency-title" class="font-heading text-3xl sm:text-5xl font-black text-white tracking-tighter mb-4 uppercase" data-i18n="trans_title_1">COPIA. INCOLLA. INCASSA.</h2>
+                <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto font-medium" data-i18n="trans_desc">Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.</p>
+            </div>
+
+            <div class="rounded-3xl overflow-hidden border border-white/10 lazy-reveal bg-[#0e1621] shadow-2xl transform transition hover:-translate-y-1 duration-500">
+                <div class="bg-[#17212b] px-5 py-4 flex items-center gap-4 border-b border-white/5 relative z-20">
+                    <img src="logo-tondo.jpeg" alt="Avatar Canale" width="48" height="48" class="w-12 h-12 rounded-full object-cover border border-white/10" loading="lazy" decoding="async">
+                    <div class="flex-1 min-w-0">
+                        <div class="text-white font-bold text-base sm:text-lg flex items-center gap-2 leading-tight truncate">
+                            BETTING EXCHANGE ROOM 
+                            <svg class="w-4 h-4 text-[#229ED9] shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div class="text-[#229ED9] text-sm font-semibold mt-0.5" data-i18n="tg_official">Canale Ufficiale</div>
+                    </div>
+                </div>
+                
+                <div class="p-5 sm:p-8 relative">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] opacity-50 pointer-events-none"></div>
+                    
+                    <div class="bg-[#182533] rounded-2xl text-[14px] sm:text-[15px] leading-relaxed text-[#E4E9F0] border border-white/5 relative z-10 overflow-hidden shadow-inner">
+                        <div class="p-5 sm:p-6 flex flex-col gap-4 font-medium">
+                            <p data-i18n="tg_msg_1">⚽ Evento: Velez Sarsfield BA vs Union Santa Fe | PRE-MATCH</p>
+                            <p data-i18n="tg_msg_2">🏆 Competizione: Argentina Primera División</p>
+                            <p data-i18n="tg_msg_3">🎯 Mercato: Under 2.5 Goals</p>
+                            <p data-i18n="tg_msg_4">⚙️ Azione: BACK</p>
+                            <p data-i18n="tg_msg_5">💶 Quota Ingresso (Back): 1.72</p>
+                            <p data-i18n="tg_msg_6">💧 Liquidità Matched: € 42.500</p>
+                            <p class="text-brand-neon font-bold text-lg" data-i18n="tg_msg_7">📈 Edge Statistico: +9.4% EV</p>
+                            <p data-i18n="tg_msg_8">🛑 Stop Loss (Red Out): Uscita immediata a mercato al verificarsi di un gol nel 1° tempo, o tassativamente al raggiungimento di un drawdown massimo del -40% sullo stake investito.</p>
+                            <p data-i18n="tg_msg_9">✅ Target (Green Up): Cash out totale al raggiungimento del 12% di ROI per un profitto certo, oppure creazione di una Freebet al 65° minuto.</p>
+                            <p class="text-yellow-400 font-bold" data-i18n="tg_msg_10">💼 Money Management: Stake consigliato: 3% del bankroll.</p>
+                            <div class="bg-black/20 p-4 rounded-xl border border-white/5 text-sm text-gray-300 mt-2">
+                                <p data-i18n="tg_msg_11">📊 <strong>Razionale Quantitativo:</strong> Analisi volumetrica e storica sui dati di Velez Sarsfield BA evidenzia una contrazione della volatilità offensiva. Il modello indica una probabilità di occorrenza dell'Under 2.5 del 63.6%, a fronte di una quota implicita del 58.1%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
