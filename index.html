@@ -99,55 +99,64 @@
         .watermark-cover{position:absolute;bottom:0;right:0;width:48px;height:48px;z-index:2;border-radius:12px 0 0 0;background-color:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:4px;border-top:1px solid rgba(255,255,255,0.15);border-left:1px solid rgba(255,255,255,0.15);box-shadow:none;}
         .watermark-cover img{width:100%;height:100%;object-fit:contain;display:block;}
 
-        /* Ottimizzazione Smartphone in Landscape */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .hero-section { padding-top: 90px !important; padding-bottom: 2rem !important; }
+        /* --- STILI COMMENTI FACEBOOK (EFFETTO SCREENSHOT) --- */
+        .fb-section-wrapper {
+            pointer-events: auto; /* Consente lo scroll della pagina */
         }
-
-        @media (prefers-reduced-motion: reduce) {
-            html{scroll-behavior:auto;}
-            .js-enabled .lazy-reveal{transition:none;transform:none;opacity:1;}
-            *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
-        }
-
-        /* --- STILI COMMENTI FACEBOOK --- */
+        
         .mobile-container {
+            position: relative;
             background-color: #ffffff;
             width: 100%;
-            max-width: 550px;
-            border-radius: 16px;
+            max-width: 420px; /* Misura fissa per sembrare uno smartphone */
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 0 4px #1c1c1c; /* Bordo finto telefono */
             margin: 0 auto;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            
+            /* BLOCCO TOTALE INTERAZIONI */
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            pointer-events: none !important; /* Blocca click, selezione e drag */
+            -webkit-touch-callout: none !important; /* Blocca menu iOS su immagini */
         }
 
-        .privacy-blur-img { filter: blur(6px); transform: translateZ(0); }
-        .privacy-blur-text { color: transparent !important; text-shadow: 0 0 7px rgba(0,0,0,0.6); user-select: none; cursor: default; }
+        /* Scudo invisibile sopra il container per bloccare qualsiasi cosa */
+        .mobile-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 100;
+            background: transparent;
+        }
 
-        .fb-comment { display: flex; padding: 12px 20px; gap: 10px; }
+        .privacy-blur-img { filter: blur(5px); transform: translateZ(0); opacity: 0.9; }
+        .privacy-blur-text { color: transparent !important; text-shadow: 0 0 6px rgba(0,0,0,0.6); filter: blur(3px); user-select: none; }
+
+        .fb-comment { display: flex; padding: 12px 16px; gap: 8px; }
         .fb-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
-        .fb-comment-content { flex: 1; background-color: #f0f2f5; border-radius: 18px; padding: 10px 14px; }
-        .fb-header { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; font-size: 13.5px; }
-        .fb-name { font-weight: 600; color: #050505; }
-        .fb-text { font-size: 15px; color: #050505; line-height: 1.4; margin: 0; }
+        .fb-comment-content { flex: 1; background-color: #f0f2f5; border-radius: 18px; padding: 8px 12px; }
+        .fb-header { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+        .fb-name { font-weight: 600; color: #050505; font-size: 13px; }
+        .fb-text { font-size: 15px; color: #050505; line-height: 1.35; margin: 0; word-break: break-word; }
         
-        .fb-actions-row { display: flex; align-items: center; padding: 4px 30px 4px 34px; gap: 16px; font-size: 12px; font-weight: 600; color: #65676b; }
-        .fb-reply-btn, .fb-like-btn { cursor: pointer; }
-        .fb-reply-btn:hover, .fb-like-btn:hover { text-decoration: underline; }
+        .fb-actions-row { display: flex; align-items: center; padding: 2px 28px 4px 30px; gap: 14px; font-size: 12px; font-weight: 600; color: #65676b; position: relative; }
         .fb-time { font-weight: normal; }
         
-        .fb-reactions-count { display: flex; align-items: center; gap: 4px; background: #fff; border-radius: 10px; padding: 2px 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transform: translateY(-10px); margin-left: auto; }
+        .fb-reactions-count { display: flex; align-items: center; gap: 4px; background: #fff; border-radius: 10px; padding: 2px 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); position: absolute; right: 16px; top: -14px; }
         .fb-reactions-count svg { width: 14px; height: 14px; }
 
-        .fb-modal-handle { width: 40px; height: 4px; background-color: #bcc0c4; border-radius: 2px; margin: 12px auto; }
-        .fb-post-stats { display: flex; justify-content: space-between; align-items: center; padding: 0 20px 12px 20px; font-size: 14px; color: #65676b; }
+        .fb-modal-handle { width: 36px; height: 4px; background-color: #bcc0c4; border-radius: 2px; margin: 12px auto; }
+        .fb-post-stats { display: flex; justify-content: space-between; align-items: center; padding: 0 16px 12px 16px; font-size: 13px; color: #65676b; }
         .fb-post-stats-left { display: flex; align-items: center; gap: 6px; }
-        .fb-divider { height: 1px; background-color: #ced0d4; margin: 0 20px 12px 20px; }
-        .comments-header { padding: 0 20px 12px 20px; font-weight: 600; font-size: 16px; display: flex; align-items: center; justify-content: space-between; color: #050505;}
-        .comments-header svg { width: 20px; height: 20px; fill: #65676b; }
-        .fb-bottom-bar { border-top: 1px solid #ced0d4; padding: 16px 20px; background-color: #ffffff; }
-        .fb-input-fake { background-color: #f0f2f5; border-radius: 20px; padding: 12px 20px; color: #65676b; font-size: 15px; }
+        .fb-divider { height: 1px; background-color: #ced0d4; margin: 0 16px 12px 16px; }
+        .comments-header { padding: 0 16px 12px 16px; font-weight: 600; font-size: 15px; display: flex; align-items: center; justify-content: space-between; color: #050505;}
+        .comments-header svg { width: 16px; height: 16px; fill: #65676b; }
+        .fb-bottom-bar { border-top: 1px solid #ced0d4; padding: 12px 16px; background-color: #ffffff; }
+        .fb-input-fake { background-color: #f0f2f5; border-radius: 20px; padding: 10px 16px; color: #65676b; font-size: 14px; display: flex; align-items: center; gap: 8px;}
     </style>
 </head>
 <body class="antialiased pb-safe selection:bg-brand-neon selection:text-brand-dark custom-scrollbar">
@@ -200,10 +209,9 @@
             </div>
 
             <p class="text-gray-300 text-base sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed px-4 font-medium" data-i18n="hero_subtitle">
-                Copia le operazioni a più alto <strong class="text-white font-bold">Valore Atteso</strong> elaborate in tempo reale dalla nostra <strong class="text-brand-neon font-bold">Intelligenza Artificiale</strong>.
+                Reti neurali profonde. Agenti IA autonomi.<br class="hidden sm:block"> Il massimo <strong class="text-white font-bold">Valore Atteso</strong>. Tu devi solo copiare.
             </p>
 
-            <!-- SLOGAN MARKETER -->
             <div class="mt-10 sm:mt-14 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-black text-brand-neon uppercase tracking-widest drop-shadow-neon-strong animate-pulse-soft" data-i18n="slogan">
                 SCOMMETTI SU DI TE 🫵
             </div>
@@ -325,8 +333,8 @@
             </div>
         </section>
 
-        <!-- SEZIONE RECENSIONI FACEBOOK -->
-        <section class="py-20 px-4 pl-safe pr-safe max-w-6xl mx-auto content-vis lazy-reveal" aria-label="Recensioni Facebook">
+        <!-- SEZIONE RECENSIONI FACEBOOK (EFFETTO SCREENSHOT) -->
+        <section class="py-20 px-4 pl-safe pr-safe max-w-6xl mx-auto content-vis lazy-reveal fb-section-wrapper" aria-label="Recensioni Facebook">
             <h2 class="font-heading text-3xl sm:text-5xl text-center text-white font-black mb-12 tracking-tighter" data-i18n="fb_section_title">ENTRA NELLA COMMUNITY</h2>
             
             <div class="mobile-container">
@@ -335,11 +343,11 @@
                 <!-- Barra dei like e condivisioni -->
                 <div class="fb-post-stats">
                     <div class="fb-post-stats-left">
-                        <svg viewBox="0 0 16 16" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 16 16" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="8" cy="8" r="8" fill="#0866FF"/>
                             <path d="M11.603 6.945h-2.146l.321-1.551.01-.157c0-.203-.082-.387-.215-.521L9.052 4.2 6.027 7.226a.75.75 0 0 0-.219.53v4.5A.75.75 0 0 0 6.557 13h3.428c.311 0 .584-.191.698-.471l1.35-3.15a.735.735 0 0 0 .043-.245V7.689a.75.75 0 0 0-.473-.744zM3.557 7.756h1.5v5.244h-1.5z" fill="#fff"/>
                         </svg>
-                        <span>342</span>
+                        <span>124</span>
                     </div>
                     <span data-i18n="fb_shares">Condivisioni: 14</span>
                 </div>
@@ -351,18 +359,43 @@
                     <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
                 </div>
 
-                <!-- COMMENTO 1 -->
+                <!-- COMMENTO 1 (Academy / Demo) -->
                 <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?u=marcof" alt="Marco" class="fb-avatar privacy-blur-img">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="w-full">
                         <div class="fb-comment-content">
                             <div class="fb-header">
-                                <span class="fb-name privacy-blur-text">Marco Fabbri</span>
+                                <span class="fb-name privacy-blur-text">Marco Ferrari</span>
                             </div>
-                            <p class="fb-text" data-i18n="fb_c1_text">Ero scettico e bruciavo cassa ogni mese. Ho fatto la prova gratuita e ho capito subito la differenza tra scommettere e investire. I segnali sono chirurgici e l'Academy mi ha aperto gli occhi. Straconsigliato! 🚀</p>
+                            <p class="fb-text" data-i18n="fb_c1_text">Raga seriamente, non avevo mai capito una mazza di 'sta roba 😅. Mi sono sparato un po' di video e podcast dell'Academy e boh, miracolo, finalmente ha tutto senso! La vera salvezza è il conto demo: fai pratica senza bruciare soldi veri all'inizio, che per me era il blocco più grande 📉🚫. I segnali poi entrano che è una meraviglia. Tanta roba. 🚀🔥</p>
                         </div>
                         <div class="fb-actions-row">
-                            <span class="fb-time" data-i18n="fb_time_2d">2 g</span>
+                            <span class="fb-time" data-i18n="fb_time_1">2 h</span>
+                            <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
+                            <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
+                            <div class="fb-reactions-count">
+                                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#0866FF"/>
+                                    <path d="M11.603 6.945h-2.146l.321-1.551.01-.157c0-.203-.082-.387-.215-.521L9.052 4.2 6.027 7.226a.75.75 0 0 0-.219.53v4.5A.75.75 0 0 0 6.557 13h3.428c.311 0 .584-.191.698-.471l1.35-3.15a.735.735 0 0 0 .043-.245V7.689a.75.75 0 0 0-.473-.744zM3.557 7.756h1.5v5.244h-1.5z" fill="#fff"/>
+                                </svg>
+                                5
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMMENTO 2 (Lingue / Global) -->
+                <div class="fb-comment">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
+                    <div class="w-full">
+                        <div class="fb-comment-content">
+                            <div class="fb-header">
+                                <span class="fb-name privacy-blur-text">Alessio Costa</span>
+                            </div>
+                            <p class="fb-text" data-i18n="fb_c2_text">Ma la figata che è tradotta da dio in un botto di lingue? 🌍 Ho fatto scaricare l'app ai miei bro a Londra e in Messico, e in due secondi hanno tirato in mezzo pure i loro amici, visto che c'è tutto in inglese, spagnolo, portoghese e italiano! Ognuno se la guarda nella sua lingua ma seguiamo le stesse identiche cose. Praticamente stiamo tirando su una nostra mini-community sparsa per il mondo, assurdo. Livello altissimo! 🔝</p>
+                        </div>
+                        <div class="fb-actions-row">
+                            <span class="fb-time" data-i18n="fb_time_2">5 h</span>
                             <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
                             <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
                             <div class="fb-reactions-count">
@@ -376,18 +409,43 @@
                     </div>
                 </div>
 
-                <!-- COMMENTO 2 -->
+                <!-- COMMENTO 3 (Gruppi Whatsapp) -->
                 <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?u=giuliam" alt="Giulia" class="fb-avatar privacy-blur-img">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="w-full">
                         <div class="fb-comment-content">
                             <div class="fb-header">
-                                <span class="fb-name privacy-blur-text">Giulia Moretti</span>
+                                <span class="fb-name privacy-blur-text">Davide Bianchi</span>
                             </div>
-                            <p class="fb-text" data-i18n="fb_c2_text">Esatto! Sono dentro da due mesi e il ROI è assurdo. La cosa che amo di più? L'assenza di stress. Copio il segnale, imposto lo stop loss fornito dall'A.I. e chiudo l'app. Zero ansia, solo matematica applicata. 💰</p>
+                            <p class="fb-text" data-i18n="fb_c3_text">Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Praticamente sembra di stare al bar a sparare cavolate, ma intanto ci passiamo le strategie e capiamo come muoverci. Tra l'altro nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝</p>
                         </div>
                         <div class="fb-actions-row">
-                            <span class="fb-time" data-i18n="fb_time_4d">4 g</span>
+                            <span class="fb-time" data-i18n="fb_time_3">1 g</span>
+                            <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
+                            <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
+                            <div class="fb-reactions-count">
+                                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#0866FF"/>
+                                    <path d="M11.603 6.945h-2.146l.321-1.551.01-.157c0-.203-.082-.387-.215-.521L9.052 4.2 6.027 7.226a.75.75 0 0 0-.219.53v4.5A.75.75 0 0 0 6.557 13h3.428c.311 0 .584-.191.698-.471l1.35-3.15a.735.735 0 0 0 .043-.245V7.689a.75.75 0 0 0-.473-.744zM3.557 7.756h1.5v5.244h-1.5z" fill="#fff"/>
+                                </svg>
+                                3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMMENTO 4 (Subbuteo) -->
+                <div class="fb-comment">
+                    <img src="https://i.pravatar.cc/150?img=59" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
+                    <div class="w-full">
+                        <div class="fb-comment-content">
+                            <div class="fb-header">
+                                <span class="fb-name privacy-blur-text">Luca Moretti</span>
+                            </div>
+                            <p class="fb-text" data-i18n="fb_c4_text">Oh ma la scimmia che mi è salita col Subbuteo? 🙊 Entro sull'app con l'idea di studiare e finisce che sto mezz'ora a giocare. Vado al bar e ci gioco con i miei amici. Crea troppa dipendenza (in senso buono ahah), ci gioco pure ogni volta che ho 5 minuti morti in metro. Quel suono in sottofondo mi rilassa tantissimo e mi fa staccare il cervello! 🎮🔥</p>
+                        </div>
+                        <div class="fb-actions-row">
+                            <span class="fb-time" data-i18n="fb_time_4">2 g</span>
                             <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
                             <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
                             <div class="fb-reactions-count">
@@ -401,34 +459,12 @@
                     </div>
                 </div>
 
-                <!-- COMMENTO 3 -->
-                <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?u=alecosta" alt="Ale" class="fb-avatar privacy-blur-img">
-                    <div class="w-full">
-                        <div class="fb-comment-content">
-                            <div class="fb-header">
-                                <span class="fb-name privacy-blur-text">Alessandro Costa</span>
-                            </div>
-                            <p class="fb-text" data-i18n="fb_c3_text">La vera svolta è l'App multilingua. Gioco a calcio all'estero e l'ho girata a tutto lo spogliatoio. Ora prima dell'allenamento piazziamo i trade tutti insieme seguendo il bot. Impagabile! 🔥</p>
-                        </div>
-                        <div class="fb-actions-row">
-                            <span class="fb-time" data-i18n="fb_time_1w">1 sett</span>
-                            <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
-                            <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
-                            <div class="fb-reactions-count">
-                                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="8" fill="#0866FF"/>
-                                    <path d="M11.603 6.945h-2.146l.321-1.551.01-.157c0-.203-.082-.387-.215-.521L9.052 4.2 6.027 7.226a.75.75 0 0 0-.219.53v4.5A.75.75 0 0 0 6.557 13h3.428c.311 0 .584-.191.698-.471l1.35-3.15a.735.735 0 0 0 .043-.245V7.689a.75.75 0 0 0-.473-.744zM3.557 7.756h1.5v5.244h-1.5z" fill="#fff"/>
-                                </svg>
-                                32
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Barra finta "Commenta come..." con nome oscurato -->
+                <!-- Barra finta "Commenta come..." -->
                 <div class="fb-bottom-bar">
-                    <div class="fb-input-fake"><span data-i18n="fb_comment_as">Commenta come</span> <span class="privacy-blur-text">Alessandra Marini</span>...</div>
+                    <div class="fb-input-fake">
+                        <img src="logo-tondo.jpeg" style="width: 20px; height: 20px; border-radius: 50%;" class="privacy-blur-img" alt="">
+                        <span data-i18n="fb_comment_as">Scrivi un commento...</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -481,7 +517,6 @@
             <!-- Correzione 403 Social/Telegram Browser In-App -->
             <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-base sm:text-xl flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                <!-- Simbolo Telegram rimosso come richiesto -->
                 <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">INIZIA ORA GRATIS</span>
             </a>
             <span class="text-[11px] text-gray-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="cta_sub">Solo per oggi • Nessuna Carta Richiesta</span>
@@ -496,39 +531,43 @@
                 set: function(key, value) { try { localStorage.setItem(key, value); } catch(e) {} }
             };
 
-            /* COPY DA MARKETER AD ALTA CONVERSIONE PER TUTTE LE LINGUE (Aggiornato con nuove diciture) */
+            /* TRANSLATIONS DATA */
             const t = {
                 it:{
-                    stat_week:"ACCEDI ORA",hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",hero_subtitle:'Copia le operazioni a più alto <strong class="text-white font-bold">Valore Atteso</strong> elaborate in tempo reale dalla nostra <strong class="text-brand-neon font-bold">Intelligenza artificiale</strong>.',slogan:"SCOMMETTI SU DI TE 🫵",cta_button:"INIZIA ORA GRATIS",cta_sub:"Solo per oggi • Nessuna Carta Richiesta",stat_ai:"SCANSIONE A.I.",stat_free:"100% GRATIS OGGI",trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",tg_official:"Canale Ufficiale",card1_title:"NESSUNA EMOZIONE",card1_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",card3_title:"L'A.I. NON DORME MAI",card3_desc:"Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"DA PRINCIPIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.",ft_title:"UNISCITI ALLA COMMUNITY",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.",subbuteo_text:"Un piccolo break tra un trade e l'altro",
+                    stat_week:"ACCEDI ORA",hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",hero_subtitle:'Reti neurali profonde. Agenti IA autonomi.<br class="hidden sm:block"> Il massimo <strong class="text-white font-bold">Valore Atteso</strong>. Tu devi solo copiare.',slogan:"SCOMMETTI SU DI TE 🫵",cta_button:"INIZIA ORA GRATIS",cta_sub:"Solo per oggi • Nessuna Carta Richiesta",stat_ai:"SCANSIONE A.I.",stat_free:"100% GRATIS OGGI",trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",tg_official:"Canale Ufficiale",card1_title:"NESSUNA EMOZIONE",card1_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",card3_title:"L'A.I. NON DORME MAI",card3_desc:"Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"DA PRINCIPIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.",ft_title:"UNISCITI ALLA COMMUNITY",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.",subbuteo_text:"Un piccolo break tra un trade e l'altro",
                     tg_msg_1:"⚽ Evento: Velez Sarsfield BA vs Union Santa Fe | PRE-MATCH",tg_msg_2:"🏆 Competizione: Argentina Primera División",tg_msg_3:"🎯 Mercato: Under 2.5 Goals",tg_msg_4:"⚙️ Azione: BACK",tg_msg_5:"💶 Quota Ingresso (Back): 1.72",tg_msg_6:"💧 Liquidità Matched: € 42.500",tg_msg_7:"📈 Edge Statistico: +9.4% EV",tg_msg_8:"🛑 Stop Loss (Red Out): Uscita immediata a mercato al verificarsi di un gol nel 1° tempo, o tassativamente al raggiungimento di un drawdown massimo del -40% sullo stake investito.",tg_msg_9:"✅ Target (Green Up): Cash out totale al raggiungimento del 12% di ROI per un profitto certo, oppure creazione di una Freebet al 65° minuto.",tg_msg_10:"💼 Money Management: Stake consigliato: 3% del bankroll.",tg_msg_11:"📊 <strong>Razionale Quantitativo:</strong> Analisi volumetrica e storica sui dati di Velez Sarsfield BA evidenzia una contrazione della volatilità offensiva. Il modello indica una probabilità di occorrenza dell'Under 2.5 del 63.6%, a fronte di una quota implicita del 58.1%.",
-                    fb_section_title:"ENTRA NELLA COMMUNITY",fb_shares:"Condivisioni: 14",fb_all_comments:"Tutti i commenti",fb_time_2d:"2 g",fb_time_4d:"4 g",fb_time_1w:"1 sett",fb_like:"Mi piace",fb_reply:"Rispondi",fb_comment_as:"Commenta come",
-                    fb_c1_text:"Ero scettico e bruciavo cassa ogni mese. Ho fatto la prova gratuita e ho capito subito la differenza tra scommettere e investire. I segnali sono chirurgici e l'Academy mi ha aperto gli occhi. Straconsigliato! 🚀",
-                    fb_c2_text:"Esatto! Sono dentro da due mesi e il ROI è assurdo. La cosa che amo di più? L'assenza di stress. Copio il segnale, imposto lo stop loss fornito dall'A.I. e chiudo l'app. Zero ansia, solo matematica applicata. 💰",
-                    fb_c3_text:"La vera svolta è l'App multilingua. Gioco a calcio all'estero e l'ho girata a tutto lo spogliatoio. Ora prima dell'allenamento piazziamo i trade tutti insieme seguendo il bot. Impagabile! 🔥"
+                    fb_section_title:"ENTRA NELLA COMMUNITY",fb_shares:"Condivisioni: 14",fb_all_comments:"Tutti i commenti",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 g",fb_time_4:"2 g",fb_like:"Mi piace",fb_reply:"Rispondi",fb_comment_as:"Scrivi un commento...",
+                    fb_c1_text:"Raga seriamente, non avevo mai capito una mazza di 'sta roba 😅. Mi sono sparato un po' di video e podcast dell'Academy e boh, miracolo, finalmente ha tutto senso! La vera salvezza è il conto demo: fai pratica senza bruciare soldi veri all'inizio, che per me era il blocco più grande 📉🚫. I segnali poi entrano che è una meraviglia. Tanta roba. 🚀🔥",
+                    fb_c2_text:"Ma la figata che è tradotta da dio in un botto di lingue? 🌍 Ho fatto scaricare l'app ai miei bro a Londra e in Messico, e in due secondi hanno tirato in mezzo pure i loro amici, visto che c'è tutto in inglese, spagnolo, portoghese e italiano! Ognuno se la guarda nella sua lingua ma seguiamo le stesse identiche cose. Praticamente stiamo tirando su una nostra mini-community sparsa per il mondo, assurdo. Livello altissimo! 🔝",
+                    fb_c3_text:"Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Praticamente sembra di stare al bar a sparare cavolate, ma intanto ci passiamo le strategie e capiamo come muoverci. Tra l'altro nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝",
+                    fb_c4_text:"Oh ma la scimmia che mi è salita col Subbuteo? 🙊 Entro sull'app con l'idea di studiare e finisce che sto mezz'ora a giocare. Vado al bar e ci gioco con i miei amici. Crea troppa dipendenza (in senso buono ahah), ci gioco pure ogni volta che ho 5 minuti morti in metro. Quel suono in sottofondo mi rilassa tantissimo e mi fa staccare il cervello! 🎮🔥"
                 },
                 en:{
-                    stat_week:"ACCESS NOW",hero_badge:"ACTIVE SIGNALS ON TELEGRAM",hero_title_1:"YOUR MATHEMATICAL",hero_title_2:"ADVANTAGE",hero_subtitle:'Copy the highest <strong class="text-white font-bold">Expected Value</strong> trades processed in real-time by our <strong class="text-brand-neon font-bold">Artificial Intelligence</strong>.',slogan:"BET ON YOURSELF 🫵",cta_button:"START NOW FOR FREE",cta_sub:"Today Only • No Credit Card Required",stat_ai:"A.I. SCANNING",stat_free:"100% FREE TODAY",trans_title_1:"COPY. PASTE. CASH OUT.",trans_desc:"Receive clear and precise signals, with pre-set stop loss and money management.",tg_official:"Official Channel",card1_title:"ZERO EMOTION",card1_desc:"Copy the signal. Set the trade. Mathematical edge.",card2_title:"MONEY MANAGEMENT",card2_desc:"Strict mathematical models designed to safely protect and scale your bankroll.",card3_title:"THE A.I. NEVER SLEEPS",card3_desc:"We scan and analyze the entire schedule in real-time to extract only true statistical value.",card4_title:"BEGINNER TO PRO",card4_desc:"ZERO TO HERO Academy. 30 top-tier interactive lessons with videos, podcasts, ebooks, quizzes and demos.",ft_title:"JOIN THE COMMUNITY",ft_disclaimer:"Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.",subbuteo_text:"A little break between trades",
+                    stat_week:"ACCESS NOW",hero_badge:"ACTIVE SIGNALS ON TELEGRAM",hero_title_1:"YOUR MATHEMATICAL",hero_title_2:"ADVANTAGE",hero_subtitle:'Deep neural networks. Autonomous AI agents.<br class="hidden sm:block"> Maximum <strong class="text-white font-bold">Expected Value</strong>. You just have to copy.',slogan:"BET ON YOURSELF 🫵",cta_button:"START NOW FOR FREE",cta_sub:"Today Only • No Credit Card Required",stat_ai:"A.I. SCANNING",stat_free:"100% FREE TODAY",trans_title_1:"COPY. PASTE. CASH OUT.",trans_desc:"Receive clear and precise signals, with pre-set stop loss and money management.",tg_official:"Official Channel",card1_title:"ZERO EMOTION",card1_desc:"Copy the signal. Set the trade. Mathematical edge.",card2_title:"MONEY MANAGEMENT",card2_desc:"Strict mathematical models designed to safely protect and scale your bankroll.",card3_title:"THE A.I. NEVER SLEEPS",card3_desc:"We scan and analyze the entire schedule in real-time to extract only true statistical value.",card4_title:"BEGINNER TO PRO",card4_desc:"ZERO TO HERO Academy. 30 top-tier interactive lessons with videos, podcasts, ebooks, quizzes and demos.",ft_title:"JOIN THE COMMUNITY",ft_disclaimer:"Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.",subbuteo_text:"A little break between trades",
                     tg_msg_1:"⚽ Event: Velez Sarsfield BA vs Union Santa Fe | PRE-MATCH",tg_msg_2:"🏆 Competition: Argentina Primera División",tg_msg_3:"🎯 Market: Under 2.5 Goals",tg_msg_4:"⚙️ Action: BACK",tg_msg_5:"💶 Entry Odds (Back): 1.72",tg_msg_6:"💧 Matched Liquidity: € 42,500",tg_msg_7:"📈 Statistical Edge: +9.4% EV",tg_msg_8:"🛑 Stop Loss (Red Out): Immediate market exit upon a 1st half goal, or strictly upon reaching a maximum drawdown of -40% on the invested stake.",tg_msg_9:"✅ Target (Green Up): Full cash out upon reaching 12% ROI for a guaranteed profit, or creation of a Freebet at the 65th minute.",tg_msg_10:"💼 Money Management: Recommended stake: 3% of bankroll.",tg_msg_11:"📊 <strong>Quantitative Rationale:</strong> Volumetric and historical analysis on Velez Sarsfield BA data highlights a contraction in offensive volatility. The model indicates a 63.6% probability of Under 2.5 occurring, against an implied probability of 58.1%.",
-                    fb_section_title:"JOIN THE COMMUNITY",fb_shares:"Shares: 14",fb_all_comments:"All comments",fb_time_2d:"2 d",fb_time_4d:"4 d",fb_time_1w:"1 w",fb_like:"Like",fb_reply:"Reply",fb_comment_as:"Comment as",
-                    fb_c1_text:"I was skeptical and burning cash every month. I took the free trial and immediately understood the difference between gambling and investing. The signals are surgical and the Academy opened my eyes. Highly recommended! 🚀",
-                    fb_c2_text:"Exactly! I've been in for two months and the ROI is insane. My favorite part? Zero stress. I copy the signal, set the A.I. stop loss, and close the app. No anxiety, just applied math. 💰",
-                    fb_c3_text:"The multi-language App is a game changer. I play soccer abroad and shared it with the whole locker room. Now before practice, we place our trades together following the bot. Priceless! 🔥"
+                    fb_section_title:"JOIN THE COMMUNITY",fb_shares:"Shares: 14",fb_all_comments:"All comments",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_time_4:"2 d",fb_like:"Like",fb_reply:"Reply",fb_comment_as:"Write a comment...",
+                    fb_c1_text:"Guys seriously, I never understood a damn thing about this stuff 😅. Binge-watched some Academy videos and podcasts and wow, miracle, it finally makes sense! The demo account is a lifesaver: you practice without burning real money at first, which was my biggest block 📉🚫. The signals are hitting perfectly. Awesome stuff. 🚀🔥",
+                    fb_c2_text:"Can we talk about how insanely well it's translated into so many languages? 🌍 Got my bros in London and Mexico to download the app, and in two seconds they brought in their friends too, since everything is in English, Spanish, Portuguese, and Italian! Everyone uses it in their own language but we follow the exact same things. We're basically building our own mini-community scattered around the world, crazy. Top tier level! 🔝",
+                    fb_c3_text:"Created a private group with my day-one friends and we now spend more time here than on WhatsApp 😂. It basically feels like being at the bar talking nonsense, but meanwhile we share strategies and figure out our moves. Also, the global groups are full of super chill people. Amazing vibe 🍻🔝",
+                    fb_c4_text:"Oh man, the addiction I got with Subbuteo? 🙊 I open the app planning to study and end up playing for half an hour. I go to the bar and play with my friends. It's way too addictive (in a good way haha), I even play it whenever I have 5 dead minutes on the subway. That background sound relaxes me so much and helps me disconnect! 🎮🔥"
                 },
                 es:{
-                    stat_week:"ACCEDE AHORA",hero_badge:"SEÑALES ACTIVAS EN TELEGRAM",hero_title_1:"TU VENTAJA",hero_title_2:"MATEMÁTICA",hero_subtitle:'Copia las operaciones con el mayor <strong class="text-white font-bold">Valor Esperado</strong> procesadas en tiempo real por nuestra <strong class="text-brand-neon font-bold">Inteligencia Artificial</strong>.',slogan:"APUESTA POR TI 🫵",cta_button:"COMIENZA AHORA GRATIS",cta_sub:"Solo por hoy • Sin Tarjeta de Crédito",stat_ai:"ESCANEO I.A.",stat_free:"100% GRATIS HOY",trans_title_1:"COPIA. PEGA. GANA.",trans_desc:"Recibe señales claras y precisas, con stop loss y gestión de capital preestablecidos.",tg_official:"Canal Oficial",card1_title:"CERO EMOCIONES",card1_desc:"Copia la señal. Configura el trade. Ventaja matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos estrictos diseñados para proteger y escalar tu capital de forma segura.",card3_title:"LA I.A. NO DUERME",card3_desc:"Escaneamos y analizamos todo el calendario en tiempo real para extraer solo el valor estadístico real.",card4_title:"DE NOVATO A PRO",card4_desc:"ZERO TO HERO Academy. 30 lecciones interactivas de primer nivel con videos, podcasts, ebooks, cuestionarios y demos.",ft_title:"ÚNETE A LA COMUNIDAD",ft_disclaimer:"El trading deportivo conlleva riesgos. Prohibido para menores de 18 años. Juega responsablemente.",subbuteo_text:"Un pequeño descanso entre operaciones",
+                    stat_week:"ACCEDE AHORA",hero_badge:"SEÑALES ACTIVAS EN TELEGRAM",hero_title_1:"TU VENTAJA",hero_title_2:"MATEMÁTICA",hero_subtitle:'Redes neuronales profundas. Agentes de IA autónomos.<br class="hidden sm:block"> El máximo <strong class="text-white font-bold">Valor Esperado</strong>. Tú solo tienes que copiar.',slogan:"APUESTA POR TI 🫵",cta_button:"COMIENZA AHORA GRATIS",cta_sub:"Solo por hoy • Sin Tarjeta de Crédito",stat_ai:"ESCANEO I.A.",stat_free:"100% GRATIS HOY",trans_title_1:"COPIA. PEGA. GANA.",trans_desc:"Recibe señales claras y precisas, con stop loss y gestión de capital preestablecidos.",tg_official:"Canal Oficial",card1_title:"CERO EMOCIONES",card1_desc:"Copia la señal. Configura el trade. Ventaja matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos estrictos diseñados para proteger y escalar tu capital de forma segura.",card3_title:"LA I.A. NO DUERME",card3_desc:"Escaneamos y analizamos todo el calendario en tiempo real para extraer solo el valor estadístico real.",card4_title:"DE NOVATO A PRO",card4_desc:"ZERO TO HERO Academy. 30 lecciones interactivas de primer nivel con videos, podcasts, ebooks, cuestionarios y demos.",ft_title:"ÚNETE A LA COMUNIDAD",ft_disclaimer:"El trading deportivo conlleva riesgos. Prohibido para menores de 18 años. Juega responsablemente.",subbuteo_text:"Un pequeño descanso entre operaciones",
                     tg_msg_1:"⚽ Evento: Velez Sarsfield BA vs Union Santa Fe | PRE-MATCH",tg_msg_2:"🏆 Competición: Argentina Primera División",tg_msg_3:"🎯 Mercado: Under 2.5 Goals",tg_msg_4:"⚙️ Acción: BACK",tg_msg_5:"💶 Cuota de Entrada (Back): 1.72",tg_msg_6:"💧 Liquidez Matched: € 42.500",tg_msg_7:"📈 Edge Estadístico: +9.4% EV",tg_msg_8:"🛑 Stop Loss (Red Out): Salida inmediata a mercado al producirse un gol en el 1er tiempo, o estrictamente al alcanzar un drawdown máximo del -40% sobre el stake invertido.",tg_msg_9:"✅ Target (Green Up): Cash out total al alcanzar un 12% de ROI para un beneficio seguro, o creación de una Freebet en el minuto 65.",tg_msg_10:"💼 Money Management: Stake recomendado: 3% del bankroll.",tg_msg_11:"📊 <strong>Racional Cuantitativo:</strong> El análisis volumétrico e histórico de los datos de Velez Sarsfield BA evidencia una contracción de la volatilidad ofensiva. El modelo indica una probabilidad del 63.6% de que se dé el Under 2.5, frente a una cuota implícita del 58.1%.",
-                    fb_section_title:"ÚNETE A LA COMUNIDAD",fb_shares:"Compartidos: 14",fb_all_comments:"Todos los comentarios",fb_time_2d:"2 d",fb_time_4d:"4 d",fb_time_1w:"1 sem",fb_like:"Me gusta",fb_reply:"Responder",fb_comment_as:"Comentar como",
-                    fb_c1_text:"Era escéptico y quemaba dinero cada mes. Hice la prueba gratuita y enseguida entendí la diferencia entre apostar e invertir. Las señales son quirúrgicas y la Academia me abrió los ojos. ¡Muy recomendable! 🚀",
-                    fb_c2_text:"¡Exacto! Llevo dentro dos meses y el ROI es absurdo. ¿Lo que más me gusta? Cero estrés. Copio la señal, pongo el stop loss de la I.A. y cierro la app. Sin ansiedad, solo matemáticas aplicadas. 💰",
-                    fb_c3_text:"La App multilingüe es un puntazo. Juego al fútbol en el extranjero y se la pasé a todo el vestuario. Ahora, antes de entrenar, metemos los trades todos juntos siguiendo al bot. ¡No tiene precio! 🔥"
+                    fb_section_title:"ÚNETE A LA COMUNIDAD",fb_shares:"Compartidos: 14",fb_all_comments:"Todos los comentarios",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_time_4:"2 d",fb_like:"Me gusta",fb_reply:"Responder",fb_comment_as:"Escribe un comentario...",
+                    fb_c1_text:"Chicos en serio, nunca entendí un carajo de esta movida 😅. Me tragué unos cuantos videos y podcasts de la Academy y boom, milagro, ¡por fin tiene sentido! La cuenta demo es la salvación: practicas sin quemar dinero real al principio, que era mi mayor bloqueo 📉🚫. Las señales entran de maravilla. Brutal. 🚀🔥",
+                    fb_c2_text:"¿Pero qué pasada que esté traducida de locos a tantos idiomas? 🌍 Hice que mis bros de Londres y México bajaran la app, y en dos segundos metieron también a sus amigos, ¡ya que está todo en inglés, español, portugués e italiano! Cada uno la ve en su idioma pero seguimos exactamente lo mismo. Básicamente estamos montando nuestra mini-comunidad por el mundo, qué locura. ¡Nivel altísimo! 🔝",
+                    fb_c3_text:"Hice el grupo privado con mis socios de siempre y ya pasamos más tiempo aquí que en WhatsApp 😂. Prácticamente parece que estamos en el bar diciendo tonterías, pero mientras tanto nos pasamos estrategias y vemos cómo movernos. Por cierto, en los grupos globales está lleno de gente con muy buena vibra. Clima espectacular 🍻🔝",
+                    fb_c4_text:"¿Uy, pero el vicio que me ha entrado con el Subbuteo? 🙊 Entro en la app con la idea de estudiar y termino jugando media hora. Voy al bar y juego con mis amigos. Crea demasiada adicción (en el buen sentido jaja), lo juego hasta cuando tengo 5 minutos muertos en el metro. ¡Ese sonido de fondo me relaja muchísimo y me hace desconectar el cerebro! 🎮🔥"
                 },
                 pt:{
-                    stat_week:"ACEDE AGORA",hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",hero_subtitle:'Copia as operações com o maior <strong class="text-white font-bold">Valor Esperado</strong> processadas em tempo real pela nossa <strong class="text-brand-neon font-bold">Inteligência Artificial</strong>.',slogan:"APOSTA EM TI 🫵",cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"Apenas hoje • Sem Cartão de Crédito",stat_ai:"VARREDURA I.A.",stat_free:"100% GRÁTIS HOJE",trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",tg_official:"Canal Oficial",card1_title:"ZERO EMOÇÃO",card1_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",card3_title:"A I.A. NUNCA DORME",card3_desc:"Escaneamos e analisamos toda a programação em tempo real para extrair apenas o verdadeiro valor estatístico.",card4_title:"DE INICIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 aulas interativas de alto nível com vídeos, podcasts, ebooks, quizzes e demos.",ft_title:"JUNTA-TE À COMUNIDADE",ft_disclaimer:"O trading desportivo envolve riscos. Proibido a menores de 18 anos. Joga de forma responsável.",subbuteo_text:"Uma pequena pausa entre as operações",
+                    stat_week:"ACEDE AGORA",hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",hero_subtitle:'Redes neurais profundas. Agentes de IA autônomos.<br class="hidden sm:block"> O máximo <strong class="text-white font-bold">Valor Esperado</strong>. Você só precisa copiar.',slogan:"APOSTA EM TI 🫵",cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"Apenas hoje • Sem Cartão de Crédito",stat_ai:"VARREDURA I.A.",stat_free:"100% GRÁTIS HOJE",trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",tg_official:"Canal Oficial",card1_title:"ZERO EMOÇÃO",card1_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",card3_title:"A I.A. NUNCA DORME",card3_desc:"Escaneamos e analisamos toda a programação em tempo real para extrair apenas o verdadeiro valor estatístico.",card4_title:"DE INICIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 aulas interativas de alto nível com vídeos, podcasts, ebooks, quizzes e demos.",ft_title:"JUNTA-TE À COMUNIDADE",ft_disclaimer:"O trading desportivo envolve riscos. Proibido a menores de 18 anos. Joga de forma responsável.",subbuteo_text:"Uma pequena pausa entre as operações",
                     tg_msg_1:"⚽ Evento: Velez Sarsfield BA vs Union Santa Fe | PRE-MATCH",tg_msg_2:"🏆 Competição: Argentina Primera División",tg_msg_3:"🎯 Mercado: Under 2.5 Goals",tg_msg_4:"⚙️ Ação: BACK",tg_msg_5:"💶 Odd de Entrada (Back): 1.72",tg_msg_6:"💧 Liquidez Matched: € 42.500",tg_msg_7:"📈 Edge Estatístico: +9.4% EV",tg_msg_8:"🛑 Stop Loss (Red Out): Saída imediata a mercado caso ocorra um gol no 1º tempo, ou estritamente ao atingir um drawdown máximo de -40% sobre o stake investido.",tg_msg_9:"✅ Target (Green Up): Cash out total ao atingir 12% de ROI para um lucro garantido, ou criação de uma Freebet aos 65 minutos.",tg_msg_10:"💼 Money Management: Stake recomendado: 3% da banca.",tg_msg_11:"📊 <strong>Racional Quantitativo:</strong> A análise volumétrica e histórica dos dados mostra uma contração na volatilidade ofensiva. O modelo indica uma probabilidade de ocorrência do Under 2.5 de 63.6%, frente a uma odd implícita de 58.1%.",
-                    fb_section_title:"JUNTA-TE À COMUNIDADE",fb_shares:"Partilhas: 14",fb_all_comments:"Todos os comentários",fb_time_2d:"2 d",fb_time_4d:"4 d",fb_time_1w:"1 sem",fb_like:"Gosto",fb_reply:"Responder",fb_comment_as:"Comentar como",
-                    fb_c1_text:"Era cético e queimava dinheiro todos os meses. Fiz o teste gratuito e percebi logo a diferença entre apostar e investir. Os sinais são cirúrgicos e a Academy abriu-me os olhos. Altamente recomendado! 🚀",
-                    fb_c2_text:"Exato! Estou dentro há dois meses e o ROI é absurdo. O que mais gosto? Zero stress. Copio o sinal, defino o stop loss da I.A. e fecho a app. Sem ansiedade, apenas matemática aplicada. 💰",
-                    fb_c3_text:"A App multilingue é brutal. Jogo futebol no estrangeiro e partilhei com o balneário todo. Agora, antes do treino, fazemos as operações todos juntos seguindo o bot. Não tem preço! 🔥"
+                    fb_section_title:"JUNTA-TE À COMUNIDADE",fb_shares:"Partilhas: 14",fb_all_comments:"Todos os comentários",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_time_4:"2 d",fb_like:"Gosto",fb_reply:"Responder",fb_comment_as:"Escreva um comentário...",
+                    fb_c1_text:"Pessoal a sério, nunca tinha percebido nada disto 😅. Devorei uns vídeos e podcasts da Academy e uau, milagre, finalmente faz sentido! A conta demo é a salvação: praticas sem queimar dinheiro real no início, que era o meu maior bloqueio 📉🚫. Os sinais batem perfeitamente. Brutal. 🚀🔥",
+                    fb_c2_text:"Mas a cena brutal de estar bué bem traduzida em tantos idiomas? 🌍 Fiz os meus bros de Londres e do México sacarem a app, e em dois segundos meteram também os amigos deles, já que está tudo em inglês, espanhol, português e italiano! Cada um vê no seu idioma mas seguimos exatamente as mesmas coisas. Basicamente estamos a criar a nossa mini-comunidade espalhada pelo mundo, surreal. Nível altíssimo! 🔝",
+                    fb_c3_text:"Criei o grupo privado com os meus sócios de sempre e já passamos mais tempo aqui do que no WhatsApp 😂. Praticamente parece que estamos no bar a dizer tretas, mas entretanto passamos estratégias e vemos como nos mexer. Além disso, nos grupos globais está cheio de malta com boa vibe. Clima espetacular 🍻🔝",
+                    fb_c4_text:"Ei, o vício que me deu com o Subbuteo? 🙊 Entro na app com a ideia de estudar e acabo por ficar meia hora a jogar. Vou ao bar e jogo com os meus amigos. Cria demasiada dependência (no bom sentido ahah), jogo até quando tenho 5 minutos mortos no metro. Aquele som de fundo relaxa-me imenso e faz-me desligar o cérebro! 🎮🔥"
                 }
             };
 
