@@ -7,7 +7,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Betting Exchange Room - Reti neurali profonde. Agenti IA autonomi. Il massimo Valore Atteso. Tu devi solo copiare.">
+    <meta name="author" content="Betting Exchange Room">
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Betting Exchange Room | A.I. Betting Signals">
+    <meta property="og:description" content="Reti neurali profonde. Agenti IA autonomi. Il massimo Valore Atteso. Tu devi solo copiare.">
+    <meta property="og:image" content="logo-tondo.jpeg">
+    <meta property="twitter:card" content="summary_large_image">
     
     <title>Betting Exchange Room | A.I. Betting Signals</title>
     
@@ -20,7 +28,11 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload Risorse Critiche Above-The-Fold -->
+    <link rel="preload" as="image" href="logo-tondo.jpeg" fetchpriority="high">
     <link rel="preload" as="video" href="itcyborgscommettestake.mp4" fetchpriority="high">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,7 +67,6 @@
         html{-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;}
         body {
             background-color: #07090f;
-            /* Effetto Fibra di Carbonio Ultra-HD Vettoriale */
             background-image: 
                 linear-gradient(135deg, rgba(3, 5, 9, 0.7) 0%, rgba(0, 0, 0, 0.98) 100%),
                 radial-gradient(black 15%, transparent 16%) 0 0,
@@ -78,6 +89,7 @@
             .glass-panel{background-color:rgba(13,19,28,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
         }
 
+        /* Ottimizzazione Performance Animazioni */
         .js-enabled .lazy-reveal{opacity:0;transform:translateY(30px) translateZ(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);will-change:opacity,transform;}
         .js-enabled .lazy-reveal.revealed{opacity:1;transform:translateY(0) translateZ(0);}
 
@@ -111,8 +123,6 @@
             box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 0 4px #1c1c1c;
             margin: 0 auto;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            
-            /* BLOCCO TOTALE INTERAZIONI */
             user-select: none !important;
             -webkit-user-select: none !important;
             -moz-user-select: none !important;
@@ -192,11 +202,11 @@
             </h1>
 
             <div class="menu-video-container">
-                <video class="menu-video" autoplay muted playsinline webkit-playsinline preload="auto" loop>
+                <video class="menu-video" autoplay muted playsinline webkit-playsinline preload="metadata" loop poster="logo-tondo.jpeg">
                     <source src="itcyborgscommettestake.mp4" type="video/mp4">
                 </video>
                 <div class="watermark-cover">
-                    <img src="logo-tondo.jpeg" alt="Logo">
+                    <img src="logo-tondo.jpeg" alt="Logo" width="40" height="40">
                 </div>
             </div>
 
@@ -302,7 +312,7 @@
                         <svg class="w-5 h-5 xs:w-6 xs:h-6 text-[#1c1c1c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4M4 12L10 6M4 12L10 18"/></svg>
                         
                         <div class="flex items-center gap-2 xs:gap-2.5 min-w-0">
-                            <img src="logo-tondo.jpeg" alt="Channel" class="w-9 h-9 xs:w-10 xs:h-10 rounded-full object-cover border border-gray-100 shrink-0">
+                            <img src="logo-tondo.jpeg" alt="Channel" width="40" height="40" class="w-9 h-9 xs:w-10 xs:h-10 rounded-full object-cover border border-gray-100 shrink-0">
                             <div class="flex flex-col justify-center min-w-0">
                                 <span class="text-[#000000] font-semibold text-[13px] xs:text-[14px] sm:text-[15px] leading-tight whitespace-nowrap tracking-tight">⚽ BETTING EXCHANGE ROOM</span>
                                 <span class="text-[#707579] text-[11px] xs:text-[12px] sm:text-[13px] leading-tight privacy-blur-text" style="filter:blur(3.5px);">8 subscribers</span>
@@ -374,9 +384,9 @@
                     <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
                 </div>
 
-                <!-- COMMENTO 1 (Academy / Demo) -->
+                <!-- COMMENTO 1 -->
                 <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?img=11" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="User" width="36" height="36" loading="lazy" decoding="async" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="fb-comment-wrapper">
                         <div class="fb-comment-bubble">
                             <div class="fb-header">
@@ -392,9 +402,9 @@
                     </div>
                 </div>
 
-                <!-- COMMENTO 2 (Lingue / Global) -->
+                <!-- COMMENTO 2 -->
                 <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?img=33" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
+                    <img src="https://i.pravatar.cc/150?img=33" alt="User" width="36" height="36" loading="lazy" decoding="async" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="fb-comment-wrapper">
                         <div class="fb-comment-bubble">
                             <div class="fb-header">
@@ -410,9 +420,9 @@
                     </div>
                 </div>
 
-                <!-- COMMENTO 3 (Gruppi Whatsapp) -->
+                <!-- COMMENTO 3 -->
                 <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?img=12" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="User" width="36" height="36" loading="lazy" decoding="async" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="fb-comment-wrapper">
                         <div class="fb-comment-bubble">
                             <div class="fb-header">
@@ -428,9 +438,9 @@
                     </div>
                 </div>
 
-                <!-- COMMENTO 4 (Subbuteo) -->
+                <!-- COMMENTO 4 -->
                 <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?img=59" alt="User" class="fb-avatar privacy-blur-img" draggable="false">
+                    <img src="https://i.pravatar.cc/150?img=59" alt="User" width="36" height="36" loading="lazy" decoding="async" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="fb-comment-wrapper">
                         <div class="fb-comment-bubble">
                             <div class="fb-header">
@@ -457,7 +467,7 @@
                 <!-- Barra finta "Commenta come..." -->
                 <div class="fb-bottom-bar">
                     <div class="fb-input-fake">
-                        <img src="logo-tondo.jpeg" style="width: 20px; height: 20px; border-radius: 50%;" class="privacy-blur-img" alt="">
+                        <img src="logo-tondo.jpeg" style="width: 20px; height: 20px; border-radius: 50%;" width="20" height="20" loading="lazy" decoding="async" class="privacy-blur-img" alt="">
                         <span data-i18n="fb_comment_as">Scrivi un commento...</span>
                     </div>
                 </div>
@@ -509,8 +519,7 @@
     <!-- STICKY CTA SUPER-CONVERTENTE (Verde Acceso) -->
     <div class="fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-brand-neon/30 px-4 pl-safe pr-safe py-4" style="padding-bottom: max(16px, env(safe-area-inset-bottom));">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
-            <!-- Correzione 403 Social/Telegram Browser In-App -->
-            <a href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-base sm:text-xl flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
+            <a id="cta-button" href="https://zero-to-hero-academy-betting-exchan.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-base sm:text-xl flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                 <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">INIZIA ORA GRATIS</span>
             </a>
@@ -556,7 +565,7 @@
                     fb_c4_text:"¿Uy, pero el vicio que me ha entrado con el Subbuteo? 🙊 Entro en la app con la idea de estudiar y termino jugando media hora. Voy al bar y juego con mis amigos. Crea demasiada adicción (en el buen sentido jaja), lo juego hasta cuando tengo 5 minutos muertos en el metro. ¡Ese sonido de fondo me relaja muchísimo y me hace desconectar el cerebro! 🎮🔥"
                 },
                 pt:{
-                    stat_week:"ACEDE AGORA",hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",hero_subtitle:'Redes neurais profundas. Agentes de IA autônomos.<br class="hidden sm:block"> O máximo <strong class="text-white font-bold">Valor Esperado</strong>. Você só precisa copiar.',slogan:"APOSTA EM TI 🫵",cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"Apenas hoje • Sem Cartão de Crédito",stat_ai:"VARREDURA I.A.",stat_free:"100% GRÁTIS HOJE",trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",tg_official:"Canal Oficial",card1_title:"ZERO EMOÇÃO",card1_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",card3_title:"A I.A. NUNCA DORME",card3_desc:"Escaneamos e analisamos toda a programação em tempo real para extrair apenas o verdadeiro valor estatístico.",card4_title:"DE INICIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 aulas interativas de alto nível com vídeos, podcasts, ebooks, quizzes e demos.",ft_title:"JUNTA-TE À COMUNIDADE",ft_disclaimer:"O trading desportivo envolve riscos. Proibido a menores de 18 anos. Joga de forma responsável.",subbuteo_text:"Uma pequena pausa entre as operações",
+                    stat_week:"ACEDE AGORA",hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",hero_subtitle:'Redes neurais profundas. Agentes de IA autônomos.<br class="hidden sm:block"> O máximo <strong class="text-white font-bold">Valor Esperado</strong>. Você só precisa copiar.',slogan:"APOSTA EM TI 🫵",cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"Apenas hoje • Sem Cartão de Crédito",stat_ai:"VARREDURA I.A.",stat_free:"100% GRÁTIS HOJE",trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",tg_official:"Canal Oficial",card1_title:"ZERO EMOÇÃO",card1_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",card3_title:"A I.A. NUNCA DORME",card3_desc:"Escaneamos e analisamos toda a programação em tempo real para extrair apenas o verdadeiro valor estatístico.",card4_title:"DE INICIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 aulas interativas de alto nível com vídeos, podcasts, ebooks, quizzes e demos.",ft_title:"JUNTA-TE À COMUNIDADE",ft_disclaimer:"O trading desportivo envolve riscos. Prohibido a menores de 18 anos. Joga de forma responsável.",subbuteo_text:"Uma pequena pausa entre as operações",
                     tg_msg_title:"⚽ BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | AO VIVO 60' (0-0)",tg_msg_2:"🏆 Competição: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Ação: BACK Empate (BACK X)",tg_msg_5:"💶 Odd de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estatístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% ou saída imediata num golo (se variar a tendência xG).",tg_msg_9:"✅ Target (Green Up): ROI 12% ou Freebet aos 75 min.",tg_msg_10:"💼 Money Management: 3% da Banca.",tg_msg_11:"📊 Racional Quantitativo: Momentum ofensivo reduzido. As estatísticas ao vivo confirmam o impasse. Edge estratégico sobre a persistência do empate. Operação de scalping para aproveitar o rápido decaimento temporal (Theta) da odd daqui até aos 75'.",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
                     fb_section_title:"JUNTA-TE À COMUNIDADE",fb_shares:"Partilhas: 6",fb_all_comments:"Todos os comentários",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_time_4:"2 d",fb_like:"Gosto",fb_reply:"Responder",fb_comment_as:"Escreva um comentário...",
                     fb_c1_text:"Pessoal a sério, nunca tinha percebido nada disto 😅. Devorei uns vídeos e podcasts da Academy e uau, milagre, finalmente faz sentido! A conta demo é a salvação: praticas sem queimar dinheiro real no início, que era o meu maior bloqueio 📉🚫. Os sinais batem perfeitamente. Brutal. 🚀🔥",
@@ -569,6 +578,10 @@
             const langBtn = document.getElementById('lang-btn');
             const langMenu = document.getElementById('lang-menu');
             const langArrow = document.getElementById('lang-arrow');
+            
+            // Cache degli elementi da tradurre per massime performance
+            const i18nElements = document.querySelectorAll('[data-i18n]');
+            const ctaBtn = document.getElementById('cta-button');
 
             const openMenu = () => { langBtn.setAttribute('aria-expanded', 'true'); langMenu.setAttribute('aria-hidden', 'false'); langArrow.style.transform = 'rotate(180deg)'; };
             const closeMenu = () => { langBtn.setAttribute('aria-expanded', 'false'); langMenu.setAttribute('aria-hidden', 'true'); langArrow.style.transform = 'rotate(0deg)'; if(document.activeElement === langBtn) langBtn.blur(); };
@@ -578,12 +591,17 @@
                 document.documentElement.lang = lang;
                 document.getElementById('current-lang').textContent = lang.toUpperCase();
                 
-                document.querySelectorAll('[data-i18n]').forEach(el => {
+                i18nElements.forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if(t[lang] && t[lang][key]) el.innerHTML = t[lang][key];
                 });
                 
                 safeStorage.set('lang', lang);
+
+                if (ctaBtn) {
+                    ctaBtn.href = `https://zero-to-hero-academy-betting-exchan.vercel.app/?lang=${lang}`;
+                }
+
                 closeMenu();
             };
 
@@ -600,6 +618,7 @@
             document.addEventListener('click', (e) => { if (langBtn.getAttribute('aria-expanded') === 'true' && !langMenu.contains(e.target)) closeMenu(); });
             document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && langBtn.getAttribute('aria-expanded') === 'true') closeMenu(); });
 
+            // Lazy Reveal Observer
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if ('IntersectionObserver' in window && !prefersReducedMotion) {
                 const obs = new IntersectionObserver((entries) => {
