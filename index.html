@@ -22,14 +22,14 @@
     <link rel="icon" type="image/jpeg" href="logo-tondo.jpeg">
     <link rel="apple-touch-icon" href="logo-tondo.jpeg">
     
-    <!-- Ottimizzazione DNS e Preload per caricamento fulmineo globale -->
+    <!-- Ottimizzazione DNS e Preload -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Preload Risorse Critiche Above-The-Fold -->
+    <!-- Preload Risorse Critiche -->
     <link rel="preload" as="image" href="logo-tondo.jpeg" fetchpriority="high">
     <link rel="preload" as="video" href="itcyborgscommettestake.mp4" fetchpriority="high">
     
@@ -40,8 +40,13 @@
         tailwind.config={
             theme:{
                 extend:{
-                    fontFamily:{sans:['Inter','sans-serif'],heading:['"Plus Jakarta Sans"','sans-serif']},
-                    colors:{brand:{dark:'#030509',surface:'#0d131c',neon:'#A3E635',blue:'#229ED9'}},
+                    fontFamily:{
+                        sans:['Inter','sans-serif'],
+                        heading:['"Plus Jakarta Sans"','sans-serif']
+                    },
+                    colors:{
+                        brand:{dark:'#030509',surface:'#0d131c',neon:'#A3E635',blue:'#229ED9'}
+                    },
                     boxShadow:{
                         'neon':'0 0 20px rgba(163, 230, 53, 0.2)',
                         'neon-strong':'0 0 30px rgba(163, 230, 53, 0.5)',
@@ -64,7 +69,8 @@
     </script>
     
     <style>
-        html{-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;}
+        /* Base e Body */
+        html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
         body {
             background-color: #07090f;
             background-image: 
@@ -79,78 +85,61 @@
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
         }
-        .pt-safe{padding-top:max(1rem,env(safe-area-inset-top));}
-        .pb-safe{padding-bottom:calc(110px + env(safe-area-inset-bottom));}
-        .pl-safe{padding-left:max(1rem,env(safe-area-inset-left));}
-        .pr-safe{padding-right:max(1rem,env(safe-area-inset-right));}
+
+        /* Safe Areas per Mobile */
+        .pt-safe { padding-top: max(1rem, env(safe-area-inset-top)); }
+        .pb-safe { padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
+        .pl-safe { padding-left: max(1rem, env(safe-area-inset-left)); }
+        .pr-safe { padding-right: max(1rem, env(safe-area-inset-right)); }
         
-        .glass-panel{background-color:rgba(13,19,28,0.85);border:1px solid rgba(255,255,255,0.08);transform:translateZ(0);backface-visibility:hidden;}
+        /* Utility Classes */
+        .glass-panel { background-color: rgba(13,19,28,0.85); border: 1px solid rgba(255,255,255,0.08); transform: translateZ(0); backface-visibility: hidden; }
         @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-            .glass-panel{background-color:rgba(13,19,28,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+            .glass-panel { background-color: rgba(13,19,28,0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         }
 
-        /* Ottimizzazione Performance Animazioni */
-        .js-enabled .lazy-reveal{opacity:0;transform:translateY(30px) translateZ(0);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);will-change:opacity,transform;}
-        .js-enabled .lazy-reveal.revealed{opacity:1;transform:translateY(0) translateZ(0);}
+        /* Animazioni di Reveal */
+        .js-enabled .lazy-reveal { opacity: 0; transform: translateY(30px) translateZ(0); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); will-change: opacity, transform; }
+        .js-enabled .lazy-reveal.revealed { opacity: 1; transform: translateY(0) translateZ(0); }
 
-        .custom-scrollbar::-webkit-scrollbar{width:6px;}
-        .custom-scrollbar::-webkit-scrollbar-track{background:transparent;}
-        .custom-scrollbar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:10px;}
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.3);}
-        .custom-scrollbar{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent;}
+        /* Scrollbar Elegante */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+        .custom-scrollbar { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent; }
 
-        .content-vis{content-visibility:auto;contain-intrinsic-size:auto 500px;}
-        .aspect-4-3{aspect-ratio:4/3;}
+        .content-vis { content-visibility: auto; contain-intrinsic-size: auto 500px; }
+        .aspect-4-3 { aspect-ratio: 4/3; }
 
-        #lang-menu{transform-origin:top right;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;}
-        #lang-menu[aria-hidden="true"]{opacity:0;transform:scale(0.95);visibility:hidden;pointer-events:none;}
-        #lang-menu[aria-hidden="false"]{opacity:1;transform:scale(1);visibility:visible;pointer-events:auto;}
+        /* Menu Lingua */
+        #lang-menu { transform-origin: top right; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; }
+        #lang-menu[aria-hidden="true"] { opacity: 0; transform: scale(0.95); visibility: hidden; pointer-events: none; }
+        #lang-menu[aria-hidden="false"] { opacity: 1; transform: scale(1); visibility: visible; pointer-events: auto; }
 
-        .menu-video-container{width:100%;max-width:56rem;aspect-ratio:16/9;margin:0 auto 3rem auto;border-radius:1.5rem;border:1px solid rgba(255,255,255,0.15);background:#000;position:relative;box-shadow:0 30px 60px -15px rgba(0,0,0,0.7),0 0 30px rgba(163,230,53,0.1);overflow:hidden;transform:translateZ(0);isolation:isolate;cursor:default;}
-        .menu-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;z-index:1;}
-        .watermark-cover{position:absolute;bottom:0;right:0;width:48px;height:48px;z-index:2;border-radius:12px 0 0 0;background-color:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:4px;border-top:1px solid rgba(255,255,255,0.15);border-left:1px solid rgba(255,255,255,0.15);box-shadow:none;}
-        .watermark-cover img{width:100%;height:100%;object-fit:contain;display:block;}
+        /* Componente Video */
+        .menu-video-container { width: 100%; max-width: 56rem; aspect-ratio: 16/9; margin: 0 auto 3rem auto; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.15); background: #000; position: relative; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.7), 0 0 30px rgba(163,230,53,0.1); overflow: hidden; transform: translateZ(0); isolation: isolate; cursor: default; }
+        .menu-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; z-index: 1; }
+        .watermark-cover { position: absolute; bottom: 0; right: 0; width: 48px; height: 48px; z-index: 2; border-radius: 12px 0 0 0; background-color: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; padding: 4px; border-top: 1px solid rgba(255,255,255,0.15); border-left: 1px solid rgba(255,255,255,0.15); box-shadow: none; }
+        .watermark-cover img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
-        /* --- STILI COMMENTI FACEBOOK ED EFFETTI SCREENSHOT --- */
+        /* Componente Facebook (Mockup) */
         .fb-section-wrapper { pointer-events: auto; }
-        .mobile-container {
-            position: relative;
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 420px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 0 4px #1c1c1c;
-            margin: 0 auto;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            user-select: none !important;
-            -webkit-user-select: none !important;
-            -moz-user-select: none !important;
-            -ms-user-select: none !important;
-            pointer-events: none !important;
-            -webkit-touch-callout: none !important;
-        }
-
+        .mobile-container { position: relative; background-color: #ffffff; width: 100%; max-width: 420px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 0 4px #1c1c1c; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; user-select: none !important; -webkit-user-select: none !important; pointer-events: none !important; }
         .mobile-container::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; background: transparent; }
-
         .privacy-blur-img { filter: blur(5px); transform: translateZ(0); opacity: 0.9; }
         .privacy-blur-text { color: transparent !important; text-shadow: 0 0 8px rgba(0,0,0,0.5); user-select: none; }
-
         .fb-comment { display: flex; padding: 12px 16px; gap: 8px; }
         .fb-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
-        
         .fb-comment-wrapper { flex: 1; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
-        .fb-comment-bubble { position: relative; background-color: #f0f2f5; border-radius: 18px; padding: 8px 12px; display: inline-block; max-width: 100%; word-break: break-word; }
-        .fb-header { margin-bottom: 2px; }
+        .fb-comment-bubble { position: relative; background-color: #f0f2f5; border-radius: 18px; padding: 10px 14px; display: inline-block; max-width: 100%; word-break: break-word; }
+        .fb-header { margin-bottom: 4px; }
         .fb-name { font-weight: 600; color: #050505; font-size: 13px; }
-        .fb-text { font-size: 15px; color: #050505; line-height: 1.35; margin: 0; }
-        
+        .fb-text { font-size: 14.5px; color: #050505; line-height: 1.4; margin: 0; }
         .fb-reactions-count { position: absolute; bottom: -10px; right: -4px; background: #fff; border-radius: 10px; padding: 2px 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 4px; font-size: 11px; color: #65676b; z-index: 10; line-height: 1; border: 1px solid #fff; }
         .fb-reactions-count svg { width: 14px; height: 14px; }
-        
-        .fb-actions-row { display: flex; align-items: center; padding: 4px 12px 0; gap: 14px; font-size: 12px; font-weight: 600; color: #65676b; }
+        .fb-actions-row { display: flex; align-items: center; padding: 6px 12px 0; gap: 14px; font-size: 12px; font-weight: 600; color: #65676b; }
         .fb-time { font-weight: normal; }
-
         .fb-modal-handle { width: 36px; height: 4px; background-color: #bcc0c4; border-radius: 2px; margin: 12px auto; }
         .fb-post-stats { display: flex; justify-content: space-between; align-items: center; padding: 0 16px 12px 16px; font-size: 13px; color: #65676b; }
         .fb-post-stats-left { display: flex; align-items: center; gap: 6px; }
@@ -161,13 +150,17 @@
         .fb-input-fake { background-color: #f0f2f5; border-radius: 20px; padding: 10px 16px; color: #65676b; font-size: 14px; display: flex; align-items: center; gap: 8px;}
     </style>
 </head>
+
 <body class="antialiased pb-safe selection:bg-brand-neon selection:text-brand-dark custom-scrollbar">
 
     <header class="fixed w-full z-50 top-0 glass-panel border-b-0 transition-all duration-300 pt-safe" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 pl-safe pr-safe h-[70px] sm:h-[80px] flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 sm:gap-4 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-xl transition-transform hover:scale-[1.02] active:scale-95 group">
                 <img src="logo-tondo.jpeg" alt="Betting Exchange Room Logo" width="44" height="44" fetchpriority="high" decoding="sync" class="w-9 h-9 sm:w-11 sm:h-11 shrink-0 rounded-full object-cover border border-white/10 group-hover:border-white/30 transition-colors shadow-lg">
-                <span class="font-heading font-extrabold text-[12px] xs:text-[14px] sm:text-[16px] md:text-[18px] tracking-wider text-white uppercase whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">Betting Exchange Room</span>
+                <!-- Tipografia fluida applicata al logo testuale -->
+                <span class="font-heading font-extrabold text-[clamp(12px,2vw,18px)] tracking-wider text-white uppercase whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                    Betting Exchange Room
+                </span>
             </a>
             
             <div class="relative shrink-0">
@@ -187,8 +180,8 @@
     </header>
 
     <main>
-        <section class="relative pt-[140px] sm:pt-[180px] pb-16 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center hero-section">
-            <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#A3E635]/10 border border-[#A3E635]/30 shadow-neon mb-10 hover:bg-[#A3E635]/20 transition-colors cursor-default backdrop-blur-sm">
+        <section class="relative pt-[140px] sm:pt-[180px] pb-10 sm:pb-16 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center hero-section">
+            <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#A3E635]/10 border border-[#A3E635]/30 shadow-neon mb-8 sm:mb-12 hover:bg-[#A3E635]/20 transition-colors cursor-default backdrop-blur-sm">
                 <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3E635] opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-[#A3E635]"></span>
@@ -196,9 +189,10 @@
                 <span class="text-[10px] sm:text-xs font-black text-[#A3E635] uppercase tracking-[0.2em]" data-i18n="hero_badge">SEGNALI ATTIVI SU TELEGRAM</span>
             </div>
 
+            <!-- Titoli fluidi usando clamp per transizioni morbidissime tra mobile e desktop -->
             <h1 class="font-heading font-black mb-8 sm:mb-10 tracking-tight flex flex-col items-center w-full drop-shadow-2xl">
-                <span class="text-[40px] leading-[1.05] xs:text-5xl sm:text-6xl md:text-7xl lg:text-[80px] text-white uppercase tracking-tighter" data-i18n="hero_title_1">IL TUO VANTAGGIO</span>
-                <span class="text-[32px] leading-[1.1] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter mt-1 sm:mt-2" data-i18n="hero_title_2">MATEMATICO</span>
+                <span class="text-[clamp(2.5rem,7vw,5rem)] leading-[1.05] text-white uppercase tracking-tighter" data-i18n="hero_title_1">IL TUO VANTAGGIO</span>
+                <span class="text-[clamp(2rem,6vw,4.5rem)] leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter mt-1 sm:mt-2" data-i18n="hero_title_2">MATEMATICO</span>
             </h1>
 
             <div class="menu-video-container">
@@ -210,127 +204,123 @@
                 </div>
             </div>
 
-            <p class="text-gray-300 text-base sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed px-4 font-medium" data-i18n="hero_subtitle">
+            <!-- Paragrafo fluido e con contrasto migliorato (gray-300, leading-relaxed) -->
+            <p class="text-gray-300 text-[clamp(1rem,2vw,1.5rem)] max-w-3xl mx-auto leading-relaxed px-4 font-medium" data-i18n="hero_subtitle">
                 Reti neurali profonde. Agenti IA autonomi.<br class="hidden sm:block"> Il massimo <strong class="text-white font-bold">Valore Atteso</strong>. Tu devi solo copiare.
             </p>
-
-            <div class="mt-10 sm:mt-14 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-black text-brand-neon uppercase tracking-widest drop-shadow-neon-strong animate-pulse-soft" data-i18n="slogan">
-                SCOMMETTI SU DI TE 🫵
-            </div>
         </section>
 
-        <section class="px-4 pl-safe pr-safe max-w-3xl mx-auto mb-24 content-vis" aria-label="Statistiche del servizio">
+        <section class="px-4 pl-safe pr-safe max-w-4xl mx-auto mb-16 sm:mb-24 content-vis" aria-label="Statistiche del servizio">
             <div class="flex divide-x divide-white/10 border border-white/10 rounded-3xl glass-panel overflow-hidden lazy-reveal shadow-2xl">
                 <div class="flex-1 text-center py-6 sm:py-8 px-4 flex flex-col justify-center items-center bg-white/5">
-                    <div class="text-white font-heading font-black text-4xl sm:text-6xl tracking-tighter">7/7</div>
-                    <div class="text-[11px] sm:text-sm text-gray-400 uppercase tracking-[0.2em] mt-2 font-bold" data-i18n="stat_ai">SCANSIONE A.I.</div>
+                    <div class="text-white font-heading font-black text-[clamp(2.5rem,5vw,4rem)] tracking-tighter leading-none">7/7</div>
+                    <div class="text-[clamp(10px,1.2vw,14px)] text-gray-400 uppercase tracking-[0.2em] mt-3 font-bold" data-i18n="stat_ai">SCANSIONE A.I.</div>
                 </div>
                 <div class="flex-1 text-center py-6 sm:py-8 px-4 bg-brand-neon/10 relative overflow-hidden group flex flex-col justify-center items-center">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-neon/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 text-brand-neon font-heading font-black text-xl sm:text-3xl drop-shadow-lg tracking-tighter uppercase leading-tight" data-i18n="stat_week">ACCEDI ORA</div>
-                    <div class="relative z-10 text-[11px] sm:text-sm text-brand-neon uppercase tracking-[0.2em] mt-2 font-bold" data-i18n="stat_free">100% GRATIS OGGI</div>
+                    <div class="relative z-10 text-brand-neon font-heading font-black text-[clamp(1.25rem,2.5vw,2.25rem)] drop-shadow-lg tracking-tighter uppercase leading-tight" data-i18n="stat_week">ACCEDI ORA</div>
+                    <div class="relative z-10 text-[clamp(10px,1.2vw,14px)] text-brand-neon uppercase tracking-[0.2em] mt-3 font-bold" data-i18n="stat_free">100% GRATIS OGGI</div>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 px-4 pl-safe pr-safe max-w-7xl mx-auto content-vis" aria-label="Caratteristiche Principali">
+        <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-7xl mx-auto content-vis" aria-label="Caratteristiche Principali">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-brand-neon/50 transition-colors duration-500 group lazy-reveal shadow-xl">
+                <!-- Card 1 -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-brand-neon/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372165.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Profitto Matematico" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
                     </div>
-                    <div class="p-8 relative z-10 -mt-12 flex flex-col items-start">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-brand-neon/30 mb-5 group-hover:border-brand-neon transition-colors shadow-neon">
-                            <svg class="w-6 h-6 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 16l6-6 4 4 8-8"/></svg>
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-brand-neon/30 mb-5 group-hover:border-brand-neon transition-colors shadow-neon">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 16l6-6 4 4 8-8"/></svg>
                         </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-xl tracking-tight" data-i18n="card1_title">NESSUNA EMOZIONE</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed font-medium" data-i18n="card1_desc">Copia il segnale. Imposta il trade. Vantaggio matematico.</p>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card1_title">NESSUNA EMOZIONE</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card1_desc">Copia il segnale. Imposta il trade. Vantaggio matematico.</p>
                     </div>
                 </article>
 
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#FBBF24]/50 transition-colors duration-500 group lazy-reveal shadow-xl" style="transition-delay: 100ms;">
+                <!-- Card 2 -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#FBBF24]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 100ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372221.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Protezione Capitale" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
                     </div>
-                    <div class="p-8 relative z-10 -mt-12 flex flex-col items-start">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#FBBF24]/30 mb-5 group-hover:border-[#FBBF24] transition-colors shadow-[0_0_20px_rgba(251,191,36,0.2)]">
-                            <svg class="w-6 h-6 text-[#FBBF24]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#FBBF24]/30 mb-5 group-hover:border-[#FBBF24] transition-colors shadow-[0_0_20px_rgba(251,191,36,0.2)]">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#FBBF24]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-xl tracking-tight" data-i18n="card2_title">MONEY MANAGEMENT</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed font-medium" data-i18n="card2_desc">Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.</p>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card2_title">MONEY MANAGEMENT</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card2_desc">Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.</p>
                     </div>
                 </article>
 
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#00D2FF]/50 transition-colors duration-500 group lazy-reveal shadow-xl" style="transition-delay: 200ms;">
+                <!-- Card 3 -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#00D2FF]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 200ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372160.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Scansione Real-Time" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
                     </div>
-                    <div class="p-8 relative z-10 -mt-12 flex flex-col items-start">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#00D2FF]/30 mb-5 group-hover:border-[#00D2FF] transition-colors shadow-blue">
-                            <svg class="w-6 h-6 text-[#00D2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#00D2FF]/30 mb-5 group-hover:border-[#00D2FF] transition-colors shadow-blue">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#00D2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-xl tracking-tight" data-i18n="card3_title">L'A.I. NON DORME MAI</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed font-medium" data-i18n="card3_desc">Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.</p>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card3_title">L'A.I. NON DORME MAI</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card3_desc">Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.</p>
                     </div>
                 </article>
 
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#A855F7]/50 transition-colors duration-500 group lazy-reveal shadow-xl" style="transition-delay: 300ms;">
+                <!-- Card 4 -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#A855F7]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 300ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="cyborgtifoso.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="ZERO TO HERO Academy" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
                     </div>
-                    <div class="p-8 relative z-10 -mt-12 flex flex-col items-start">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#A855F7]/30 mb-5 group-hover:border-[#A855F7] transition-colors shadow-[0_0_20px_rgba(168,85,247,0.2)]">
-                            <svg class="w-6 h-6 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#A855F7]/30 mb-5 group-hover:border-[#A855F7] transition-colors shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
                         </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-xl tracking-tight" data-i18n="card4_title">DA PRINCIPIANTE A PRO</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed font-medium" data-i18n="card4_desc">ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.</p>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card4_title">DA PRINCIPIANTE A PRO</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card4_desc">ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.</p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- SEZIONE TELEGRAM NATIVA SCREENSHOT -->
-        <section class="py-16 px-4 pl-safe pr-safe max-w-3xl mx-auto content-vis" aria-labelledby="transparency-title">
-            <div class="text-center mb-12 lazy-reveal">
-                <h2 id="transparency-title" class="font-heading text-3xl sm:text-5xl font-black text-white tracking-tighter mb-4 uppercase" data-i18n="trans_title_1">COPIA. INCOLLA. INCASSA.</h2>
-                <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto font-medium" data-i18n="trans_desc">Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.</p>
+        <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-3xl mx-auto content-vis" aria-labelledby="transparency-title">
+            <div class="text-center mb-10 sm:mb-12 lazy-reveal">
+                <h2 id="transparency-title" class="font-heading text-[clamp(2rem,4vw,3.5rem)] font-black text-white tracking-tighter mb-4 uppercase leading-tight" data-i18n="trans_title_1">COPIA. INCOLLA. INCASSA.</h2>
+                <p class="text-gray-300 text-[clamp(1rem,1.5vw,1.25rem)] max-w-2xl mx-auto font-medium leading-relaxed" data-i18n="trans_desc">Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.</p>
             </div>
 
             <!-- SIMULAZIONE TELEGRAM CHANNEL SCREENSHOT -->
             <div class="relative bg-[#E1EDD5] w-full max-w-[420px] rounded-[20px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7),0_0_0_4px_#1c1c1c] mx-auto text-left font-sans select-none pointer-events-none mb-10 transform transition hover:-translate-y-1 duration-500 lazy-reveal">
-                <!-- Scudo invisibile per bloccare qualsiasi click -->
+                <!-- Scudo invisibile -->
                 <div class="absolute inset-0 z-50 bg-transparent"></div>
 
-                <!-- Header (Top Bar Telegram) -->
-                <div class="bg-white px-4 py-2.5 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.1)] relative z-10">
+                <!-- Header Telegram -->
+                <div class="bg-white px-4 py-3 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.1)] relative z-10">
                     <div class="flex items-center gap-2 xs:gap-3">
-                        <!-- Back Arrow -->
-                        <svg class="w-5 h-5 xs:w-6 xs:h-6 text-[#1c1c1c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4M4 12L10 6M4 12L10 18"/></svg>
-                        
-                        <div class="flex items-center gap-2 xs:gap-2.5 min-w-0">
-                            <img src="logo-tondo.jpeg" alt="Channel" width="40" height="40" class="w-9 h-9 xs:w-10 xs:h-10 rounded-full object-cover border border-gray-100 shrink-0">
+                        <svg class="w-5 h-5 text-[#1c1c1c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4M4 12L10 6M4 12L10 18"/></svg>
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <img src="logo-tondo.jpeg" alt="Channel" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-gray-100 shrink-0">
                             <div class="flex flex-col justify-center min-w-0">
-                                <span class="text-[#000000] font-semibold text-[13px] xs:text-[14px] sm:text-[15px] leading-tight whitespace-nowrap tracking-tight">⚽ BETTING EXCHANGE ROOM</span>
-                                <span class="text-[#707579] text-[11px] xs:text-[12px] sm:text-[13px] leading-tight privacy-blur-text" style="filter:blur(3.5px);">8 subscribers</span>
+                                <span class="text-[#000000] font-semibold text-[clamp(14px,1.5vw,16px)] leading-tight whitespace-nowrap tracking-tight">⚽ BETTING EXCHANGE ROOM</span>
+                                <span class="text-[#707579] text-[clamp(11px,1.2vw,13px)] leading-tight privacy-blur-text" style="filter:blur(3.5px);">8 subscribers</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Menu Dots -->
                     <svg class="w-5 h-5 text-[#1c1c1c] shrink-0 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
                 </div>
 
-                <!-- Chat Body -->
-                <div class="p-3 relative bg-[#E1EDD5] pb-4">
-                    <!-- Bolla Messaggio -->
-                    <div class="bg-[#DCF8C6] rounded-[16px] rounded-tl-sm p-3 shadow-sm relative z-10 w-[96%] max-w-[96%]">
-                        <!-- Codina della bolla -->
+                <!-- Chat Body Telegram -->
+                <div class="p-4 relative bg-[#E1EDD5] pb-5">
+                    <div class="bg-[#DCF8C6] rounded-[16px] rounded-tl-sm p-3.5 shadow-sm relative z-10 w-[96%] max-w-[96%]">
                         <svg class="absolute top-0 -left-[8px] w-2 h-3 text-[#DCF8C6]" viewBox="0 0 8 12"><path fill="currentColor" d="M8 0H0C0 0 5 0 6 5V12C6 12 8 6 8 0Z"/></svg>
 
-                        <div class="text-[#000000] text-[14px] sm:text-[15px] leading-[1.35] flex flex-col gap-[4px] break-words">
+                        <!-- Testo del segnale con tipografia scalabile e interlinea professionale -->
+                        <div class="text-[#000000] text-[clamp(14px,1.5vw,15.5px)] leading-[1.4] flex flex-col gap-[6px] break-words">
                             <div data-i18n="tg_msg_title" class="text-[#35a541] font-bold tracking-tight mb-1">⚽ BETTING EXCHANGE ROOM</div>
                             <div data-i18n="tg_msg_1">⚽ Bologna vs Cagliari | LIVE 60' (0-0)</div>
                             <div data-i18n="tg_msg_2">🏆 Competizione: Serie A</div>
@@ -339,16 +329,15 @@
                             <div data-i18n="tg_msg_5">💶 Quota Ingresso: 2.68</div>
                             <div data-i18n="tg_msg_6">💧 Liquidità Matched: € 85.400</div>
                             <div data-i18n="tg_msg_7">📈 Edge Statistico: 11.2%</div>
-                            <div data-i18n="tg_msg_8">🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol (se variazione trend xG).</div>
+                            <div data-i18n="tg_msg_8" class="mt-1">🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol (se variazione trend xG).</div>
                             <div data-i18n="tg_msg_9">✅ Target (Green Up): ROI 12% o Freebet al 75° min.</div>
                             <div data-i18n="tg_msg_10">💼 Money Management: 3% Bankroll.</div>
-                            <div data-i18n="tg_msg_11">📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Edge strategico su persistenza pareggio. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta) della quota da qui al 75'.</div>
-                            <div data-i18n="tg_msg_13" class="mt-1">📍 DISCLAIMER: Trading algoritmico. Max disciplina.</div>
+                            <div data-i18n="tg_msg_11" class="mt-1">📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Edge strategico su persistenza pareggio. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta) della quota da qui al 75'.</div>
+                            <div data-i18n="tg_msg_13" class="mt-2 text-[0.9em] font-medium text-gray-700">📍 DISCLAIMER: Trading algoritmico. Max disciplina.</div>
                         </div>
 
-                        <!-- Views & Time -->
-                        <div class="flex justify-end items-center gap-[5px] text-[#8fa281] text-[11.5px] font-medium mt-1 float-right">
-                            <svg class="w-[14px] h-[14px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5 5 5zM12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                        <div class="flex justify-end items-center gap-[5px] text-[#8fa281] text-[12px] font-medium mt-2 float-right">
+                            <svg class="w-[15px] h-[15px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5 5 5zM12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
                             <span class="privacy-blur-text" style="filter:blur(3.5px);">1</span>
                             <span class="ml-0.5">14:19</span>
                         </div>
@@ -358,14 +347,12 @@
             </div>
         </section>
 
-        <!-- SEZIONE RECENSIONI FACEBOOK (EFFETTO SCREENSHOT) -->
-        <section class="py-20 px-4 pl-safe pr-safe max-w-6xl mx-auto content-vis lazy-reveal fb-section-wrapper" aria-label="Recensioni Facebook">
-            <h2 class="font-heading text-3xl sm:text-5xl text-center text-white font-black mb-12 tracking-tighter" data-i18n="fb_section_title">ENTRA NELLA COMMUNITY</h2>
+        <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-6xl mx-auto content-vis lazy-reveal fb-section-wrapper" aria-label="Recensioni Facebook">
+            <h2 class="font-heading text-[clamp(2rem,4vw,3.5rem)] text-center text-white font-black mb-10 sm:mb-12 tracking-tighter uppercase leading-tight" data-i18n="fb_section_title">ENTRA NELLA COMMUNITY</h2>
             
             <div class="mobile-container">
                 <div class="fb-modal-handle"></div>
                 
-                <!-- Barra dei like e condivisioni -->
                 <div class="fb-post-stats">
                     <div class="fb-post-stats-left">
                         <svg viewBox="0 0 16 16" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -447,7 +434,7 @@
                                 <span class="fb-name privacy-blur-text">Luca Moretti</span>
                             </div>
                             <p class="fb-text" data-i18n="fb_c4_text">Oh ma la scimmia che mi è salita col Subbuteo? 🙊 Entro sull'app con l'idea di studiare e finisce che sto mezz'ora a giocare. Vado al bar e ci gioco con i miei amici. Crea troppa dipendenza (in senso buono ahah), ci gioco pure ogni volta che ho 5 minuti morti in metro. Quel suono in sottofondo mi rilassa tantissimo e mi fa staccare il cervello! 🎮🔥</p>
-                            <!-- Contatore Facebook -->
+                            
                             <div class="fb-reactions-count">
                                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="8" cy="8" r="8" fill="#0866FF"/>
@@ -464,7 +451,6 @@
                     </div>
                 </div>
 
-                <!-- Barra finta "Commenta come..." -->
                 <div class="fb-bottom-bar">
                     <div class="fb-input-fake">
                         <img src="logo-tondo.jpeg" style="width: 20px; height: 20px; border-radius: 50%;" width="20" height="20" loading="lazy" decoding="async" class="privacy-blur-img" alt="">
@@ -473,57 +459,64 @@
                 </div>
             </div>
         </section>
+
+        <!-- SPOSTATO: SLOGAN CHE PULSA -->
+        <section class="py-8 sm:py-12 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center">
+            <div class="text-[clamp(1.5rem,4vw,3rem)] font-heading font-black text-brand-neon uppercase tracking-widest drop-shadow-neon-strong animate-pulse-soft" data-i18n="slogan">
+                SCOMMETTI SU DI TE 🫵
+            </div>
+        </section>
     </main>
 
-    <footer class="pt-16 px-4 pl-safe pr-safe max-w-4xl mx-auto border-t border-white/5 mt-10 text-center content-vis pb-safe">
+    <footer class="pt-8 sm:pt-12 px-4 pl-safe pr-safe max-w-4xl mx-auto mt-4 text-center content-vis pb-safe border-t-0">
         
-        <!-- PULSANTE SUBBUTEO ELEGANT -->
-        <div class="mb-16 flex flex-col items-center justify-center lazy-reveal">
-            <a href="https://subbuteo.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center justify-center p-4 rounded-3xl bg-white/5 border border-white/10 hover:border-[#229ED9]/50 hover:bg-white/10 transition-all duration-300 focus:outline-none w-full max-w-[280px]" aria-label="Gioca a Subbuteo">
-                <span class="text-[40px] leading-none relative z-10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 drop-shadow-xl">🎮</span>
-                <span class="mt-3 text-[12px] font-semibold text-gray-400 group-hover:text-white transition-colors duration-300 text-center leading-tight" data-i18n="subbuteo_text">Un piccolo break tra un trade e l'altro</span>
+        <div class="mb-12 sm:mb-16 flex flex-col items-center justify-center lazy-reveal">
+            <a href="https://subbuteo.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center justify-center p-5 rounded-3xl bg-white/5 border border-white/10 hover:border-[#229ED9]/50 hover:bg-white/10 transition-all duration-300 focus:outline-none w-full max-w-[300px]" aria-label="Gioca a Subbuteo">
+                <span class="text-[clamp(2.5rem,5vw,3rem)] leading-none relative z-10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 drop-shadow-xl">🎮</span>
+                <span class="mt-4 text-[clamp(12px,1.5vw,14px)] font-semibold text-gray-400 group-hover:text-white transition-colors duration-300 text-center leading-tight" data-i18n="subbuteo_text">Un piccolo break tra un trade e l'altro</span>
             </a>
         </div>
 
-        <h3 class="text-[12px] font-black text-gray-500 uppercase tracking-[0.3em] mb-8" data-i18n="ft_title">UNISCITI ALLA COMMUNITY</h3>
+        <h3 class="text-[clamp(11px,1.5vw,13px)] font-black text-gray-500 uppercase tracking-[0.3em] mb-8" data-i18n="ft_title">UNISCITI ALLA COMMUNITY</h3>
         
         <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
-            <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50" aria-label="Seguici su Telegram">
+            <!-- Social Icons (Telegram, WhatsApp, YouTube, X, Facebook) - Rimasti Invariati per estetica perfetta -->
+            <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue/50" aria-label="Seguici su Telegram">
                 <div class="absolute inset-0 rounded-2xl bg-brand-blue/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <svg class="w-6 h-6 sm:w-8 sm:h-8 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             </a>
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" class="group relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50" aria-label="Seguici su WhatsApp">
+            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" class="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50" aria-label="Seguici su WhatsApp">
                 <div class="absolute inset-0 rounded-2xl bg-[#25D366]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <svg class="w-6 h-6 sm:w-8 sm:h-8 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="group relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-red-600 hover:bg-red-600/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/50" aria-label="Guarda il nostro canale YouTube">
+            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-red-600 hover:bg-red-600/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/50" aria-label="Guarda il nostro canale YouTube">
                 <div class="absolute inset-0 rounded-2xl bg-red-600/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <svg class="w-6 h-6 sm:w-8 sm:h-8 fill-current text-red-600 transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current text-red-600 transform group-hover:scale-110 transition-transform duration-300 relative z-10" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-            <a href="https://x.com/BettingExcRoom" target="_blank" rel="noopener noreferrer" class="group relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-gray-200 hover:bg-gray-200/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-200/50" aria-label="Seguici su X">
+            <a href="https://x.com/BettingExcRoom" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-gray-200 hover:bg-gray-200/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-200/50" aria-label="Seguici su X">
                 <div class="absolute inset-0 rounded-2xl bg-gray-200/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <svg class="w-5 h-5 sm:w-7 sm:h-7 fill-current text-gray-300 group-hover:text-white transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.9v-.002h-1.93z"/></svg>
+                <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current text-gray-300 group-hover:text-white transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.9v-.002h-1.93z"/></svg>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61574331095240" target="_blank" rel="noopener noreferrer" class="group relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1877F2]/50" aria-label="Seguici su Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61574331095240" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-colors duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1877F2]/50" aria-label="Seguici su Facebook">
                 <div class="absolute inset-0 rounded-2xl bg-[#1877F2]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <svg class="w-5 h-5 sm:w-7 sm:h-7 fill-current text-[#1877F2] transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0014.26 2c-2.72 0-4.58 1.66-4.58 4.7v3.05H7V14h2.68v8h3.36v-8h3.11l.53-4.22h-3.64V7.16c0-1.22.34-2.05 2.09-2.05z"/></svg>
+                <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current text-[#1877F2] transform group-hover:scale-110 transition-all duration-300 relative z-10" viewBox="0 0 24 24"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0014.26 2c-2.72 0-4.58 1.66-4.58 4.7v3.05H7V14h2.68v8h3.36v-8h3.11l.53-4.22h-3.64V7.16c0-1.22.34-2.05 2.09-2.05z"/></svg>
             </a>
         </div>
         
         <div class="mt-16 text-center">
-            <p class="text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">&copy; 2026 BETTING EXCHANGE ROOM</p>
-            <p class="text-[10px] sm:text-[11px] text-gray-600 max-w-lg mx-auto leading-relaxed" data-i18n="ft_disclaimer">Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.</p>
+            <p class="text-[clamp(10px,1.2vw,12px)] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">&copy; 2026 BETTING EXCHANGE ROOM</p>
+            <p class="text-[clamp(11px,1.5vw,13px)] text-gray-600 max-w-xl mx-auto leading-relaxed" data-i18n="ft_disclaimer">Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.</p>
         </div>
     </footer>
 
-    <!-- STICKY CTA SUPER-CONVERTENTE (Verde Acceso) -->
+    <!-- STICKY CTA -->
     <div class="fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-brand-neon/30 px-4 pl-safe pr-safe py-4" style="padding-bottom: max(16px, env(safe-area-inset-bottom));">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
-            <a id="cta-button" href="https://tutorial-betting-exchange-room.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-base sm:text-xl flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
+            <a id="cta-button" href="https://tutorial-betting-exchange-room.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-[clamp(1rem,2vw,1.25rem)] flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                 <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">INIZIA ORA GRATIS</span>
             </a>
-            <span class="text-[11px] text-gray-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="cta_sub">Solo per oggi • Nessuna Carta Richiesta</span>
+            <span class="text-[clamp(10px,1.2vw,12px)] text-gray-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="cta_sub">Solo per oggi • Nessuna Carta Richiesta</span>
         </div>
     </div>
 
@@ -579,7 +572,6 @@
             const langMenu = document.getElementById('lang-menu');
             const langArrow = document.getElementById('lang-arrow');
             
-            // Cache degli elementi da tradurre per massime performance
             const i18nElements = document.querySelectorAll('[data-i18n]');
             const ctaBtn = document.getElementById('cta-button');
 
