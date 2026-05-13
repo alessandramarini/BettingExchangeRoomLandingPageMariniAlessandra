@@ -220,8 +220,9 @@
         <section class="px-4 pl-safe pr-safe max-w-4xl mx-auto mb-16 sm:mb-24 content-vis" aria-label="Statistiche del servizio">
             <div class="flex divide-x divide-white/10 border border-white/10 rounded-3xl glass-panel overflow-hidden lazy-reveal shadow-2xl">
                 <div class="flex-1 text-center py-6 sm:py-8 px-4 flex flex-col justify-center items-center bg-white/5">
-                    <div class="text-white font-heading font-black text-[clamp(2.5rem,5vw,4rem)] tracking-tighter leading-none">7/7</div>
-                    <div class="text-[clamp(10px,1.2vw,14px)] text-gray-400 uppercase tracking-[0.2em] mt-3 font-bold" data-i18n="stat_ai">SCANSIONE A.I.</div>
+                    <!-- FIX 7/7: Rimossi 'tracking-tighter' e 'leading-none', aggiunti 'tracking-normal', 'leading-tight', 'py-2' e ombra per evitare tagli -->
+                    <div class="text-white font-heading font-black text-[clamp(2.5rem,5vw,4rem)] tracking-normal leading-tight py-2 drop-shadow-lg">7/7</div>
+                    <div class="text-[clamp(10px,1.2vw,14px)] text-gray-400 uppercase tracking-[0.2em] mt-2 font-bold" data-i18n="stat_ai">SCANSIONE A.I.</div>
                 </div>
                 <div class="flex-1 text-center py-6 sm:py-8 px-4 bg-brand-neon/10 relative overflow-hidden group flex flex-col justify-center items-center">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-neon/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -294,8 +295,24 @@
 
         <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-7xl mx-auto content-vis" aria-label="Caratteristiche Principali">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-brand-neon/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col">
+                
+                <!-- Card 1 (Ex Card 4) - DA PRINCIPIANTE A PRO - Ora al primo posto -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#A855F7]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col">
+                    <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
+                        <img src="cyborgtifoso.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="ZERO TO HERO Academy" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#A855F7]/30 mb-5 group-hover:border-[#A855F7] transition-colors shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+                        </div>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card4_title">DA PRINCIPIANTE A PRO</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card4_desc">ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.</p>
+                    </div>
+                </article>
+
+                <!-- Card 2 (Ex Card 1) - NESSUNA EMOZIONE -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-brand-neon/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 100ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372165.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Profitto Matematico" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
@@ -309,8 +326,8 @@
                     </div>
                 </article>
 
-                <!-- Card 2 -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#FBBF24]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 100ms;">
+                <!-- Card 3 (Ex Card 2) - MONEY MANAGEMENT -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#FBBF24]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 200ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372221.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Protezione Capitale" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
@@ -324,8 +341,8 @@
                     </div>
                 </article>
 
-                <!-- Card 3 -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#00D2FF]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 200ms;">
+                <!-- Card 4 (Ex Card 3) - L'A.I. NON DORME MAI -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#00D2FF]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 300ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
                         <img src="1000372160.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Scansione Real-Time" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
@@ -336,21 +353,6 @@
                         </div>
                         <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card3_title">L'A.I. NON DORME MAI</h3>
                         <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card3_desc">Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.</p>
-                    </div>
-                </article>
-
-                <!-- Card 4 -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#A855F7]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 300ms;">
-                    <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
-                        <img src="cyborgtifoso.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="ZERO TO HERO Academy" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#A855F7]/30 mb-5 group-hover:border-[#A855F7] transition-colors shadow-[0_0_20px_rgba(168,85,247,0.2)]">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
-                        </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card4_title">DA PRINCIPIANTE A PRO</h3>
-                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card4_desc">ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.</p>
                     </div>
                 </article>
             </div>
