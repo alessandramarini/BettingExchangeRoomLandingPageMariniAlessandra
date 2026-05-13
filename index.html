@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Betting Exchange Room - Reti neurali profonde. Agenti IA autonomi. Il massimo Valore Atteso. Tu devi solo copiare.">
     <meta name="author" content="Betting Exchange Room">
+    <!-- Caching aggressivo per file statici su Vercel/GitHub -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
     
     <!-- Open Graph / Social Media Meta Tags -->
@@ -22,7 +23,7 @@
     <link rel="icon" type="image/jpeg" href="logo-tondo.jpeg">
     <link rel="apple-touch-icon" href="logo-tondo.jpeg">
     
-    <!-- Ottimizzazione DNS e Preload -->
+    <!-- Ottimizzazione DNS e Preload per caricamenti fulminei -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://flagcdn.com">
@@ -115,14 +116,28 @@
         .content-vis { content-visibility: auto; contain-intrinsic-size: auto 500px; }
         .aspect-4-3 { aspect-ratio: 4/3; }
 
-        /* Bandierine Lingua */
-        .lang-flag { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); filter: grayscale(40%) opacity(0.7); }
-        .lang-flag:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
-        .lang-flag.active { filter: grayscale(0%) opacity(1); box-shadow: 0 0 0 2px #A3E635; transform: scale(1.1); }
+        /* Bandierine Lingua (Rettangolari, Piccole, Eleganti) */
+        .lang-flag { 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            filter: grayscale(60%) opacity(0.6); 
+            border-radius: 4px; /* Rettangolari con bordi leggermente arrotondati */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            width: 24px; /* Piccole */
+            height: auto;
+            aspect-ratio: 3/2; /* Proporzione classica bandiere */
+            object-fit: cover;
+        }
+        .lang-flag:hover { filter: grayscale(0%) opacity(1); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.6); }
+        .lang-flag.active { 
+            filter: grayscale(0%) opacity(1); 
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 2px #07090f, 0 0 0 4px #A3E635; /* Doppio bordo elegante */
+        }
 
-        /* Componente Video - Fix Caricamento */
+        /* Componente Video - Fix Caricamento Fulmineo */
         .menu-video-container { width: 100%; max-width: 56rem; aspect-ratio: 16/9; margin: 0 auto 3rem auto; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.15); background: #000; position: relative; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.7), 0 0 30px rgba(163,230,53,0.1); overflow: hidden; transform: translateZ(0); isolation: isolate; cursor: default; }
-        .menu-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; z-index: 1; background-color: #000; }
+        /* Aggiunto transform translateZ(0) al video stesso per forzare accelerazione hardware */
+        .menu-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; z-index: 1; background-color: #000; transform: translateZ(0); }
         .watermark-cover { position: absolute; bottom: 0; right: 0; width: 48px; height: 48px; z-index: 2; border-radius: 12px 0 0 0; background-color: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; padding: 4px; border-top: 1px solid rgba(255,255,255,0.15); border-left: 1px solid rgba(255,255,255,0.15); }
         .watermark-cover img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
@@ -170,19 +185,19 @@
     <main>
         <section class="relative pt-[110px] sm:pt-[140px] pb-10 sm:pb-16 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center hero-section">
             
-            <!-- Bandierine Lingua in HD (SVG da FlagCDN) -->
-            <div class="flex items-center justify-center gap-3 sm:gap-5 mb-8">
-                <button onclick="setLang('it')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded-full" aria-label="Italiano">
-                    <img src="https://flagcdn.com/it.svg" alt="IT" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover lang-flag border border-white/20" data-lang="it">
+            <!-- Bandierine Lingua in HD (SVG da FlagCDN) - Piccole, Rettangolari, Eleganti -->
+            <div class="flex items-center justify-center gap-3 sm:gap-4 mb-6">
+                <button onclick="setLang('it')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="Italiano">
+                    <img src="https://flagcdn.com/w40/it.png" srcset="https://flagcdn.com/w80/it.png 2x" alt="IT" class="lang-flag" data-lang="it">
                 </button>
-                <button onclick="setLang('en')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded-full" aria-label="English">
-                    <img src="https://flagcdn.com/gb.svg" alt="EN" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover lang-flag border border-white/20" data-lang="en">
+                <button onclick="setLang('en')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="English">
+                    <img src="https://flagcdn.com/w40/gb.png" srcset="https://flagcdn.com/w80/gb.png 2x" alt="EN" class="lang-flag" data-lang="en">
                 </button>
-                <button onclick="setLang('es')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded-full" aria-label="Español">
-                    <img src="https://flagcdn.com/es.svg" alt="ES" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover lang-flag border border-white/20" data-lang="es">
+                <button onclick="setLang('es')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="Español">
+                    <img src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="ES" class="lang-flag" data-lang="es">
                 </button>
-                <button onclick="setLang('pt')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded-full" aria-label="Português">
-                    <img src="https://flagcdn.com/pt.svg" alt="PT" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover lang-flag border border-white/20" data-lang="pt">
+                <button onclick="setLang('pt')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="Português">
+                    <img src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="PT" class="lang-flag" data-lang="pt">
                 </button>
             </div>
 
@@ -199,7 +214,7 @@
                 <span class="text-[clamp(2rem,6vw,4.5rem)] leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter mt-1 sm:mt-2" data-i18n="hero_title_2">MATEMATICO</span>
             </h1>
 
-            <!-- Video Fixato -->
+            <!-- Video Fixato per caricamento istantaneo in-app browser -->
             <div class="menu-video-container">
                 <video class="menu-video" autoplay muted playsinline webkit-playsinline preload="auto" loop poster="logo-tondo.jpeg">
                     <source src="itcyborgscommettestake.mp4" type="video/mp4">
@@ -310,7 +325,7 @@
                         <div class="flex items-center gap-2.5 min-w-0">
                             <img src="logo-tondo.jpeg" alt="Channel" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-gray-100 shrink-0">
                             <div class="flex flex-col justify-center min-w-0">
-                                <!-- Testo senza palloni -->
+                                <!-- Testo SENZA palloni -->
                                 <span class="text-[#000000] font-semibold text-[clamp(14px,1.5vw,16px)] leading-tight whitespace-nowrap tracking-tight">BETTING EXCHANGE ROOM</span>
                                 <span class="text-[#707579] text-[clamp(11px,1.2vw,13px)] leading-tight privacy-blur-text" style="filter:blur(3.5px);">8 subscribers</span>
                             </div>
@@ -325,7 +340,7 @@
                         <svg class="absolute top-0 -left-[8px] w-2 h-3 text-[#DCF8C6]" viewBox="0 0 8 12"><path fill="currentColor" d="M8 0H0C0 0 5 0 6 5V12C6 12 8 6 8 0Z"/></svg>
 
                         <div class="text-[#000000] text-[clamp(14px,1.5vw,15.5px)] leading-[1.4] flex flex-col gap-[6px] break-words">
-                            <!-- Testo senza palloni -->
+                            <!-- Testo SENZA palloni -->
                             <div data-i18n="tg_msg_title" class="text-[#35a541] font-bold tracking-tight mb-1">BETTING EXCHANGE ROOM</div>
                             <div data-i18n="tg_msg_1">⚽ Bologna vs Cagliari | LIVE 60' (0-0)</div>
                             <div data-i18n="tg_msg_2">🏆 Competizione: Serie A</div>
@@ -466,7 +481,7 @@
         
         <!-- Joystick Pulsante -->
         <div class="mb-12 sm:mb-16 flex flex-col items-center justify-center lazy-reveal">
-            <a href="https://subbuteo.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-[2rem] bg-brand-surface/90 border border-white/20 hover:border-[#229ED9] hover:bg-[#229ED9]/10 transition-all duration-300 focus:outline-none w-full max-w-[340px] shadow-[0_0_20px_rgba(34,158,217,0.1)] hover:shadow-[0_0_40px_rgba(34,158,217,0.4)] hover:-translate-y-2 active:scale-95" aria-label="Gioca a Subbuteo">
+            <a href="https://subbuteo.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-[2rem] bg-brand-surface/90 border border-white/20 hover:border-[#229ED9] hover:bg-[#229ED9]/10 transition-all duration-300 focus:outline-none w-full max-w-[340px] shadow-[0_0_20px_rgba(34,158,217,0.1)] hover:shadow-[0_0_40px_rgba(34,158,217,0.4)] hover:-translate-y-2 active:scale-95 cursor-pointer" aria-label="Gioca a Subbuteo">
                 <span class="text-[clamp(3.5rem,7vw,4.5rem)] leading-none relative z-10 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 drop-shadow-2xl animate-bounce-subtle">🕹️</span>
                 <span class="mt-6 text-[clamp(13px,1.5vw,15px)] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 text-center leading-relaxed" data-i18n="subbuteo_text">Clicca il joystick per un piccolo break tra un trade e l'altro.</span>
             </a>
@@ -474,21 +489,21 @@
 
         <h3 class="text-[clamp(11px,1.5vw,13px)] font-black text-gray-500 uppercase tracking-[0.3em] mb-6" data-i18n="ft_title">UNISCITI ALLA COMMUNITY</h3>
         
-        <!-- Social Icons: Singola Riga Elegante -->
-        <div class="flex flex-nowrap justify-center items-center gap-3 sm:gap-4">
-            <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su Telegram">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        <!-- Social Icons: Singola Riga Elegante e più Piccoli -->
+        <div class="flex flex-nowrap justify-center items-center gap-2 sm:gap-3">
+            <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su Telegram">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             </a>
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" class="group relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su WhatsApp">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su WhatsApp">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-red-600 hover:bg-red-600/10 transition-colors duration-300 focus:outline-none" aria-label="Guarda il nostro canale YouTube">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current text-red-600 transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-red-600 hover:bg-red-600/10 transition-colors duration-300 focus:outline-none" aria-label="Guarda il nostro canale YouTube">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-red-600 transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-            <a href="https://x.com/BettingExcRoom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-gray-200 hover:bg-gray-200/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su X">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-gray-300 group-hover:text-white transform group-hover:scale-110 transition-all duration-300" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.9v-.002h-1.93z"/></svg>
+            <a href="https://x.com/BettingExcRoom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-gray-200 hover:bg-gray-200/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su X">
+                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-gray-300 group-hover:text-white transform group-hover:scale-110 transition-all duration-300" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.9v-.002h-1.93z"/></svg>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61574331095240" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61574331095240" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su Facebook">
                 <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-[#1877F2] transform group-hover:scale-110 transition-all duration-300" viewBox="0 0 24 24"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0014.26 2c-2.72 0-4.58 1.66-4.58 4.7v3.05H7V14h2.68v8h3.36v-8h3.11l.53-4.22h-3.64V7.16c0-1.22.34-2.05 2.09-2.05z"/></svg>
             </a>
         </div>
@@ -506,7 +521,6 @@
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                 <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">INIZIA ORA GRATIS</span>
             </a>
-            <!-- Rimosso "Solo per oggi" -->
             <span class="text-[clamp(10px,1.2vw,12px)] text-gray-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="cta_sub">NESSUNA CARTA RICHIESTA</span>
         </div>
     </div>
@@ -519,7 +533,7 @@
                 set: function(key, value) { try { localStorage.setItem(key, value); } catch(e) {} }
             };
 
-            /* TRANSLATIONS DATA - Aggiornato */
+            /* TRANSLATIONS DATA */
             const t = {
                 it:{
                     stat_week:"ACCEDI ORA",hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",hero_subtitle:'Reti neurali profonde. Agenti IA autonomi.<br class="hidden sm:block"> Il massimo <strong class="text-white font-bold">Valore Atteso</strong>. Tu devi solo copiare.',slogan:"SCOMMETTI SU DI TE 🫵",cta_button:"INIZIA ORA GRATIS",cta_sub:"NESSUNA CARTA RICHIESTA",stat_ai:"SCANSIONE A.I.",stat_free:"100% GRATIS OGGI",trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",tg_official:"Canale Ufficiale",card1_title:"NESSUNA EMOZIONE",card1_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",card3_title:"L'A.I. NON DORME MAI",card3_desc:"Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"DA PRINCIPIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.",ft_title:"UNISCITI ALLA COMMUNITY",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.",
