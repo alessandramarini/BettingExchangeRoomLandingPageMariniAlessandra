@@ -8,10 +8,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Betting Exchange Room - Reti neurali profonde. Agenti IA autonomi. Il massimo Valore Atteso. Tu devi solo copiare.">
     <meta name="author" content="Betting Exchange Room">
-    <!-- Caching aggressivo per file statici su Vercel/GitHub -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
     
-    <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Betting Exchange Room | A.I. Betting Signals">
     <meta property="og:description" content="Reti neurali profonde. Agenti IA autonomi. Il massimo Valore Atteso. Tu devi solo copiare.">
@@ -23,7 +21,6 @@
     <link rel="icon" type="image/jpeg" href="logo-tondo.jpeg">
     <link rel="apple-touch-icon" href="logo-tondo.jpeg">
     
-    <!-- Ottimizzazione DNS e Preload per caricamenti fulminei -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://flagcdn.com">
@@ -31,7 +28,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Preload Risorse Critiche -->
     <link rel="preload" as="image" href="logo-tondo.jpeg" fetchpriority="high">
     <link rel="preload" as="video" href="itcyborgscommettestake.mp4" fetchpriority="high">
     
@@ -73,7 +69,6 @@
     </script>
     
     <style>
-        /* Base e Body */
         html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
         body {
             background-color: #07090f;
@@ -90,23 +85,19 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Safe Areas per Mobile */
         .pt-safe { padding-top: max(1rem, env(safe-area-inset-top)); }
         .pb-safe { padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
         .pl-safe { padding-left: max(1rem, env(safe-area-inset-left)); }
         .pr-safe { padding-right: max(1rem, env(safe-area-inset-right)); }
         
-        /* Utility Classes */
         .glass-panel { background-color: rgba(13,19,28,0.85); border: 1px solid rgba(255,255,255,0.08); transform: translateZ(0); backface-visibility: hidden; }
         @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
             .glass-panel { background-color: rgba(13,19,28,0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         }
 
-        /* Animazioni di Reveal */
         .js-enabled .lazy-reveal { opacity: 0; transform: translateY(30px) translateZ(0); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); will-change: opacity, transform; }
         .js-enabled .lazy-reveal.revealed { opacity: 1; transform: translateY(0) translateZ(0); }
 
-        /* Scrollbar Elegante */
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
@@ -116,32 +107,28 @@
         .content-vis { content-visibility: auto; contain-intrinsic-size: auto 500px; }
         .aspect-4-3 { aspect-ratio: 4/3; }
 
-        /* Bandierine Lingua (Rettangolari, Piccole, Eleganti) */
         .lang-flag { 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
             filter: grayscale(60%) opacity(0.6); 
-            border-radius: 4px; /* Rettangolari con bordi leggermente arrotondati */
+            border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            width: 24px; /* Piccole */
+            width: 24px;
             height: auto;
-            aspect-ratio: 3/2; /* Proporzione classica bandiere */
+            aspect-ratio: 3/2;
             object-fit: cover;
         }
         .lang-flag:hover { filter: grayscale(0%) opacity(1); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.6); }
         .lang-flag.active { 
             filter: grayscale(0%) opacity(1); 
             transform: translateY(-2px);
-            box-shadow: 0 0 0 2px #07090f, 0 0 0 4px #A3E635; /* Doppio bordo elegante */
+            box-shadow: 0 0 0 2px #07090f, 0 0 0 4px #A3E635;
         }
 
-        /* Componente Video - Fix Caricamento Fulmineo */
         .menu-video-container { width: 100%; max-width: 56rem; aspect-ratio: 16/9; margin: 0 auto 3rem auto; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.15); background: #000; position: relative; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.7), 0 0 30px rgba(163,230,53,0.1); overflow: hidden; transform: translateZ(0); isolation: isolate; cursor: default; }
-        /* Aggiunto transform translateZ(0) al video stesso per forzare accelerazione hardware */
         .menu-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; z-index: 1; background-color: #000; transform: translateZ(0); }
         .watermark-cover { position: absolute; bottom: 0; right: 0; width: 48px; height: 48px; z-index: 2; border-radius: 12px 0 0 0; background-color: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; padding: 4px; border-top: 1px solid rgba(255,255,255,0.15); border-left: 1px solid rgba(255,255,255,0.15); }
         .watermark-cover img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
-        /* Componente Facebook (Mockup) */
         .fb-section-wrapper { pointer-events: auto; }
         .mobile-container { position: relative; background-color: #ffffff; width: 100%; max-width: 420px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 0 4px #1c1c1c; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; user-select: none !important; -webkit-user-select: none !important; pointer-events: none !important; }
         .mobile-container::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; background: transparent; }
@@ -185,7 +172,7 @@
     <main>
         <section class="relative pt-[110px] sm:pt-[140px] pb-10 sm:pb-16 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center hero-section">
             
-            <!-- Bandierine Lingua in HD (SVG da FlagCDN) - Piccole, Rettangolari, Eleganti -->
+            <!-- Bandierine Lingua -->
             <div class="flex items-center justify-center gap-3 sm:gap-4 mb-6">
                 <button onclick="setLang('it')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="Italiano">
                     <img src="https://flagcdn.com/w40/it.png" srcset="https://flagcdn.com/w80/it.png 2x" alt="IT" class="lang-flag" data-lang="it">
@@ -201,12 +188,13 @@
                 </button>
             </div>
 
-            <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#A3E635]/10 border border-[#A3E635]/30 shadow-neon mb-8 sm:mb-12 hover:bg-[#A3E635]/20 transition-colors cursor-default backdrop-blur-sm">
-                <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3E635] opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-[#A3E635]"></span>
+            <!-- Nuovo Design Badge: Elegante e Armonizzato -->
+            <div class="flex items-center justify-center gap-2 mb-8 sm:mb-10 cursor-default opacity-80 hover:opacity-100 transition-opacity">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-neon"></span>
                 </span>
-                <span class="text-[10px] sm:text-xs font-black text-[#A3E635] uppercase tracking-[0.2em]" data-i18n="hero_badge">SEGNALI ATTIVI SU TELEGRAM</span>
+                <span class="text-xs sm:text-sm font-medium text-brand-neon uppercase tracking-[0.2em]" data-i18n="hero_badge">SEGNALI ATTIVI SU TELEGRAM</span>
             </div>
 
             <h1 class="font-heading font-black mb-8 sm:mb-10 tracking-tight flex flex-col items-center w-full drop-shadow-2xl">
@@ -214,7 +202,6 @@
                 <span class="text-[clamp(2rem,6vw,4.5rem)] leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter mt-1 sm:mt-2" data-i18n="hero_title_2">MATEMATICO</span>
             </h1>
 
-            <!-- Video Fixato per caricamento istantaneo in-app browser -->
             <div class="menu-video-container">
                 <video class="menu-video" autoplay muted playsinline webkit-playsinline preload="auto" loop poster="logo-tondo.jpeg">
                     <source src="itcyborgscommettestake.mp4" type="video/mp4">
@@ -224,8 +211,9 @@
                 </div>
             </div>
 
-            <p class="text-gray-300 text-[clamp(1rem,2vw,1.5rem)] max-w-3xl mx-auto leading-relaxed px-4 font-medium" data-i18n="hero_subtitle">
-                Reti neurali profonde. Agenti IA autonomi.<br class="hidden sm:block"> Il massimo <strong class="text-white font-bold">Valore Atteso</strong>. Tu devi solo copiare.
+            <!-- Nuovo Testo Sub-headline -->
+            <p class="text-gray-300 text-[clamp(1rem,1.5vw,1.3rem)] max-w-3xl mx-auto leading-relaxed px-4 font-medium" data-i18n="hero_subtitle">
+                Dimentica l'azzardo. Sfrutta le nostre reti neurali per estrarre vero <strong class="text-white font-bold">Valore Atteso</strong> dall'Exchange. Copia le operazioni, gestisci il rischio e proteggi il tuo bankroll.
             </p>
         </section>
 
@@ -239,6 +227,67 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-neon/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 text-brand-neon font-heading font-black text-[clamp(1.25rem,2.5vw,2.25rem)] drop-shadow-lg tracking-tighter uppercase leading-tight" data-i18n="stat_week">ACCEDI ORA</div>
                     <div class="relative z-10 text-[clamp(10px,1.2vw,14px)] text-brand-neon uppercase tracking-[0.2em] mt-3 font-bold" data-i18n="stat_free">100% GRATIS OGGI</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 sm:py-16 px-4 pl-safe pr-safe max-w-3xl mx-auto content-vis" aria-labelledby="transparency-title">
+            <div class="text-center mb-10 sm:mb-12 lazy-reveal">
+                <h2 id="transparency-title" class="font-heading text-[clamp(2rem,4vw,3.5rem)] font-black text-white tracking-tighter mb-4 uppercase leading-tight" data-i18n="trans_title_1">COPIA. INCOLLA. INCASSA.</h2>
+                <p class="text-gray-300 text-[clamp(1rem,1.5vw,1.25rem)] max-w-2xl mx-auto font-medium leading-relaxed" data-i18n="trans_desc">Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.</p>
+            </div>
+
+            <!-- Nuovo Framing del Segnale Telegram -->
+            <div class="mb-6 text-center max-w-xl mx-auto px-2 lazy-reveal">
+                <h3 class="text-brand-neon font-heading font-black text-[clamp(1rem,1.5vw,1.25rem)] uppercase tracking-widest mb-2" data-i18n="tg_frame_title">ANALISI QUANTITATIVA APPLICATA</h3>
+                <p class="text-gray-400 text-sm sm:text-base font-medium leading-snug" data-i18n="tg_frame_desc">Non un pronostico, ma un protocollo matematico con gestione del rischio e Stop Loss rigorosi.</p>
+            </div>
+
+            <!-- SIMULAZIONE TELEGRAM CHANNEL SCREENSHOT -->
+            <div class="relative bg-[#E1EDD5] w-full max-w-[420px] rounded-[20px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7),0_0_0_4px_#1c1c1c] mx-auto text-left font-sans select-none pointer-events-none mb-10 transform transition hover:-translate-y-1 duration-500 lazy-reveal">
+                <div class="absolute inset-0 z-50 bg-transparent"></div>
+
+                <div class="bg-white px-4 py-3 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.1)] relative z-10">
+                    <div class="flex items-center gap-2 xs:gap-3">
+                        <svg class="w-5 h-5 text-[#1c1c1c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4M4 12L10 6M4 12L10 18"/></svg>
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <img src="logo-tondo.jpeg" alt="Channel" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-gray-100 shrink-0">
+                            <div class="flex flex-col justify-center min-w-0">
+                                <span class="text-[#000000] font-semibold text-[clamp(14px,1.5vw,16px)] leading-tight whitespace-nowrap tracking-tight">BETTING EXCHANGE ROOM</span>
+                                <span class="text-[#707579] text-[clamp(11px,1.2vw,13px)] leading-tight privacy-blur-text" style="filter:blur(3.5px);">8 subscribers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-[#1c1c1c] shrink-0 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                </div>
+
+                <div class="p-4 relative bg-[#E1EDD5] pb-5">
+                    <div class="bg-[#DCF8C6] rounded-[16px] rounded-tl-sm p-3.5 shadow-sm relative z-10 w-[96%] max-w-[96%]">
+                        <svg class="absolute top-0 -left-[8px] w-2 h-3 text-[#DCF8C6]" viewBox="0 0 8 12"><path fill="currentColor" d="M8 0H0C0 0 5 0 6 5V12C6 12 8 6 8 0Z"/></svg>
+
+                        <div class="text-[#000000] text-[clamp(14px,1.5vw,15.5px)] leading-[1.4] flex flex-col gap-[6px] break-words">
+                            <div data-i18n="tg_msg_title" class="text-[#35a541] font-bold tracking-tight mb-1">BETTING EXCHANGE ROOM</div>
+                            <div data-i18n="tg_msg_1">⚽ Bologna vs Cagliari | LIVE 60' (0-0)</div>
+                            <div data-i18n="tg_msg_2">🏆 Competizione: Serie A</div>
+                            <div data-i18n="tg_msg_3">🎯 Mercato: Back The Draw</div>
+                            <div data-i18n="tg_msg_4">⚙️ Azione: BACK Esito X (PUNTA X)</div>
+                            <div data-i18n="tg_msg_5">💶 Quota Ingresso: 2.68</div>
+                            <div data-i18n="tg_msg_6">💧 Liquidità Matched: € 85.400</div>
+                            <div data-i18n="tg_msg_7">📈 Edge Statistico: 11.2%</div>
+                            <div data-i18n="tg_msg_8" class="mt-1">🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol (se variazione trend xG).</div>
+                            <div data-i18n="tg_msg_9">✅ Target (Green Up): ROI 12% o Freebet al 75° min.</div>
+                            <div data-i18n="tg_msg_10">💼 Money Management: 3% Bankroll.</div>
+                            <div data-i18n="tg_msg_11" class="mt-1">📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Edge strategico su persistenza pareggio. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta) della quota da qui al 75'.</div>
+                            <div data-i18n="tg_msg_13" class="mt-2 text-[0.9em] font-medium text-gray-700">📍 DISCLAIMER: Trading algoritmico. Max disciplina.</div>
+                        </div>
+
+                        <div class="flex justify-end items-center gap-[5px] text-[#8fa281] text-[12px] font-medium mt-2 float-right">
+                            <svg class="w-[15px] h-[15px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5 5 5zM12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                            <span class="privacy-blur-text" style="filter:blur(3.5px);">1</span>
+                            <span class="ml-0.5">14:19</span>
+                        </div>
+                        <div class="clear-both"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -307,66 +356,6 @@
             </div>
         </section>
 
-        <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-3xl mx-auto content-vis" aria-labelledby="transparency-title">
-            <div class="text-center mb-10 sm:mb-12 lazy-reveal">
-                <h2 id="transparency-title" class="font-heading text-[clamp(2rem,4vw,3.5rem)] font-black text-white tracking-tighter mb-4 uppercase leading-tight" data-i18n="trans_title_1">COPIA. INCOLLA. INCASSA.</h2>
-                <p class="text-gray-300 text-[clamp(1rem,1.5vw,1.25rem)] max-w-2xl mx-auto font-medium leading-relaxed" data-i18n="trans_desc">Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.</p>
-            </div>
-
-            <!-- SIMULAZIONE TELEGRAM CHANNEL SCREENSHOT -->
-            <div class="relative bg-[#E1EDD5] w-full max-w-[420px] rounded-[20px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7),0_0_0_4px_#1c1c1c] mx-auto text-left font-sans select-none pointer-events-none mb-10 transform transition hover:-translate-y-1 duration-500 lazy-reveal">
-                <!-- Scudo invisibile -->
-                <div class="absolute inset-0 z-50 bg-transparent"></div>
-
-                <!-- Header Telegram -->
-                <div class="bg-white px-4 py-3 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.1)] relative z-10">
-                    <div class="flex items-center gap-2 xs:gap-3">
-                        <svg class="w-5 h-5 text-[#1c1c1c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4M4 12L10 6M4 12L10 18"/></svg>
-                        <div class="flex items-center gap-2.5 min-w-0">
-                            <img src="logo-tondo.jpeg" alt="Channel" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-gray-100 shrink-0">
-                            <div class="flex flex-col justify-center min-w-0">
-                                <!-- Testo SENZA palloni -->
-                                <span class="text-[#000000] font-semibold text-[clamp(14px,1.5vw,16px)] leading-tight whitespace-nowrap tracking-tight">BETTING EXCHANGE ROOM</span>
-                                <span class="text-[#707579] text-[clamp(11px,1.2vw,13px)] leading-tight privacy-blur-text" style="filter:blur(3.5px);">8 subscribers</span>
-                            </div>
-                        </div>
-                    </div>
-                    <svg class="w-5 h-5 text-[#1c1c1c] shrink-0 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                </div>
-
-                <!-- Chat Body Telegram -->
-                <div class="p-4 relative bg-[#E1EDD5] pb-5">
-                    <div class="bg-[#DCF8C6] rounded-[16px] rounded-tl-sm p-3.5 shadow-sm relative z-10 w-[96%] max-w-[96%]">
-                        <svg class="absolute top-0 -left-[8px] w-2 h-3 text-[#DCF8C6]" viewBox="0 0 8 12"><path fill="currentColor" d="M8 0H0C0 0 5 0 6 5V12C6 12 8 6 8 0Z"/></svg>
-
-                        <div class="text-[#000000] text-[clamp(14px,1.5vw,15.5px)] leading-[1.4] flex flex-col gap-[6px] break-words">
-                            <!-- Testo SENZA palloni -->
-                            <div data-i18n="tg_msg_title" class="text-[#35a541] font-bold tracking-tight mb-1">BETTING EXCHANGE ROOM</div>
-                            <div data-i18n="tg_msg_1">⚽ Bologna vs Cagliari | LIVE 60' (0-0)</div>
-                            <div data-i18n="tg_msg_2">🏆 Competizione: Serie A</div>
-                            <div data-i18n="tg_msg_3">🎯 Mercato: Back The Draw</div>
-                            <div data-i18n="tg_msg_4">⚙️ Azione: BACK Esito X (PUNTA X)</div>
-                            <div data-i18n="tg_msg_5">💶 Quota Ingresso: 2.68</div>
-                            <div data-i18n="tg_msg_6">💧 Liquidità Matched: € 85.400</div>
-                            <div data-i18n="tg_msg_7">📈 Edge Statistico: 11.2%</div>
-                            <div data-i18n="tg_msg_8" class="mt-1">🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol (se variazione trend xG).</div>
-                            <div data-i18n="tg_msg_9">✅ Target (Green Up): ROI 12% o Freebet al 75° min.</div>
-                            <div data-i18n="tg_msg_10">💼 Money Management: 3% Bankroll.</div>
-                            <div data-i18n="tg_msg_11" class="mt-1">📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Edge strategico su persistenza pareggio. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta) della quota da qui al 75'.</div>
-                            <div data-i18n="tg_msg_13" class="mt-2 text-[0.9em] font-medium text-gray-700">📍 DISCLAIMER: Trading algoritmico. Max disciplina.</div>
-                        </div>
-
-                        <div class="flex justify-end items-center gap-[5px] text-[#8fa281] text-[12px] font-medium mt-2 float-right">
-                            <svg class="w-[15px] h-[15px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5 5 5zM12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                            <span class="privacy-blur-text" style="filter:blur(3.5px);">1</span>
-                            <span class="ml-0.5">14:19</span>
-                        </div>
-                        <div class="clear-both"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-6xl mx-auto content-vis lazy-reveal fb-section-wrapper" aria-label="Recensioni Facebook">
             <h2 class="font-heading text-[clamp(2rem,4vw,3.5rem)] text-center text-white font-black mb-10 sm:mb-12 tracking-tighter uppercase leading-tight" data-i18n="fb_section_title">ENTRA NELLA COMMUNITY</h2>
             
@@ -391,7 +380,7 @@
                     <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
                 </div>
 
-                <!-- COMMENTI -->
+                <!-- COMMENTI (Rimossa la distrazione gamification) -->
                 <div class="fb-comment">
                     <img src="https://i.pravatar.cc/150?img=11" alt="User" width="36" height="36" loading="lazy" decoding="async" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="fb-comment-wrapper">
@@ -437,29 +426,6 @@
                     </div>
                 </div>
 
-                <div class="fb-comment">
-                    <img src="https://i.pravatar.cc/150?img=59" alt="User" width="36" height="36" loading="lazy" decoding="async" class="fb-avatar privacy-blur-img" draggable="false">
-                    <div class="fb-comment-wrapper">
-                        <div class="fb-comment-bubble">
-                            <div class="fb-header"><span class="fb-name privacy-blur-text">Luca Moretti</span></div>
-                            <p class="fb-text" data-i18n="fb_c4_text">Oh ma la scimmia che mi è salita col Subbuteo? 🙊 Entro sull'app con l'idea di studiare e finisce che sto mezz'ora a giocare. Vado al bar e ci gioco con i miei amici. Crea troppa dipendenza (in senso buono ahah), ci gioco pure ogni volta che ho 5 minuti morti in metro. Quel suono in sottofondo mi rilassa tantissimo e mi fa staccare il cervello! 🎮🔥</p>
-                            
-                            <div class="fb-reactions-count">
-                                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="8" cy="8" r="8" fill="#0866FF"/>
-                                    <path d="M11.603 6.945h-2.146l.321-1.551.01-.157c0-.203-.082-.387-.215-.521L9.052 4.2 6.027 7.226a.75.75 0 0 0-.219.53v4.5A.75.75 0 0 0 6.557 13h3.428c.311 0 .584-.191.698-.471l1.35-3.15a.735.735 0 0 0 .043-.245V7.689a.75.75 0 0 0-.473-.744zM3.557 7.756h1.5v5.244h-1.5z" fill="#fff"/>
-                                </svg>
-                                3
-                            </div>
-                        </div>
-                        <div class="fb-actions-row">
-                            <span class="fb-time" data-i18n="fb_time_4">2 g</span>
-                            <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
-                            <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="fb-bottom-bar">
                     <div class="fb-input-fake">
                         <img src="logo-tondo.jpeg" style="width: 20px; height: 20px; border-radius: 50%;" width="20" height="20" loading="lazy" decoding="async" class="privacy-blur-img" alt="">
@@ -478,37 +444,8 @@
     </main>
 
     <footer class="pt-8 sm:pt-12 px-4 pl-safe pr-safe max-w-4xl mx-auto mt-4 text-center content-vis pb-safe border-t-0">
-        
-        <!-- Joystick Pulsante -->
-        <div class="mb-12 sm:mb-16 flex flex-col items-center justify-center lazy-reveal">
-            <a href="https://subbuteo.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-[2rem] bg-brand-surface/90 border border-white/20 hover:border-[#229ED9] hover:bg-[#229ED9]/10 transition-all duration-300 focus:outline-none w-full max-w-[340px] shadow-[0_0_20px_rgba(34,158,217,0.1)] hover:shadow-[0_0_40px_rgba(34,158,217,0.4)] hover:-translate-y-2 active:scale-95 cursor-pointer" aria-label="Gioca a Subbuteo">
-                <span class="text-[clamp(3.5rem,7vw,4.5rem)] leading-none relative z-10 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 drop-shadow-2xl animate-bounce-subtle">🕹️</span>
-                <span class="mt-6 text-[clamp(13px,1.5vw,15px)] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 text-center leading-relaxed" data-i18n="subbuteo_text">Clicca il joystick per un piccolo break tra un trade e l'altro.</span>
-            </a>
-        </div>
-
-        <h3 class="text-[clamp(11px,1.5vw,13px)] font-black text-gray-500 uppercase tracking-[0.3em] mb-6" data-i18n="ft_title">UNISCITI ALLA COMMUNITY</h3>
-        
-        <!-- Social Icons: Singola Riga Elegante e più Piccoli -->
-        <div class="flex flex-nowrap justify-center items-center gap-2 sm:gap-3">
-            <a href="https://t.me/BettingExchangeRoomFree" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-brand-blue hover:bg-brand-blue/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su Telegram">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-brand-blue transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            </a>
-            <a href="https://whatsapp.com/channel/0029VbCLlH8LI8YUjKBH0v1o" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su WhatsApp">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-[#25D366] transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@bettingexchangeroom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-red-600 hover:bg-red-600/10 transition-colors duration-300 focus:outline-none" aria-label="Guarda il nostro canale YouTube">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-red-600 transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-            <a href="https://x.com/BettingExcRoom" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-gray-200 hover:bg-gray-200/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su X">
-                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-gray-300 group-hover:text-white transform group-hover:scale-110 transition-all duration-300" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.9v-.002h-1.93z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61574331095240" target="_blank" rel="noopener noreferrer" class="group relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-colors duration-300 focus:outline-none" aria-label="Seguici su Facebook">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-[#1877F2] transform group-hover:scale-110 transition-all duration-300" viewBox="0 0 24 24"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0014.26 2c-2.72 0-4.58 1.66-4.58 4.7v3.05H7V14h2.68v8h3.36v-8h3.11l.53-4.22h-3.64V7.16c0-1.22.34-2.05 2.09-2.05z"/></svg>
-            </a>
-        </div>
-        
-        <div class="mt-12 text-center">
+        <!-- Rimosso blocco Gamification e icone Social (Leak reduction) -->
+        <div class="mt-8 text-center">
             <p class="text-[clamp(10px,1.2vw,12px)] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">&copy; 2026 BETTING EXCHANGE ROOM</p>
             <p class="text-[clamp(11px,1.5vw,13px)] text-gray-600 max-w-xl mx-auto leading-relaxed" data-i18n="ft_disclaimer">Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.</p>
         </div>
@@ -536,44 +473,56 @@
             /* TRANSLATIONS DATA */
             const t = {
                 it:{
-                    stat_week:"ACCEDI ORA",hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",hero_subtitle:'Reti neurali profonde. Agenti IA autonomi.<br class="hidden sm:block"> Il massimo <strong class="text-white font-bold">Valore Atteso</strong>. Tu devi solo copiare.',slogan:"SCOMMETTI SU DI TE 🫵",cta_button:"INIZIA ORA GRATIS",cta_sub:"NESSUNA CARTA RICHIESTA",stat_ai:"SCANSIONE A.I.",stat_free:"100% GRATIS OGGI",trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",tg_official:"Canale Ufficiale",card1_title:"NESSUNA EMOZIONE",card1_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",card3_title:"L'A.I. NON DORME MAI",card3_desc:"Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"DA PRINCIPIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.",ft_title:"UNISCITI ALLA COMMUNITY",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.",
-                    subbuteo_text:"Clicca il joystick per un piccolo break tra un trade e l'altro.",
+                    stat_week:"ACCEDI ORA",hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",
+                    hero_subtitle:"Dimentica l'azzardo. Sfrutta le nostre reti neurali per estrarre vero <strong class=\"text-white font-bold\">Valore Atteso</strong> dall'Exchange. Copia le operazioni, gestisci il rischio e proteggi il tuo bankroll.",
+                    slogan:"SCOMMETTI SU DI TE 🫵",cta_button:"INIZIA ORA GRATIS",cta_sub:"NESSUNA CARTA RICHIESTA",stat_ai:"SCANSIONE A.I.",stat_free:"100% GRATIS OGGI",
+                    trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",
+                    tg_frame_title:"ANALISI QUANTITATIVA APPLICATA", tg_frame_desc:"Non un pronostico, ma un protocollo matematico con gestione del rischio e Stop Loss rigorosi.",
+                    tg_official:"Canale Ufficiale",card1_title:"NESSUNA EMOZIONE",card1_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",card3_title:"L'A.I. NON DORME MAI",card3_desc:"Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"DA PRINCIPIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 lezioni interattive di altissimo livello con video, podcast, ebook, quiz e demo.",ft_title:"UNISCITI ALLA COMMUNITY",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.",
                     tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competizione: Serie A",tg_msg_3:"🎯 Mercato: Back The Draw",tg_msg_4:"⚙️ Azione: BACK Esito X (PUNTA X)",tg_msg_5:"💶 Quota Ingresso: 2.68",tg_msg_6:"💧 Liquidità Matched: € 85.400",tg_msg_7:"📈 Edge Statistico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol (se variazione trend xG).",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al 75° min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Edge strategico su persistenza pareggio. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta) della quota da qui al 75'.",tg_msg_13:"📍 DISCLAIMER: Trading algoritmico. Max disciplina.",
-                    fb_section_title:"ENTRA NELLA COMMUNITY",fb_shares:"Condivisioni: 6",fb_all_comments:"Tutti i commenti",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 g",fb_time_4:"2 g",fb_like:"Mi piace",fb_reply:"Rispondi",fb_comment_as:"Scrivi un commento...",
+                    fb_section_title:"ENTRA NELLA COMMUNITY",fb_shares:"Condivisioni: 6",fb_all_comments:"Tutti i commenti",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 g",fb_like:"Mi piace",fb_reply:"Rispondi",fb_comment_as:"Scrivi un commento...",
                     fb_c1_text:"Raga seriamente, non avevo mai capito una mazza di 'sta roba 😅. Mi sono sparato un po' di video e podcast dell'Academy e boh, miracolo, finalmente ha tutto senso! La vera salvezza è il conto demo: fai pratica senza bruciare soldi veri all'inizio, che per me era il blocco più grande 📉🚫. I segnali poi entrano che è una meraviglia. Tanta roba. 🚀🔥",
                     fb_c2_text:"Ma la figata che è tradotta da dio in un botto di lingue? 🌍 Ho fatto scaricare l'app ai miei bro a Londra e in Messico, e in due secondi hanno tirato in mezzo pure i loro amici, visto che c'è tutto in inglese, spagnolo, portoghese e italiano! Ognuno se la guarda nella sua lingua ma seguiamo le stesse identiche cose. Praticamente stiamo tirando su una nostra mini-community sparsa per il mondo, assurdo. Livello altissimo! 🔝",
-                    fb_c3_text:"Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Praticamente sembra di stare al bar a sparare cavolate, ma intanto ci passiamo le strategie e capiamo come muoverci. Tra l'altro nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝",
-                    fb_c4_text:"Oh ma la scimmia che mi è salita col Subbuteo? 🙊 Entro sull'app con l'idea di studiare e finisce che sto mezz'ora a giocare. Vado al bar e ci gioco con i miei amici. Crea troppa dipendenza (in senso buono ahah), ci gioco pure ogni volta che ho 5 minuti morti in metro. Quel suono in sottofondo mi rilassa tantissimo e mi fa staccare il cervello! 🎮🔥"
+                    fb_c3_text:"Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Praticamente sembra di stare al bar a sparare cavolate, ma intanto ci passiamo le strategie e capiamo come muoverci. Tra l'altro nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝"
                 },
                 en:{
-                    stat_week:"ACCESS NOW",hero_badge:"ACTIVE SIGNALS ON TELEGRAM",hero_title_1:"YOUR MATHEMATICAL",hero_title_2:"ADVANTAGE",hero_subtitle:'Deep neural networks. Autonomous AI agents.<br class="hidden sm:block"> Maximum <strong class="text-white font-bold">Expected Value</strong>. You just have to copy.',slogan:"BET ON YOURSELF 🫵",cta_button:"START NOW FOR FREE",cta_sub:"NO CREDIT CARD REQUIRED",stat_ai:"A.I. SCANNING",stat_free:"100% FREE TODAY",trans_title_1:"COPY. PASTE. CASH OUT.",trans_desc:"Receive clear and precise signals, with pre-set stop loss and money management.",tg_official:"Official Channel",card1_title:"ZERO EMOTION",card1_desc:"Copy the signal. Set the trade. Mathematical edge.",card2_title:"MONEY MANAGEMENT",card2_desc:"Strict mathematical models designed to safely protect and scale your bankroll.",card3_title:"THE A.I. NEVER SLEEPS",card3_desc:"We scan and analyze the entire schedule in real-time to extract only true statistical value.",card4_title:"BEGINNER TO PRO",card4_desc:"ZERO TO HERO Academy. 30 top-tier interactive lessons with videos, podcasts, ebooks, quizzes and demos.",ft_title:"JOIN THE COMMUNITY",ft_disclaimer:"Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.",
-                    subbuteo_text:"Click the joystick for a quick break between trades.",
+                    stat_week:"ACCESS NOW",hero_badge:"ACTIVE SIGNALS ON TELEGRAM",hero_title_1:"YOUR MATHEMATICAL",hero_title_2:"ADVANTAGE",
+                    hero_subtitle:"Forget gambling. Leverage our neural networks to extract true <strong class=\"text-white font-bold\">Expected Value</strong> from the Exchange. Copy the trades, manage the risk, and protect your bankroll.",
+                    slogan:"BET ON YOURSELF 🫵",cta_button:"START NOW FOR FREE",cta_sub:"NO CREDIT CARD REQUIRED",stat_ai:"A.I. SCANNING",stat_free:"100% FREE TODAY",
+                    trans_title_1:"COPY. PASTE. CASH OUT.",trans_desc:"Receive clear and precise signals, with pre-set stop loss and money management.",
+                    tg_frame_title:"APPLIED QUANTITATIVE ANALYSIS", tg_frame_desc:"Not a prediction, but a mathematical protocol with strict risk management and Stop Loss.",
+                    tg_official:"Official Channel",card1_title:"ZERO EMOTION",card1_desc:"Copy the signal. Set the trade. Mathematical edge.",card2_title:"MONEY MANAGEMENT",card2_desc:"Strict mathematical models designed to safely protect and scale your bankroll.",card3_title:"THE A.I. NEVER SLEEPS",card3_desc:"We scan and analyze the entire schedule in real-time to extract only true statistical value.",card4_title:"BEGINNER TO PRO",card4_desc:"ZERO TO HERO Academy. 30 top-tier interactive lessons with videos, podcasts, ebooks, quizzes and demos.",ft_title:"JOIN THE COMMUNITY",ft_disclaimer:"Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.",
                     tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competition: Serie A",tg_msg_3:"🎯 Market: Back The Draw",tg_msg_4:"⚙️ Action: BACK Draw (BACK X)",tg_msg_5:"💶 Entry Odds: 2.68",tg_msg_6:"💧 Matched Liquidity: € 85,400",tg_msg_7:"📈 Statistical Edge: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): -40% Drawdown or immediate exit on goal (if xG trend varies).",tg_msg_9:"✅ Target (Green Up): 12% ROI or Freebet at 75th min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Quantitative Rationale: Reduced offensive momentum. Live stats confirm a deadlock. Strategic edge on draw persistence. Scalping operation to exploit the rapid time decay (Theta) of the odds from here to the 75th minute.",tg_msg_13:"📍 DISCLAIMER: Algorithmic trading. Max discipline.",
-                    fb_section_title:"JOIN THE COMMUNITY",fb_shares:"Shares: 6",fb_all_comments:"All comments",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_time_4:"2 d",fb_like:"Like",fb_reply:"Reply",fb_comment_as:"Write a comment...",
+                    fb_section_title:"JOIN THE COMMUNITY",fb_shares:"Shares: 6",fb_all_comments:"All comments",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Like",fb_reply:"Reply",fb_comment_as:"Write a comment...",
                     fb_c1_text:"Guys seriously, I never understood a damn thing about this stuff 😅. Binge-watched some Academy videos and podcasts and wow, miracle, it finally makes sense! The demo account is a lifesaver: you practice without burning real money at first, which was my biggest block 📉🚫. The signals are hitting perfectly. Awesome stuff. 🚀🔥",
                     fb_c2_text:"Can we talk about how insanely well it's translated into so many languages? 🌍 Got my bros in London and Mexico to download the app, and in two seconds they brought in their friends too, since everything is in English, Spanish, Portuguese, and Italian! Everyone uses it in their own language but we follow the exact same things. We're basically building our own mini-community scattered around the world, crazy. Top tier level! 🔝",
-                    fb_c3_text:"Created a private group with my day-one friends and we now spend more time here than on WhatsApp 😂. It basically feels like being at the bar talking nonsense, but meanwhile we share strategies and figure out our moves. Also, the global groups are full of super chill people. Amazing vibe 🍻🔝",
-                    fb_c4_text:"Oh man, the addiction I got with Subbuteo? 🙊 I open the app planning to study and end up playing for half an hour. I go to the bar and play with my friends. It's way too addictive (in a good way haha), I even play it whenever I have 5 dead minutes on the subway. That background sound relaxes me so much and helps me disconnect! 🎮🔥"
+                    fb_c3_text:"Created a private group with my day-one friends and we now spend more time here than on WhatsApp 😂. It basically feels like being at the bar talking nonsense, but meanwhile we share strategies and figure out our moves. Also, the global groups are full of super chill people. Amazing vibe 🍻🔝"
                 },
                 es:{
-                    stat_week:"ACCEDE AHORA",hero_badge:"SEÑALES ACTIVAS EN TELEGRAM",hero_title_1:"TU VENTAJA",hero_title_2:"MATEMÁTICA",hero_subtitle:'Redes neuronales profundas. Agentes de IA autónomos.<br class="hidden sm:block"> El máximo <strong class="text-white font-bold">Valor Esperado</strong>. Tú solo tienes que copiar.',slogan:"APUESTA POR TI 🫵",cta_button:"COMIENZA AHORA GRATIS",cta_sub:"SIN TARJETA DE CRÉDITO",stat_ai:"ESCANEO I.A.",stat_free:"100% GRATIS HOY",trans_title_1:"COPIA. PEGA. GANA.",trans_desc:"Recibe señales claras y precisas, con stop loss y gestión de capital preestablecidos.",tg_official:"Canal Oficial",card1_title:"CERO EMOCIONES",card1_desc:"Copia la señal. Configura el trade. Ventaja matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos estrictos diseñados para proteger y escalar tu capital de forma segura.",card3_title:"LA I.A. NO DUERME",card3_desc:"Escaneamos y analizamos todo el calendario en tiempo real para extraer solo el valor estadístico real.",card4_title:"DE NOVATO A PRO",card4_desc:"ZERO TO HERO Academy. 30 lecciones interactivas de primer nivel con videos, podcasts, ebooks, cuestionarios y demos.",ft_title:"ÚNETE A LA COMUNIDAD",ft_disclaimer:"El trading deportivo conlleva riesgos. Prohibido para menores de 18 años. Juega responsablemente.",
-                    subbuteo_text:"Haz clic en el joystick para un pequeño descanso entre operaciones.",
+                    stat_week:"ACCEDE AHORA",hero_badge:"SEÑALES ACTIVAS EN TELEGRAM",hero_title_1:"TU VENTAJA",hero_title_2:"MATEMÁTICA",
+                    hero_subtitle:"Olvida el azar. Aprovecha nuestras redes neuronales para extraer verdadero <strong class=\"text-white font-bold\">Valor Esperado</strong> del Exchange. Copia las operaciones, gestiona el riesgo y protege tu bankroll.",
+                    slogan:"APUESTA POR TI 🫵",cta_button:"COMIENZA AHORA GRATIS",cta_sub:"SIN TARJETA DE CRÉDITO",stat_ai:"ESCANEO I.A.",stat_free:"100% GRATIS HOY",
+                    trans_title_1:"COPIA. PEGA. GANA.",trans_desc:"Recibe señales claras y precisas, con stop loss y gestión de capital preestablecidos.",
+                    tg_frame_title:"ANÁLISIS CUANTITATIVO APLICADO", tg_frame_desc:"No una predicción, sino un protocolo matemático con estricta gestión del riesgo y Stop Loss.",
+                    tg_official:"Canal Oficial",card1_title:"CERO EMOCIONES",card1_desc:"Copia la señal. Configura el trade. Ventaja matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos estrictos diseñados para proteger y escalar tu capital de forma segura.",card3_title:"LA I.A. NO DUERME",card3_desc:"Escaneamos y analizamos todo el calendario en tiempo real para extraer solo el valor estadístico real.",card4_title:"DE NOVATO A PRO",card4_desc:"ZERO TO HERO Academy. 30 lecciones interactivas de primer nivel con videos, podcasts, ebooks, cuestionarios y demos.",ft_title:"ÚNETE A LA COMUNIDAD",ft_disclaimer:"El trading deportivo conlleva riesgos. Prohibido para menores de 18 años. Juega responsablemente.",
                     tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | EN VIVO 60' (0-0)",tg_msg_2:"🏆 Competición: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Acción: BACK Empate (BACK X)",tg_msg_5:"💶 Cuota de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estadístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o salida inmediata tras gol (si varía tendencia xG).",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al min 75.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Racional Cuantitativo: Momentum ofensivo reducido. Las estadísticas en vivo confirman estancamiento. Edge estratégico sobre persistencia del empate. Operación de scalping para aprovechar el rápido decaimiento temporal (Theta) de la cuota de aquí al 75'.",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
-                    fb_section_title:"ÚNETE A LA COMUNIDAD",fb_shares:"Compartidos: 6",fb_all_comments:"Todos los comentarios",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_time_4:"2 d",fb_like:"Me gusta",fb_reply:"Responder",fb_comment_as:"Escribe un comentario...",
+                    fb_section_title:"ÚNETE A LA COMUNIDAD",fb_shares:"Compartidos: 6",fb_all_comments:"Todos los comentarios",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Me gusta",fb_reply:"Responder",fb_comment_as:"Escribe un comentario...",
                     fb_c1_text:"Chicos en serio, nunca entendí un carajo de esta movida 😅. Me tragué unos cuantos videos y podcasts de la Academy y boom, milagro, ¡por fin tiene sentido! La cuenta demo es la salvación: practicas sin quemar dinero real al principio, que era mi mayor bloqueo 📉🚫. Las señales entran de maravilla. Brutal. 🚀🔥",
                     fb_c2_text:"¿Pero qué pasada que esté traducida de locos a tantos idiomas? 🌍 Hice que mis bros de Londres y México bajaran la app, y en dos segundos metieron también a sus amigos, ¡ya que está todo en inglés, español, portugués e italiano! Cada uno la ve en su idioma pero seguimos exactamente lo mismo. Básicamente estamos montando nuestra mini-comunidad por el mundo, qué locura. ¡Nivel altísimo! 🔝",
-                    fb_c3_text:"Hice el grupo privado con mis socios de siempre y ya pasamos más tiempo aquí que en WhatsApp 😂. Prácticamente parece que estamos en el bar diciendo tonterías, pero mientras tanto nos pasamos estrategias y vemos cómo movernos. Por cierto, en los grupos globales está lleno de gente con muy buena vibra. Clima espectacular 🍻🔝",
-                    fb_c4_text:"¿Uy, pero el vicio que me ha entrado con el Subbuteo? 🙊 Entro en la app con la idea de estudiar y termino jugando media hora. Voy al bar y juego con mis amigos. Crea demasiada adicción (en el buen sentido jaja), lo juego hasta cuando tengo 5 minutos muertos en el metro. ¡Ese sonido de fondo me relaja muchísimo y me hace desconectar el cerebro! 🎮🔥"
+                    fb_c3_text:"Hice el grupo privado con mis socios de siempre y ya pasamos más tiempo aquí que en WhatsApp 😂. Prácticamente parece que estamos en el bar diciendo tonterías, pero mientras tanto nos pasamos estrategias y vemos cómo movernos. Por cierto, en los grupos globales está lleno de gente con muy buena vibra. Clima espectacular 🍻🔝"
                 },
                 pt:{
-                    stat_week:"ACEDE AGORA",hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",hero_subtitle:'Redes neurais profundas. Agentes de IA autônomos.<br class="hidden sm:block"> O máximo <strong class="text-white font-bold">Valor Esperado</strong>. Você só precisa copiar.',slogan:"APOSTA EM TI 🫵",cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"SEM CARTÃO DE CRÉDITO",stat_ai:"VARREDURA I.A.",stat_free:"100% GRÁTIS HOJE",trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",tg_official:"Canal Oficial",card1_title:"ZERO EMOÇÃO",card1_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",card3_title:"A I.A. NUNCA DORME",card3_desc:"Escaneamos e analisamos toda a programação em tempo real para extrair apenas o verdadeiro valor estatístico.",card4_title:"DE INICIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 aulas interativas de alto nível com vídeos, podcasts, ebooks, quizzes e demos.",ft_title:"JUNTA-TE À COMUNIDADE",ft_disclaimer:"O trading desportivo envolve riscos. Prohibido a menores de 18 anos. Joga de forma responsável.",
-                    subbuteo_text:"Clica no joystick para uma pequena pausa entre as operações.",
+                    stat_week:"ACEDE AGORA",hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",
+                    hero_subtitle:"Esqueça os jogos de azar. Use as nossas redes neurais para extrair verdadeiro <strong class=\"text-white font-bold\">Valor Esperado</strong> do Exchange. Copie as operações, gira o risco e proteja a sua banca.",
+                    slogan:"APOSTA EM TI 🫵",cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"SEM CARTÃO DE CRÉDITO",stat_ai:"VARREDURA I.A.",stat_free:"100% GRÁTIS HOJE",
+                    trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",
+                    tg_frame_title:"ANÁLISE QUANTITATIVA APLICADA", tg_frame_desc:"Não um palpite, mas um protocolo matemático com gestão de risco estrita e Stop Loss.",
+                    tg_official:"Canal Oficial",card1_title:"ZERO EMOÇÃO",card1_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",card3_title:"A I.A. NUNCA DORME",card3_desc:"Escaneamos e analisamos toda a programação em tempo real para extrair apenas o verdadeiro valor estatístico.",card4_title:"DE INICIANTE A PRO",card4_desc:"ZERO TO HERO Academy. 30 aulas interativas de alto nível com vídeos, podcasts, ebooks, quizzes e demos.",ft_title:"JUNTA-TE À COMUNIDADE",ft_disclaimer:"O trading desportivo envolve riscos. Prohibido a menores de 18 anos. Joga de forma responsável.",
                     tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | AO VIVO 60' (0-0)",tg_msg_2:"🏆 Competição: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Ação: BACK Empate (BACK X)",tg_msg_5:"💶 Odd de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estatístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% ou saída imediata num golo (se variar a tendência xG).",tg_msg_9:"✅ Target (Green Up): ROI 12% ou Freebet aos 75 min.",tg_msg_10:"💼 Money Management: 3% da Banca.",tg_msg_11:"📊 Racional Quantitativo: Momentum ofensivo reduzido. As estatísticas ao vivo confirmam o impasse. Edge estratégico sobre a persistência do empate. Operação de scalping para aproveitar o rápido decaimento temporal (Theta) da odd daqui até aos 75'.",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
-                    fb_section_title:"JUNTA-TE À COMUNIDADE",fb_shares:"Partilhas: 6",fb_all_comments:"Todos os comentários",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_time_4:"2 d",fb_like:"Gosto",fb_reply:"Responder",fb_comment_as:"Escreva um comentário...",
+                    fb_section_title:"JUNTA-TE À COMUNIDADE",fb_shares:"Partilhas: 6",fb_all_comments:"Todos os comentários",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Gosto",fb_reply:"Responder",fb_comment_as:"Escreva um comentário...",
                     fb_c1_text:"Pessoal a sério, nunca tinha percebido nada disto 😅. Devorei uns vídeos e podcasts da Academy e uau, milagre, finalmente faz sentido! A conta demo é a salvação: praticas sem queimar dinheiro real no início, que era o meu maior bloqueio 📉🚫. Os sinais batem perfeitamente. Brutal. 🚀🔥",
                     fb_c2_text:"Mas a cena brutal de estar bué bem traduzida em tantos idiomas? 🌍 Fiz os meus bros de Londres e do México sacarem a app, e em dois segundos meteram também os amigos deles, já que está tudo em inglês, espanhol, português e italiano! Cada um vê no seu idioma mas seguimos exatamente as mesmas coisas. Basicamente estamos a criar a nossa mini-comunidade espalhada pelo mundo, surreal. Nível altíssimo! 🔝",
-                    fb_c3_text:"Criei o grupo privado com os meus sócios de sempre e já passamos mais tempo aqui do que no WhatsApp 😂. Praticamente parece que estamos no bar a dizer tretas, mas entretanto passamos estratégias e vemos como nos mexer. Além disso, nos grupos globais está cheio de malta com boa vibe. Clima espetacular 🍻🔝",
-                    fb_c4_text:"Ei, o vício que me deu com o Subbuteo? 🙊 Entro na app com a ideia de estudar e acabo por ficar meia hora a jogar. Vou ao bar e jogo com os meus amigos. Cria demasiada dependência (no bom sentido ahah), jogo até quando tenho 5 minutos mortos no metro. Aquele som de fundo relaxa-me imenso e faz-me desligar o cérebro! 🎮🔥"
+                    fb_c3_text:"Criei o grupo privado com os meus sócios de sempre e já passamos mais tempo aqui do que no WhatsApp 😂. Praticamente parece que estamos no bar a dizer tretas, mas entretanto passamos estratégias e vemos como nos mexer. Além disso, nos grupos globais está cheio de malta com boa vibe. Clima espetacular 🍻🔝"
                 }
             };
 
@@ -585,7 +534,6 @@
                 const lang = t[l] ? l : 'en'; 
                 document.documentElement.lang = lang;
                 
-                // Aggiorna lo stato visivo delle bandierine
                 flags.forEach(flag => {
                     if(flag.getAttribute('data-lang') === lang) {
                         flag.classList.add('active');
@@ -615,7 +563,6 @@
 
             setLang(detectUserLanguage());
 
-            // Lazy Reveal Observer
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if ('IntersectionObserver' in window && !prefersReducedMotion) {
                 const obs = new IntersectionObserver((entries) => {
