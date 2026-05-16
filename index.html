@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta name="theme-color" content="#030509">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="description" content="Betting Exchange Room - Reti neurali profonde. Agenti IA autonomi. Il massimo Valore Atteso. Tu devi solo copiare.">
+    <meta name="description" content="Betting Exchange Room - Deep neural networks. Autonomous AI agents. Maximum Expected Value. You just have to copy.">
     <meta name="author" content="Betting Exchange Room">
+    
+    <!-- Prestazioni: Caching aggressivo per file immutabili su Vercel/GitHub Pages -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
     
+    <!-- Sicurezza Bancaria: CSP rigido, forzatura HTTPS, blocco anti-sniffing e iframe-jacking -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://flagcdn.com https://i.pravatar.cc https://placehold.co; media-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://tutorial-betting-exchange-room.vercel.app; upgrade-insecure-requests;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="Betting Exchange Room | A.I. Betting Signals">
     <meta property="og:description" content="Reti neurali profonde. Agenti IA autonomi. Il massimo Valore Atteso. Tu devi solo copiare.">
@@ -21,6 +28,7 @@
     <link rel="icon" type="image/jpeg" href="logo-tondo.jpeg">
     <link rel="apple-touch-icon" href="logo-tondo.jpeg">
     
+    <!-- Preload critici per velocità della luce -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://flagcdn.com">
@@ -63,7 +71,7 @@
                         'bounce-subtle':'bounce-subtle 3s ease-in-out infinite'
                     }
                 },
-                screens:{'xs':'375px','sm':'640px','md':'768px','lg':'1024px'}
+                screens:{'xs':'375px','sm':'640px','md':'768px','lg':'1024px','xl':'1280px'}
             }
         }
     </script>
@@ -112,11 +120,13 @@
             filter: grayscale(60%) opacity(0.6); 
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            width: 24px;
+            width: 28px;
             height: auto;
             aspect-ratio: 3/2;
             object-fit: cover;
+            cursor: pointer;
         }
+        @media (min-width: 640px) { .lang-flag { width: 32px; } }
         .lang-flag:hover { filter: grayscale(0%) opacity(1); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.6); }
         .lang-flag.active { 
             filter: grayscale(0%) opacity(1); 
@@ -129,6 +139,7 @@
         .watermark-cover { position: absolute; bottom: 0; right: 0; width: 48px; height: 48px; z-index: 2; border-radius: 12px 0 0 0; background-color: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; padding: 4px; border-top: 1px solid rgba(255,255,255,0.15); border-left: 1px solid rgba(255,255,255,0.15); }
         .watermark-cover img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
+        /* Fake Facebook Components Styles */
         .fb-section-wrapper { pointer-events: auto; }
         .mobile-container { position: relative; background-color: #ffffff; width: 100%; max-width: 420px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 0 4px #1c1c1c; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; user-select: none !important; -webkit-user-select: none !important; pointer-events: none !important; }
         .mobile-container::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; background: transparent; }
@@ -141,8 +152,6 @@
         .fb-header { margin-bottom: 4px; }
         .fb-name { font-weight: 600; color: #050505; font-size: 13px; }
         .fb-text { font-size: 14.5px; color: #050505; line-height: 1.4; margin: 0; }
-        .fb-reactions-count { position: absolute; bottom: -10px; right: -4px; background: #fff; border-radius: 10px; padding: 2px 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 4px; font-size: 11px; color: #65676b; z-index: 10; line-height: 1; border: 1px solid #fff; }
-        .fb-reactions-count svg { width: 14px; height: 14px; }
         .fb-actions-row { display: flex; align-items: center; padding: 6px 12px 0; gap: 14px; font-size: 12px; font-weight: 600; color: #65676b; }
         .fb-time { font-weight: normal; }
         .fb-modal-handle { width: 36px; height: 4px; background-color: #bcc0c4; border-radius: 2px; margin: 12px auto; }
@@ -161,7 +170,7 @@
     <header class="fixed w-full z-50 top-0 glass-panel border-b-0 transition-all duration-300 pt-safe" style="border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 pl-safe pr-safe h-[70px] sm:h-[80px] flex items-center justify-center sm:justify-start">
             <a href="#" class="flex items-center gap-3 sm:gap-4 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-xl transition-transform hover:scale-[1.02] active:scale-95 group">
-                <img src="logo-tondo.jpeg" alt="Betting Exchange Room Logo" width="44" height="44" fetchpriority="high" decoding="sync" class="w-9 h-9 sm:w-11 sm:h-11 shrink-0 rounded-full object-cover border border-white/10 group-hover:border-white/30 transition-colors shadow-lg">
+                <img src="logo-tondo.jpeg" onerror="this.src='https://placehold.co/44x44/0d131c/A3E635?text=BER'" alt="Betting Exchange Room Logo" width="44" height="44" fetchpriority="high" decoding="sync" class="w-9 h-9 sm:w-11 sm:h-11 shrink-0 rounded-full object-cover border border-white/10 group-hover:border-white/30 transition-colors shadow-lg">
                 <span class="font-heading font-extrabold text-[clamp(12px,2vw,18px)] tracking-wider text-white uppercase whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
                     Betting Exchange Room
                 </span>
@@ -172,34 +181,33 @@
     <main>
         <section class="relative pt-[110px] sm:pt-[140px] pb-10 sm:pb-16 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center hero-section">
             
-            <!-- Bandierine Lingua -->
-            <div class="flex items-center justify-center gap-3 sm:gap-4 mb-6">
-                <button onclick="setLang('it')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="Italiano">
-                    <img src="https://flagcdn.com/w40/it.png" srcset="https://flagcdn.com/w80/it.png 2x" alt="IT" class="lang-flag" data-lang="it">
-                </button>
-                <button onclick="setLang('en')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="English">
+            <!-- Bandierine Lingua (Ordine: EN, ES, PT, IT) -->
+            <div class="flex items-center justify-center gap-4 sm:gap-5 mb-6">
+                <button onclick="setLang('en')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded transition-transform active:scale-90" aria-label="English">
                     <img src="https://flagcdn.com/w40/gb.png" srcset="https://flagcdn.com/w80/gb.png 2x" alt="EN" class="lang-flag" data-lang="en">
                 </button>
-                <button onclick="setLang('es')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="Español">
+                <button onclick="setLang('es')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded transition-transform active:scale-90" aria-label="Español">
                     <img src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="ES" class="lang-flag" data-lang="es">
                 </button>
-                <button onclick="setLang('pt')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded" aria-label="Português">
+                <button onclick="setLang('pt')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded transition-transform active:scale-90" aria-label="Português">
                     <img src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" alt="PT" class="lang-flag" data-lang="pt">
+                </button>
+                <button onclick="setLang('it')" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon rounded transition-transform active:scale-90" aria-label="Italiano">
+                    <img src="https://flagcdn.com/w40/it.png" srcset="https://flagcdn.com/w80/it.png 2x" alt="IT" class="lang-flag" data-lang="it">
                 </button>
             </div>
 
-            <!-- Nuovo Design Badge: Elegante e Armonizzato -->
             <div class="flex items-center justify-center gap-2 mb-8 sm:mb-10 cursor-default opacity-80 hover:opacity-100 transition-opacity">
                 <span class="relative flex h-2.5 w-2.5">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-neon"></span>
                 </span>
-                <span class="text-xs sm:text-sm font-medium text-brand-neon uppercase tracking-[0.2em]" data-i18n="hero_badge">SEGNALI ATTIVI SU TELEGRAM</span>
+                <span class="text-xs sm:text-sm font-medium text-brand-neon uppercase tracking-[0.2em]" data-i18n="hero_badge">ACTIVE SIGNALS ON TELEGRAM</span>
             </div>
 
             <h1 class="font-heading font-black mb-8 sm:mb-10 tracking-tight flex flex-col items-center w-full drop-shadow-2xl">
-                <span class="text-[clamp(2.5rem,7vw,5rem)] leading-[1.05] text-white uppercase tracking-tighter" data-i18n="hero_title_1">IL TUO VANTAGGIO</span>
-                <span class="text-[clamp(2rem,6vw,4.5rem)] leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter mt-1 sm:mt-2" data-i18n="hero_title_2">MATEMATICO</span>
+                <span class="text-[clamp(2.5rem,7vw,5rem)] leading-[1.05] text-white uppercase tracking-tighter" data-i18n="hero_title_1">YOUR MATHEMATICAL</span>
+                <span class="text-[clamp(2rem,6vw,4.5rem)] leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-[#65a30d] uppercase tracking-tighter mt-1 sm:mt-2" data-i18n="hero_title_2">ADVANTAGE</span>
             </h1>
 
             <div class="menu-video-container">
@@ -207,44 +215,40 @@
                     <source src="itcyborgscommettestake.mp4" type="video/mp4">
                 </video>
                 <div class="watermark-cover">
-                    <img src="logo-tondo.jpeg" alt="Logo" width="40" height="40">
+                    <img src="logo-tondo.jpeg" onerror="this.src='https://placehold.co/40x40/000/fff?text=BER'" alt="Logo" width="40" height="40">
                 </div>
             </div>
 
-            <!-- Nuovo Testo Sub-headline -->
             <p class="text-gray-300 text-[clamp(1rem,1.5vw,1.3rem)] max-w-3xl mx-auto leading-relaxed px-4 font-medium" data-i18n="hero_subtitle">
-                Dimentica l'azzardo. Sfrutta le nostre reti neurali per estrarre vero <strong class="text-white font-bold">Valore Atteso</strong> dall'Exchange. Copia le operazioni, gestisci il rischio e proteggi il tuo bankroll.
+                Forget gambling. Leverage our neural networks to extract true <strong class="text-white font-bold">Expected Value</strong> from the Exchange. Copy the trades, manage the risk, and protect your bankroll.
             </p>
         </section>
 
         <section class="px-4 pl-safe pr-safe max-w-4xl mx-auto mb-16 sm:mb-24 content-vis" aria-label="Statistiche del servizio">
-            <div class="flex divide-x divide-white/10 border border-white/10 rounded-3xl glass-panel overflow-hidden lazy-reveal shadow-2xl">
+            <div class="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-white/10 border border-white/10 rounded-3xl glass-panel overflow-hidden lazy-reveal shadow-2xl">
                 <div class="flex-1 text-center py-6 sm:py-8 px-4 flex flex-col justify-center items-center bg-white/5">
-                    <!-- FIX 7/7: Rimossi 'tracking-tighter' e 'leading-none', aggiunti 'tracking-normal', 'leading-tight', 'py-2' e ombra per evitare tagli -->
                     <div class="text-white font-heading font-black text-[clamp(2.5rem,5vw,4rem)] tracking-normal leading-tight py-2 drop-shadow-lg">7/7</div>
-                    <div class="text-[clamp(10px,1.2vw,14px)] text-gray-400 uppercase tracking-[0.2em] mt-2 font-bold" data-i18n="stat_ai">SCANSIONE A.I.</div>
+                    <div class="text-[clamp(10px,1.2vw,14px)] text-gray-400 uppercase tracking-[0.2em] mt-2 font-bold" data-i18n="stat_ai">A.I. SCANNING</div>
                 </div>
                 <div class="flex-1 text-center py-6 sm:py-8 px-4 bg-brand-neon/10 relative overflow-hidden group flex flex-col justify-center items-center">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-neon/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 text-brand-neon font-heading font-black text-[clamp(1.25rem,2.5vw,2.25rem)] drop-shadow-lg tracking-tighter uppercase leading-tight" data-i18n="stat_week">ACCEDI ORA</div>
-                    <div class="relative z-10 text-[clamp(10px,1.2vw,14px)] text-brand-neon uppercase tracking-[0.2em] mt-3 font-bold" data-i18n="stat_free">100% GRATIS OGGI</div>
+                    <div class="relative z-10 text-brand-neon font-heading font-black text-[clamp(1.25rem,2.5vw,2.25rem)] drop-shadow-lg tracking-tighter uppercase leading-tight" data-i18n="stat_week">ACCESS NOW</div>
+                    <div class="relative z-10 text-[clamp(10px,1.2vw,14px)] text-brand-neon uppercase tracking-[0.2em] mt-3 font-bold" data-i18n="stat_free">100% FREE TODAY</div>
                 </div>
             </div>
         </section>
 
         <section class="py-12 sm:py-16 px-4 pl-safe pr-safe max-w-3xl mx-auto content-vis" aria-labelledby="transparency-title">
             <div class="text-center mb-10 sm:mb-12 lazy-reveal">
-                <h2 id="transparency-title" class="font-heading text-[clamp(2rem,4vw,3.5rem)] font-black text-white tracking-tighter mb-4 uppercase leading-tight" data-i18n="trans_title_1">COPIA. INCOLLA. INCASSA.</h2>
-                <p class="text-gray-300 text-[clamp(1rem,1.5vw,1.25rem)] max-w-2xl mx-auto font-medium leading-relaxed" data-i18n="trans_desc">Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.</p>
+                <h2 id="transparency-title" class="font-heading text-[clamp(2rem,4vw,3.5rem)] font-black text-white tracking-tighter mb-4 uppercase leading-tight" data-i18n="trans_title_1">COPY. PASTE. CASH OUT.</h2>
+                <p class="text-gray-300 text-[clamp(1rem,1.5vw,1.25rem)] max-w-2xl mx-auto font-medium leading-relaxed" data-i18n="trans_desc">Receive clear and precise signals, with pre-set stop loss and money management.</p>
             </div>
 
-            <!-- Nuovo Framing del Segnale Telegram -->
             <div class="mb-6 text-center max-w-xl mx-auto px-2 lazy-reveal">
-                <h3 class="text-brand-neon font-heading font-black text-[clamp(1rem,1.5vw,1.25rem)] uppercase tracking-widest mb-2" data-i18n="tg_frame_title">ANALISI QUANTITATIVA APPLICATA</h3>
-                <p class="text-gray-400 text-sm sm:text-base font-medium leading-snug" data-i18n="tg_frame_desc">Non un pronostico, ma un protocollo matematico con gestione del rischio e Stop Loss rigorosi.</p>
+                <h3 class="text-brand-neon font-heading font-black text-[clamp(1rem,1.5vw,1.25rem)] uppercase tracking-widest mb-2" data-i18n="tg_frame_title">APPLIED QUANTITATIVE ANALYSIS</h3>
+                <p class="text-gray-400 text-sm sm:text-base font-medium leading-snug" data-i18n="tg_frame_desc">Not a prediction, but a mathematical protocol with strict risk management and Stop Loss.</p>
             </div>
 
-            <!-- SIMULAZIONE TELEGRAM CHANNEL SCREENSHOT -->
             <div class="relative bg-[#E1EDD5] w-full max-w-[420px] rounded-[20px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7),0_0_0_4px_#1c1c1c] mx-auto text-left font-sans select-none pointer-events-none mb-10 transform transition hover:-translate-y-1 duration-500 lazy-reveal">
                 <div class="absolute inset-0 z-50 bg-transparent"></div>
 
@@ -252,10 +256,10 @@
                     <div class="flex items-center gap-2 xs:gap-3">
                         <svg class="w-5 h-5 text-[#1c1c1c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4M4 12L10 6M4 12L10 18"/></svg>
                         <div class="flex items-center gap-2.5 min-w-0">
-                            <img src="logo-tondo.jpeg" alt="Channel" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-gray-100 shrink-0">
+                            <img src="logo-tondo.jpeg" onerror="this.src='https://placehold.co/40x40/ccc/000?text=BER'" alt="Channel" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-gray-100 shrink-0">
                             <div class="flex flex-col justify-center min-w-0">
                                 <span class="text-[#000000] font-semibold text-[clamp(14px,1.5vw,16px)] leading-tight whitespace-nowrap tracking-tight">BETTING EXCHANGE ROOM</span>
-                                <span class="text-[#707579] text-[clamp(11px,1.2vw,13px)] leading-tight privacy-blur-text" style="filter:blur(3.5px);">8 subscribers</span>
+                                <span class="text-[#707579] text-[clamp(11px,1.2vw,13px)] leading-tight privacy-blur-text" style="filter:blur(3.5px);" data-i18n="tg_subscribers">8 subscribers</span>
                             </div>
                         </div>
                     </div>
@@ -269,17 +273,17 @@
                         <div class="text-[#000000] text-[clamp(14px,1.5vw,15.5px)] leading-[1.4] flex flex-col gap-[6px] break-words">
                             <div data-i18n="tg_msg_title" class="text-[#35a541] font-bold tracking-tight mb-1">BETTING EXCHANGE ROOM</div>
                             <div data-i18n="tg_msg_1">⚽ Bologna vs Cagliari | LIVE 60' (0-0)</div>
-                            <div data-i18n="tg_msg_2">🏆 Competizione: Serie A</div>
-                            <div data-i18n="tg_msg_3">🎯 Mercato: Back The Draw</div>
-                            <div data-i18n="tg_msg_4">⚙️ Azione: BACK Esito X (PUNTA X)</div>
-                            <div data-i18n="tg_msg_5">💶 Quota Ingresso: 2.68</div>
-                            <div data-i18n="tg_msg_6">💧 Liquidità Matched: € 85.400</div>
-                            <div data-i18n="tg_msg_7">📈 Edge Statistico: 11.2%</div>
-                            <div data-i18n="tg_msg_8" class="mt-1">🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol (se variazione trend xG).</div>
-                            <div data-i18n="tg_msg_9">✅ Target (Green Up): ROI 12% o Freebet al 75° min.</div>
+                            <div data-i18n="tg_msg_2">🏆 Competition: Serie A</div>
+                            <div data-i18n="tg_msg_3">🎯 Market: Back The Draw</div>
+                            <div data-i18n="tg_msg_4">⚙️ Action: BACK Draw (BACK X)</div>
+                            <div data-i18n="tg_msg_5">💶 Entry Odds: 2.68</div>
+                            <div data-i18n="tg_msg_6">💧 Matched Liquidity: € 85,400</div>
+                            <div data-i18n="tg_msg_7">📈 Statistical Edge: 11.2%</div>
+                            <div data-i18n="tg_msg_8" class="mt-1">🛑 Stop Loss (Red Out): -40% Drawdown or immediate exit on goal.</div>
+                            <div data-i18n="tg_msg_9">✅ Target (Green Up): 12% ROI or Freebet at 75th min.</div>
                             <div data-i18n="tg_msg_10">💼 Money Management: 3% Bankroll.</div>
-                            <div data-i18n="tg_msg_11" class="mt-1">📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Edge strategico su persistenza pareggio. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta) della quota da qui al 75'.</div>
-                            <div data-i18n="tg_msg_13" class="mt-2 text-[0.9em] font-medium text-gray-700">📍 DISCLAIMER: Trading algoritmico. Max disciplina.</div>
+                            <div data-i18n="tg_msg_11" class="mt-1">📊 Quantitative Rationale: Reduced offensive momentum. Live stats confirm a deadlock. Scalping operation to exploit the rapid time decay (Theta) of the odds.</div>
+                            <div data-i18n="tg_msg_13" class="mt-2 text-[0.9em] font-medium text-gray-700">📍 DISCLAIMER: Algorithmic trading. Max discipline.</div>
                         </div>
 
                         <div class="flex justify-end items-center gap-[5px] text-[#8fa281] text-[12px] font-medium mt-2 float-right">
@@ -294,72 +298,57 @@
         </section>
 
         <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-7xl mx-auto content-vis" aria-label="Caratteristiche Principali">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                 
-                <!-- Card 1 (Ex Card 4) - DA PRINCIPIANTE A PRO - Ora al primo posto -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#A855F7]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col">
+                <!-- Card 1: DA PRINCIPIANTE A PRO -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#A855F7]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col h-full">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
-                        <img src="cyborgtifoso.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="ZERO TO HERO Academy" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
+                        <img src="cyborgtifoso.jpeg" onerror="this.src='https://placehold.co/400x300/1a1a2e/A855F7?text=Academy'" width="400" height="300" loading="lazy" decoding="async" alt="ZERO TO HERO Academy" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
                     </div>
-                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#A855F7]/30 mb-5 group-hover:border-[#A855F7] transition-colors shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-grow">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#A855F7]/30 mb-5 group-hover:border-[#A855F7] transition-colors shadow-[0_0_20px_rgba(168,85,247,0.2)] shrink-0">
                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#A855F7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
                         </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card4_title">DA PRINCIPIANTE A PRO</h3>
-                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card4_desc">ZERO TO HERO Academy.<br>30 lezioni interattive con video, podcast, ebook, quiz, demo e giochi educativi guidati dall'AI.</p>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card1_title">BEGINNER TO PRO</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card1_desc">ZERO TO HERO Academy.<br>30 interactive lessons with videos, podcasts, ebooks, quizzes, demos and AI-guided educational games.</p>
                     </div>
                 </article>
 
-                <!-- Card 2 (Ex Card 1) - NESSUNA EMOZIONE -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-brand-neon/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 100ms;">
+                <!-- Card 2: NESSUNA EMOZIONE -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-brand-neon/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col h-full" style="transition-delay: 100ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
-                        <img src="1000372165.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Profitto Matematico" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
+                        <img src="1000372165.jpeg" onerror="this.src='https://placehold.co/400x300/1a1a2e/A3E635?text=Advantage'" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Profitto Matematico" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
                     </div>
-                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-brand-neon/30 mb-5 group-hover:border-brand-neon transition-colors shadow-neon">
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-grow">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-brand-neon/30 mb-5 group-hover:border-brand-neon transition-colors shadow-neon shrink-0">
                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 16l6-6 4 4 8-8"/></svg>
                         </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card1_title">NESSUNA EMOZIONE</h3>
-                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card1_desc">Copia il segnale. Imposta il trade. Vantaggio matematico.</p>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card2_title">ZERO EMOTION</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card2_desc">Copy the signal. Set the trade. Mathematical edge.</p>
                     </div>
                 </article>
 
-                <!-- Card 3 (Ex Card 2) - MONEY MANAGEMENT -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#FBBF24]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 200ms;">
+                <!-- Card 3: MONEY MANAGEMENT -->
+                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#FBBF24]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col h-full" style="transition-delay: 200ms;">
                     <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
-                        <img src="1000372221.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Protezione Capitale" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
+                        <img src="1000372221.jpeg" onerror="this.src='https://placehold.co/400x300/1a1a2e/FBBF24?text=Bankroll'" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Protezione Capitale" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
                     </div>
-                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#FBBF24]/30 mb-5 group-hover:border-[#FBBF24] transition-colors shadow-[0_0_20px_rgba(251,191,36,0.2)]">
+                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-grow">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#FBBF24]/30 mb-5 group-hover:border-[#FBBF24] transition-colors shadow-[0_0_20px_rgba(251,191,36,0.2)] shrink-0">
                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#FBBF24]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card2_title">MONEY MANAGEMENT</h3>
-                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card2_desc">Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.</p>
-                    </div>
-                </article>
-
-                <!-- Card 4 (Ex Card 3) - L'A.I. NON DORME MAI -->
-                <article class="glass-panel rounded-3xl overflow-hidden hover:border-[#00D2FF]/50 transition-colors duration-500 group lazy-reveal shadow-xl flex flex-col" style="transition-delay: 300ms;">
-                    <div class="w-full aspect-4-3 relative overflow-hidden bg-[#0a0f16]">
-                        <img src="1000372160.jpeg" width="400" height="300" loading="lazy" decoding="async" alt="Illustrazione Scansione Real-Time" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0d131c] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 sm:p-8 relative z-10 -mt-10 sm:-mt-12 flex flex-col items-start flex-1">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-dark flex items-center justify-center border border-[#00D2FF]/30 mb-5 group-hover:border-[#00D2FF] transition-colors shadow-blue">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#00D2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
-                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card3_title">L'A.I. NON DORME MAI</h3>
-                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card3_desc">Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.</p>
+                        <h3 class="text-white font-heading font-black mb-3 text-[clamp(1.125rem,1.5vw,1.3rem)] tracking-wide leading-tight" data-i18n="card3_title">MONEY MANAGEMENT</h3>
+                        <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card3_desc">Strict mathematical models designed to safely protect and scale your bankroll.</p>
                     </div>
                 </article>
             </div>
         </section>
 
         <section class="py-12 sm:py-20 px-4 pl-safe pr-safe max-w-6xl mx-auto content-vis lazy-reveal fb-section-wrapper" aria-label="Recensioni Facebook">
-            <h2 class="font-heading text-[clamp(2rem,4vw,3.5rem)] text-center text-white font-black mb-10 sm:mb-12 tracking-tighter uppercase leading-tight" data-i18n="fb_section_title">ENTRA NELLA COMMUNITY</h2>
+            <h2 class="font-heading text-[clamp(2rem,4vw,3.5rem)] text-center text-white font-black mb-10 sm:mb-12 tracking-tighter uppercase leading-tight" data-i18n="fb_section_title">JOIN THE COMMUNITY</h2>
             
             <div class="mobile-container">
                 <div class="fb-modal-handle"></div>
@@ -372,28 +361,27 @@
                         </svg>
                         <span>9</span>
                     </div>
-                    <span data-i18n="fb_shares">Condivisioni: 6</span>
+                    <span data-i18n="fb_shares">Shares: 6</span>
                 </div>
 
                 <div class="fb-divider"></div>
 
                 <div class="comments-header">
-                    <span data-i18n="fb_all_comments">Tutti i commenti</span>
+                    <span data-i18n="fb_all_comments">All comments</span>
                     <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
                 </div>
 
-                <!-- COMMENTI (Rimossa la distrazione gamification) -->
                 <div class="fb-comment">
                     <img src="https://i.pravatar.cc/150?img=11" alt="User" width="36" height="36" loading="lazy" decoding="async" class="fb-avatar privacy-blur-img" draggable="false">
                     <div class="fb-comment-wrapper">
                         <div class="fb-comment-bubble">
                             <div class="fb-header"><span class="fb-name privacy-blur-text">Marco Ferrari</span></div>
-                            <p class="fb-text" data-i18n="fb_c1_text">Raga seriamente, non avevo mai capito una mazza di 'sta roba 😅. Mi sono sparato un po' di video e podcast dell'Academy e boh, miracolo, finalmente ha tutto senso! La vera salvezza è il conto demo: fai pratica senza bruciare soldi veri all'inizio, che per me era il blocco più grande 📉🚫. I segnali poi entrano che è una meraviglia. Tanta roba. 🚀🔥</p>
+                            <p class="fb-text" data-i18n="fb_c1_text">Guys seriously, I never understood a damn thing about this stuff 😅. Binge-watched some Academy videos and podcasts and wow, miracle, it finally makes sense! The demo account is a lifesaver: you practice without burning real money at first, which was my biggest block 📉🚫. The signals are hitting perfectly. Awesome stuff. 🚀🔥</p>
                         </div>
                         <div class="fb-actions-row">
                             <span class="fb-time" data-i18n="fb_time_1">2 h</span>
-                            <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
-                            <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
+                            <span class="fb-like-btn" data-i18n="fb_like">Like</span>
+                            <span class="fb-reply-btn" data-i18n="fb_reply">Reply</span>
                         </div>
                     </div>
                 </div>
@@ -403,12 +391,12 @@
                     <div class="fb-comment-wrapper">
                         <div class="fb-comment-bubble">
                             <div class="fb-header"><span class="fb-name privacy-blur-text">Alessio Costa</span></div>
-                            <p class="fb-text" data-i18n="fb_c2_text">Ma la figata che è tradotta da dio in un botto di lingue? 🌍 Ho fatto scaricare l'app ai miei bro a Londra e in Messico, e in due secondi hanno tirato in mezzo pure i loro amici, visto che c'è tutto in inglese, spagnolo, portoghese e italiano! Ognuno se la guarda nella sua lingua ma seguiamo le stesse identiche cose. Praticamente stiamo tirando su una nostra mini-community sparsa per il mondo, assurdo. Livello altissimo! 🔝</p>
+                            <p class="fb-text" data-i18n="fb_c2_text">Can we talk about how insanely well it's translated into so many languages? 🌍 Got my bros in London and Mexico to download the app, and in two seconds they brought in their friends too, since everything is in English, Spanish, Portuguese, and Italian! Everyone uses it in their own language but we follow the exact same things. We're basically building our own mini-community scattered around the world, crazy. Top tier level! 🔝</p>
                         </div>
                         <div class="fb-actions-row">
                             <span class="fb-time" data-i18n="fb_time_2">5 h</span>
-                            <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
-                            <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
+                            <span class="fb-like-btn" data-i18n="fb_like">Like</span>
+                            <span class="fb-reply-btn" data-i18n="fb_reply">Reply</span>
                         </div>
                     </div>
                 </div>
@@ -418,49 +406,47 @@
                     <div class="fb-comment-wrapper">
                         <div class="fb-comment-bubble">
                             <div class="fb-header"><span class="fb-name privacy-blur-text">Davide Bianchi</span></div>
-                            <p class="fb-text" data-i18n="fb_c3_text">Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Praticamente sembra di stare al bar a sparare cavolate, ma intanto ci passiamo le strategie e capiamo come muoverci. Tra l'altro nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝</p>
+                            <p class="fb-text" data-i18n="fb_c3_text">Created a private group with my day-one friends and we now spend more time here than on WhatsApp 😂. It basically feels like being at the bar talking nonsense, but meanwhile we share strategies and figure out our moves. Also, the global groups are full of super chill people. Amazing vibe 🍻🔝</p>
                         </div>
                         <div class="fb-actions-row">
-                            <span class="fb-time" data-i18n="fb_time_3">1 g</span>
-                            <span class="fb-like-btn" data-i18n="fb_like">Mi piace</span>
-                            <span class="fb-reply-btn" data-i18n="fb_reply">Rispondi</span>
+                            <span class="fb-time" data-i18n="fb_time_3">1 d</span>
+                            <span class="fb-like-btn" data-i18n="fb_like">Like</span>
+                            <span class="fb-reply-btn" data-i18n="fb_reply">Reply</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="fb-bottom-bar">
                     <div class="fb-input-fake">
-                        <img src="logo-tondo.jpeg" style="width: 20px; height: 20px; border-radius: 50%;" width="20" height="20" loading="lazy" decoding="async" class="privacy-blur-img" alt="">
-                        <span data-i18n="fb_comment_as">Scrivi un commento...</span>
+                        <img src="logo-tondo.jpeg" onerror="this.src='https://placehold.co/20x20/ccc/000?text=BER'" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover;" width="20" height="20" loading="lazy" decoding="async" class="privacy-blur-img" alt="">
+                        <span data-i18n="fb_comment_as">Write a comment...</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slogan -->
         <section class="py-8 sm:py-12 px-4 pl-safe pr-safe max-w-5xl mx-auto flex flex-col items-center text-center">
             <div class="text-[clamp(1.5rem,4vw,3rem)] font-heading font-black text-brand-neon uppercase tracking-widest drop-shadow-neon-strong animate-pulse-soft" data-i18n="slogan">
-                SCOMMETTI SU DI TE 🫵
+                BET ON YOURSELF 🫵
             </div>
         </section>
     </main>
 
     <footer class="pt-8 sm:pt-12 px-4 pl-safe pr-safe max-w-4xl mx-auto mt-4 text-center content-vis pb-safe border-t-0">
-        <!-- Rimosso blocco Gamification e icone Social (Leak reduction) -->
         <div class="mt-8 text-center">
-            <p class="text-[clamp(10px,1.2vw,12px)] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">&copy; 2026 BETTING EXCHANGE ROOM</p>
-            <p class="text-[clamp(11px,1.5vw,13px)] text-gray-600 max-w-xl mx-auto leading-relaxed" data-i18n="ft_disclaimer">Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.</p>
+            <p class="text-[clamp(10px,1.2vw,12px)] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4" data-i18n="ft_copyright">&copy; 2026 BETTING EXCHANGE ROOM</p>
+            <p class="text-[clamp(11px,1.5vw,13px)] text-gray-600 max-w-xl mx-auto leading-relaxed" data-i18n="ft_disclaimer">Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.</p>
         </div>
     </footer>
 
-    <!-- STICKY CTA -->
+    <!-- STICKY CTA (Security Attributes Enforced) -->
     <div class="fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-brand-neon/30 px-4 pl-safe pr-safe py-4" style="padding-bottom: max(16px, env(safe-area-inset-bottom));">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
-            <a id="cta-button" href="https://tutorial-betting-exchange-room.vercel.app/" target="_blank" rel="noopener noreferrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-[clamp(1rem,2vw,1.25rem)] flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
+            <a id="cta-button" href="https://tutorial-betting-exchange-room.vercel.app/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-[clamp(1rem,2vw,1.25rem)] flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">INIZIA ORA GRATIS</span>
+                <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">START NOW FOR FREE</span>
             </a>
-            <span class="text-[clamp(10px,1.2vw,12px)] text-gray-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="cta_sub">NESSUNA CARTA RICHIESTA</span>
+            <span class="text-[clamp(10px,1.2vw,12px)] text-gray-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="cta_sub">NO CREDIT CARD REQUIRED</span>
         </div>
     </div>
 
@@ -472,59 +458,83 @@
                 set: function(key, value) { try { localStorage.setItem(key, value); } catch(e) {} }
             };
 
-            /* TRANSLATIONS DATA */
+            /* Full Translation Dictionary - Perfect Symmetry */
             const t = {
-                it:{
-                    stat_week:"ACCEDI ORA",hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",
-                    hero_subtitle:"Dimentica l'azzardo. Sfrutta le nostre reti neurali per estrarre vero <strong class=\"text-white font-bold\">Valore Atteso</strong> dall'Exchange. Copia le operazioni, gestisci il rischio e proteggi il tuo bankroll.",
-                    slogan:"SCOMMETTI SU DI TE 🫵",cta_button:"INIZIA ORA GRATIS",cta_sub:"NESSUNA CARTA RICHIESTA",stat_ai:"SCANSIONE A.I.",stat_free:"100% GRATIS OGGI",
-                    trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",
-                    trans_frame_title:"ANALISI QUANTITATIVA APPLICATA", trans_frame_desc:"Non un pronostico, ma un protocollo matematico con gestione del rischio e Stop Loss rigorosi.",
-                    tg_official:"Canale Ufficiale",card1_title:"NESSUNA EMOZIONE",card1_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",card3_title:"L'A.I. NON DORME MAI",card3_desc:"Scansioniamo e analizziamo in tempo reale tutto il palinsesto per estrarre solo il vero valore statistico.",card4_title:"DA PRINCIPIANTE A PRO",card4_desc:"ZERO TO HERO Academy.<br>30 lezioni interattive con video, podcast, ebook, quiz, demo e giochi educativi guidati dall'AI.",ft_title:"UNISCITI ALLA COMMUNITY",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Consulta le probabilità di vincita sui siti ufficiali. Gioca responsabilmente.",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competizione: Serie A",tg_msg_3:"🎯 Mercato: Back The Draw",tg_msg_4:"⚙️ Azione: BACK Esito X (PUNTA X)",tg_msg_5:"💶 Quota Ingresso: 2.68",tg_msg_6:"💧 Liquidità Matched: € 85.400",tg_msg_7:"📈 Edge Statistico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol (se variazione trend xG).",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al 75° min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Edge strategico su persistenza pareggio. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta) della quota da qui al 75'.",tg_msg_13:"📍 DISCLAIMER: Trading algoritmico. Max disciplina.",
-                    fb_section_title:"ENTRA NELLA COMMUNITY",fb_shares:"Condivisioni: 6",fb_all_comments:"Tutti i commenti",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 g",fb_like:"Mi piace",fb_reply:"Rispondi",fb_comment_as:"Scrivi un commento...",
-                    fb_c1_text:"Raga seriamente, non avevo mai capito una mazza di 'sta roba 😅. Mi sono sparato un po' di video e podcast dell'Academy e boh, miracolo, finalmente ha tutto senso! La vera salvezza è il conto demo: fai pratica senza bruciare soldi veri all'inizio, che per me era il blocco più grande 📉🚫. I segnali poi entrano che è una meraviglia. Tanta roba. 🚀🔥",
-                    fb_c2_text:"Ma la figata che è tradotta da dio in un botto di lingue? 🌍 Ho fatto scaricare l'app ai miei bro a Londra e in Messico, e in due secondi hanno tirato in mezzo pure i loro amici, visto che c'è tutto in inglese, spagnolo, portoghese e italiano! Ognuno se la guarda nella sua lingua ma seguiamo le stesse identiche cose. Praticamente stiamo tirando su una nostra mini-community sparsa per il mondo, assurdo. Livello altissimo! 🔝",
-                    fb_c3_text:"Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Praticamente sembra di stare al bar a sparare cavolate, ma intanto ci passiamo le strategie e capiamo come muoverci. Tra l'altro nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝"
-                },
                 en:{
-                    stat_week:"ACCESS NOW",hero_badge:"ACTIVE SIGNALS ON TELEGRAM",hero_title_1:"YOUR MATHEMATICAL",hero_title_2:"ADVANTAGE",
+                    hero_badge:"ACTIVE SIGNALS ON TELEGRAM",hero_title_1:"YOUR MATHEMATICAL",hero_title_2:"ADVANTAGE",
                     hero_subtitle:"Forget gambling. Leverage our neural networks to extract true <strong class=\"text-white font-bold\">Expected Value</strong> from the Exchange. Copy the trades, manage the risk, and protect your bankroll.",
-                    slogan:"BET ON YOURSELF 🫵",cta_button:"START NOW FOR FREE",cta_sub:"NO CREDIT CARD REQUIRED",stat_ai:"A.I. SCANNING",stat_free:"100% FREE TODAY",
+                    stat_ai:"A.I. SCANNING",stat_week:"ACCESS NOW",stat_free:"100% FREE TODAY",
                     trans_title_1:"COPY. PASTE. CASH OUT.",trans_desc:"Receive clear and precise signals, with pre-set stop loss and money management.",
                     tg_frame_title:"APPLIED QUANTITATIVE ANALYSIS", tg_frame_desc:"Not a prediction, but a mathematical protocol with strict risk management and Stop Loss.",
-                    tg_official:"Official Channel",card1_title:"ZERO EMOTION",card1_desc:"Copy the signal. Set the trade. Mathematical edge.",card2_title:"MONEY MANAGEMENT",card2_desc:"Strict mathematical models designed to safely protect and scale your bankroll.",card3_title:"THE A.I. NEVER SLEEPS",card3_desc:"We scan and analyze the entire schedule in real-time to extract only true statistical value.",card4_title:"BEGINNER TO PRO",card4_desc:"ZERO TO HERO Academy.<br>30 interactive lessons with videos, podcasts, ebooks, quizzes, demos and AI-guided educational games.",ft_title:"JOIN THE COMMUNITY",ft_disclaimer:"Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competition: Serie A",tg_msg_3:"🎯 Market: Back The Draw",tg_msg_4:"⚙️ Action: BACK Draw (BACK X)",tg_msg_5:"💶 Entry Odds: 2.68",tg_msg_6:"💧 Matched Liquidity: € 85,400",tg_msg_7:"📈 Statistical Edge: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): -40% Drawdown or immediate exit on goal (if xG trend varies).",tg_msg_9:"✅ Target (Green Up): 12% ROI or Freebet at 75th min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Quantitative Rationale: Reduced offensive momentum. Live stats confirm a deadlock. Strategic edge on draw persistence. Scalping operation to exploit the rapid time decay (Theta) of the odds from here to the 75th minute.",tg_msg_13:"📍 DISCLAIMER: Algorithmic trading. Max discipline.",
+                    tg_subscribers:"8 subscribers",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competition: Serie A",tg_msg_3:"🎯 Market: Back The Draw",tg_msg_4:"⚙️ Action: BACK Draw (BACK X)",tg_msg_5:"💶 Entry Odds: 2.68",tg_msg_6:"💧 Matched Liquidity: € 85,400",tg_msg_7:"📈 Statistical Edge: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): -40% Drawdown or immediate exit on goal.",tg_msg_9:"✅ Target (Green Up): 12% ROI or Freebet at 75th min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Quantitative Rationale: Reduced offensive momentum. Live stats confirm a deadlock. Scalping operation to exploit the rapid time decay (Theta) of the odds.",tg_msg_13:"📍 DISCLAIMER: Algorithmic trading. Max discipline.",
+                    card1_title:"BEGINNER TO PRO",card1_desc:"ZERO TO HERO Academy.<br>30 interactive lessons with videos, podcasts, ebooks, quizzes, demos and AI-guided educational games.",
+                    card2_title:"ZERO EMOTION",card2_desc:"Copy the signal. Set the trade. Mathematical edge.",
+                    card3_title:"MONEY MANAGEMENT",card3_desc:"Strict mathematical models designed to safely protect and scale your bankroll.",
                     fb_section_title:"JOIN THE COMMUNITY",fb_shares:"Shares: 6",fb_all_comments:"All comments",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Like",fb_reply:"Reply",fb_comment_as:"Write a comment...",
-                    fb_c1_text:"Guys seriously, I never understood a damn thing about this stuff 😅. Binge-watched some Academy videos and podcasts and wow, miracle, it finally makes sense! The demo account is a lifesaver: you practice without burning real money at first, which was my biggest block 📉🚫. The signals are hitting perfectly. Awesome stuff. 🚀🔥",
-                    fb_c2_text:"Can we talk about how insanely well it's translated into so many languages? 🌍 Got my bros in London and Mexico to download the app, and in two seconds they brought in their friends too, since everything is in English, Spanish, Portuguese, and Italian! Everyone uses it in their own language but we follow the exact same things. We're basically building our own mini-community scattered around the world, crazy. Top tier level! 🔝",
-                    fb_c3_text:"Created a private group with my day-one friends and we now spend more time here than on WhatsApp 😂. It basically feels like being at the bar talking nonsense, but meanwhile we share strategies and figure out our moves. Also, the global groups are full of super chill people. Amazing vibe 🍻🔝"
+                    fb_c1_text:"Guys seriously, I never understood a damn thing about this stuff 😅. Binge-watched some Academy videos and podcasts and wow, miracle, it finally makes sense! The demo account is a lifesaver: you practice without burning real money at first... 📉🚫 Awesome stuff. 🚀🔥",
+                    fb_c2_text:"Can we talk about how insanely well it's translated into so many languages? 🌍 Got my bros in London and Mexico to download the app, everyone uses it in their own language but we follow the exact same things. Top tier level! 🔝",
+                    fb_c3_text:"Created a private group with my day-one friends and we now spend more time here than on WhatsApp 😂. Also, the global groups are full of super chill people. Amazing vibe 🍻🔝",
+                    slogan:"BET ON YOURSELF 🫵",
+                    ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.",
+                    cta_button:"START NOW FOR FREE",cta_sub:"NO CREDIT CARD REQUIRED"
                 },
                 es:{
-                    stat_week:"ACCEDE AHORA",hero_badge:"SEÑALES ACTIVAS EN TELEGRAM",hero_title_1:"TU VENTAJA",hero_title_2:"MATEMÁTICA",
+                    hero_badge:"SEÑALES ACTIVAS EN TELEGRAM",hero_title_1:"TU VENTAJA",hero_title_2:"MATEMÁTICA",
                     hero_subtitle:"Olvida el azar. Aprovecha nuestras redes neuronales para extraer verdadero <strong class=\"text-white font-bold\">Valor Esperado</strong> del Exchange. Copia las operaciones, gestiona el riesgo y protege tu bankroll.",
-                    slogan:"APUESTA POR TI 🫵",cta_button:"COMIENZA AHORA GRATIS",cta_sub:"SIN TARJETA DE CRÉDITO",stat_ai:"ESCANEO I.A.",stat_free:"100% GRATIS HOY",
+                    stat_ai:"ESCANEO I.A.",stat_week:"ACCEDE AHORA",stat_free:"100% GRATIS HOY",
                     trans_title_1:"COPIA. PEGA. GANA.",trans_desc:"Recibe señales claras y precisas, con stop loss y gestión de capital preestablecidos.",
                     tg_frame_title:"ANÁLISIS CUANTITATIVO APLICADO", tg_frame_desc:"No una predicción, sino un protocolo matemático con estricta gestión del riesgo y Stop Loss.",
-                    tg_official:"Canal Oficial",card1_title:"CERO EMOCIONES",card1_desc:"Copia la señal. Configura el trade. Ventaja matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos estrictos diseñados para proteger y escalar tu capital de forma segura.",card3_title:"LA I.A. NO DUERME",card3_desc:"Escaneamos y analizamos todo el calendario en tiempo real para extraer solo el valor estadístico real.",card4_title:"DE NOVATO A PRO",card4_desc:"ZERO TO HERO Academy.<br>30 lecciones interactivas con videos, podcasts, ebooks, cuestionarios, demos y juegos educativos guiados por IA.",ft_title:"ÚNETE A LA COMUNIDAD",ft_disclaimer:"El trading deportivo conlleva riesgos. Prohibido para menores de 18 años. Juega responsablemente.",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | EN VIVO 60' (0-0)",tg_msg_2:"🏆 Competición: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Acción: BACK Empate (BACK X)",tg_msg_5:"💶 Cuota de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estadístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o salida inmediata tras gol (si varía tendencia xG).",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al min 75.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Racional Cuantitativo: Momentum ofensivo reducido. Las estadísticas en vivo confirman estancamiento. Edge estratégico sobre persistencia del empate. Operación de scalping para aprovechar el rápido decaimiento temporal (Theta) de la cuota de aquí al 75'.",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
+                    tg_subscribers:"8 suscriptores",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | EN VIVO 60' (0-0)",tg_msg_2:"🏆 Competición: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Acción: BACK Empate (BACK X)",tg_msg_5:"💶 Cuota de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estadístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o salida inmediata tras gol.",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al min 75.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Racional Cuantitativo: Momentum ofensivo reducido. Las estadísticas confirman estancamiento. Operación de scalping para aprovechar el rápido decaimiento temporal (Theta).",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
+                    card1_title:"DE NOVATO A PRO",card1_desc:"ZERO TO HERO Academy.<br>30 lecciones interactivas con videos, podcasts, ebooks, cuestionarios, demos y juegos guiados por IA.",
+                    card2_title:"CERO EMOCIONES",card2_desc:"Copia la señal. Configura el trade. Ventaja matemática.",
+                    card3_title:"MONEY MANAGEMENT",card3_desc:"Modelos matemáticos estrictos diseñados para proteger y escalar tu capital de forma segura.",
                     fb_section_title:"ÚNETE A LA COMUNIDAD",fb_shares:"Compartidos: 6",fb_all_comments:"Todos los comentarios",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Me gusta",fb_reply:"Responder",fb_comment_as:"Escribe un comentario...",
-                    fb_c1_text:"Chicos en serio, nunca entendí un carajo de esta movida 😅. Me tragué unos cuantos videos y podcasts de la Academy y boom, milagro, ¡por fin tiene sentido! La cuenta demo es la salvación: practicas sin quemar dinero real al principio, que era mi mayor bloqueo 📉🚫. Las señales entran de maravilla. Brutal. 🚀🔥",
-                    fb_c2_text:"¿Pero qué pasada que esté traducida de locos a tantos idiomas? 🌍 Hice que mis bros de Londres y México bajaran la app, y en dos segundos metieron también a sus amigos, ¡ya que está todo en inglés, español, portugués e italiano! Cada uno la ve en su idioma pero seguimos exactamente lo mismo. Básicamente estamos montando nuestra mini-comunidad por el mundo, qué locura. ¡Nivel altísimo! 🔝",
-                    fb_c3_text:"Hice el grupo privado con mis socios de siempre y ya pasamos más tiempo aquí que en WhatsApp 😂. Prácticamente parece que estamos en el bar diciendo tonterías, pero mientras tanto nos pasamos estrategias y vemos cómo movernos. Por cierto, en los grupos globales está lleno de gente con muy buena vibra. Clima espectacular 🍻🔝"
+                    fb_c1_text:"Chicos en serio, nunca entendí un carajo de esto 😅. Vi unos videos de la Academy y boom, ¡por fin tiene sentido! La cuenta demo es la salvación, practicas sin quemar dinero real... 📉🚫 Brutal. 🚀🔥",
+                    fb_c2_text:"¿Pero qué pasada que esté traducida a tantos idiomas? 🌍 Hice que mis bros bajaran la app, cada uno la ve en su idioma pero seguimos exactamente lo mismo. ¡Nivel altísimo! 🔝",
+                    fb_c3_text:"Hice el grupo privado con mis socios de siempre y ya pasamos más tiempo aquí que en WhatsApp 😂. En los grupos globales está lleno de gente con muy buena vibra. Clima espectacular 🍻🔝",
+                    slogan:"APUESTA POR TI 🫵",
+                    ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"El trading deportivo conlleva riesgos. Prohibido para menores de 18 años. Juega responsablemente.",
+                    cta_button:"COMIENZA AHORA GRATIS",cta_sub:"SIN TARJETA DE CRÉDITO"
                 },
                 pt:{
-                    stat_week:"ACEDE AGORA",hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",
+                    hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",
                     hero_subtitle:"Esqueça os jogos de azar. Use as nossas redes neurais para extrair verdadeiro <strong class=\"text-white font-bold\">Valor Esperado</strong> do Exchange. Copie as operações, gira o risco e proteja a sua banca.",
-                    slogan:"APOSTA EM TI 🫵",cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"SEM CARTÃO DE CRÉDITO",stat_ai:"VARREDURA I.A.",stat_free:"100% GRÁTIS HOJE",
+                    stat_ai:"VARREDURA I.A.",stat_week:"ACEDE AGORA",stat_free:"100% GRÁTIS HOJE",
                     trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",
                     tg_frame_title:"ANÁLISE QUANTITATIVA APLICADA", tg_frame_desc:"Não um palpite, mas um protocolo matemático com gestão de risco estrita e Stop Loss.",
-                    tg_official:"Canal Oficial",card1_title:"ZERO EMOÇÃO",card1_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",card2_title:"MONEY MANAGEMENT",card2_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",card3_title:"A I.A. NUNCA DORME",card3_desc:"Escaneamos e analisamos toda a programação em tempo real para extrair apenas o verdadeiro valor estatístico.",card4_title:"DE INICIANTE A PRO",card4_desc:"ZERO TO HERO Academy.<br>30 aulas interativas com vídeos, podcasts, ebooks, quizzes, demos e jogos educativos guiados por IA.",ft_title:"JUNTA-TE À COMUNIDADE",ft_disclaimer:"O trading desportivo envolve riscos. Prohibido a menores de 18 anos. Joga de forma responsável.",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | AO VIVO 60' (0-0)",tg_msg_2:"🏆 Competição: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Ação: BACK Empate (BACK X)",tg_msg_5:"💶 Odd de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estatístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% ou saída imediata num golo (se variar a tendência xG).",tg_msg_9:"✅ Target (Green Up): ROI 12% ou Freebet aos 75 min.",tg_msg_10:"💼 Money Management: 3% da Banca.",tg_msg_11:"📊 Racional Quantitativo: Momentum ofensivo reduzido. As estatísticas ao vivo confirmam o impasse. Edge estratégico sobre a persistência do empate. Operação de scalping para aproveitar o rápido decaimento temporal (Theta) da odd daqui até aos 75'.",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
+                    tg_subscribers:"8 inscritos",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | AO VIVO 60' (0-0)",tg_msg_2:"🏆 Competição: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Ação: BACK Empate (BACK X)",tg_msg_5:"💶 Odd de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estatístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% ou saída imediata num golo.",tg_msg_9:"✅ Target (Green Up): ROI 12% ou Freebet aos 75 min.",tg_msg_10:"💼 Money Management: 3% da Banca.",tg_msg_11:"📊 Racional Quantitativo: Momentum ofensivo reduzido. As estatísticas confirmam o impasse. Operação de scalping para aproveitar o decaimento temporal (Theta).",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
+                    card1_title:"DE INICIANTE A PRO",card1_desc:"ZERO TO HERO Academy.<br>30 aulas interativas com vídeos, podcasts, ebooks, quizzes, demos e jogos guiados por IA.",
+                    card2_title:"ZERO EMOÇÃO",card2_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",
+                    card3_title:"MONEY MANAGEMENT",card3_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",
                     fb_section_title:"JUNTA-TE À COMUNIDADE",fb_shares:"Partilhas: 6",fb_all_comments:"Todos os comentários",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Gosto",fb_reply:"Responder",fb_comment_as:"Escreva um comentário...",
-                    fb_c1_text:"Pessoal a sério, nunca tinha percebido nada disto 😅. Devorei uns vídeos e podcasts da Academy e uau, milagre, finalmente faz sentido! A conta demo é a salvação: praticas sem queimar dinheiro real no início, que era o meu maior bloqueio 📉🚫. Os sinais batem perfeitamente. Brutal. 🚀🔥",
-                    fb_c2_text:"Mas a cena brutal de estar bué bem traduzida em tantos idiomas? 🌍 Fiz os meus bros de Londres e do México sacarem a app, e em dois segundos meteram também os amigos deles, já que está tudo em inglês, espanhol, português e italiano! Cada um vê no seu idioma mas seguimos exatamente as mesmas coisas. Basicamente estamos a criar a nossa mini-comunidade espalhada pelo mundo, surreal. Nível altíssimo! 🔝",
-                    fb_c3_text:"Criei o grupo privado com os meus sócios de sempre e já passamos mais tempo aqui do que no WhatsApp 😂. Praticamente parece que estamos no bar a dizer tretas, mas entretanto passamos estratégias e vemos como nos mexer. Além disso, nos grupos globais está cheio de malta com boa vibe. Clima espetacular 🍻🔝"
+                    fb_c1_text:"Pessoal a sério, nunca tinha percebido nada disto 😅. Devorei uns vídeos da Academy e uau, finalmente faz sentido! A conta demo é a salvação, praticas sem queimar dinheiro... 📉🚫 Brutal. 🚀🔥",
+                    fb_c2_text:"A cena brutal de estar traduzida em tantos idiomas? 🌍 Fiz os meus bros sacarem a app, cada um vê no seu idioma mas seguimos as mesmas coisas. Nível altíssimo! 🔝",
+                    fb_c3_text:"Criei o grupo privado com os meus sócios e já passamos mais tempo aqui do que no WhatsApp 😂. Nos grupos globais está cheio de malta com boa vibe. Clima espetacular 🍻🔝",
+                    slogan:"APOSTA EM TI 🫵",
+                    ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"O trading desportivo envolve riscos. Prohibido a menores de 18 anos. Joga de forma responsável.",
+                    cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"SEM CARTÃO DE CRÉDITO"
+                },
+                it:{
+                    hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",
+                    hero_subtitle:"Dimentica l'azzardo. Sfrutta le nostre reti neurali per estrarre vero <strong class=\"text-white font-bold\">Valore Atteso</strong> dall'Exchange. Copia le operazioni, gestisci il rischio e proteggi il tuo bankroll.",
+                    stat_ai:"SCANSIONE A.I.",stat_week:"ACCEDI ORA",stat_free:"100% GRATIS OGGI",
+                    trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",
+                    tg_frame_title:"ANALISI QUANTITATIVA APPLICATA", tg_frame_desc:"Non un pronostico, ma un protocollo matematico con gestione del rischio e Stop Loss rigorosi.",
+                    tg_subscribers:"8 iscritti",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competizione: Serie A",tg_msg_3:"🎯 Mercato: Back The Draw",tg_msg_4:"⚙️ Azione: BACK Esito X (PUNTA X)",tg_msg_5:"💶 Quota Ingresso: 2.68",tg_msg_6:"💧 Liquidità Matched: € 85.400",tg_msg_7:"📈 Edge Statistico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol.",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al 75° min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta).",tg_msg_13:"📍 DISCLAIMER: Trading algoritmico. Max disciplina.",
+                    card1_title:"DA PRINCIPIANTE A PRO",card1_desc:"ZERO TO HERO Academy.<br>30 lezioni interattive con video, podcast, ebook, quiz, demo e giochi guidati dall'AI.",
+                    card2_title:"NESSUNA EMOZIONE",card2_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",
+                    card3_title:"MONEY MANAGEMENT",card3_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",
+                    fb_section_title:"ENTRA NELLA COMMUNITY",fb_shares:"Condivisioni: 6",fb_all_comments:"Tutti i commenti",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 g",fb_like:"Mi piace",fb_reply:"Rispondi",fb_comment_as:"Scrivi un commento...",
+                    fb_c1_text:"Raga seriamente, non avevo mai capito una mazza di 'sta roba 😅. Mi sono sparato un po' di video dell'Academy e boh, miracolo, ha senso! Il conto demo è la salvezza, fai pratica senza bruciare soldi... 📉🚫 Tanta roba. 🚀🔥",
+                    fb_c2_text:"Ma la figata che è tradotta da dio in un botto di lingue? 🌍 Ho fatto scaricare l'app ai miei bro a Londra, ognuno se la guarda nella sua lingua ma seguiamo le stesse cose. Livello altissimo! 🔝",
+                    fb_c3_text:"Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝",
+                    slogan:"SCOMMETTI SU DI TE 🫵",
+                    ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Gioca responsabilmente.",
+                    cta_button:"INIZIA ORA GRATIS",cta_sub:"NESSUNA CARTA RICHIESTA"
                 }
             };
 
@@ -544,6 +554,7 @@
                     }
                 });
                 
+                // Utilizza innerHTML per garantire rendering del markup e degli &copy;
                 i18nElements.forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if(t[lang] && t[lang][key]) el.innerHTML = t[lang][key];
@@ -556,10 +567,18 @@
                 }
             };
 
+            // Enhanced Auto-Detection (analizza tutto l'array delle lingue del dispositivo)
             const detectUserLanguage = () => {
                 const savedLang = safeStorage.get('lang');
                 if (savedLang && t[savedLang]) return savedLang;
-                const browserLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
+                
+                if (navigator.languages && navigator.languages.length) {
+                    for (let i = 0; i < navigator.languages.length; i++) {
+                        const langCode = navigator.languages[i].split('-')[0].toLowerCase();
+                        if (t[langCode]) return langCode;
+                    }
+                }
+                const browserLang = (navigator.language || navigator.userLanguage || '').split('-')[0].toLowerCase();
                 return t[browserLang] ? browserLang : 'en';
             };
 
