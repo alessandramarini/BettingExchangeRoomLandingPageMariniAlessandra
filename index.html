@@ -13,7 +13,7 @@
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
     
     <!-- Sicurezza Bancaria: CSP rigido, forzatura HTTPS, blocco anti-sniffing e iframe-jacking -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://flagcdn.com https://i.pravatar.cc https://placehold.co; media-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://tutorial-betting-exchange-room.vercel.app; upgrade-insecure-requests;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://flagcdn.com https://i.pravatar.cc https://placehold.co; media-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://tutorial-betting-exchange-room.vercel.app; upgrade-insecure-requests;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -40,6 +40,7 @@
     <link rel="preload" as="video" href="itcyborgscommettestake.mp4" fetchpriority="high">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -272,18 +273,22 @@
 
                         <div class="text-[#000000] text-[clamp(14px,1.5vw,15.5px)] leading-[1.4] flex flex-col gap-[6px] break-words">
                             <div data-i18n="tg_msg_title" class="text-[#35a541] font-bold tracking-tight mb-1">BETTING EXCHANGE ROOM</div>
-                            <div data-i18n="tg_msg_1">⚽ Bologna vs Cagliari | LIVE 60' (0-0)</div>
-                            <div data-i18n="tg_msg_2">🏆 Competition: Serie A</div>
-                            <div data-i18n="tg_msg_3">🎯 Market: Back The Draw</div>
-                            <div data-i18n="tg_msg_4">⚙️ Action: BACK Draw (BACK X)</div>
-                            <div data-i18n="tg_msg_5">💶 Entry Odds: 2.68</div>
-                            <div data-i18n="tg_msg_6">💧 Matched Liquidity: € 85,400</div>
-                            <div data-i18n="tg_msg_7">📈 Statistical Edge: 11.2%</div>
-                            <div data-i18n="tg_msg_8" class="mt-1">🛑 Stop Loss (Red Out): -40% Drawdown or immediate exit on goal.</div>
-                            <div data-i18n="tg_msg_9">✅ Target (Green Up): 12% ROI or Freebet at 75th min.</div>
-                            <div data-i18n="tg_msg_10">💼 Money Management: 3% Bankroll.</div>
-                            <div data-i18n="tg_msg_11" class="mt-1">📊 Quantitative Rationale: Reduced offensive momentum. Live stats confirm a deadlock. Scalping operation to exploit the rapid time decay (Theta) of the odds.</div>
-                            <div data-i18n="tg_msg_13" class="mt-2 text-[0.9em] font-medium text-gray-700">📍 DISCLAIMER: Algorithmic trading. Max discipline.</div>
+                            <div data-i18n="tg_msg_1" class="font-bold text-red-600">🔴 LIVE ALERT</div>
+                            <div data-i18n="tg_msg_2">⚽ Match: Stupčanica Olovo vs Bratstvo Gračanica</div>
+                            <div data-i18n="tg_msg_3">🏆 League: 1st League - FBiH</div>
+                            <div data-i18n="tg_msg_4">⏱️ Minute: 43' | Score: 0-0</div>
+
+                            <div data-i18n="tg_msg_5" class="mt-2 font-bold">⚡ OPERATIONAL ACTION</div>
+                            <div data-i18n="tg_msg_6">🎯 STRATEGY: Lay Draw</div>
+                            <div data-i18n="tg_msg_7">💶 Target Odds: @1.67</div>
+                            <div data-i18n="tg_msg_8">💼 Stake: 2.0%</div>
+                            <div data-i18n="tg_msg_9">✅ Exit: Signal oriented to goal within the 65th minute. Exit in profit (Green Up) at the first goal.</div>
+
+                            <div data-i18n="tg_msg_10" class="mt-2 font-bold">🧠 QUANTITATIVE ANALYSIS</div>
+                            <div data-i18n="tg_msg_11">📈 Pressure Index (H/A): 2.15 / 1.52 | Attacks Delta: +7</div>
+                            <div data-i18n="tg_msg_12">💧 Liquidity: HIGH | 🤖 Model Prob: 76%</div>
+                            
+                            <div data-i18n="tg_msg_13" class="mt-2 text-[0.9em] font-medium text-gray-700">🛑 RISK MANAGEMENT NOTE: Net internal pressure in favor of the home team. The match shows high volatility, keep stop loss set at @2.20 in case of a prolonged lack of goals.</div>
                         </div>
 
                         <div class="flex justify-end items-center gap-[5px] text-[#8fa281] text-[12px] font-medium mt-2 float-right">
@@ -344,6 +349,123 @@
                         <p class="text-gray-300 text-[clamp(0.875rem,1vw,1rem)] leading-[1.6] font-medium mt-auto" data-i18n="card3_desc">Strict mathematical models designed to safely protect and scale your bankroll.</p>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- ENTERTAINMENT GAME MODULE -->
+        <section class="px-4 pl-safe pr-safe max-w-6xl mx-auto lazy-reveal py-8 flex flex-col justify-center content-vis">
+            <div class="glass-panel rounded-[1.25rem] sm:rounded-[2rem] p-1 border border-brand-blue/30 relative overflow-hidden shadow-glow group w-full flex-1 flex flex-col justify-center bg-[#0d131c]">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvc3ZnPg==')] opacity-50"></div>
+                <div class="relative bg-gradient-to-br from-[#0d131c] to-[#030509] rounded-[1.15rem] sm:rounded-[1.9rem] p-6 sm:p-10 w-full overflow-hidden flex flex-col sm:flex-row items-center justify-between h-full gap-6">
+                    <div class="flex-1 text-center sm:text-left z-10">
+                        <div class="inline-flex items-center justify-center sm:justify-start gap-2 mb-3">
+                            <i class="fa-solid fa-gamepad text-[#A855F7] text-xl animate-bounce"></i>
+                            <span class="text-[#A855F7] text-xs font-bold tracking-widest uppercase" data-i18n="game_badge">Entertainment Break</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-heading font-black text-white uppercase tracking-tight mb-2" data-i18n="game_title">
+                            SUBBUTEO LEGENDS
+                        </h2>
+                        <p class="text-gray-400 text-[11px] sm:text-sm leading-relaxed max-w-md mx-auto sm:mx-0" data-i18n="game_desc">
+                            Trading requires focus. Take a break, relax your mind, and challenge yourself in our retro-style Subbuteo simulator.
+                        </p>
+                    </div>
+                    <div class="z-10 shrink-0 w-full sm:w-auto">
+                        <a href="Game-Subbuteo.html" class="inline-flex items-center justify-center w-full sm:w-auto bg-gradient-to-r from-[#A855F7] to-[#3B82F6] hover:from-[#9333EA] hover:to-[#2563EB] text-white font-black py-3.5 sm:py-4 px-8 rounded-xl text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] outline-none cursor-pointer border border-white/10 group">
+                            <i class="fa-solid fa-play mr-2 text-base group-hover:scale-110 transition-transform"></i>
+                            <span data-i18n="game_btn">PLAY NOW</span>
+                        </a>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#A855F7]/20 blur-[50px] rounded-full pointer-events-none"></div>
+                    <div class="absolute right-20 -top-10 w-32 h-32 bg-brand-blue/20 blur-[40px] rounded-full pointer-events-none"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREZZI 3 OPZIONI (Promo Promotori -50%) -->
+        <section class="px-4 pl-safe pr-safe max-w-7xl mx-auto lazy-reveal py-12 sm:py-16 content-vis" id="pricing">
+            <div class="text-center mb-10 sm:mb-14">
+                <h2 class="text-[clamp(2rem,4vw,3.5rem)] font-heading font-black text-white uppercase tracking-tighter mb-3 leading-tight" data-i18n="pricing_main_title">CHOOSE YOUR PLAN</h2>
+                <p class="text-gray-400 text-[clamp(1rem,1.5vw,1.25rem)] max-w-xl mx-auto px-2 font-medium" data-i18n="pricing_main_desc">50% Special Promo applied. Select your access duration.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center max-w-6xl mx-auto">
+                <!-- STARTER -->
+                <div class="glass-panel rounded-[2rem] p-6 sm:p-8 text-center relative w-full flex flex-col h-full hover:border-brand-neon/30 transition-colors">
+                    <h2 class="text-xl sm:text-2xl font-heading font-black text-white uppercase tracking-widest mb-1 mt-2">Starter</h2>
+                    <p class="text-brand-neon text-[11px] sm:text-xs mb-6 font-bold tracking-wider uppercase" data-i18n="desc_starter">30 Days Access</p>
+
+                    <div class="flex flex-col items-center justify-center mb-6 flex-1">
+                        <div class="relative inline-block mb-1">
+                            <span class="text-lg sm:text-xl font-bold text-gray-500 opacity-70 tracking-wider">94 USDT</span>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                                <div class="w-full h-[2px] bg-red-500/80 -rotate-[12deg] scale-110"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-end justify-center gap-1 sm:gap-2">
+                            <span class="text-4xl sm:text-5xl font-heading font-black text-white leading-none">47</span>
+                            <div class="flex flex-col items-start pb-1 sm:pb-1.5">
+                                <span class="text-lg text-gray-300 font-bold leading-none">USDT</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-brand-neon/10 border border-brand-neon/30 text-brand-neon text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest" data-i18n="save_50">SAVE 50%</div>
+                    </div>
+                    <a href="Checkout.html?plan=starter" class="inline-flex items-center justify-center w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-black py-3 px-4 rounded-xl text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 outline-none mt-auto">
+                        <i class="fa-solid fa-bolt mr-2 opacity-80 text-brand-neon"></i> <span data-i18n="price_btn">SUBSCRIBE NOW</span>
+                    </a>
+                </div>
+
+                <!-- PRO -->
+                <div class="glass-panel rounded-[2rem] p-6 sm:p-8 text-center border-brand-neon/50 relative shadow-neon-strong w-full flex flex-col lg:scale-105 z-10 bg-[#0d131c]">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-brand-neon to-[#65a30d] text-brand-dark font-black uppercase tracking-widest text-[9px] sm:text-[10px] px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                        <i class="fa-solid fa-star mr-1"></i> <span data-i18n="price_badge_pro">MOST POPULAR</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-heading font-black text-white uppercase tracking-widest mb-1 mt-3">Pro</h2>
+                    <p class="text-brand-neon text-[11px] sm:text-xs mb-6 font-bold tracking-wider uppercase" data-i18n="desc_pro">90 Days Access</p>
+
+                    <div class="flex flex-col items-center justify-center mb-6 flex-1">
+                        <div class="relative inline-block mb-1">
+                            <span class="text-xl sm:text-2xl font-bold text-gray-500 opacity-70 tracking-wider">234 USDT</span>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                                <div class="w-full h-[2px] bg-red-500/80 -rotate-[12deg] scale-110"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-end justify-center gap-1 sm:gap-2">
+                            <span class="text-5xl sm:text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-br from-brand-neon to-[#65a30d] leading-none">117</span>
+                            <div class="flex flex-col items-start pb-1 sm:pb-1.5">
+                                <span class="text-xl text-gray-300 font-bold leading-none">USDT</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-brand-neon/20 border border-brand-neon/50 text-brand-neon text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest animate-pulse" data-i18n="save_50">SAVE 50%</div>
+                    </div>
+                    <a href="Checkout.html?plan=pro" class="inline-flex items-center justify-center w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark font-black py-3 sm:py-3.5 px-4 rounded-xl text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 outline-none shadow-neon mt-auto">
+                        <i class="fa-solid fa-bolt mr-2 opacity-80"></i> <span data-i18n="price_btn">SUBSCRIBE NOW</span>
+                    </a>
+                </div>
+
+                <!-- ELITE -->
+                <div class="glass-panel rounded-[2rem] p-6 sm:p-8 text-center relative w-full flex flex-col h-full hover:border-brand-neon/30 transition-colors">
+                    <h2 class="text-xl sm:text-2xl font-heading font-black text-white uppercase tracking-widest mb-1 mt-2">Elite</h2>
+                    <p class="text-brand-neon text-[11px] sm:text-xs mb-6 font-bold tracking-wider uppercase" data-i18n="desc_elite">180 Days Access</p>
+
+                    <div class="flex flex-col items-center justify-center mb-6 flex-1">
+                        <div class="relative inline-block mb-1">
+                            <span class="text-lg sm:text-xl font-bold text-gray-500 opacity-70 tracking-wider">394 USDT</span>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                                <div class="w-full h-[2px] bg-red-500/80 -rotate-[12deg] scale-110"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-end justify-center gap-1 sm:gap-2">
+                            <span class="text-4xl sm:text-5xl font-heading font-black text-white leading-none">197</span>
+                            <div class="flex flex-col items-start pb-1 sm:pb-1.5">
+                                <span class="text-lg text-gray-300 font-bold leading-none">USDT</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-brand-neon/10 border border-brand-neon/30 text-brand-neon text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest" data-i18n="save_50">SAVE 50%</div>
+                    </div>
+                    <a href="Checkout.html?plan=elite" class="inline-flex items-center justify-center w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-black py-3 px-4 rounded-xl text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 outline-none mt-auto">
+                        <i class="fa-solid fa-bolt mr-2 opacity-80 text-brand-neon"></i> <span data-i18n="price_btn">SUBSCRIBE NOW</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -439,12 +561,13 @@
         </div>
     </footer>
 
-    <!-- STICKY CTA (Security Attributes Enforced) -->
+    <!-- STICKY CTA (Pulsante Aggiornato) -->
     <div class="fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-brand-neon/30 px-4 pl-safe pr-safe py-4" style="padding-bottom: max(16px, env(safe-area-inset-bottom));">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
-            <a id="cta-button" href="https://tutorial-betting-exchange-room.vercel.app/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-[clamp(1rem,2vw,1.25rem)] flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
+            <a id="cta-button" href="StartForFree.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="group relative w-full bg-brand-neon hover:bg-[#86d611] text-brand-dark py-4 sm:py-5 rounded-2xl font-black text-[clamp(1rem,2vw,1.25rem)] flex items-center justify-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-neon/50 active:scale-[0.98] overflow-hidden shadow-neon-strong animate-pulse-soft">
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">START NOW FOR FREE</span>
+                <i class="fa-solid fa-play-circle text-2xl relative z-10 opacity-90"></i>
+                <span class="uppercase tracking-widest relative z-10" data-i18n="cta_button">FIRST LESSON FREE</span>
             </a>
             <span class="text-[clamp(10px,1.2vw,12px)] text-gray-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="cta_sub">NO CREDIT CARD REQUIRED</span>
         </div>
@@ -458,7 +581,7 @@
                 set: function(key, value) { try { localStorage.setItem(key, value); } catch(e) {} }
             };
 
-            /* Full Translation Dictionary - Perfect Symmetry */
+            /* Full Translation Dictionary - Aggiornato per Gioco, Prezzi Promo -50% e Nuovo Signal Telegram */
             const t = {
                 en:{
                     hero_badge:"ACTIVE SIGNALS ON TELEGRAM",hero_title_1:"YOUR MATHEMATICAL",hero_title_2:"ADVANTAGE",
@@ -467,17 +590,34 @@
                     trans_title_1:"COPY. PASTE. CASH OUT.",trans_desc:"Receive clear and precise signals, with pre-set stop loss and money management.",
                     tg_frame_title:"APPLIED QUANTITATIVE ANALYSIS", tg_frame_desc:"Not a prediction, but a mathematical protocol with strict risk management and Stop Loss.",
                     tg_subscribers:"8 subscribers",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competition: Serie A",tg_msg_3:"🎯 Market: Back The Draw",tg_msg_4:"⚙️ Action: BACK Draw (BACK X)",tg_msg_5:"💶 Entry Odds: 2.68",tg_msg_6:"💧 Matched Liquidity: € 85,400",tg_msg_7:"📈 Statistical Edge: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): -40% Drawdown or immediate exit on goal.",tg_msg_9:"✅ Target (Green Up): 12% ROI or Freebet at 75th min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Quantitative Rationale: Reduced offensive momentum. Live stats confirm a deadlock. Scalping operation to exploit the rapid time decay (Theta) of the odds.",tg_msg_13:"📍 DISCLAIMER: Algorithmic trading. Max discipline.",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",
+                    tg_msg_1:"🔴 LIVE ALERT",
+                    tg_msg_2:"⚽ Match: Stupčanica Olovo vs Bratstvo Gračanica",
+                    tg_msg_3:"🏆 League: 1st League - FBiH",
+                    tg_msg_4:"⏱️ Minute: 43' | Score: 0-0",
+                    tg_msg_5:"⚡ OPERATIONAL ACTION",
+                    tg_msg_6:"🎯 STRATEGY: Lay Draw",
+                    tg_msg_7:"💶 Target Odds: @1.67",
+                    tg_msg_8:"💼 Stake: 2.0%",
+                    tg_msg_9:"✅ Exit: Signal oriented to goal within the 65th minute. Exit in profit (Green Up) at the first goal.",
+                    tg_msg_10:"🧠 QUANTITATIVE ANALYSIS",
+                    tg_msg_11:"📈 Pressure Index (H/A): 2.15 / 1.52 | Attacks Delta: +7",
+                    tg_msg_12:"💧 Liquidity: HIGH | 🤖 Model Prob: 76%",
+                    tg_msg_13:"🛑 RISK MANAGEMENT NOTE: Net internal pressure in favor of the home team. The match shows high volatility, keep stop loss set at @2.20 in case of a prolonged lack of goals.",
                     card1_title:"BEGINNER TO PRO",card1_desc:"ZERO TO HERO Academy.<br>30 interactive lessons with videos, podcasts, ebooks, quizzes, demos and AI-guided educational games.",
                     card2_title:"ZERO EMOTION",card2_desc:"Copy the signal. Set the trade. Mathematical edge.",
                     card3_title:"MONEY MANAGEMENT",card3_desc:"Strict mathematical models designed to safely protect and scale your bankroll.",
+                    game_badge:"Entertainment Break",game_title:"SUBBUTEO LEGENDS",game_desc:"Trading requires focus. Take a break, relax your mind, and challenge yourself in our retro-style Subbuteo simulator.",game_btn:"PLAY NOW",
+                    pricing_main_title:"CHOOSE YOUR PLAN",pricing_main_desc:"50% Special Promo applied. Select your access duration.",
+                    desc_starter:"30 Days Access",desc_pro:"90 Days Access",desc_elite:"180 Days Access",
+                    price_badge_pro:"MOST POPULAR",save_50:"SAVE 50%",price_btn:"SUBSCRIBE NOW",
                     fb_section_title:"JOIN THE COMMUNITY",fb_shares:"Shares: 6",fb_all_comments:"All comments",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Like",fb_reply:"Reply",fb_comment_as:"Write a comment...",
                     fb_c1_text:"Guys seriously, I never understood a damn thing about this stuff 😅. Binge-watched some Academy videos and podcasts and wow, miracle, it finally makes sense! The demo account is a lifesaver: you practice without burning real money at first... 📉🚫 Awesome stuff. 🚀🔥",
                     fb_c2_text:"Can we talk about how insanely well it's translated into so many languages? 🌍 Got my bros in London and Mexico to download the app, everyone uses it in their own language but we follow the exact same things. Top tier level! 🔝",
                     fb_c3_text:"Created a private group with my day-one friends and we now spend more time here than on WhatsApp 😂. Also, the global groups are full of super chill people. Amazing vibe 🍻🔝",
                     slogan:"BET ON YOURSELF 🫵",
                     ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"Sports trading involves risks. Gambling is strictly prohibited for minors. Play responsibly.",
-                    cta_button:"START NOW FOR FREE",cta_sub:"NO CREDIT CARD REQUIRED"
+                    cta_button:"FIRST LESSON FREE",cta_sub:"NO CREDIT CARD REQUIRED"
                 },
                 es:{
                     hero_badge:"SEÑALES ACTIVAS EN TELEGRAM",hero_title_1:"TU VENTAJA",hero_title_2:"MATEMÁTICA",
@@ -486,17 +626,34 @@
                     trans_title_1:"COPIA. PEGA. GANA.",trans_desc:"Recibe señales claras y precisas, con stop loss y gestión de capital preestablecidos.",
                     tg_frame_title:"ANÁLISIS CUANTITATIVO APLICADO", tg_frame_desc:"No una predicción, sino un protocolo matemático con estricta gestión del riesgo y Stop Loss.",
                     tg_subscribers:"8 suscriptores",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | EN VIVO 60' (0-0)",tg_msg_2:"🏆 Competición: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Acción: BACK Empate (BACK X)",tg_msg_5:"💶 Cuota de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estadístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o salida inmediata tras gol.",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al min 75.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Racional Cuantitativo: Momentum ofensivo reducido. Las estadísticas confirman estancamiento. Operación de scalping para aprovechar el rápido decaimiento temporal (Theta).",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",
+                    tg_msg_1:"🔴 LIVE ALERT",
+                    tg_msg_2:"⚽ Partido: Stupčanica Olovo vs Bratstvo Gračanica",
+                    tg_msg_3:"🏆 Liga: 1st League - FBiH",
+                    tg_msg_4:"⏱️ Minuto: 43' | Marcador: 0-0",
+                    tg_msg_5:"⚡ ACCIÓN OPERATIVA",
+                    tg_msg_6:"🎯 ESTRATEGIA: Lay Empate",
+                    tg_msg_7:"💶 Cuota Target: @1.67",
+                    tg_msg_8:"💼 Stake: 2.0%",
+                    tg_msg_9:"✅ Salida: Señal orientada al gol antes del minuto 65. Salida en ganancias (Green Up) al primer gol.",
+                    tg_msg_10:"🧠 ANÁLISIS CUANTITATIVO",
+                    tg_msg_11:"📈 Pressure Index (H/A): 2.15 / 1.52 | Delta Ataques: +7",
+                    tg_msg_12:"💧 Liquidez: ALTA | 🤖 Prob. Modelo: 76%",
+                    tg_msg_13:"🛑 NOTA RISK MANAGEMENT: Presión interna neta a favor del equipo local. El partido muestra alta volatilidad, mantener el stop loss en @2.20 en caso de ausencia prolongada de goles.",
                     card1_title:"DE NOVATO A PRO",card1_desc:"ZERO TO HERO Academy.<br>30 lecciones interactivas con videos, podcasts, ebooks, cuestionarios, demos y juegos guiados por IA.",
                     card2_title:"CERO EMOCIONES",card2_desc:"Copia la señal. Configura el trade. Ventaja matemática.",
                     card3_title:"MONEY MANAGEMENT",card3_desc:"Modelos matemáticos estrictos diseñados para proteger y escalar tu capital de forma segura.",
+                    game_badge:"Pausa de Entretenimiento",game_title:"SUBBUTEO LEGENDS",game_desc:"El trading requiere concentración. Tómate un descanso, relaja tu mente y desafíate en nuestro simulador retro de Subbuteo.",game_btn:"JUGAR AHORA",
+                    pricing_main_title:"ELIGE TU PLAN",pricing_main_desc:"Promo Especial -50% aplicada. Selecciona la duración del acceso.",
+                    desc_starter:"30 Días de Acceso",desc_pro:"90 Días de Acceso",desc_elite:"180 Días de Acceso",
+                    price_badge_pro:"MÁS POPULAR",save_50:"AHORRAS EL 50%",price_btn:"SUSCRÍBETE AHORA",
                     fb_section_title:"ÚNETE A LA COMUNIDAD",fb_shares:"Compartidos: 6",fb_all_comments:"Todos los comentarios",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Me gusta",fb_reply:"Responder",fb_comment_as:"Escribe un comentario...",
                     fb_c1_text:"Chicos en serio, nunca entendí un carajo de esto 😅. Vi unos videos de la Academy y boom, ¡por fin tiene sentido! La cuenta demo es la salvación, practicas sin quemar dinero real... 📉🚫 Brutal. 🚀🔥",
                     fb_c2_text:"¿Pero qué pasada que esté traducida a tantos idiomas? 🌍 Hice que mis bros bajaran la app, cada uno la ve en su idioma pero seguimos exactamente lo mismo. ¡Nivel altísimo! 🔝",
                     fb_c3_text:"Hice el grupo privado con mis socios de siempre y ya pasamos más tiempo aquí que en WhatsApp 😂. En los grupos globales está lleno de gente con muy buena vibra. Clima espectacular 🍻🔝",
                     slogan:"APUESTA POR TI 🫵",
                     ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"El trading deportivo conlleva riesgos. Prohibido para menores de 18 años. Juega responsablemente.",
-                    cta_button:"COMIENZA AHORA GRATIS",cta_sub:"SIN TARJETA DE CRÉDITO"
+                    cta_button:"PRIMERA LECCIÓN GRATIS",cta_sub:"SIN TARJETA DE CRÉDITO"
                 },
                 pt:{
                     hero_badge:"SINAIS ATIVOS NO TELEGRAM",hero_title_1:"A TUA VANTAGEM",hero_title_2:"MATEMÁTICA",
@@ -505,17 +662,34 @@
                     trans_title_1:"COPIA. COLA. LUCRA.",trans_desc:"Recebe sinais claros e precisos, com stop loss e gestão de banca pré-definidos.",
                     tg_frame_title:"ANÁLISE QUANTITATIVA APLICADA", tg_frame_desc:"Não um palpite, mas um protocolo matemático com gestão de risco estrita e Stop Loss.",
                     tg_subscribers:"8 inscritos",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | AO VIVO 60' (0-0)",tg_msg_2:"🏆 Competição: Serie A",tg_msg_3:"🎯 Mercado: Back The Draw",tg_msg_4:"⚙️ Ação: BACK Empate (BACK X)",tg_msg_5:"💶 Odd de Entrada: 2.68",tg_msg_6:"💧 Liquidez Matched: € 85.400",tg_msg_7:"📈 Edge Estatístico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% ou saída imediata num golo.",tg_msg_9:"✅ Target (Green Up): ROI 12% ou Freebet aos 75 min.",tg_msg_10:"💼 Money Management: 3% da Banca.",tg_msg_11:"📊 Racional Quantitativo: Momentum ofensivo reduzido. As estatísticas confirmam o impasse. Operação de scalping para aproveitar o decaimento temporal (Theta).",tg_msg_13:"📍 DISCLAIMER: Trading algorítmico. Máxima disciplina.",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",
+                    tg_msg_1:"🔴 LIVE ALERT",
+                    tg_msg_2:"⚽ Jogo: Stupčanica Olovo vs Bratstvo Gračanica",
+                    tg_msg_3:"🏆 Liga: 1st League - FBiH",
+                    tg_msg_4:"⏱️ Minuto: 43' | Resultado: 0-0",
+                    tg_msg_5:"⚡ AÇÃO OPERACIONAL",
+                    tg_msg_6:"🎯 ESTRATÉGIA: Lay Empate",
+                    tg_msg_7:"💶 Odd Alvo: @1.67",
+                    tg_msg_8:"💼 Stake: 2.0%",
+                    tg_msg_9:"✅ Saída: Sinal orientado para golo até ao minuto 65. Saída em lucro (Green Up) no primeiro golo.",
+                    tg_msg_10:"🧠 ANÁLISE QUANTITATIVA",
+                    tg_msg_11:"📈 Pressure Index (H/A): 2.15 / 1.52 | Delta Ataques: +7",
+                    tg_msg_12:"💧 Liquidez: ALTA | 🤖 Prob. Modelo: 76%",
+                    tg_msg_13:"🛑 NOTA RISK MANAGEMENT: Pressão interna líquida a favor da equipa da casa. O jogo mostra alta volatilidade, manter o stop loss definido a @2.20 em caso de ausência prolongada de golos.",
                     card1_title:"DE INICIANTE A PRO",card1_desc:"ZERO TO HERO Academy.<br>30 aulas interativas com vídeos, podcasts, ebooks, quizzes, demos e jogos guiados por IA.",
                     card2_title:"ZERO EMOÇÃO",card2_desc:"Copia o sinal. Configura a operação. Vantagem matemática.",
                     card3_title:"MONEY MANAGEMENT",card3_desc:"Modelos matemáticos rígidos desenhados para proteger e escalar a tua banca com segurança.",
+                    game_badge:"Pausa de Entretenimento",game_title:"SUBBUTEO LEGENDS",game_desc:"O trading exige foco. Faça uma pausa, relaxe a mente e desafie-se no nosso simulador retro de Subbuteo.",game_btn:"JOGAR AGORA",
+                    pricing_main_title:"ESCOLHA O SEU PLANO",pricing_main_desc:"Promo Especial -50% aplicada. Selecione a duração do acesso.",
+                    desc_starter:"30 Dias de Acesso",desc_pro:"90 Dias de Acesso",desc_elite:"180 Dias de Acesso",
+                    price_badge_pro:"MAIS POPULAR",save_50:"POUPE 50%",price_btn:"SUBSCREVER AGORA",
                     fb_section_title:"JUNTA-TE À COMUNIDADE",fb_shares:"Partilhas: 6",fb_all_comments:"Todos os comentários",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 d",fb_like:"Gosto",fb_reply:"Responder",fb_comment_as:"Escreva um comentário...",
                     fb_c1_text:"Pessoal a sério, nunca tinha percebido nada disto 😅. Devorei uns vídeos da Academy e uau, finalmente faz sentido! A conta demo é a salvação, praticas sem queimar dinheiro... 📉🚫 Brutal. 🚀🔥",
                     fb_c2_text:"A cena brutal de estar traduzida em tantos idiomas? 🌍 Fiz os meus bros sacarem a app, cada um vê no seu idioma mas seguimos as mesmas coisas. Nível altíssimo! 🔝",
                     fb_c3_text:"Criei o grupo privado com os meus sócios e já passamos mais tempo aqui do que no WhatsApp 😂. Nos grupos globais está cheio de malta com boa vibe. Clima espetacular 🍻🔝",
                     slogan:"APOSTA EM TI 🫵",
                     ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"O trading desportivo envolve riscos. Prohibido a menores de 18 anos. Joga de forma responsável.",
-                    cta_button:"COMEÇA AGORA GRÁTIS",cta_sub:"SEM CARTÃO DE CRÉDITO"
+                    cta_button:"PRIMEIRA AULA GRÁTIS",cta_sub:"SEM CARTÃO DE CRÉDITO"
                 },
                 it:{
                     hero_badge:"SEGNALI ATTIVI SU TELEGRAM",hero_title_1:"IL TUO VANTAGGIO",hero_title_2:"MATEMATICO",
@@ -524,17 +698,34 @@
                     trans_title_1:"COPIA. INCOLLA. INCASSA.",trans_desc:"Ricevi segnali chiari e precisi, con stop loss e money management preimpostati.",
                     tg_frame_title:"ANALISI QUANTITATIVA APPLICATA", tg_frame_desc:"Non un pronostico, ma un protocollo matematico con gestione del rischio e Stop Loss rigorosi.",
                     tg_subscribers:"8 iscritti",
-                    tg_msg_title:"BETTING EXCHANGE ROOM",tg_msg_1:"⚽ Bologna vs Cagliari | LIVE 60' (0-0)",tg_msg_2:"🏆 Competizione: Serie A",tg_msg_3:"🎯 Mercato: Back The Draw",tg_msg_4:"⚙️ Azione: BACK Esito X (PUNTA X)",tg_msg_5:"💶 Quota Ingresso: 2.68",tg_msg_6:"💧 Liquidità Matched: € 85.400",tg_msg_7:"📈 Edge Statistico: 11.2%",tg_msg_8:"🛑 Stop Loss (Red Out): Drawdown -40% o uscita immediata al gol.",tg_msg_9:"✅ Target (Green Up): ROI 12% o Freebet al 75° min.",tg_msg_10:"💼 Money Management: 3% Bankroll.",tg_msg_11:"📊 Razionale Quantitativo: Momentum offensivo ridotto. Statistiche live confermano stallo. Operazione di scalping per sfruttare il rapido decadimento temporale (Theta).",tg_msg_13:"📍 DISCLAIMER: Trading algoritmico. Max disciplina.",
+                    tg_msg_title:"BETTING EXCHANGE ROOM",
+                    tg_msg_1:"🔴 LIVE ALERT",
+                    tg_msg_2:"⚽ Match: Stupčanica Olovo vs Bratstvo Gračanica",
+                    tg_msg_3:"🏆 Lega: 1st League - FBiH",
+                    tg_msg_4:"⏱️ Minuto: 43' | Risultato: 0-0",
+                    tg_msg_5:"⚡ AZIONE OPERATIVA",
+                    tg_msg_6:"🎯 STRATEGIA: Banca Pareggio (Lay Draw)",
+                    tg_msg_7:"💶 Quota Target: @1.67",
+                    tg_msg_8:"💼 Stake: 2.0%",
+                    tg_msg_9:"✅ Uscita: Segnale orientato al gol entro il 65° minuto. Uscita in profitto (Green Up) al primo gol.",
+                    tg_msg_10:"🧠 ANALISI QUANTITATIVA",
+                    tg_msg_11:"📈 Pressure Index (H/A): 2.15 / 1.52 | Delta Attacchi: +7",
+                    tg_msg_12:"💧 Liquidità: ALTA | 🤖 Prob. Modello: 76%",
+                    tg_msg_13:"🛑 NOTA RISK MANAGEMENT: Pressione interna netta a favore della squadra di casa. Il match mostra alta volatilità, mantenere lo stop loss impostato a @2.20 in caso di prolungata assenza di gol.",
                     card1_title:"DA PRINCIPIANTE A PRO",card1_desc:"ZERO TO HERO Academy.<br>30 lezioni interattive con video, podcast, ebook, quiz, demo e giochi guidati dall'AI.",
                     card2_title:"NESSUNA EMOZIONE",card2_desc:"Copia il segnale. Imposta il trade. Vantaggio matematico.",
                     card3_title:"MONEY MANAGEMENT",card3_desc:"Modelli matematici rigidi studiati per proteggere e scalare il tuo bankroll in totale sicurezza.",
+                    game_badge:"Pausa Intrattenimento",game_title:"SUBBUTEO LEGENDS",game_desc:"Il trading richiede focus. Prenditi una pausa, rilassa la mente e mettiti alla prova nel nostro simulatore retro di Subbuteo.",game_btn:"GIOCA ORA",
+                    pricing_main_title:"SCEGLI IL TUO PIANO",pricing_main_desc:"Promo Speciale -50% applicata. Seleziona la durata dell'accesso.",
+                    desc_starter:"30 Giorni di Accesso",desc_pro:"90 Giorni di Accesso",desc_elite:"180 Giorni di Accesso",
+                    price_badge_pro:"IL PIÙ SCELTO",save_50:"RISPARMI IL 50%",price_btn:"ACQUISTA ORA",
                     fb_section_title:"ENTRA NELLA COMMUNITY",fb_shares:"Condivisioni: 6",fb_all_comments:"Tutti i commenti",fb_time_1:"2 h",fb_time_2:"5 h",fb_time_3:"1 g",fb_like:"Mi piace",fb_reply:"Rispondi",fb_comment_as:"Scrivi un commento...",
                     fb_c1_text:"Raga seriamente, non avevo mai capito una mazza di 'sta roba 😅. Mi sono sparato un po' di video dell'Academy e boh, miracolo, ha senso! Il conto demo è la salvezza, fai pratica senza bruciare soldi... 📉🚫 Tanta roba. 🚀🔥",
                     fb_c2_text:"Ma la figata che è tradotta da dio in un botto di lingue? 🌍 Ho fatto scaricare l'app ai miei bro a Londra, ognuno se la guarda nella sua lingua ma seguiamo le stesse cose. Livello altissimo! 🔝",
                     fb_c3_text:"Ho fatto il gruppo privato con i miei soci storici e ormai passiamo più tempo qua che su WhatsApp 😂. Nei gruppi globali è pieno di gente presa benissimo. Clima stupendo 🍻🔝",
                     slogan:"SCOMMETTI SU DI TE 🫵",
                     ft_copyright:"&copy; 2026 BETTING EXCHANGE ROOM",ft_disclaimer:"Il trading sportivo comporta rischi. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica. Gioca responsabilmente.",
-                    cta_button:"INIZIA ORA GRATIS",cta_sub:"NESSUNA CARTA RICHIESTA"
+                    cta_button:"PRIMA LEZIONE GRATIS",cta_sub:"NESSUNA CARTA RICHIESTA"
                 }
             };
 
@@ -563,7 +754,7 @@
                 safeStorage.set('lang', lang);
 
                 if (ctaBtn) {
-                    ctaBtn.href = `https://tutorial-betting-exchange-room.vercel.app/?lang=${lang}`;
+                    ctaBtn.href = `StartForFree.html?lang=${lang}`;
                 }
             };
 
